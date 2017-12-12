@@ -381,9 +381,9 @@ div.required .control-label:before {
 footer {
     margin-top: 30px;
     padding-top: 30px;
-    background-color: #303030;
-    border-top: 1px solid #ddd;
-    color: #e2e2e2;
+    /*background-color: #303030;*/
+    border-top: 1px solid #171616;
+    color: black;
 }
 
 footer hr {
@@ -392,18 +392,16 @@ footer hr {
 }
 
 footer a {
-    color: #ccc;
+    color: black;
 }
 
-footer a:hover {
-    color: #fff;
-}
+
 
 footer h5 {
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     font-weight: bold;
-    color: #fff;
+    color: black;
 }
 
 /* alert */
@@ -904,9 +902,7 @@ h2.price {
     align-items: center;
 }
 
-a {
-    text-decoration: underline;
-}
+
 
 .comments_image {
     width: 100px;
@@ -940,4 +936,10 @@ td {
 .service_box button:active, .service_box button:focus, .service_box button:hover {
     background-color: #f03852!important;
     box-shadow:none;
+}
+footer li {
+    color:#e31616;
+}
+.list-footer {
+    font-size: 12px;
 }

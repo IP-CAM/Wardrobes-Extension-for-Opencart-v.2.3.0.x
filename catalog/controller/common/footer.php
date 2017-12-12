@@ -134,6 +134,30 @@ class ControllerCommonFooter extends Controller {
         $service['alt'] = '';
         $data['service'] = $service;
 
+        $instagram_link = array();
+        $instagram_link['path_image'] = $server . 'image/catalog/instagram.png';
+        $instagram_link['href'] = '';
+        $instagram_link['title'] = '';
+        $instagram_link['alt'] = '';
+        $data['instagram_link'] = $instagram_link;
+
+        $vk_link = array();
+        $vk_link['path_image'] = $server . 'image/catalog/vk.png';
+        $vk_link['href'] = '';
+        $vk_link['title'] = '';
+        $vk_link['alt'] = '';
+        $data['vk_link'] = $vk_link;
+
+        $twitter_link = array();
+        $twitter_link['path_image'] = $server . 'image/catalog/twitter.png';
+        $twitter_link['href'] = '';
+        $twitter_link['title'] = '';
+        $twitter_link['alt'] = '';
+        $data['twitter_link'] = $twitter_link;
+
+
+        $data['base'] = $server;
+
         return $this->load->view('common/footer', $data);
 	}
 }
