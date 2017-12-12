@@ -117,7 +117,6 @@ class ControllerCommonFooter extends Controller {
 
         $comments = array();
         for($i = 0 ; $i < 3;  $i++) {
-
             $comment = array();
             $comment['id'] = $i;
             $comment['path_image'] = $server . 'image/catalog/comments/comments_photo_' . $i . '.png';
@@ -126,8 +125,14 @@ class ControllerCommonFooter extends Controller {
             $comment['alt'] = '';
             $comments[] = $comment;
         }
-
         $data['comments'] = $comments;
+
+        $service = array();
+        $service['path_image'] = $server . 'image/catalog/service.png';
+        $service['href'] = '';
+        $service['title'] = '';
+        $service['alt'] = '';
+        $data['service'] = $service;
 
         return $this->load->view('common/footer', $data);
 	}
