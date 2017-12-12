@@ -940,6 +940,9 @@ td {
 footer li {
     color:#e31616;
 }
+footer li span {
+    color:black;
+}
 .list-footer {
     font-size: 12px;
 }

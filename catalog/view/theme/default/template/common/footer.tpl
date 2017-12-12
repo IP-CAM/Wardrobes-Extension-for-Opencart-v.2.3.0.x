@@ -212,10 +212,10 @@
 			</div>
 			<div class="col-sm-4">
 				<h5 class="text-center">Связаться с нами</h5>
-				<ul class="list-footer">
-					<li><a href="<?php echo $information['href']; ?>">О компании</a></li>
-					<li><a href="<?php echo $information['href']; ?>">Контакты</a></li>
-					<li><a href="<?php echo $information['href']; ?>">Каталог</a></li>
+				<ul class="list-unstyled">
+					<li><i class="fa fa-plus-circle"></i><span>Россия, Санкт-Петербург, <br> Уманский переулок, 71</span></li>
+					<li><span>+7 (812) 965 30 61></span></li>
+					<li><span>9653061@gmail.com</span></li>
 				</ul>
 			</div>
 		</div>
