@@ -747,3 +747,14 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
+
+#navigation_bar {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+a {
+    text-decoration:underline;
+}

@@ -9,6 +9,13 @@
   </div>
   <?php } ?>
 </div>
+<div class="container">
+	<div class="row" id="main_inscription">
+		<div class="col-sm-12 text-center">
+			<h1>Популярные <a href="/">категории товаров </a></h1>
+		</div>
+	</div>
+</div>
 <script type="text/javascript"><!--
 $('#slideshow<?php echo $module; ?>').owlCarousel({
 	items: 6,
