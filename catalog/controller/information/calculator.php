@@ -1,9 +1,9 @@
 <?php
-class ControllerInformationInformation extends Controller {
+class ControllerInformationCalculator extends Controller {
 	public function index() {
-		$this->load->language('information/information');
+		$this->load->language('information/calculator');
 
-		$this->load->model('catalog/information');
+		$this->load->model('catalog/calculator');
 
 		$data['breadcrumbs'] = array();
 
@@ -12,29 +12,29 @@ class ControllerInformationInformation extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
-		if (isset($this->request->get['information_id'])) {
-			$information_id = (int)$this->request->get['information_id'];
+		if (isset($this->request->get['calculator_id'])) {
+			$calculator_id = (int)$this->request->get['calculator_id'];
 		} else {
-			$information_id = 0;
+			$calculator_id = 0;
 		}
 
-		$information_info = $this->model_catalog_information->getInformation($information_id);
+		$calculator_info = $this->model_catalog_calculator->getInformation($calculator_id);
 
-		if ($information_info) {
-			$this->document->setTitle($information_info['meta_title']);
-			$this->document->setDescription($information_info['meta_description']);
-			$this->document->setKeywords($information_info['meta_keyword']);
+		if ($calculator_info) {
+			$this->document->setTitle($calculator_info['meta_title']);
+			$this->document->setDescription($calculator_info['meta_description']);
+			$this->document->setKeywords($calculator_info['meta_keyword']);
 
 			$data['breadcrumbs'][] = array(
-				'text' => $information_info['title'],
-				'href' => $this->url->link('information/information', 'information_id=' .  $information_id)
+				'text' => $calculator_info['title'],
+				'href' => $this->url->link('information/calculator', 'calculator_id=' .  $calculator_id)
 			);
 
-			$data['heading_title'] = $information_info['title'];
+			$data['heading_title'] = $calculator_info['title'];
 
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$data['description'] = html_entity_decode($information_info['description'], ENT_QUOTES, 'UTF-8');
+			$data['description'] = html_entity_decode($calculator_info['description'], ENT_QUOTES, 'UTF-8');
 
 			$data['continue'] = $this->url->link('common/home');
 
@@ -45,11 +45,11 @@ class ControllerInformationInformation extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('information/information', $data));
+			$this->response->setOutput($this->load->view('information/calculator', $data));
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('information/information', 'information_id=' . $information_id)
+				'href' => $this->url->link('information/calculator', 'calculator_id=' . $calculator_id)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
@@ -76,20 +76,20 @@ class ControllerInformationInformation extends Controller {
 	}
 
 	public function agree() {
-		$this->load->model('catalog/information');
+		$this->load->model('catalog/calculator');
 
-		if (isset($this->request->get['information_id'])) {
-			$information_id = (int)$this->request->get['information_id'];
+		if (isset($this->request->get['calculator_id'])) {
+			$calculator_id = (int)$this->request->get['calculator_id'];
 		} else {
-			$information_id = 0;
+			$calculator_id = 0;
 		}
 
 		$output = '';
 
-		$information_info = $this->model_catalog_information->getInformation($information_id);
+		$calculator_info = $this->model_catalog_calculator->getInformation($calculator_id);
 
-		if ($information_info) {
-			$output .= html_entity_decode($information_info['description'], ENT_QUOTES, 'UTF-8') . "\n";
+		if ($calculator_info) {
+			$output .= html_entity_decode($calculator_info['description'], ENT_QUOTES, 'UTF-8') . "\n";
 		}
 
 		$this->response->setOutput($output);

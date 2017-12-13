@@ -1,26 +1,26 @@
 <?php
-class ControllerCatalogInformation extends Controller {
+class ControllerCatalogCalculator extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('catalog/information');
+		$this->load->language('catalog/calculator');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/information');
+		$this->load->model('catalog/calculator');
 
 		$this->getList();
 	}
 
 	public function add() {
-		$this->load->language('catalog/information');
+		$this->load->language('catalog/calculator');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/information');
+		$this->load->model('catalog/calculator');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_catalog_information->addInformation($this->request->post);
+			$this->model_catalog_calculator->addInformation($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -38,21 +38,21 @@ class ControllerCatalogInformation extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
 	}
 
 	public function edit() {
-		$this->load->language('catalog/information');
+		$this->load->language('catalog/calculator');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/information');
+		$this->load->model('catalog/calculator');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_catalog_information->editInformation($this->request->get['information_id'], $this->request->post);
+			$this->model_catalog_calculator->editInformation($this->request->get['calculator_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -70,22 +70,22 @@ class ControllerCatalogInformation extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
 	}
 
 	public function delete() {
-		$this->load->language('catalog/information');
+		$this->load->language('catalog/calculator');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/information');
+		$this->load->model('catalog/calculator');
 
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
-			foreach ($this->request->post['selected'] as $information_id) {
-				$this->model_catalog_information->deleteInformation($information_id);
+			foreach ($this->request->post['selected'] as $calculator_id) {
+				$this->model_catalog_calculator->deleteInformation($calculator_id);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -104,7 +104,7 @@ class ControllerCatalogInformation extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -152,13 +152,13 @@ class ControllerCatalogInformation extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
+			'href' => $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		$data['add'] = $this->url->link('catalog/information/add', 'token=' . $this->session->data['token'] . $url, true);
-		$data['delete'] = $this->url->link('catalog/information/delete', 'token=' . $this->session->data['token'] . $url, true);
+		$data['add'] = $this->url->link('catalog/calculator/add', 'token=' . $this->session->data['token'] . $url, true);
+		$data['delete'] = $this->url->link('catalog/calculator/delete', 'token=' . $this->session->data['token'] . $url, true);
 
-		$data['informations'] = array();
+		$data['calculators'] = array();
 
 		$filter_data = array(
 			'sort'  => $sort,
@@ -167,16 +167,16 @@ class ControllerCatalogInformation extends Controller {
 			'limit' => $this->config->get('config_limit_admin')
 		);
 
-		$information_total = $this->model_catalog_information->getTotalInformations();
+		$calculator_total = $this->model_catalog_calculator->getTotalInformations();
 
-		$results = $this->model_catalog_information->getInformations($filter_data);
+		$results = $this->model_catalog_calculator->getInformations($filter_data);
 
 		foreach ($results as $result) {
-			$data['informations'][] = array(
-				'information_id' => $result['information_id'],
+			$data['calculators'][] = array(
+				'calculator_id' => $result['calculator_id'],
 				'title'          => $result['title'],
 				'sort_order'     => $result['sort_order'],
-				'edit'           => $this->url->link('catalog/information/edit', 'token=' . $this->session->data['token'] . '&information_id=' . $result['information_id'] . $url, true)
+				'edit'           => $this->url->link('catalog/calculator/edit', 'token=' . $this->session->data['token'] . '&calculator_id=' . $result['calculator_id'] . $url, true)
 			);
 		}
 
@@ -226,8 +226,8 @@ class ControllerCatalogInformation extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_title'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . '&sort=id.title' . $url, true);
-		$data['sort_sort_order'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . '&sort=i.sort_order' . $url, true);
+		$data['sort_title'] = $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . '&sort=id.title' . $url, true);
+		$data['sort_sort_order'] = $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . '&sort=i.sort_order' . $url, true);
 
 		$url = '';
 
@@ -240,14 +240,14 @@ class ControllerCatalogInformation extends Controller {
 		}
 
 		$pagination = new Pagination();
-		$pagination->total = $information_total;
+		$pagination->total = $calculator_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
+		$pagination->url = $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($information_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($information_total - $this->config->get('config_limit_admin'))) ? $information_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $information_total, ceil($information_total / $this->config->get('config_limit_admin')));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($calculator_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($calculator_total - $this->config->get('config_limit_admin'))) ? $calculator_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $calculator_total, ceil($calculator_total / $this->config->get('config_limit_admin')));
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -256,13 +256,13 @@ class ControllerCatalogInformation extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/information_list', $data));
+		$this->response->setOutput($this->load->view('catalog/calculator_list', $data));
 	}
 
 	protected function getForm() {
 		$data['heading_title'] = $this->language->get('heading_title');
 
-		$data['text_form'] = !isset($this->request->get['information_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_form'] = !isset($this->request->get['calculator_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
@@ -342,19 +342,19 @@ class ControllerCatalogInformation extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
+			'href' => $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		if (!isset($this->request->get['information_id'])) {
-			$data['action'] = $this->url->link('catalog/information/add', 'token=' . $this->session->data['token'] . $url, true);
+		if (!isset($this->request->get['calculator_id'])) {
+			$data['action'] = $this->url->link('catalog/calculator/add', 'token=' . $this->session->data['token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('catalog/information/edit', 'token=' . $this->session->data['token'] . '&information_id=' . $this->request->get['information_id'] . $url, true);
+			$data['action'] = $this->url->link('catalog/calculator/edit', 'token=' . $this->session->data['token'] . '&calculator_id=' . $this->request->get['calculator_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true);
+		$data['cancel'] = $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'] . $url, true);
 
-		if (isset($this->request->get['information_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$information_info = $this->model_catalog_information->getInformation($this->request->get['information_id']);
+		if (isset($this->request->get['calculator_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$calculator_info = $this->model_catalog_calculator->getInformation($this->request->get['calculator_id']);
 		}
 
 		$data['token'] = $this->session->data['token'];
@@ -363,64 +363,64 @@ class ControllerCatalogInformation extends Controller {
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
-		if (isset($this->request->post['information_description'])) {
-			$data['information_description'] = $this->request->post['information_description'];
-		} elseif (isset($this->request->get['information_id'])) {
-			$data['information_description'] = $this->model_catalog_information->getInformationDescriptions($this->request->get['information_id']);
+		if (isset($this->request->post['calculator_description'])) {
+			$data['calculator_description'] = $this->request->post['calculator_description'];
+		} elseif (isset($this->request->get['calculator_id'])) {
+			$data['calculator_description'] = $this->model_catalog_calculator->getInformationDescriptions($this->request->get['calculator_id']);
 		} else {
-			$data['information_description'] = array();
+			$data['calculator_description'] = array();
 		}
 
 		$this->load->model('setting/store');
 
 		$data['stores'] = $this->model_setting_store->getStores();
 
-		if (isset($this->request->post['information_store'])) {
-			$data['information_store'] = $this->request->post['information_store'];
-		} elseif (isset($this->request->get['information_id'])) {
-			$data['information_store'] = $this->model_catalog_information->getInformationStores($this->request->get['information_id']);
+		if (isset($this->request->post['calculator_store'])) {
+			$data['calculator_store'] = $this->request->post['calculator_store'];
+		} elseif (isset($this->request->get['calculator_id'])) {
+			$data['calculator_store'] = $this->model_catalog_calculator->getInformationStores($this->request->get['calculator_id']);
 		} else {
-			$data['information_store'] = array(0);
+			$data['calculator_store'] = array(0);
 		}
 
 		if (isset($this->request->post['keyword'])) {
 			$data['keyword'] = $this->request->post['keyword'];
-		} elseif (!empty($information_info)) {
-			$data['keyword'] = $information_info['keyword'];
+		} elseif (!empty($calculator_info)) {
+			$data['keyword'] = $calculator_info['keyword'];
 		} else {
 			$data['keyword'] = '';
 		}
 
 		if (isset($this->request->post['bottom'])) {
 			$data['bottom'] = $this->request->post['bottom'];
-		} elseif (!empty($information_info)) {
-			$data['bottom'] = $information_info['bottom'];
+		} elseif (!empty($calculator_info)) {
+			$data['bottom'] = $calculator_info['bottom'];
 		} else {
 			$data['bottom'] = 0;
 		}
 
 		if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
-		} elseif (!empty($information_info)) {
-			$data['status'] = $information_info['status'];
+		} elseif (!empty($calculator_info)) {
+			$data['status'] = $calculator_info['status'];
 		} else {
 			$data['status'] = true;
 		}
 
 		if (isset($this->request->post['sort_order'])) {
 			$data['sort_order'] = $this->request->post['sort_order'];
-		} elseif (!empty($information_info)) {
-			$data['sort_order'] = $information_info['sort_order'];
+		} elseif (!empty($calculator_info)) {
+			$data['sort_order'] = $calculator_info['sort_order'];
 		} else {
 			$data['sort_order'] = '';
 		}
 
-		if (isset($this->request->post['information_layout'])) {
-			$data['information_layout'] = $this->request->post['information_layout'];
-		} elseif (isset($this->request->get['information_id'])) {
-			$data['information_layout'] = $this->model_catalog_information->getInformationLayouts($this->request->get['information_id']);
+		if (isset($this->request->post['calculator_layout'])) {
+			$data['calculator_layout'] = $this->request->post['calculator_layout'];
+		} elseif (isset($this->request->get['calculator_id'])) {
+			$data['calculator_layout'] = $this->model_catalog_calculator->getInformationLayouts($this->request->get['calculator_id']);
 		} else {
-			$data['information_layout'] = array();
+			$data['calculator_layout'] = array();
 		}
 
 		$this->load->model('design/layout');
@@ -431,15 +431,15 @@ class ControllerCatalogInformation extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/information_form', $data));
+		$this->response->setOutput($this->load->view('catalog/calculator_form', $data));
 	}
 
 	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'catalog/information')) {
+		if (!$this->user->hasPermission('modify', 'catalog/calculator')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['information_description'] as $language_id => $value) {
+		foreach ($this->request->post['calculator_description'] as $language_id => $value) {
 			if ((utf8_strlen($value['title']) < 3) || (utf8_strlen($value['title']) > 64)) {
 				$this->error['title'][$language_id] = $this->language->get('error_title');
 			}
@@ -458,11 +458,11 @@ class ControllerCatalogInformation extends Controller {
 
 			$url_alias_info = $this->model_catalog_url_alias->getUrlAlias($this->request->post['keyword']);
 
-			if ($url_alias_info && isset($this->request->get['information_id']) && $url_alias_info['query'] != 'information_id=' . $this->request->get['information_id']) {
+			if ($url_alias_info && isset($this->request->get['calculator_id']) && $url_alias_info['query'] != 'calculator_id=' . $this->request->get['calculator_id']) {
 				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
 			}
 
-			if ($url_alias_info && !isset($this->request->get['information_id'])) {
+			if ($url_alias_info && !isset($this->request->get['calculator_id'])) {
 				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
 			}
 		}
@@ -475,30 +475,30 @@ class ControllerCatalogInformation extends Controller {
 	}
 
 	protected function validateDelete() {
-		if (!$this->user->hasPermission('modify', 'catalog/information')) {
+		if (!$this->user->hasPermission('modify', 'catalog/calculator')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
 		$this->load->model('setting/store');
 
-		foreach ($this->request->post['selected'] as $information_id) {
-			if ($this->config->get('config_account_id') == $information_id) {
+		foreach ($this->request->post['selected'] as $calculator_id) {
+			if ($this->config->get('config_account_id') == $calculator_id) {
 				$this->error['warning'] = $this->language->get('error_account');
 			}
 
-			if ($this->config->get('config_checkout_id') == $information_id) {
+			if ($this->config->get('config_checkout_id') == $calculator_id) {
 				$this->error['warning'] = $this->language->get('error_checkout');
 			}
 
-			if ($this->config->get('config_affiliate_id') == $information_id) {
+			if ($this->config->get('config_affiliate_id') == $calculator_id) {
 				$this->error['warning'] = $this->language->get('error_affiliate');
 			}
 
-			if ($this->config->get('config_return_id') == $information_id) {
+			if ($this->config->get('config_return_id') == $calculator_id) {
 				$this->error['warning'] = $this->language->get('error_return');
 			}
 
-			$store_total = $this->model_setting_store->getTotalStoresByInformationId($information_id);
+			$store_total = $this->model_setting_store->getTotalStoresByInformationId($calculator_id);
 
 			if ($store_total) {
 				$this->error['warning'] = sprintf($this->language->get('error_store'), $store_total);
