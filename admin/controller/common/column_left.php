@@ -142,13 +142,14 @@ class ControllerCommonColumnLeft extends Controller {
 				);					
 			}
 
-            if ($this->user->hasPermission('access', 'catalog/information')) {
+            if ($this->user->hasPermission('access', 'catalog/calculator')) {
                 $catalog[] = array(
-                    'name'	   => $this->language->get('text_information'),
-                    'href'     => $this->url->link('catalog/information', 'token=' . $this->session->data['token'], true),
+                    'name'	   => $this->language->get('text_calculator'),
+                    'href'     => $this->url->link('catalog/calculator', 'token=' . $this->session->data['token'], true),
                     'children' => array()
                 );
             }
+
 
 			if ($catalog) {
 				$data['menus'][] = array(

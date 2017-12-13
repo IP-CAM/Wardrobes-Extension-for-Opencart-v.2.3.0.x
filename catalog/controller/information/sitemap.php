@@ -30,6 +30,7 @@ class ControllerInformationSitemap extends Controller {
 		$data['text_checkout'] = $this->language->get('text_checkout');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_information'] = $this->language->get('text_information');
+		$data['text_calculator'] = $this->language->get('text_calculator');
 		$data['text_contact'] = $this->language->get('text_contact');
 
 		$this->load->model('catalog/category');
