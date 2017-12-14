@@ -16,10 +16,13 @@ class ControllerCalculatorCalculator extends Controller {
         //of table Calculator_description
 		$calculator_info = $this->model_calculator_calculator->getCalculator(1);
         $this->document->addScript('catalog/view/javascript/calculator.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 
         $this->document->setTitle($calculator_info['meta_title']);
         $this->document->setDescription($calculator_info['meta_description']);
         $this->document->setKeywords($calculator_info['meta_keyword']);
+
 
         $data['breadcrumbs'][] = array(
             'text' => $calculator_info['title'],
@@ -67,6 +70,9 @@ class ControllerCalculatorCalculator extends Controller {
 
     }
 
+    /**
+     * POST['id'] and POST['type']
+     */
     public function ajax(){
         $this->load->language('information/calculator');
 
@@ -78,26 +84,31 @@ class ControllerCalculatorCalculator extends Controller {
         } else {
             $server = $this->config->get('config_url');
         }
-        $data['base'] = $server;
+
 
         $json = array();
-        $id = $this->request->post['type'];
-        $categories = $this->model_catalog_category->getCategories($id);
-        if($categories == null) {
+        $id = $this->request->post['id'];
+        $type= $this->request->post['type'];
+
+        if($type == 'categories') {
+            $categories = $this->model_catalog_category->getCategories($id);
+            $this->normalizationImageLink($categories, $server);
+            $json['data'] = $categories;
+            $json['type'] = 'categories';
+        }
+        if($type == 'products') {
             $products = $this->model_calculator_calculator->getProductFormCategories($id);
             $this->normalizationImageLink($products, $server);
             $json['data'] = $products;
             $json['type'] = 'products';
-        } else {
-            $this->normalizationImageLink($categories, $server);
-            $json['data'] = $categories;
-            $json['type'] = 'categories';
         }
 
 
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
     }
+
+
 
 
     private function normalizationImageLink(&$containers, $server)
