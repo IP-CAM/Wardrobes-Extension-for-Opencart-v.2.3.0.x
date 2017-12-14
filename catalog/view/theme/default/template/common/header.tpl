@@ -103,37 +103,38 @@
 			</div>
 		</div>
 	</div>
-</header>
-<div class="container">
-	<div class="row" id="navigation_bar">
-		<div class="col-sm-2 text-center">
-			<h4>О компании</h4>
-		</div>
-		<div class="col-sm-2 text-center">
-			<h4>Расчет стоимости</h4>
-		</div>
-		<div class="col-sm-2 text-center">
-			<h4>Каталог</h4>
-		</div>
-		<div class="col-sm-2 text-center">
-			<h4>Акции</h4>
-		</div>
-		<div class="col-sm-2 text-center">
-			<h4>Отзывы</h4>
-		</div>
-		<div class="col-sm-2 text-center">
-			<h4>Контакты</h4>
+	<div class="container">
+		<div class="row" id="navigation_bar">
+			<div class="col-sm-2 text-center">
+				<h4>О компании</h4>
+			</div>
+			<div class="col-sm-2 text-center">
+				<h4>Расчет стоимости</h4>
+			</div>
+			<div class="col-sm-2 text-center">
+				<h4>Каталог</h4>
+			</div>
+			<div class="col-sm-2 text-center">
+				<h4>Акции</h4>
+			</div>
+			<div class="col-sm-2 text-center">
+				<h4>Отзывы</h4>
+			</div>
+			<div class="col-sm-2 text-center">
+				<h4>Контакты</h4>
+			</div>
 		</div>
 	</div>
-</div>
+</header>
 
-<div class="container">
+
+<!-- <div class="container">
 	<div class="row" id="main_inscription">
 		<div class="col-sm-12 text-center">
 			<h1>Изготавливаем шкафы-купе на заказ</h1>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
 
@@ -171,5 +172,6 @@
 			</ul>
 		</div>
 	</nav>
-</div> -->
-<?php } ?>
+</div>
+<?php } ?> -->
+

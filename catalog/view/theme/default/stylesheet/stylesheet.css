@@ -946,3 +946,6 @@ footer li span {
 .list-footer {
     font-size: 12px;
 }
+header {
+    padding-bottom: 20px;
+}
