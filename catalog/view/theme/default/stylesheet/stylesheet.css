@@ -953,19 +953,26 @@ header {
 /* CALCULATOR */
 
 
+#calculator p {
+    z-index: 100;
+}
 
 
+#calculator h1 {
+    padding-bottom: 15px;
+}
 
-
-#calculator .box input[type="radio"] {
+#calculator .box input {
     position: absolute;
     -webkit-appearance: none;
+    -moz-appearance: none;
     background: white;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
     outline:none;
+    z-index: 1000;
 }
-#calculator .box input[type="radio"]:checked::after {
+#calculator .box input:checked::after {
     position: absolute;
     display: block;
 }
@@ -983,13 +990,13 @@ header {
     display: inline-block;
 }
 
-#calculator .box_root.box input[type="radio"] {
+#calculator .box_root.box input {
     left: 148px;
     top: 2px;
     width: 16px;
     height: 16px;
 }
-#calculator .box_root.box input[type="radio"]:checked::after {
+#calculator .box_root.box input:checked::after {
     top: -6px;
     left: -5px;
     content: url('../image/checkmark.png');
@@ -1028,35 +1035,86 @@ header {
     border-radius: 6px;
     display: inline-block;
 }
-#calculator .box_sub.box input[type="radio"] {
+#calculator .box_sub.box input {
     right: 23px;
     width: 25px;
     height: 25px;
 }
-#calculator .box_sub.box input[type="radio"]:checked::after {
+#calculator .box_sub.box input:checked::after {
     position: absolute;
     top: 4px;
     left: 2px;
     display: block;
     content: url('../image/checkmark_grand.png');
 }
+#calculator .box_sub p {
+    position: absolute;
+    top: 260px;
+    left: 20px;
+    width: 256px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
 
 
-/* Блок с точками */
-.owl-pagination {
-    text-align: center; /* Выравниваем точки по-середине */
+#calculator .owl-item {
+    width: 262px!important;
+    border:1px solid #d9d9d9;
+    border-radius: 6px;
+    height: 308px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
-/* 1 Точка */
-.owl-page {
-    width: 10px;
-    height: 10px;
-    border: 1px solid #777;
-    display: inline-block;
-    background: white;
-    margin: 10px;
-    border-radius: 5px;
+#calculator .owl-item img{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 34px;
+    /* bottom: 0; */
+    right: 0;
+    width: 240px;
+    max-height: 256px;
 }
-/* Активная точка */
-.owl-page.active {
-    background: #777;
+#calculator .product_box {
+    width: 100%;
+    height: 100%;
+}
+#calculator .product_box input {
+    right: 23px;
+    width: 25px;
+    height: 25px;
+}
+#calculator .product_box.box input:checked::after {
+    position: absolute;
+    top: -3px;
+    left: 3px;
+    display: block;
+    content: url('../image/checkmark_grand.png');
+}
+#calculator .product_box.box input {
+    right: 10px;
+    width: 25px;
+    height: 25px;
+}
+#calculator .product_box.box p {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: black;
+    text-shadow: none;
+    position: absolute;
+    top: 278px;
+    left: 6px;
+    width: 250px;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+#calculator .owl-wrapper-outer {
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2)!important;
+    -o-box-shadow: 0 1px 4px rgba(0,0,0,.2)!important;
+    box-shadow: none!important;
 }

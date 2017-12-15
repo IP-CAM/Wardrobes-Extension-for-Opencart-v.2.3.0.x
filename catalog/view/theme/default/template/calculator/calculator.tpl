@@ -22,12 +22,12 @@
 			<div class="row">
 				<div class="col-mg-0 col-lg-2">
 				</div>
-				<div class="col-mg-12 col-lg-8">
+				<div class="col-mg-12 col-lg-8 box_box_root">
 					<div class="row">
 						<?php foreach($categories_root as $category_root) { ?>
 						<div class="col-lg-3">
 							<div class="box_root box">
-								<input type="radio" name="category_root" value="<?php echo $category_root['category_id'] ?>" >
+								<input type="checkbox" name="category_root" value="<?php echo $category_root['category_id'] ?>" >
 								<img src="<?php echo $category_root['image']; ?>"
 									 title="<?php echo $category_root['name']; ?>"
 									 alt="<?php echo $category_root['name']; ?>"
@@ -54,28 +54,6 @@
 			</div>
 			<!-- MODEL END -->
 
-			<!-- Html код карусели -->
-			<!-- Назад Вперед -->
-			<p class="center-text"><a href="#" id="js-prev">Назад</a>
-				<a href="#" id="js-next">Вперед</a></p>
-			<div id="carousel">
-				<div class="carousel-element">1</div>
-				<div class="carousel-element">2</div>
-				<div class="carousel-element">3</div>
-				<div class="carousel-element">4</div>
-				<div class="carousel-element">5</div>
-				<div class="carousel-element">6</div>
-				<div class="carousel-element">7</div>
-				<div class="carousel-element">8</div>
-				<div class="carousel-element">9</div>
-				<div class="carousel-element">10</div>
-				<div class="carousel-element">11</div>
-				<div class="carousel-element">12</div>
-				<div class="carousel-element">13</div>
-				<div class="carousel-element">14</div>
-			</div>
-
-
 			<!-- CONTENT END -->
 			<?php echo $column_right; ?></div>
 	</div>
@@ -88,52 +66,6 @@
 
 		$(document).ready(function () {
 
-			// Находим блок карусели
-			var carousel = $("#carousel");
-
-			// Запускаем плагин карусели
-			carousel.owlCarousel({
-				// Количество отображающихся блоков
-				// в зависимости от устройства (ширины экрана)
-
-				// Количество блоков на больших экранах
-				items:             10,
-
-				// 5 блоков на компьютерах (экран от 1400px до 901px)
-				itemsDesktop:      [1400, 5],
-
-				// 3 блока на маленьких компьютерах (экран от 900px до 601px)
-				itemsDesktopSmall: [900, 3],
-
-				// 2 элемента на планшетах (экран от 600 до 480 пикселей)
-				itemsTablet:       [600, 2],
-
-				// Настройки для телефона отключены, в этом случае будут
-				// использованы настройки планшета
-				itemsMobile:       false
-			});
-
-			// Назад
-			// При клике на "Назад"
-			$('#js-prev').click(function () {
-
-				// Запускаем перемотку влево
-				carousel.trigger('owl.prev');
-
-				return false;
-			});
-
-				// Вперед
-				// При клике на "Вперед"
-			$('#js-next').click(function () {
-
-				// Запускаем перемотку вправо
-				carousel.trigger('owl.next');
-
-				return false;
-			});
-
-
 
 
 
@@ -141,16 +73,27 @@
 			$(document).on('click', '.dynamic_category', category_open);
 			function category_open() {
 				//alert('name');
-				var id = $(this).find('input:radio').val();
+				var id = $(this).find('input:checkbox').val();
 				ajaxOpenCategory(id, 'products');
 			}
 
 			$('.box_root').click(function () {
-				/*$('.box_root').find("input:radio").attr('checked', null);
-				$(this).find("input:radio").attr('checked', 'checked');*/
-				var id = $(this).find('input:radio').val();
+				var input = $(this).find("input");
+				alert(input.attr('name'));
+				input.prop('checked', true);
+
+				//$('.box_box_root').filter(':checked').not(this).prop('checked', false);
+				var id = $(this).find('input:checkbox').val();
 				ajaxOpenCategory(id, 'categories');
+
+
 			});
+			$('.box_root input').change(function () {
+
+
+			});
+
+
 
 			function ajaxRenderCategories(data) {
 				var type_sub_box = $('#subtype_furniture_box');
@@ -162,11 +105,12 @@
 				$.each(data, function (index, value) {
 					html += '<div class="col-sm-3 dynamic_category">';
 						html += '<div class="box box_sub">';
-						html += '<input type="radio" name="category_sub" value="' + value['category_id'] + '" >';
+						html += '<input type="checkbox" name="category_sub" value="' + value['category_id'] + '" >';
 						html += '<img src="' + value['image'] + '"';
 						html += 'title="' + value["name"] + '"';
 						html += 'alt="' + value["name"] + '"';
 						html += 'class="img-responsive center-block"/>';
+						html += '<p>' + value["name"] + '</p>';
 						html += '</div>';
 					html += '</div>';
 				});
@@ -178,21 +122,26 @@
 
 				var type_product_box = $('#model_box');
 				type_product_box.empty();
-				var html = '<div id="carousel">';
+				var html = '<div id="carousel" class="carousel-control">';
 				$.each(data, function (index, value) {
-					html += '<div class="col-sm-3 dimamic_products">';
-						html += '<div class="box box_sub">';
-						html += '<input type="radio" name="products" value="' + value['product_id'] + '" >';
+
+						html += '<div class="product_box box">';
+						html += '<input type="checkbox" name="products" value="' + value['product_id'] + '" >';
 						html += '<img src="' + value['image'] + '"';
 						html += 'title="' + value["name"] + '"';
 						html += 'alt="' + value["name"] + '"';
 						html += 'class="img-responsive center-block"/>';
+						html += '<p>' + value["name"] + " Модель:" + value["model"] + '</p>';
 						html += '</div>';
-					html += '</div>';
+
 				});
 				html += '</div>';
 				type_product_box.append(html);
-				$("#carousel").owlCarousel();
+				$("#carousel").owlCarousel({
+					navigation: true,
+					pagination:  false,
+					navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+				});
 			}
 
 			function ajaxOpenCategory(id, type) {
