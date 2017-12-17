@@ -65,8 +65,7 @@ class ControllerCalculatorCalculator extends Controller {
             $server = $this->config->get('config_url');
         }
         $data['base'] = $server;
-        $data['calculator_active_button'] = $server. 'catalog/view/theme/default/image/calculator_active_button.png';
-        $data['calculator_dispatch_img'] = $server. 'catalog/view/theme/default/image/calculator_get_phone.png';
+
 
         $categories_root = $this->model_catalog_category->getCategories(0);
         $this->normalizationImageLink($categories_root, $server);

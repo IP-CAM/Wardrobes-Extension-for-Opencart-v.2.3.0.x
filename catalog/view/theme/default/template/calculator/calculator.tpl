@@ -55,66 +55,60 @@
 			<!-- PRODUCTS END -->
 			<!-- CALCULATOR BEGIN -->
 			<h1 class="text-center">Подберите размеры для изделия</h1>
-			<div class="row" id="calculator_box">
-				<div class="col-lg-6">
-					<div id="calculator_box_calculation_box" class="row">
-						<div id="calculation_box_button_check">
+			<div class="row" id="calculator-box">
+
+					<div id="cal-calculation-box" class="col-lg-6 no-padding margin-left">
+						<div id="button-check">
 							<div id="standard" title="Стандарт">
 								<p>Стандарт</p>
 							</div>
+							<div class="line"></div>
 							<div id="exclusive" title="Эксклюзив">
 								<p>Эксклюзив</p>
 							</div>
 						</div>
-						<div id="calculation_box_validate_form">
-							<div id="calculation_box_standard">
-								<div id="calculation_box_width_slider">
+						<div id="calculation-standard-or-exclusive">
+							<div id="standard-box">
+								<div id="slider">
 									<input id="width_slider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
 									<p>Ширина (см)</p>
 								</div>
 
-								<span id="calculation_text_width_and_height">Высота: 240см Глубина: 60см </span>
-								<span id="calculation_text_advanced_settings">Расширенные настройки </span>
-
-								<h2 id="calculation_text_sum_standard">25 000 рублей</h2>
-								<span id="calculation_text_sum_exclusive">эксклюзив 25 000 рублей</span>
-
-								<button type="button" id="calculation_button_standard"  class="btn btn-lg btn_calculator">Заказать</button>
+								<span id="width">Высота: 240см</span>
+								<span id="height">Глубина: 60см </span>
+								<span id="settings">Расширенные настройки </span>
 							</div>
-							<div id="calculation_box_exclusive">
+							<div id="exclusive-box">
 
-								<span id="calculation_exclusive_text_width">Ширина (см)</span>
-								<input type="text" name="calculation_exclusive_input_width" id="calculation_exclusive_input_width" value="" class="form-control">
-								<span id="calculation_exclusive_text_height">Высота (см)</span>
-								<input type="text" name="calculation_exclusive_input_height" id="calculation_exclusive_input_height" value="" class="form-control">
-								<span id="calculation_exclusive_text_depth">Глубина (см)</span>
-								<input type="text" name="calculation_exclusive_input_depth" id="calculation_exclusive_input_depth" value="" class="form-control">
+								<span id="text-width">Ширина (см)</span>
+								<input type="text" name="input_width" id="input_width" value="" class="form-control">
+								<span id="text-height">Высота (см)</span>
+								<input type="text" name="input_height" id="input_height" value="" class="form-control">
+								<span id="text-depth">Глубина (см)</span>
+								<input type="text" name="input_depth" id="input_depth" value="" class="form-control">
 
-								<h2 id="calculation_exclusive_text_sum_exclusive">25 000 рублей</h2>
-								<span id="calculation_exclusive_text_sum_standard">стандарт 25 000 рублей</span>
 
-								<button type="button" id="calculation_button_exclusive"  class="btn btn-lg btn_calculator">Заказать</button>
 							</div>
+							<h2 id="cal_top_price">25 000 рублей</h2>
+							<span id="cal_sub_price">25 000 рублей</span>
+
+							<button type="button" id="calculation_button"  class="btn btn-lg btn_calculator">Заказать</button>
 						</div>
 
 
 					</div>
-				</div>
-				<div class="col-lg-6">
-					<div id="calculator_box_dispatch_box" class="row">
-						<form action="<?php echo $link_calculator; ?>/setclient" method="post" id="form-base-modifier-terminal"> <!-- TO DO -->
 
-							<img src="<?php echo $calculator_dispatch_img; ?>"
-								 alt="Отправте телефон для связи"
-								 class="img-responsive center-block"/>
+
+					<div id="cal-dispatch-box" class="col-lg-6 no-padding">
+						<form action="<?php echo $link_calculator; ?>/setclient" method="post" id="form-base-modifier-terminal"> <!-- TO DO -->
 							<div class="calculator_dispatch">
 								<input type="text" name="telephone" value="" placeholder="+7 (984) 174 75-12" pattern="\d+(\.\d*)?" class="input-medium bfh-phone">
-								<input type="submit" value="Отправить" class="btn btn-lg btn_calculator" />
+								<input type="submit" id="dispatch_button" value="Отправить" class="btn btn-lg btn_calculator" />
 							</div>
 						</form>
 					</div>
 
-				</div>
+
 
 
 			</div>
@@ -137,6 +131,7 @@
 			<!-- CONTENT END -->
 			<?php echo $column_right; ?></div>
 	</div>
+</div>
 	<?php echo $footer; ?>
 
 
@@ -144,23 +139,35 @@
 	<script type="text/javascript">
 
 
+
 		$(document).ready(function () {
+			var standard_text = 'стандарт';
+			var exclusive_text = 'эксклюзив';
+
 			var check_root_id = 0; //if root category not select
 
-			$('#calculation_box_exclusive').hide();
+			$('#exclusive-box').hide();
+			$('#standard p').addClass('active-button');
+			$('#cal_sub_price').text(standard_text + ' ' + $('#cal_sub_price').text());
 
 			$('#standard').click(function () {
 				//$(this).append($('#calculator_active_img'));
-				$('#calculation_box_exclusive').hide();
-				$('#calculation_box_standard').show();
-				//$('#calculator_active_img').addClass('calculator_active_button_standard');
-				$('#standard p').addClass('calculator_active_button');
+				$('#exclusive-box').hide();
+				$('#standard-box').show();
+				$('#standard p').addClass('active-button');
+				$('#exclusive p').removeClass('active-button');
+				var text = $('#cal_sub_price').text();
+				text = text.replace(exclusive_text, standard_text);
+				$('#cal_sub_price').text(text);
 			});
 			$('#exclusive').click(function () {
-				$('#calculation_box_exclusive').show();
-				$('#calculation_box_standard').hide();
-			//	$('#calculator_active_img').removeClass();
-			//	$('#calculator_active_img').addClass('calculator_active_button_standard');
+				$('#exclusive-box').show();
+				$('#standard-box').hide();
+				$('#exclusive p').addClass('active-button');
+				$('#standard p').removeClass('active-button');
+				var text = $('#cal_sub_price').text();
+				text = text.replace(standard_text, exclusive_text);
+				$('#cal_sub_price').text(text);
 			});
 
 			// With JQuery SLider calculation
