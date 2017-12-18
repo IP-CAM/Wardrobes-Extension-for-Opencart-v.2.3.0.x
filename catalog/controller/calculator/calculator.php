@@ -23,6 +23,9 @@ class ControllerCalculatorCalculator extends Controller {
         $this->document->addStyle('catalog/view/javascript/jquery/slider/bootstrap-slider.css');
         $this->document->addScript('catalog/view/javascript/jquery/slider/bootstrap-slider.js');
 
+        $this->document->addScript('catalog/view/javascript/jquery/maskedinput/jquery.maskedinput.min.js');
+
+
         $this->document->setTitle($calculator_info['meta_title']);
         $this->document->setDescription($calculator_info['meta_description']);
         $this->document->setKeywords($calculator_info['meta_keyword']);
@@ -123,70 +126,28 @@ class ControllerCalculatorCalculator extends Controller {
         }
     }
 
-    public function setClient()
+    public function addClient()
     {
         $data = $this->request->post;
 
-        /*customer_id	int(11) Автоматическое приращение
-customer_group_id	int(11)
-store_id	int(11) [0]
-language_id	int(11)
-firstname	varchar(32)
-lastname	varchar(32)
-email	varchar(96)
-telephone	varchar(32)
-fax	varchar(32)
-password	varchar(40)
-salt	varchar(9)
-cart	text NULL
-wishlist	text NULL
-newsletter	tinyint(1) [0]
-address_id	int(11) [0]
-custom_field	text
-ip	varchar(40)
-status	tinyint(1)
-approved	tinyint(1)
-safe	tinyint(1)
-token	text
-code	varchar(40)
-date_added*/
 
-
-        $this->noralizeField($data, 'customer_group_id');
-
-        $this->noralizeField($data, 'store_id');
-        $this->noralizeField($data, 'language_id');
-        $this->noralizeField($data, 'first_name');
-        $this->noralizeField($data, 'last_name');
         $this->noralizeField($data, 'email');
+
+        $this->noralizeField($data, 'name');
+        $this->noralizeField($data, 'type');
         $this->noralizeField($data, 'telephone');
-        $this->noralizeField($data, 'fax');
-        $this->noralizeField($data, 'password');
-        $this->noralizeField($data, 'salt');
+        $this->noralizeField($data, 'width');
+        $this->noralizeField($data, 'height');
+        $this->noralizeField($data, 'email');
+        $this->noralizeField($data, 'depth');
 
-
-        if(!isset($data['first_name'])) {
-            $data['first_name'] = '';
-        }
-        if(!isset($data['phone'])) {
-            $data['phone'] = '';
-        }
-        if(!isset($data['width'])) {
-            $data['width'] = 0;
-        }
-        if(!isset($data['height'])) {
-            $data['height'] = 0;
-        }
-        if(!isset($data['depth'])) {
-            $data['depth'] = 0;
-        }
         $data['ip'] = $_SERVER['REMOTE_ADDR'];
         $data['status']  = '1';
 
 
         $this->load->model('calculator/calculator');
-        $products = $this->model_calculator_calculator->addCustomer($data);
-        $this->response->redirect($this->url->link('information/information', 'information_id=7', true));
+        $products = $this->model_calculator_calculator->addCalculatorClient($data);
+      //  $this->response->redirect($this->url->link('information/information', 'information_id=7', true));
 
 
     }

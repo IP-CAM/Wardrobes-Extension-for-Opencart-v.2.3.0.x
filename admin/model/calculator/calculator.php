@@ -1,5 +1,5 @@
 <?php
-class ModelCatalogCalculator extends Model {
+class ModelCalculatorCalculator extends Model {
     public function getCalculator($calculator_id) {
         $query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "calculator_description WHERE calculator_id = $calculator_id");
         $alias = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "url_alias WHERE query = 'calculator/calculator'");
@@ -27,6 +27,38 @@ class ModelCatalogCalculator extends Model {
 
 		$this->cache->delete('calculator');
 	}
+
+
+
+    public function getCalculatorClients() {
+        $sql = "SELECT * FROM `" .
+               DB_PREFIX . "calculator_clients` cc";
+
+        $sort_data = array(
+            'cc.client_id',
+            'cc.name'
+        );
+
+        if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+            $sql .= " ORDER BY " . $data['sort'];
+        } else {
+            $sql .= " ORDER BY cc.client_id";
+        }
+
+        if (isset($data['order']) && ($data['order'] == 'DESC')) {
+            $sql .= " DESC";
+        } else {
+            $sql .= " ASC";
+        }
+
+        $query = $this->db->query($sql);
+        return $query->rows;
+    }
+
+    public function deleteClient($client_id)
+    {
+        $this->db->query("DELETE FROM `" . DB_PREFIX . "calculator_clients` WHERE client_id = '" . (int)$client_id . "'");
+    }
 
 
 }

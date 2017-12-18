@@ -369,6 +369,17 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => $customer
 				);	
 			}
+           // if ($this->user->hasPermission('access', 'calculator/calculator_clients')) {
+
+            $data['menus'][] = array(
+                'id'       => 'menu-calculator-client',
+                'icon'	   => 'fa-user',
+                'name'	   => $this->language->get('text_calculator_clients'),
+                'href'     => $this->url->link('calculator/calculator_clients', 'token=' . $this->session->data['token'], true),
+                'children' => array()
+            );
+
+
 			
 			// Marketing
 			$marketing = array();

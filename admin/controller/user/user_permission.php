@@ -329,6 +329,7 @@ class ControllerUserUserPermission extends Controller {
 		}
 
 		$ignore = array(
+            'calculator/calculator_clients',
 			'common/dashboard',
 			'common/startup',
 			'common/login',
