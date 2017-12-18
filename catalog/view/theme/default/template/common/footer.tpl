@@ -30,10 +30,10 @@
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row footer-body">
 
-			<div class="col-sm-4 row">
-				<h5 class="text-center">Информация</h5>
+			<div class="col-sm-4">
+				<h3 class="text-center">Информация</h3>
 				<div class="col-sm-6">
 					<ul class="list-footer">
 						<li><a href="<?php echo $information['href']; ?>">О компании</a></li>
@@ -50,27 +50,26 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<h5 class="col-sm-12 text-center">Способы оплаты</h5>
+				<h3 class=" text-center">Способы оплаты</h3>
 
-				<div class="col-sm-12">
+
 					<img src="<?php echo $base; ?>image/catalog/payment_methods.png"
 						 title="Способы оплаты"
 						 alt="Способы оплаты"
 						 class="img-responsive pull-right"/>
-				</div>
+
 
 			</div>
 			<div class="col-sm-4">
-				<h5 class="text-center">Связаться с нами</h5>
+				<h3 class="text-center">Связаться с нами</h3>
 				<ul class="list-unstyled">
-					<li><i class="fa fa-plus-circle"></i><span>Россия, Санкт-Петербург, <br> Уманский переулок, 71</span></li>
-					<li><span>+7 (812) 965 30 61></span></li>
-					<li><span>9653061@gmail.com</span></li>
+					<li><i class="fa fa-map-marker"></i><span>Россия, Санкт-Петербург, Уманский переулок, 71</span></li>
+					<li><i class="fa fa-mobile-phone"></i><span>+7 (812) 965 3061</span></li>
+					<li><i class="fa fa-envelope-o"></i><span>9653061@gmail.com</span></li>
 				</ul>
 			</div>
 		</div>
-		<hr>
-	<div class="row">
+	<div class="row down">
 		<div class="col-sm-12">
 			<p class="text-center">© Центр мебели. Все права защищены 2017г.</p>
 		</div>

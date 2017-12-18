@@ -1,14 +1,14 @@
 <?php
-class ControllerCatalogCalculator extends Controller {
+class ControllerCalculatorCalculatorSettings extends Controller {
 	private $error = array();
 	private $success = '';
 
 	public function index() {
-		$this->load->language('catalog/calculator');
+		$this->load->language('calculator/calculator_settings');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/calculator');
+		$this->load->model('calculator/calculator_settings');
 
 		$this->getForm();
 	}
@@ -22,11 +22,11 @@ class ControllerCatalogCalculator extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 
-		$data['text_default'] = $this->language->get('text_default');
+
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
-		$data['entry_title'] = $this->language->get('entry_title');
+
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
 		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
@@ -52,7 +52,7 @@ class ControllerCatalogCalculator extends Controller {
 			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 		$data['cancel'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true);
-		$data['action'] = $this->url->link('catalog/calculator/edit', 'token=' . $this->session->data['token'], true);
+		$data['action'] = $this->url->link('calculator/calculator_settings/edit', 'token=' . $this->session->data['token'], true);
 
 
         //$data['token'] = $this->session->data['token'];
@@ -61,7 +61,7 @@ class ControllerCatalogCalculator extends Controller {
         $data['success'] = $this->success;
 
 
-        $calculator_info = $this->model_catalog_calculator->getCalculator(1);
+        $calculator_info = $this->model_calculator_calculator_settings->getCalculator(1);
 
 
 
@@ -83,11 +83,11 @@ class ControllerCatalogCalculator extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/calculator', $data));
+		$this->response->setOutput($this->load->view('calculator/calculator_settings', $data));
 	}
 
 	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'catalog/calculator')) {
+		if (!$this->user->hasPermission('modify', 'calculator/calculator_settings')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
@@ -130,11 +130,11 @@ class ControllerCatalogCalculator extends Controller {
     public function edit()
     {
 
-        $this->load->model('catalog/calculator');
+        $this->load->model('calculator/calculator_settings');
 
-        $this->load->language('catalog/calculator');
+        $this->load->language('calculator/calculator_settings');
 
-        $this->model_catalog_calculator->editCalculator('1', $this->request->post);
+        $this->model_calculator_calculator_settings->editCalculator('1', $this->request->post);
 
         $this->success = $this->language->get('success_update');
 

@@ -27,11 +27,12 @@ h2 {
 }
 
 h3 {
-    font-size: 21px;
+    font-size: 18px;
+    /*font-size: 21px; */
 }
 
 h4 {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 h5 {
@@ -939,18 +940,87 @@ td {
 }
 footer li {
     color:#e31616;
+    padding-bottom: 10px;
 }
 footer li span {
     color:black;
 }
 .list-footer {
-    font-size: 12px;
+    font-size: 14px;
 }
 header {
     padding-bottom: 20px;
 }
 
 
+
+/* HEADER */
+#header-left>*, #header-right>* {
+    position:relative;
+}
+#header-left #delivery{
+    top: 8px;
+}
+#header-left #address_city{
+    top: 3px;
+}
+#header-right #time{
+    top: 8px;
+}
+#header-right #phone{
+    top: 3px;
+}
+#header-right #address{
+    top: -12px;
+}
+
+/*FOOTER */
+.footer-body {
+    padding-top: 31px;
+    padding-bottom: 12px;
+}
+.footer-body h3 {
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+.footer-body ul {
+    padding: 0; /* Убираем поля */
+    margin-left: 20px; /* Отступ слева */
+    list-style-type: square;
+}
+.footer-body .list-unstyled {
+    padding-left: 53px;
+}
+.footer-body i {
+
+    left: 61px;
+    position: absolute;
+    font-size: 22px;
+}
+.footer-body i.fa-map-marker {
+    left: 42px;
+    font-size: 22px;
+}
+.footer-body i.fa-mobile-phone {
+    left: 44px;
+    font-size: 26px;
+    top: 96px;
+}
+.footer-body i.fa-envelope-o {
+    left: 40px;
+    font-size: 20px;
+}
+
+.list-unstyled li {
+    font-size: 16px;
+    list-style-type: none;
+    list-style-position: outside;
+}
+footer .down {
+    border-top: 1px solid #171616;
+    padding-top: 12px;
+    padding-bottom: 2px;
+}
 
 
 /* CALCULATOR */
@@ -1407,6 +1477,93 @@ header {
         content: url('../image/calculator_banner_mini.png');
     }
 }
+
+
+
+/* modal window */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 99999;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.popup {
+    background-color: #fff;
+    border: 3px solid #fff;
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    padding: 15px;
+    width: 300px;
+    height: 323px;
+    position: fixed;
+    text-align: justify;
+    top: 40%;
+    visibility: hidden;
+    z-index: 999999;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity .5s, top .5s;
+    -moz-transition: opacity .5s, top .5s;
+    -ms-transition: opacity .5s, top .5s;
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+    border-radius: 11px;
+}
+.popup .close_window {
+    width: 6px;
+    height: 17px;
+    position: absolute;
+    padding: 1px 9px 4px 9px;
+    top: -15px;
+    right: -15px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'tahoma', sans-serif;
+    background: -webkit-gradient(linear, left top, right top, from(#3d51c8), to(#051fb8));
+    background: -webkit-linear-gradient(top, #3d51c8, #051fb8);
+    background: -moz-linear-gradient(top, #3d51c8, #051fb8);
+    background: -o-linear-gradient(top, #3d51c8, #051fb8);
+    background: -ms-linear-gradient(top, #3d51c8, #051fb8);
+    background: linear-gradient(top, #3d51c8, #051fb8);
+    background-color: #3d51c8;
+    border: 1px solid #061fb8;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.popup .close_window:hover {
+    background: -webkit-gradient(linear, left top, right top, from(#051fb8), to(#3d51c8));
+    background: -webkit-linear-gradient(top, #051fb8, #3d51c8);
+    background: -moz-linear-gradient(top, #ff5f0, #3d51c87);
+    background: -o-linear-gradient(top, #051fb8, #3d51c8);
+    background: -ms-linear-gradient(top, #051fb8, #3d51c8);
+    background: linear-gradient(top, #051fb8, #3d51c8);
+    background-color: #051fb8;
+    border: 1px solid #00385E;
+}
+.popup .close_window:active {
+    background: #8f9be0;
+}
+
 
 
 .no-padding {

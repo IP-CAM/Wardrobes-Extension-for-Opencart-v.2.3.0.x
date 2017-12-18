@@ -369,15 +369,25 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => $customer
 				);	
 			}
-           // if ($this->user->hasPermission('access', 'calculator/calculator_clients')) {
 
-            $data['menus'][] = array(
-                'id'       => 'menu-calculator-client',
-                'icon'	   => 'fa-user',
-                'name'	   => $this->language->get('text_calculator_clients'),
-                'href'     => $this->url->link('calculator/calculator_clients', 'token=' . $this->session->data['token'], true),
-                'children' => array()
-            );
+            $calculator = array();
+            if ($this->user->hasPermission('access', 'calculator/calculator_settings')) {
+                $calculator[] = array(
+                    'name'	   => $this->language->get('text_calculator_settings'),
+                    'href'     => $this->url->link('calculator/calculator_settings', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+
+            if ($calculator) {
+                $data['menus'][] = array(
+                    'id'       => 'menu-calculator-client',
+                    'icon'     => 'fa-user',
+                    'name'     => $this->language->get('text_calculator_main'),
+                    'href'     => '',
+                    'children' => $calculator
+                );
+            }
 
 
 			

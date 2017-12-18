@@ -25,6 +25,9 @@ class ControllerCalculatorCalculator extends Controller {
 
         $this->document->addScript('catalog/view/javascript/jquery/maskedinput/jquery.maskedinput.min.js');
 
+        $this->document->addStyle('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.css');
+        $this->document->addScript('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.js');
+
 
         $this->document->setTitle($calculator_info['meta_title']);
         $this->document->setDescription($calculator_info['meta_description']);
@@ -71,6 +74,28 @@ class ControllerCalculatorCalculator extends Controller {
 
 
         $categories_root = $this->model_catalog_category->getCategories(0);
+
+        $key_cat = array();
+        foreach($categories_root as $key=>$category_root){
+            $key_cat[] = $category_root['category_id'];
+        }
+        asort($key_cat);
+//        foreach($key_cat as $key=>$category_root){
+//            $key_cat[] = $category_root['category_id'];
+//        }
+        $cat_root = array();
+
+        foreach($key_cat as $key=>$category_id) {
+            foreach($categories_root as $key=>$category_root) {
+                if($category_root['category_id'] == $category_id) {
+                    $cat_root[] = $category_root;
+                }
+            }
+        }
+        $categories_root = $cat_root;
+
+
+
         $this->normalizationImageLink($categories_root, $server);
         $data['description'] = html_entity_decode($calculator_info['description'], ENT_QUOTES, 'UTF-8');
         $data['categories_root'] = $categories_root;

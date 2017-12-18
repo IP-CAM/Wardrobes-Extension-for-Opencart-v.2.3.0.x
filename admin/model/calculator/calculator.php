@@ -1,13 +1,6 @@
 <?php
 class ModelCalculatorCalculator extends Model {
-    public function getCalculator($calculator_id) {
-        $query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "calculator_description WHERE calculator_id = $calculator_id");
-        $alias = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "url_alias WHERE query = 'calculator/calculator'");
-        $calculator = $query->row;
-        $alias_ar = $alias->row;
-        $calculator['keyword'] = $alias_ar['keyword'];
-        return $calculator;
-    }
+
 
 	public function editCalculator($calculator_id, $data) {
         $sql = "UPDATE " . DB_PREFIX . "calculator_description SET
