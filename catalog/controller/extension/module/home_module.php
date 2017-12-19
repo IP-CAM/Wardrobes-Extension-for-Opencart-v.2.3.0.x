@@ -1,6 +1,7 @@
 <?php
 class ControllerExtensionModuleHomeModule extends Controller {
 	public function index($setting) {
+        $this->document->addScript('catalog/view/javascript/modal_window.js');
         if ($this->request->server['HTTPS']) {
             $server = $this->config->get('config_ssl');
         } else {

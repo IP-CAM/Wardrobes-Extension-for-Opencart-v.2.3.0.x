@@ -138,15 +138,19 @@
 				гардеробных, встроенных и других шкафов. </p>
 			<div class="service_form">
 				<div class="service_input">
-					<input type="text" name="customer[name]"  value="" placeholder="ФИО">
+					<input type="text" data-modal="1" name="name"  value="" placeholder="ФИО">
+					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
 				</div>
 				<div class="service_input">
-					<input type="text" name="customer[telephone]"  value="" placeholder="Введите свой телефон">
+					<input type="text" data-modal="1" name="telephone"  value="" placeholder="Введите свой телефон">
+					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 				</div>
+
 			</div>
 			<div class="pull-right">
 				<button title="Заказать"
 						name="service_button"
+						id="service_button"
 						class="btn pull-left btn-danger">
 					Заказать</button>
 			</div>
@@ -155,3 +159,36 @@
 	</div>
 </div>
 <!-- SERVICE END -->
+
+<script type="text/javascript">
+
+
+
+	$(document).ready(function () {
+		//Validation telephone
+		$('#service_button').click(function (event) {
+			var error = 0;
+			if($("[name='name']").val() == '') {
+				$("[name='name']").parent().find('.error').show();
+				error = 1;
+			} else {
+				$("[name='name']").parent().find('.error').hide();
+			}
+			if($("[name='telephone']").val() == '') {
+				$("[name='telephone']").parent().find('.error').show();
+				error = 1;
+			} else {
+				$("[name='telephone']").parent().find('.error').hide();
+			}
+
+			if(!error) {
+				ajaxClientCall();
+			}
+
+		});
+
+	});
+
+
+
+</script>

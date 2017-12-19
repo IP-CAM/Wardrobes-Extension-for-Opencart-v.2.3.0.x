@@ -8,7 +8,8 @@ class ModelCustomerCustomer extends Model {
             name = '" . $this->db->escape($data['name']) . "',
             telephone = '" . $this->db->escape($data['telephone']) . "',
             ip = '" . $this->db->escape($data['ip']) . "',
-            status = 1" ;
+            date_added = NOW()" . ",
+            status =  1" ;
         $this->db->query($sql);
         $sql = "SELECT MAX(customer_id) AS max FROM " . DB_PREFIX . "customer";
         $query = $this->db->query($sql);

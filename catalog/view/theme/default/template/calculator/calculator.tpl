@@ -118,13 +118,6 @@
 					</div>
 				</div>
 
-
-
-
-
-
-
-
 			<!-- CALCULATOR END -->
 			<!-- BANNER BEGIN -->
 			<div class="row">
@@ -154,7 +147,7 @@
 			$('#exclusive-box').hide();
 			$('#standard p').addClass('active-button');
 			$('#cal_sub_price').text(standard_text + ' ' + $('#cal_sub_price').text());
-			$("[name='telephone']").mask("(999) 999-9999", {autoсlear: false});
+			//$("[name='telephone']").mask("(999) 999-9999", {autoсlear: false});
 			$('.calculator_dispatch .error').hide();
 			// With JQuery SLider calculation
 			$("[name='width_slider']").slider({
@@ -202,13 +195,12 @@
 
 			$('#dispatch_button').click(function (event) {
 				var text = $("[name='telephone']").val();
-alert('dis');
-				if ((text.indexOf("_") != -1) || text == '') {
+				if (text == '') {
 					$('.calculator_dispatch .error').show();
 					return false;
 				} else {
 					$("[name='type']").val(2);
-					alert('модальное окно не нужно');
+					//alert('модальное окно не нужно');
 					$("[name='two_modal']").val(0);
 					$('.calculator_dispatch .error').hide();
 					ajaxClientCall();
