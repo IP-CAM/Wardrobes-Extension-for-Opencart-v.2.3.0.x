@@ -538,6 +538,7 @@ footer h5 {
     /*background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);*/
     background-repeat: repeat-x;
     /*border-color: #bd362f #bd362f #802420;*/
+    outline: none;
 }
 
 .btn-danger:hover, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
@@ -938,6 +939,7 @@ td {
 .service_box button:active, .service_box button:focus, .service_box button:hover {
     background-color: #f03852!important;
     box-shadow:none;
+    outline: none;
 }
 footer li {
     color:#e31616;
@@ -1202,7 +1204,8 @@ footer .down {
 }
 .btn_calculator {
     background-color: #f2213e;
-    color: white;
+    color: white!important;
+    outline: none!important;
 }
 .btn_calculator:active {
     background-color: #b52b28;
@@ -1446,7 +1449,7 @@ footer .down {
     height: 39px;
     padding-left: 17px;
 }
-#cal-dispatch-box input[type="submit"] {
+#cal-dispatch-box input[type="button"] {
     position: absolute;
     top: 4px;
     left: 152px;
@@ -1487,11 +1490,9 @@ footer .down {
     bottom: 0;
     cursor: default;
     left: 0;
-    opacity: 01;
     position: fixed;
     right: 0;
     top: 0;
-    visibility: hidden;
     z-index: 99999;
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
@@ -1504,14 +1505,12 @@ footer .down {
     border: 3px solid #fff;
     display: inline-block;
     left: 50%;
-    opacity: 0;
     padding: 15px;
     width: 300px;
     height: 323px;
     position: fixed;
     text-align: justify;
     top: 40%;
-    visibility: hidden;
     z-index: 999999;
     transform: translate(-50%, -50%);
     border-radius: 11px;
@@ -1530,6 +1529,13 @@ footer .down {
 }
 .modal_window_box .text{
     padding-top: 20px;
+}
+.modal_window_box .field {
+    padding-top: 20px;
+}
+.modal_window_box .button {
+    padding-top: 20px;
+    float: right;
 }
 
 

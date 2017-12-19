@@ -1,4 +1,10 @@
 <!-- TILE BANNER BEGIN -->
+<!-- MODAL WINDOW BEGIN -->
+<div class="overlay modal_window_box" style="display: none" title="окно"></div>
+<div class="popup modal_window_box" style="display: none">
+	<div class="close_window">x</div>
+</div>
+<!-- MODAL WINDOW BEGIN END -->
 <div class="container">
 	<div class="row" id="tile_banner">
 		<div class="col-sm-4 text-center">
@@ -135,7 +141,7 @@
 					<input type="text" name="customer[name]"  value="" placeholder="ФИО">
 				</div>
 				<div class="service_input">
-					<input type="text" name="customer[phone]"  value="" placeholder="Введите свой телефон">
+					<input type="text" name="customer[telephone]"  value="" placeholder="Введите свой телефон">
 				</div>
 			</div>
 			<div class="pull-right">

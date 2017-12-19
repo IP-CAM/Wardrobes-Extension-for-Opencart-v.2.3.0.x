@@ -16,6 +16,7 @@ class ControllerCalculatorCalculator extends Controller {
         //of table Calculator_description
 		$calculator_info = $this->model_calculator_calculator->getCalculator(1);
         $this->document->addScript('catalog/view/javascript/calculator.js');
+        $this->document->addScript('catalog/view/javascript/modal_window.js');
 
         $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
         $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
@@ -135,54 +136,11 @@ class ControllerCalculatorCalculator extends Controller {
         $this->response->setOutput(json_encode($json));
     }
 
-
-
-
     private function normalizationImageLink(&$containers, $server)
     {
         foreach($containers as $key => $container) {
             $containers[$key]['image'] = $server . '/image/'. $container['image'];
 
-        }
-    }
-
-    public function ajaxAddCustomer()
-    {
-        $data = $this->request->post;
-
-        $this->noralizeField($data, 'name');
-        $this->noralizeField($data, 'email');
-        $this->noralizeField($data, 'telephone');
-        $data['ip'] = $_SERVER['REMOTE_ADDR'];
-        $data['status']  = '1';
-
-        $this->noralizeField($data, 'product_id');
-        $this->noralizeField($data, 'type');
-        $this->noralizeField($data, 'width');
-        $this->noralizeField($data, 'height');
-        $this->noralizeField($data, 'depth');
-
-        $this->load->model('customer/customer');
-        $products = $this->model_customer_customer->addCustomer($data);
-        $html = $this->load->view('common/modal_box', $data);
-        $json = array();
-        $json['html'] = $html;
-        $this->response->addHeader('Content-Type: application/json');
-        $this->response->setOutput(json_encode($json));
-
-
-    }
-
-    private function  noralizeField(&$data, $name_fild, $type = 'string') {
-        if($type == 'string') {
-            if(!isset($data[$name_fild]) || $data[$name_fild] == 'undefined') {
-                $data[$name_fild] = '';
-            }
-        }
-        if($type == 'number') {
-            if(!isset($data[$name_fild])) {
-                $data[$name_fild] = '0';
-            }
         }
     }
 }

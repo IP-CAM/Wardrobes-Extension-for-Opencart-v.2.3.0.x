@@ -144,7 +144,7 @@ $(document).ready(function () {
             this_product.find("input").prop('checked', true);
             this_product.find('img').removeClass('no-active');
             this_product.find('p').removeClass('no-active');
-            alert(id);
+            $('input[name="product_id"]').val(id);
         } else {
             var product_box = $('#product_box');
             product_box.empty();

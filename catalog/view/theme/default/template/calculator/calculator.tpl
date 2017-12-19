@@ -1,10 +1,9 @@
 <?php echo $header; ?>
 <div class="container container-fix " id="calculator">
 	<!-- MODAL WINDOW BEGIN -->
-	<div class="overlay modal_window_box" title="окно"></div>
-	<div class="popup modal_window_box">
+	<div class="overlay modal_window_box" style="display: none" title="окно"></div>
+	<div class="popup modal_window_box" style="display: none">
 		<div class="close_window">x</div>
-
 	</div>
 	<!-- MODAL WINDOW BEGIN END -->
 	<div class="row"><?php echo $column_left; ?>
@@ -58,14 +57,15 @@
 			<!-- SUBTYPE FURNITURE END -->
 
 			<!-- PRODUCTS BEGIN -->
+			<input type="hidden" name="product_id" data-modal="1" value="" />
 			<h1 class="text-center">Выбирете модель</h1>
 			<div class="row" id="product_box">
 			</div>
 			<!-- PRODUCTS END -->
 			<!-- CALCULATOR BEGIN -->
 			<h1 class="text-center">Подберите размеры для изделия</h1>
-			<form action="<?php echo $link_calculator; ?>/addcustomer" method="post" id="form-base-modifier-terminal"> <!-- TO DO -->
-				<input type="hidden" name="type" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
+
+				<input type="hidden" name="type" data-modal="1" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
 				<div class="row" id="calculator-box">
 
 					<div id="cal-calculation-box" class="col-lg-6 no-padding margin-left">
@@ -81,7 +81,7 @@
 						<div id="calculation-standard-or-exclusive">
 							<div id="standard-box">
 								<div id="slider">
-									<input id="slider_width" name="width_slider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+									<input id="slider_width" name="width_slider" data-modal="1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
 									<p>Ширина (см)</p>
 								</div>
 
@@ -92,31 +92,31 @@
 							<div id="exclusive-box">
 
 								<span id="text-width">Ширина (см)</span>
-								<input type="text" name="input_width" id="input_width" value="" class="form-control">
+								<input type="text" name="width" id="input_width" data-modal="1" value="" class="form-control">
 								<span id="text-height">Высота (см)</span>
-								<input type="text" name="input_height" id="input_height" value="" class="form-control">
+								<input type="text" name="height" id="input_height" data-modal="1" value="" class="form-control">
 								<span id="text-depth">Глубина (см)</span>
-								<input type="text" name="input_depth" id="input_depth" value="" class="form-control">
+								<input type="text" name="depth" id="input_depth" data-modal="1" value="" class="form-control">
 
 
 							</div>
 							<h2 id="cal_top_price">25 000 рублей</h2>
 							<span id="cal_sub_price">25 000 рублей</span>
 
-							<input type="submit" id="calculation_button"  class="btn btn-lg btn_calculator" value="Заказать"/>
+							<input type="button" id="calculation_button" data-modal="1" class="btn btn-lg btn_calculator" value="Заказать"/>
 						</div>
 					</div>
 
 
 					<div id="cal-dispatch-box" class="col-lg-6 no-padding">
 						<div class="calculator_dispatch">
-							<input type="text" name="telephone" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone">
-							<input type="submit"  id="dispatch_button" value="Отправить" class="btn btn-lg btn_calculator" />
+							<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone">
+							<input type="button"  id="dispatch_button" data-modal="1" value="Отправить" class="btn btn-lg btn_calculator" />
 							<span class="error" hidden="hidden">Пожалуйста, введите телефон</span>
 						</div>
 					</div>
 				</div>
-			</form>
+
 
 
 
@@ -192,11 +192,10 @@
 				if($('#standard-box').is(':visible')) {
 					$("[name='type']").val(0);
 				}
-				if($('#standard-box').is(':visible')) {
+				if($('#exclusive-box').is(':visible')) {
 					$("[name='type']").val(1);
 				}
-				ajaxModalWindow();
-				return false;
+				return true;
 			});
 
 			$('#dispatch_button').click(function () {
@@ -206,58 +205,16 @@
 					return false;
 				} else {
 					$("[name='type']").val(2);
-					ajaxModalWindow();
-					return false;
-
+					$('.calculator_dispatch .error').hide();
+					return true;
 				}
 			});
 
 
-			function ajaxModalWindow() {
-				var data = "telephone=" + $("input[name='telephone']").val() +
-							'&type=' + $("input[name='type']").val() +
-							'&width=' + $("input[name='width']").val() +
-							'&height=' + $("input[name='height']").val() +
-							'&depth=' + $("input[name='depth']").val();
-
-				//alert('id=' + id + '&type=' + type);
-				$.ajax({
-					url: 'index.php?route=calculator/calculator/ajaxAddCustomer',
-					dataType: 'json',
-					data: data,
-					type: 'post',
-					beforeSend: function () {
-					},
-					success: function (json) {
-						var html = json['html'];
-						//$('.popup.modal_window_box').append(html);
-						//$('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
-						$.fancybox.open(html);
-
-					},
-					error: function (xhr, ajaxOptions, thrownError) {
-						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-					}
-				});
-			}
-
 //			$('#calculation_button').hover(function () {
 //				$.fancybox.open('<div class="message">Здесь может быть любой ваш контент</div>');
 //			});
-
-
-
-			//$('.popup .close_window, .overlay').click(function (){
-			///	$('.overlay').hide(40);
-			//	$('.popup').hide(400);
-			//});
-
-
-
-
-
 		});
-
 
 
 
