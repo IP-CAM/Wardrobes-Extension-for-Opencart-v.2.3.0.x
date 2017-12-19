@@ -13,7 +13,7 @@ $_['text_balance']          = 'Баланс';
 // Column
 $_['column_name']           = 'Имя клиента';
 $_['column_email']          = 'E-Mail';
-$_['column_customer_group'] = 'Группа клиентов';
+$_['column_telephone']      = 'Телефон';
 $_['column_status']         = 'Статус';
 $_['column_date_added']     = 'Дата добавления';
 $_['column_comment']        = 'Комментарий';
@@ -22,6 +22,14 @@ $_['column_amount']         = 'Сумма';
 $_['column_points']         = 'Баллы';
 $_['column_ip']             = 'IP';
 $_['column_total']          = 'Общая сумма';
+
+
+$_['column_type']          = 'Тип';
+$_['column_product']          = 'Продукт';
+$_['column_width']          = 'Ширина';
+$_['column_height']          = 'Высота';
+$_['column_depth']          = 'Глубина';
+
 $_['column_action']         = 'Действие';
 
 // Entry

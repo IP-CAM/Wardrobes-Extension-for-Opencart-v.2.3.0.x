@@ -42,19 +42,7 @@
               </div>
             </div>
             <div class="col-sm-3">
-              <div class="form-group">
-                <label class="control-label" for="input-customer-group"><?php echo $entry_customer_group; ?></label>
-                <select name="filter_customer_group_id" id="input-customer-group" class="form-control">
-                  <option value="*"></option>
-                  <?php foreach ($customer_groups as $customer_group) { ?>
-                  <?php if ($customer_group['customer_group_id'] == $filter_customer_group_id) { ?>
-                  <option value="<?php echo $customer_group['customer_group_id']; ?>" selected="selected"><?php echo $customer_group['name']; ?></option>
-                  <?php } else { ?>
-                  <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></option>
-                  <?php } ?>
-                  <?php } ?>
-                </select>
-              </div>
+
               <div class="form-group">
                 <label class="control-label" for="input-status"><?php echo $entry_status; ?></label>
                 <select name="filter_status" id="input-status" class="form-control">
@@ -73,22 +61,7 @@
               </div>
             </div>
             <div class="col-sm-3">
-              <div class="form-group">
-                <label class="control-label" for="input-approved"><?php echo $entry_approved; ?></label>
-                <select name="filter_approved" id="input-approved" class="form-control">
-                  <option value="*"></option>
-                  <?php if ($filter_approved) { ?>
-                  <option value="1" selected="selected"><?php echo $text_yes; ?></option>
-                  <?php } else { ?>
-                  <option value="1"><?php echo $text_yes; ?></option>
-                  <?php } ?>
-                  <?php if (!$filter_approved && !is_null($filter_approved)) { ?>
-                  <option value="0" selected="selected"><?php echo $text_no; ?></option>
-                  <?php } else { ?>
-                  <option value="0"><?php echo $text_no; ?></option>
-                  <?php } ?>
-                </select>
-              </div>
+
               <div class="form-group">
                 <label class="control-label" for="input-ip"><?php echo $entry_ip; ?></label>
                 <input type="text" name="filter_ip" value="<?php echo $filter_ip; ?>" placeholder="<?php echo $entry_ip; ?>" id="input-ip" class="form-control" />
@@ -123,11 +96,11 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_email; ?>"><?php echo $column_email; ?></a>
                     <?php } ?></td>
-                  <td class="text-left"><?php if ($sort == 'customer_group') { ?>
-                    <a href="<?php echo $sort_customer_group; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_customer_group; ?></a>
-                    <?php } else { ?>
-                    <a href="<?php echo $sort_customer_group; ?>"><?php echo $column_customer_group; ?></a>
-                    <?php } ?></td>
+				  <td class="text-left"><?php if ($sort == 'c.telephone') { ?>
+					<a href="<?php echo $sort_telephone; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_telephone; ?></a>
+					<?php } else { ?>
+					<a href="<?php echo $sort_telephone; ?>"><?php echo $column_telephone; ?></a>
+					<?php } ?></td>
                   <td class="text-left"><?php if ($sort == 'c.status') { ?>
                     <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
                     <?php } else { ?>
@@ -143,6 +116,11 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_date_added; ?>"><?php echo $column_date_added; ?></a>
                     <?php } ?></td>
+				  <td class="text-right"><?php echo $column_product; ?></td>
+				  <td class="text-right"><?php echo $column_type; ?></td>
+				  <td class="text-right"><?php echo $column_width; ?></td>
+				  <td class="text-right"><?php echo $column_height; ?></td>
+				  <td class="text-right"><?php echo $column_depth; ?></td>
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
@@ -157,29 +135,17 @@
                     <?php } ?></td>
                   <td class="text-left"><?php echo $customer['name']; ?></td>
                   <td class="text-left"><?php echo $customer['email']; ?></td>
-                  <td class="text-left"><?php echo $customer['customer_group']; ?></td>
+                  <td class="text-left"><?php echo $customer['telephone']; ?></td>
                   <td class="text-left"><?php echo $customer['status']; ?></td>
                   <td class="text-left"><?php echo $customer['ip']; ?></td>
                   <td class="text-left"><?php echo $customer['date_added']; ?></td>
-                  <td class="text-right"><?php if ($customer['approve']) { ?>
-                    <a href="<?php echo $customer['approve']; ?>" data-toggle="tooltip" title="<?php echo $button_approve; ?>" class="btn btn-success"><i class="fa fa-thumbs-o-up"></i></a>
-                    <?php } else { ?>
-                    <button type="button" class="btn btn-success" disabled><i class="fa fa-thumbs-o-up"></i></button>
-                    <?php } ?>
-                    <div class="btn-group" data-toggle="tooltip" title="<?php echo $button_login; ?>">
-                      <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
-                      <ul class="dropdown-menu pull-right">
-                        <li><a href="index.php?route=customer/customer/login&token=<?php echo $token; ?>&customer_id=<?php echo $customer['customer_id']; ?>&store_id=0" target="_blank"><?php echo $text_default; ?></a></li>
-                        <?php foreach ($stores as $store) { ?>
-                        <li><a href="index.php?route=customer/customer/login&token=<?php echo $token; ?>&customer_id=<?php echo $customer['customer_id']; ?>&store_id=<?php echo $store['store_id']; ?>" target="_blank"><?php echo $store['name']; ?></a></li>
-                        <?php } ?>
-                      </ul>
-                    </div>
-                    <?php if ($customer['unlock']) { ?>
-                    <a href="<?php echo $customer['unlock']; ?>" data-toggle="tooltip" title="<?php echo $button_unlock; ?>" class="btn btn-warning"><i class="fa fa-unlock"></i></a>
-                    <?php } else { ?>
+				  <td class="text-right"><?php echo $customer['product']; ?></td>
+				  <td class="text-right"><?php echo $customer['type']; ?></td>
+				  <td class="text-right"><?php echo $customer['width']; ?></td>
+				  <td class="text-right"><?php echo $customer['height']; ?></td>
+				  <td class="text-right"><?php echo $customer['depth']; ?></td>
+                  <td class="text-right">
                     <button type="button" class="btn btn-warning" disabled><i class="fa fa-unlock"></i></button>
-                    <?php } ?>
                     <a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>
@@ -215,23 +181,11 @@ $('#button-filter').on('click', function() {
 		url += '&filter_email=' + encodeURIComponent(filter_email);
 	}
 	
-	var filter_customer_group_id = $('select[name=\'filter_customer_group_id\']').val();
-	
-	if (filter_customer_group_id != '*') {
-		url += '&filter_customer_group_id=' + encodeURIComponent(filter_customer_group_id);
-	}	
-	
 	var filter_status = $('select[name=\'filter_status\']').val();
 	
 	if (filter_status != '*') {
 		url += '&filter_status=' + encodeURIComponent(filter_status); 
-	}	
-	
-	var filter_approved = $('select[name=\'filter_approved\']').val();
-	
-	if (filter_approved != '*') {
-		url += '&filter_approved=' + encodeURIComponent(filter_approved);
-	}	
+	}
 	
 	var filter_ip = $('input[name=\'filter_ip\']').val();
 	

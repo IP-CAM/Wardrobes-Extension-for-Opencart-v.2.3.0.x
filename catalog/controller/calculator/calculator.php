@@ -1,7 +1,7 @@
 <?php
 class ControllerCalculatorCalculator extends Controller {
 	public function index() {
-		$this->load->language('information/calculator');
+		$this->load->language('calculator/calculator');
 
 		$this->load->model('calculator/calculator');
         $this->load->model('catalog/category');
@@ -80,11 +80,7 @@ class ControllerCalculatorCalculator extends Controller {
             $key_cat[] = $category_root['category_id'];
         }
         asort($key_cat);
-//        foreach($key_cat as $key=>$category_root){
-//            $key_cat[] = $category_root['category_id'];
-//        }
         $cat_root = array();
-
         foreach($key_cat as $key=>$category_id) {
             foreach($categories_root as $key=>$category_root) {
                 if($category_root['category_id'] == $category_id) {
@@ -106,7 +102,7 @@ class ControllerCalculatorCalculator extends Controller {
      * POST['id'] and POST['type']
      */
     public function ajax(){
-        $this->load->language('information/calculator');
+        $this->load->language('calculator/calculator');
 
         $this->load->model('catalog/category');
         $this->load->model('calculator/calculator');
@@ -151,28 +147,25 @@ class ControllerCalculatorCalculator extends Controller {
         }
     }
 
-    public function addClient()
+    public function addCustomer()
     {
         $data = $this->request->post;
 
-
-        $this->noralizeField($data, 'email');
-
         $this->noralizeField($data, 'name');
-        $this->noralizeField($data, 'type');
-        $this->noralizeField($data, 'telephone');
-        $this->noralizeField($data, 'width');
-        $this->noralizeField($data, 'height');
         $this->noralizeField($data, 'email');
-        $this->noralizeField($data, 'depth');
-
+        $this->noralizeField($data, 'telephone');
         $data['ip'] = $_SERVER['REMOTE_ADDR'];
         $data['status']  = '1';
 
+        $this->noralizeField($data, 'product_id');
+        $this->noralizeField($data, 'type');
+        $this->noralizeField($data, 'width');
+        $this->noralizeField($data, 'height');
+        $this->noralizeField($data, 'depth');
 
-        $this->load->model('calculator/calculator');
-        $products = $this->model_calculator_calculator->addCalculatorClient($data);
-      //  $this->response->redirect($this->url->link('information/information', 'information_id=7', true));
+        $this->load->model('customer/customer');
+        $products = $this->model_customer_customer->addCustomer($data);
+        $this->response->redirect($this->url->link('calculator/calculator', true));
 
 
     }

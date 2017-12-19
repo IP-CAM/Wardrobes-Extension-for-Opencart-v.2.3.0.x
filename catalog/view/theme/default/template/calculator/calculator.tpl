@@ -64,7 +64,7 @@
 			<!-- PRODUCTS END -->
 			<!-- CALCULATOR BEGIN -->
 			<h1 class="text-center">Подберите размеры для изделия</h1>
-			<form action="<?php echo $link_calculator; ?>/addclient" method="post" id="form-base-modifier-terminal"> <!-- TO DO -->
+			<form action="<?php echo $link_calculator; ?>/addcustomer" method="post" id="form-base-modifier-terminal"> <!-- TO DO -->
 				<input type="hidden" name="type" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
 				<div class="row" id="calculator-box">
 
