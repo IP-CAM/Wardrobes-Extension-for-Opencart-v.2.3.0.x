@@ -1,10 +1,10 @@
 <?php foreach($data as $key => $field) { ?>
-	<?php if($key == 'telephone_isset') { ?>
-		<input type="hidden" name="<?php echo $key ?>" value="1" />
-	<?php continue; ?>
+	<?php if($key == 'two_modal') { ?>
+		<input type="hidden" name="<?php echo $key ?>" value="0" />
+		<?php continue; ?>
 	<?php } ?>
 	<?php if($key == 'telephone') { ?>
-	<?php continue; ?>
+		<?php continue; ?>
 	<?php } ?>
 	<input type="hidden" name="<?php echo $key ?>" value="<?php echo $field ?>" />
 <?php } ?>

@@ -9,26 +9,26 @@ class ControllerCustomerCustomer extends Controller {
         $data = $this->request->post;
 
         $html = array();
-        if($data['telephone_isset'] == 0) {
+        if($data['two_modal'] == 1) {
             $data_norm = array();
             $data_norm['data'] = $data;
-            $html = $this->load->view('common/modal_box_telephone', $data_norm);
+            $html = $this->load->view('customer/modal_box_telephone', $data_norm);
         } else {
-            $this->noralizeField($data, 'name');
-            $this->noralizeField($data, 'email');
-            $this->noralizeField($data, 'telephone');
+            $this->normalizeField($data, 'name');
+            $this->normalizeField($data, 'email');
+            $this->normalizeField($data, 'telephone');
             $data['ip'] = $_SERVER['REMOTE_ADDR'];
             $data['status']  = '1';
 
-            $this->noralizeField($data, 'product_id');
-            $this->noralizeField($data, 'type');
-            $this->noralizeField($data, 'width');
-            $this->noralizeField($data, 'height');
-            $this->noralizeField($data, 'depth');
+            $this->normalizeField($data, 'product_id');
+            $this->normalizeField($data, 'type');
+            $this->normalizeField($data, 'width');
+            $this->normalizeField($data, 'height');
+            $this->normalizeField($data, 'depth');
 
             $this->load->model('customer/customer');
             $products = $this->model_customer_customer->addCustomer($data);
-            $html = $this->load->view('common/modal_box', $data);
+            $html = $this->load->view('customer/modal_box', $data);
         }
         $json = array();
         $json['html'] = $html;
@@ -39,7 +39,7 @@ class ControllerCustomerCustomer extends Controller {
     }
 
 
-    private function  noralizeField(&$data, $name_field, $type = 'string') {
+    private function  normalizeField(&$data, $name_field, $type = 'string') {
         if($type == 'string') {
             if(!isset($data[$name_field]) || $data[$name_field] == 'undefined') {
                 $data[$name_field] = '';

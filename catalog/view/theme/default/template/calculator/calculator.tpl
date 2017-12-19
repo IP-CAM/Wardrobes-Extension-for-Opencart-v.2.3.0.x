@@ -66,6 +66,7 @@
 			<h1 class="text-center">Подберите размеры для изделия</h1>
 
 				<input type="hidden" name="type" data-modal="1" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
+				<input type="hidden" name="two_modal" data-modal="1" value="0" />
 				<div class="row" id="calculator-box">
 
 					<div id="cal-calculation-box" class="col-lg-6 no-padding margin-left">
@@ -112,7 +113,7 @@
 						<div class="calculator_dispatch">
 							<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone">
 							<input type="button"  id="dispatch_button" data-modal="1" value="Отправить" class="btn btn-lg btn_calculator" />
-							<span class="error" hidden="hidden">Пожалуйста, введите телефон</span>
+							<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 						</div>
 					</div>
 				</div>
@@ -195,18 +196,22 @@
 				if($('#exclusive-box').is(':visible')) {
 					$("[name='type']").val(1);
 				}
-				return true;
+				$("[name='two_modal']").val(1);
+				ajaxClientCall();
 			});
 
-			$('#dispatch_button').click(function () {
+			$('#dispatch_button').click(function (event) {
 				var text = $("[name='telephone']").val();
+alert('dis');
 				if ((text.indexOf("_") != -1) || text == '') {
 					$('.calculator_dispatch .error').show();
 					return false;
 				} else {
 					$("[name='type']").val(2);
+					alert('модальное окно не нужно');
+					$("[name='two_modal']").val(0);
 					$('.calculator_dispatch .error').hide();
-					return true;
+					ajaxClientCall();
 				}
 			});
 
