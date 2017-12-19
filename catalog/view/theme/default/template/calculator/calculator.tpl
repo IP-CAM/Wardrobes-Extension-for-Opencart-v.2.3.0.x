@@ -4,7 +4,7 @@
 	<div class="overlay modal_window_box" title="окно"></div>
 	<div class="popup modal_window_box">
 		<div class="close_window">x</div>
-		<p>Тут будет текст</p>
+
 	</div>
 	<!-- MODAL WINDOW BEGIN END -->
 	<div class="row"><?php echo $column_left; ?>
@@ -188,6 +188,17 @@
 
 			//Validation telephone
 
+			$('#calculation_button').click(function () {
+				if($('#standard-box').is(':visible')) {
+					$("[name='type']").val(0);
+				}
+				if($('#standard-box').is(':visible')) {
+					$("[name='type']").val(1);
+				}
+				ajaxModalWindow();
+				return false;
+			});
+
 			$('#dispatch_button').click(function () {
 				var text = $("[name='telephone']").val();
 				if ((text.indexOf("_") != -1) || text == '') {
@@ -195,10 +206,40 @@
 					return false;
 				} else {
 					$("[name='type']").val(2);
+					ajaxModalWindow();
+					return false;
+
 				}
 			});
 
 
+			function ajaxModalWindow() {
+				var data = "telephone=" + $("input[name='telephone']").val() +
+							'&type=' + $("input[name='type']").val() +
+							'&width=' + $("input[name='width']").val() +
+							'&height=' + $("input[name='height']").val() +
+							'&depth=' + $("input[name='depth']").val();
+
+				//alert('id=' + id + '&type=' + type);
+				$.ajax({
+					url: 'index.php?route=calculator/calculator/ajaxAddCustomer',
+					dataType: 'json',
+					data: data,
+					type: 'post',
+					beforeSend: function () {
+					},
+					success: function (json) {
+						var html = json['html'];
+						//$('.popup.modal_window_box').append(html);
+						//$('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
+						$.fancybox.open(html);
+
+					},
+					error: function (xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});
+			}
 
 //			$('#calculation_button').hover(function () {
 //				$.fancybox.open('<div class="message">Здесь может быть любой ваш контент</div>');
@@ -206,14 +247,11 @@
 
 
 
-			$('.popup .close_window, .overlay').click(function (){
-				$('.popup, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
-			});
-			$('#calculation_button').click(function (e){
-				$('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
+			//$('.popup .close_window, .overlay').click(function (){
+			///	$('.overlay').hide(40);
+			//	$('.popup').hide(400);
+			//});
 
-				e.preventDefault();
-			});
 
 
 

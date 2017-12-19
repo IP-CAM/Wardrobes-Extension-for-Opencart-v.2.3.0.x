@@ -101,7 +101,7 @@ class ControllerCalculatorCalculator extends Controller {
     /**
      * POST['id'] and POST['type']
      */
-    public function ajax(){
+    public function ajaxOpen(){
         $this->load->language('calculator/calculator');
 
         $this->load->model('catalog/category');
@@ -131,7 +131,6 @@ class ControllerCalculatorCalculator extends Controller {
             $json['type'] = 'products';
         }
 
-
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
     }
@@ -147,7 +146,7 @@ class ControllerCalculatorCalculator extends Controller {
         }
     }
 
-    public function addCustomer()
+    public function ajaxAddCustomer()
     {
         $data = $this->request->post;
 
@@ -165,14 +164,18 @@ class ControllerCalculatorCalculator extends Controller {
 
         $this->load->model('customer/customer');
         $products = $this->model_customer_customer->addCustomer($data);
-        $this->response->redirect($this->url->link('calculator/calculator', true));
+        $html = $this->load->view('common/modal_box', $data);
+        $json = array();
+        $json['html'] = $html;
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
 
 
     }
 
     private function  noralizeField(&$data, $name_fild, $type = 'string') {
         if($type == 'string') {
-            if(!isset($data[$name_fild])) {
+            if(!isset($data[$name_fild]) || $data[$name_fild] == 'undefined') {
                 $data[$name_fild] = '';
             }
         }

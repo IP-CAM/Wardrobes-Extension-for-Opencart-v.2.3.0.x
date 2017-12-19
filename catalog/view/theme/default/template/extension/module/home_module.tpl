@@ -125,16 +125,17 @@
 		</div>
 
 		<div class="col-sm-6 service_box">
+
 			<p>Выезд специалиста на замер,
 				составление эскиза на месте в подарок.
 				Услуга предоставляется для прихожих,
 				гардеробных, встроенных и других шкафов. </p>
 			<div class="service_form">
 				<div class="service_input">
-					<input type="text" name="customer[firstname]" id="customer_firstname" value="" placeholder="ФИО">
+					<input type="text" name="customer[name]"  value="" placeholder="ФИО">
 				</div>
 				<div class="service_input">
-					<input type="text" name="customer[phone]" id="customer_firstname" value="" placeholder="Введите свой телефон">
+					<input type="text" name="customer[phone]"  value="" placeholder="Введите свой телефон">
 				</div>
 			</div>
 			<div class="pull-right">
@@ -143,6 +144,7 @@
 						class="btn pull-left btn-danger">
 					Заказать</button>
 			</div>
+
 		</div>
 	</div>
 </div>

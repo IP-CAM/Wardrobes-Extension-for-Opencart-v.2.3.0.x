@@ -108,7 +108,7 @@ $(document).ready(function () {
     function ajaxOpenCategory(id, type) {
         //alert('id=' + id + '&type=' + type);
         $.ajax({
-            url: 'index.php?route=calculator/calculator/ajax',
+            url: 'index.php?route=calculator/calculator/ajaxOpen',
             dataType: 'json',
             data: 'id=' + id + '&type=' + type,
             type: 'post',
