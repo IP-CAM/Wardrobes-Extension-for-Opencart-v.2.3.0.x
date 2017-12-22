@@ -12,6 +12,7 @@ class ModelCalculatorCalculatorSettings extends Model {
 
     public function editCalculator($calculator_id, $data) {
         $sql = "UPDATE " . DB_PREFIX . "calculator_settings SET
+            title = '" . $this->db->escape($data['title']) . "',
             meta_title = '" . $this->db->escape($data['meta_title']) . "',
             meta_description = '" . $this->db->escape($data['meta_description']) . "',
             meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "',

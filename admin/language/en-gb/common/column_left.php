@@ -15,6 +15,8 @@ $_['text_customer']                  = 'Customers';
 $_['text_customer_group']            = 'Customer Groups';
 $_['text_custom_field']              = 'Custom Fields';
 $_['text_calculator_clients']              = 'Calculator client';
+$_['text_aboutcompany']              = 'Calculator client';
+
 
 $_['text_dashboard']                 = 'Dashboard';
 $_['text_design']                    = 'Design';

@@ -1,5 +1,14 @@
 <?php echo $header; ?>
 <div class="container container-fix " id="calculator">
+	<ul class="breadcrumb">
+		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
+		<?php if(!next($breadcrumbs)) { ?>
+		<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+		<?php continue; ?>
+		<?php } ?>
+		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+		<?php } ?>
+	</ul>
 	<!-- MODAL WINDOW BEGIN -->
 	<div class="overlay modal_window_box" style="display: none" title="окно"></div>
 	<div class="popup modal_window_box" style="display: none">
@@ -25,7 +34,7 @@
 			</div>
 			<!-- CONTENT END -->
 			<!-- TYPE OF FURNITURE BEGIN -->
-			<h1 class="text-center">Выбирете тип мебели</h1>
+			<h1 class="text-center">Выберите тип мебели</h1>
 
 			<div class="row">
 				<div class="col-mg-0 col-lg-2">
@@ -40,7 +49,13 @@
 									 title="<?php echo $category_root['name']; ?>"
 									 alt="<?php echo $category_root['name']; ?>"
 									 class="img-responsive center-block"/>
-								<p class="no-active"><?php echo $category_root['name']; ?></p>
+								<p class="no-active">
+									<?php if($category_root['category_id'] == 59) { ?>
+										Шкафы - Купе на заказ
+									<?php } else { ?>
+										<?php echo $category_root['name']; ?>
+									<?php } ?>
+								</p>
 							</div>
 						</div>
 						<?php } ?>

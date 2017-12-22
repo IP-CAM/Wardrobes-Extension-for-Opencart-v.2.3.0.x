@@ -8,8 +8,7 @@ $_['success_update']         = 'Изменения сохранены!';
 
 
 
-$_['entry_description']      = 'Описание';
-
+$_['entry_title'] 	         = 'Title (название страницы)';
 $_['entry_meta_title'] 	     = 'Мета-тег Title';
 $_['entry_meta_keyword'] 	 = 'Мета-тег Keywords';
 $_['entry_meta_description'] = 'Мета-тег Description';

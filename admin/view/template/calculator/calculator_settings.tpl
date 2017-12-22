@@ -43,6 +43,20 @@
 						<li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
 					</ul>
 					<div class="tab-content">
+						<!-- TITLE BEGIN -->
+						<div class="form-group required">
+							<label class="col-sm-2 control-label"
+								   for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_title; ?></label>
+							<div class="col-sm-10">
+								<input type="text"
+									   name="title"
+									   value="<?php echo $title; ?>"
+									   placeholder="<?php echo $entry_title; ?>"
+									   id="input-title"
+									   class="form-control"/>
+							</div>
+						</div>
+						<!-- TITLE END -->
 						<!-- META TITLE BEGIN -->
 						<div class="form-group required">
 							<label class="col-sm-2 control-label"

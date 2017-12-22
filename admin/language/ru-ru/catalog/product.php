@@ -27,6 +27,7 @@ $_['column_action']          = 'Действие';
 // Entry
 $_['entry_name']             = 'Название товара';
 $_['entry_description']      = 'Описание';
+$_['entry_characteristics']      = 'Характеристика';
 $_['entry_meta_title'] 	     = 'Мета-тег Title';
 $_['entry_meta_keyword'] 	 = 'Мета-тег Keyword';
 $_['entry_meta_description'] = 'Мета-тег Description';
@@ -53,7 +54,7 @@ $_['entry_option_points']    = 'Баллы';
 $_['entry_subtract']         = 'Вычитать со склада';
 $_['entry_weight_class']     = 'Единица измерения веса';
 $_['entry_weight']           = 'Вес';
-$_['entry_dimension']        = 'Размеры (Д x Ш x В)';
+$_['entry_dimension']        = 'Размеры (Ш x В х Г)';
 $_['entry_length_class']     = 'Единица измерения длины';
 $_['entry_length']           = 'Длина';
 $_['entry_width']            = 'Ширина';

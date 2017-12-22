@@ -1,6 +1,7 @@
 <?php
 // Text
 $_['text_home']          = 'Главная';
+$_['text_cupboard']      = 'Товары';
 $_['text_wishlist']      = 'Закладки (%s)';
 $_['text_shopping_cart'] = 'Корзина';
 $_['text_category']      = 'Категории';

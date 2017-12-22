@@ -63,6 +63,12 @@
                       <textarea name="product_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['description'] : ''; ?></textarea>
                     </div>
                   </div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="input-characteristics<?php echo $language['language_id']; ?>"><?php echo $entry_characteristics; ?></label>
+						<div class="col-sm-10">
+							<textarea name="product_description[<?php echo $language['language_id']; ?>][characteristics]" placeholder="<?php echo $entry_characteristics; ?>" id="input-characteristics<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['characteristics'] : ''; ?></textarea>
+						</div>
+					</div>
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
                     <div class="col-sm-10">
@@ -253,15 +259,17 @@
                 <label class="col-sm-2 control-label" for="input-length"><?php echo $entry_dimension; ?></label>
                 <div class="col-sm-10">
                   <div class="row">
+				   <div class="col-sm-4">
+					  <input type="text" name="width" value="<?php echo $width; ?>" placeholder="<?php echo $entry_width; ?>" id="input-width" class="form-control" />
+				   </div>
+				  <div class="col-sm-4">
+					  <input type="text" name="height" value="<?php echo $height; ?>" placeholder="<?php echo $entry_height; ?>" id="input-height" class="form-control" />
+				  </div>
                     <div class="col-sm-4">
                       <input type="text" name="length" value="<?php echo $length; ?>" placeholder="<?php echo $entry_length; ?>" id="input-length" class="form-control" />
                     </div>
-                    <div class="col-sm-4">
-                      <input type="text" name="width" value="<?php echo $width; ?>" placeholder="<?php echo $entry_width; ?>" id="input-width" class="form-control" />
-                    </div>
-                    <div class="col-sm-4">
-                      <input type="text" name="height" value="<?php echo $height; ?>" placeholder="<?php echo $entry_height; ?>" id="input-height" class="form-control" />
-                    </div>
+
+
                   </div>
                 </div>
               </div>

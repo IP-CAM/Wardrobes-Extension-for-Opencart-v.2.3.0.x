@@ -70,7 +70,7 @@
   </div>
 </nav> -->
 <header>
-	<div class="container">
+	<div class="container visible-lg">
 		<div class="row">
 			<div class="col-sm-3 text-left" id="header-left">
 				<h4 id="delivery">Доставка и установка:</h4>
@@ -94,16 +94,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
-		<div class="row" id="navigation_bar">
+	<div class="container visible-lg">
+		<div class="row border-top-dark border-bottom-dark" id="navigation_bar">
 			<div class="col-sm-2 text-center">
-				<h4>О компании</h4>
+				<a href="<?php echo $aboutcompany; ?>"><h4>О компании</h4></a>
 			</div>
 			<div class="col-sm-2 text-center">
 				<a href="<?php echo $calculator; ?>"><h4>Расчет стоимости</h4></a>
 			</div>
 			<div class="col-sm-2 text-center">
-				<h4>Каталог</h4>
+				<a href="<?php echo $generalcatalog; ?>"><h4>Каталог</h4></a>
 			</div>
 			<div class="col-sm-2 text-center">
 				<h4>Акции</h4>
@@ -112,9 +112,53 @@
 				<h4>Отзывы</h4>
 			</div>
 			<div class="col-sm-2 text-center">
-				<h4>Контакты</h4>
+				<a href="<?php echo $contacts; ?>"><h4>Контакты</h4></a>
 			</div>
 		</div>
 	</div>
+	<div class="container hidden-lg border-bottom-dark">
+		<div id="menu-mini">
+			<div id="menu_animation_box">
+				<div id="d1"></div>
+				<div id="d2"></div>
+				<div id="d3"></div>
+			</div>
+			<h3>Меню</h3>
+
+			<div id="menu_mini_box">
+				<ul>
+					<li>Каталог</li>
+					<li>О компании</li>
+					<li><a href="<?php echo $calculator; ?>">Расчет стоимости</a></li>
+					<li>Акции</li>
+					<li>Отзывы</li>
+					<li>Контакты</li>
+				</ul>
+			</div>
+
+		</div>
+		<div id="logo-mini" class="text-center">
+			<?php if ($logo) { ?>
+			<a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"
+												alt="<?php echo $name; ?>" class=""/></a>
+			<?php } else { ?>
+			<h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
+			<?php } ?>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
 </header>
+<script type="text/javascript">
+	// Menu
+	$('#menu-mini').click(function() {
+		$('#menu_mini_box').toggle();
+	});
+	</script>
 

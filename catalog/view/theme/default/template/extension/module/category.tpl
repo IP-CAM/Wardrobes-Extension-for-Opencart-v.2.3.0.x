@@ -1,18 +1,18 @@
-<div class="list-group">
-  <?php foreach ($categories as $category) { ?>
-  <?php if ($category['category_id'] == $category_id) { ?>
-  <a href="<?php echo $category['href']; ?>" class="list-group-item active"><?php echo $category['name']; ?></a>
-  <?php if ($category['children']) { ?>
-  <?php foreach ($category['children'] as $child) { ?>
-  <?php if ($child['category_id'] == $child_id) { ?>
-  <a href="<?php echo $child['href']; ?>" class="list-group-item active">&nbsp;&nbsp;&nbsp;- <?php echo $child['name']; ?></a>
-  <?php } else { ?>
-  <a href="<?php echo $child['href']; ?>" class="list-group-item">&nbsp;&nbsp;&nbsp;- <?php echo $child['name']; ?></a>
-  <?php } ?>
-  <?php } ?>
-  <?php } ?>
-  <?php } else { ?>
-  <a href="<?php echo $category['href']; ?>" class="list-group-item"><?php echo $category['name']; ?></a>
-  <?php } ?>
-  <?php } ?>
+<div class="list-group line-dark-before"  style="width:263px; height: 361px">
+	<h4>Мебель</h4>
+	<div class="body">
+		<p>Шкафы</p>
+		<ul class="">
+			<li><a href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a></li>
+			<li><a href="<?php echo $categories[66]['href'] ?>">Угловые шкафы-купе</a></li>
+			<li><a href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a></li>
+			<li><a href="<?php echo $categories[59]['href'] ?>">Шкафы-Купе</a></li>
+			<li><a href="<?php echo $categories[64]['href'] ?>">Радиусные шкафы-купе</a></li>
+		</ul>
+		<div class="text"><a href="<?php echo $categories[69]['href'] ?>">Прихожие</a></div>
+		<div class="text"><a href="<?php echo $categories[68]['href'] ?>">Гардеробные</a></div>
+		<div class="text"><a href="<?php echo $categories[70]['href'] ?>">Наши работы</a></div>
+	</div>
+
+
 </div>

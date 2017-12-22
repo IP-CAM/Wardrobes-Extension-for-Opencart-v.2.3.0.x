@@ -16,7 +16,8 @@ $_['column_action']          = 'Действие';
 
 // Entry
 $_['entry_name']             = 'Категория';
-$_['entry_description']      = 'Описание';
+$_['entry_description']      = 'Описание вверху';
+$_['entry_description_down']      = 'Описание внизу';
 $_['entry_meta_title'] 	     = 'Мета-тег Title';
 $_['entry_meta_keyword']     = 'Мета-тег Keywords';
 $_['entry_meta_description'] = 'Мета-тег Description';

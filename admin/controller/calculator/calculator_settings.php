@@ -26,7 +26,7 @@ class ControllerCalculatorCalculatorSettings extends Controller {
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
-
+        $data['entry_title'] = $this->language->get('entry_title');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
 		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
@@ -61,7 +61,7 @@ class ControllerCalculatorCalculatorSettings extends Controller {
         $data['success'] = $this->success;
 
 
-        $calculator_info = $this->model_calculator_calculator_settings->getCalculator(1);
+        $calculator_info = $this->model_calculator_calculator_settings->getCalculator(0);
 
 
 
@@ -86,46 +86,6 @@ class ControllerCalculatorCalculatorSettings extends Controller {
 		$this->response->setOutput($this->load->view('calculator/calculator_settings', $data));
 	}
 
-	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'calculator/calculator_settings')) {
-			$this->error['warning'] = $this->language->get('error_permission');
-		}
-
-		foreach ($this->request->post['calculator_description'] as $language_id => $value) {
-			if ((utf8_strlen($value['title']) < 3) || (utf8_strlen($value['title']) > 64)) {
-				$this->error['title'][$language_id] = $this->language->get('error_title');
-			}
-
-			if (utf8_strlen($value['description']) < 3) {
-				$this->error['description'][$language_id] = $this->language->get('error_description');
-			}
-
-			if ((utf8_strlen($value['meta_title']) < 3) || (utf8_strlen($value['meta_title']) > 255)) {
-				$this->error['meta_title'][$language_id] = $this->language->get('error_meta_title');
-			}
-		}
-
-		if (utf8_strlen($this->request->post['keyword']) > 0) {
-			$this->load->model('catalog/url_alias');
-
-			$url_alias_info = $this->model_catalog_url_alias->getUrlAlias($this->request->post['keyword']);
-
-			if ($url_alias_info && isset($this->request->get['calculator_id']) && $url_alias_info['query'] != 'calculator_id=' . $this->request->get['calculator_id']) {
-				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
-			}
-
-			if ($url_alias_info && !isset($this->request->get['calculator_id'])) {
-				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
-			}
-		}
-
-		if ($this->error && !isset($this->error['warning'])) {
-			$this->error['warning'] = $this->language->get('error_warning');
-		}
-
-		return !$this->error;
-	}
-
 
     public function edit()
     {
@@ -134,7 +94,7 @@ class ControllerCalculatorCalculatorSettings extends Controller {
 
         $this->load->language('calculator/calculator_settings');
 
-        $this->model_calculator_calculator_settings->editCalculator('1', $this->request->post);
+        $this->model_calculator_calculator_settings->editCalculator('0', $this->request->post);
 
         $this->success = $this->language->get('success_update');
 

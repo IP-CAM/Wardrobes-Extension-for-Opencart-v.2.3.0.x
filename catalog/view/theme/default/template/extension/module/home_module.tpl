@@ -5,7 +5,7 @@
 	<div class="close_window">x</div>
 </div>
 <!-- MODAL WINDOW BEGIN END -->
-<div class="container">
+
 	<div class="row" id="tile_banner">
 		<div class="col-sm-4 text-center">
 
@@ -60,19 +60,19 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 <!-- TILE BANNER END -->
 
 <!-- COMMENTS BEGIN -->
-<div class="container">
+
 	<div class="row" id="main_inscription">
 		<div class="col-sm-12 text-center">
 			<h1>Отзывы наших клиентов</h1>
 		</div>
 	</div>
-</div>
 
-<div class="container">
+
+
 	<div class="row" id="tile_banner">
 
 		<?php foreach($comments as $comment) { ?>
@@ -105,21 +105,20 @@
 		<?php } ?>
 
 	</div>
-</div>
+
 <!-- COMMENTS END -->
 
 
 <!-- SERVICE BEGIN -->
-<div class="container">
+
 	<div class="row" id="main_inscription">
 		<div class="col-sm-12 text-center">
 			<h1>Получите в подарок выезд <br/>
 				дизайнера и технолога на дом</h1>
 		</div>
 	</div>
-</div>
 
-<div class="container">
+
 	<div class="row" id="tile_banner">
 		<div class="">
 			<div class=" col-sm-6">
@@ -157,7 +156,7 @@
 
 		</div>
 	</div>
-</div>
+
 <!-- SERVICE END -->
 
 <script type="text/javascript">

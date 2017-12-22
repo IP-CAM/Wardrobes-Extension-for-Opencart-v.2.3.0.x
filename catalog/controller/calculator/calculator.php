@@ -14,7 +14,7 @@ class ControllerCalculatorCalculator extends Controller {
 		);
 
         //of table Calculator_description
-		$calculator_info = $this->model_calculator_calculator->getCalculator(1);
+		$calculator_info = $this->model_calculator_calculator->getCalculator(0);
         $this->document->addScript('catalog/view/javascript/calculator.js');
         $this->document->addScript('catalog/view/javascript/modal_window.js');
 
@@ -28,6 +28,18 @@ class ControllerCalculatorCalculator extends Controller {
 
      //   $this->document->addStyle('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.css');
      //   $this->document->addScript('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.js');
+        $this->load->language('common/header');
+        $data['breadcrumbs'] = array();
+
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_home'),
+            'href' => $this->url->link('common/home')
+        );
+
+        $data['breadcrumbs'][] = array(
+            'text' => $calculator_info['title'],
+            'href' => $this->url->link('calculator/calculator')
+        );
 
 
         $this->document->setTitle($calculator_info['meta_title']);
@@ -35,10 +47,7 @@ class ControllerCalculatorCalculator extends Controller {
         $this->document->setKeywords($calculator_info['meta_keyword']);
 
 
-        $data['breadcrumbs'][] = array(
-            'text' => $calculator_info['title'],
-            'href' => $this->url->link('calculator/calculator')
-        );
+
 
         $this->getContent($data, $calculator_info);
 
@@ -76,6 +85,8 @@ class ControllerCalculatorCalculator extends Controller {
 
         $categories_root = $this->model_catalog_category->getCategories(0);
 
+
+        //sort begin
         $key_cat = array();
         foreach($categories_root as $key=>$category_root){
             $key_cat[] = $category_root['category_id'];
@@ -90,6 +101,7 @@ class ControllerCalculatorCalculator extends Controller {
             }
         }
         $categories_root = $cat_root;
+        //sort end
 
 
 
@@ -122,6 +134,7 @@ class ControllerCalculatorCalculator extends Controller {
         if($type == 'categories') {
             $categories = $this->model_catalog_category->getCategories($id);
             $this->normalizationImageLink($categories, $server);
+            $this->normalizationName($categories);
             $json['data'] = $categories;
             $json['type'] = 'categories';
         }
@@ -141,6 +154,18 @@ class ControllerCalculatorCalculator extends Controller {
         foreach($containers as $key => $container) {
             $containers[$key]['image'] = $server . '/image/'. $container['image'];
 
+        }
+    }
+
+    private function normalizationName(&$categories){
+        foreach($categories as $key=>$category){
+            $name = $category['name'];
+            $name = trim($name);
+            $position = strpos($name,' ');
+            if($position != 0 && $category['parent_id'] != 0) {
+                $name = substr($name, 0, $position);
+            }
+            $categories[$key]['name'] = $name;
         }
     }
 }

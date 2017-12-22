@@ -55,6 +55,12 @@
                       <textarea name="category_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['description'] : ''; ?></textarea>
                     </div>
                   </div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="input-description_down<?php echo $language['language_id']; ?>"><?php echo $entry_description_down; ?></label>
+						<div class="col-sm-10">
+							<textarea name="category_description[<?php echo $language['language_id']; ?>][description_down]" placeholder="<?php echo $entry_description_down; ?>" id="input-description_down<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['description_down'] : ''; ?></textarea>
+						</div>
+					</div>
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
                     <div class="col-sm-10">

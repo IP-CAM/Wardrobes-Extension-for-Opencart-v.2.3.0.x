@@ -39,12 +39,18 @@ class ControllerProductCategory extends Controller {
 			$limit = $this->config->get($this->config->get('config_theme') . '_product_limit');
 		}
 
-		$data['breadcrumbs'] = array();
+        $this->load->language('common/header');
+        $data['breadcrumbs'] = array();
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
-		);
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_home'),
+            'href' => $this->url->link('common/home')
+        );
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_cupboard'),
+            'href' => $this->url->link('generalcatalog/generalcatalog')
+        );
+
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
@@ -75,7 +81,6 @@ class ControllerProductCategory extends Controller {
 				}
 
 				$category_info = $this->model_catalog_category->getCategory($path_id);
-
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
@@ -109,6 +114,7 @@ class ControllerProductCategory extends Controller {
 			$data['text_limit'] = $this->language->get('text_limit');
 
 			$data['button_cart'] = $this->language->get('button_cart');
+			$data['button_more_info_cart'] = $this->language->get('button_more_info_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
 			$data['button_compare'] = $this->language->get('button_compare');
 			$data['button_continue'] = $this->language->get('button_continue');
@@ -116,18 +122,16 @@ class ControllerProductCategory extends Controller {
 			$data['button_grid'] = $this->language->get('button_grid');
 
 			// Set the last category breadcrumb
-			$data['breadcrumbs'][] = array(
-				'text' => $category_info['name'],
-				'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'])
-			);
+            if(count($data['breadcrumbs']) < 3) {
+                $data['breadcrumbs'][] = array(
+                    'text' => $category_info['name'],
+                    'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'])
+                );
+            }
 
-			if ($category_info['image']) {
-				$data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get($this->config->get('config_theme') . '_image_category_width'), $this->config->get($this->config->get('config_theme') . '_image_category_height'));
-			} else {
-				$data['thumb'] = '';
-			}
 
 			$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
+			$data['description_down'] = html_entity_decode($category_info['description_down'], ENT_QUOTES, 'UTF-8');
 			$data['compare'] = $this->url->link('product/compare');
 
 			$url = '';
@@ -187,7 +191,7 @@ class ControllerProductCategory extends Controller {
 				}
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+					$price = $this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax'));
 				} else {
 					$price = false;
 				}
@@ -210,6 +214,7 @@ class ControllerProductCategory extends Controller {
 					$rating = false;
 				}
 
+                $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -374,6 +379,13 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+            $categories = $this->model_catalog_category->getCategoriesAll();
+            $children_data = array();
+            foreach ($categories as $category) {
+                $children_data[$category['category_id']]['href'] = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $category['category_id']);
+            }
+            $data['categories'] = $children_data;
+
 			$this->response->setOutput($this->load->view('product/category', $data));
 		} else {
 			$url = '';
@@ -428,5 +440,34 @@ class ControllerProductCategory extends Controller {
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
+
+
 	}
+    private function formatMany($number, $currency)
+    {
+        $value = '';
+        $format = true;
+        $decimal_place = $this->currencies[$currency]['decimal_place'];
+
+        if (!$value) {
+            $value = $this->currencies[$currency]['value'];
+        }
+
+        $amount = $value ? (float)$number * $value : (float)$number;
+
+        $amount = round($amount, (int)$decimal_place);
+
+        if (!$format) {
+            return $amount;
+        }
+
+        $string = '';
+        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
+
+        $symbol_right =  " &#8381";
+        $string .= $symbol_right;
+
+        return $string;
+    }
 }
+

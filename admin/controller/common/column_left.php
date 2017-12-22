@@ -373,6 +373,63 @@ class ControllerCommonColumnLeft extends Controller {
                 );
             }
 
+            $aboutcompany = array();
+            if ($this->user->hasPermission('access', 'aboutcompany/aboutcompany')) {
+                $aboutcompany[] = array(
+                    'name'	   => $this->language->get('text_aboutcompany'),
+                    'href'     => $this->url->link('aboutcompany/aboutcompany', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+
+            if ($aboutcompany) {
+                $data['menus'][] = array(
+                    'id'       => 'menu-aboutcompany-client',
+                    'icon'     => 'fa-user',
+                    'name'     => $this->language->get('text_aboutcompany_main'),
+                    'href'     => '',
+                    'children' => $aboutcompany
+                );
+            }
+
+
+            $contacts = array();
+            if ($this->user->hasPermission('access', 'contacts/contacts')) {
+                $contacts[] = array(
+                    'name'	   => $this->language->get('text_contacts'),
+                    'href'     => $this->url->link('contacts/contacts', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+
+            if ($contacts) {
+                $data['menus'][] = array(
+                    'id'       => 'menu-contacts-client',
+                    'icon'     => 'fa-user',
+                    'name'     => $this->language->get('text_contacts_main'),
+                    'href'     => '',
+                    'children' => $contacts
+                );
+            }
+
+
+            $generalcatalog = array();
+            if ($this->user->hasPermission('access', 'generalcatalog/generalcatalog')) {
+                $generalcatalog[] = array(
+                    'name'	   => $this->language->get('text_generalcatalog'),
+                    'href'     => $this->url->link('generalcatalog/generalcatalog', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($generalcatalog) {
+                $data['menus'][] = array(
+                    'id'       => 'menu-generalcatalog-client',
+                    'icon'     => 'fa-user',
+                    'name'     => $this->language->get('text_generalcatalog_main'),
+                    'href'     => '',
+                    'children' => $generalcatalog
+                );
+            }
 
 			
 			// Marketing
