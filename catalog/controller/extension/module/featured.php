@@ -3,6 +3,9 @@ class ControllerExtensionModuleFeatured extends Controller {
 	public function index($setting) {
 		$this->load->language('extension/module/featured');
 
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_tax'] = $this->language->get('text_tax');
@@ -11,6 +14,8 @@ class ControllerExtensionModuleFeatured extends Controller {
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
 		$data['button_compare'] = $this->language->get('button_compare');
 
+        $data['button_more_info_cart'] = $this->language->get('button_more_info_cart');
+
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
@@ -18,9 +23,9 @@ class ControllerExtensionModuleFeatured extends Controller {
 		$data['products'] = array();
 
 		if (!$setting['limit']) {
-			$setting['limit'] = 4;
+			$setting['limit'] = 6;
 		}
-
+        $setting['limit'] = 6;
 		if (!empty($setting['product'])) {
 			$products = array_slice($setting['product'], 0, (int)$setting['limit']);
 
@@ -35,8 +40,9 @@ class ControllerExtensionModuleFeatured extends Controller {
 					}
 
 					if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-						$price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-					} else {
+                        $price = $this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax'));
+                        $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
+                    } else {
 						$price = false;
 					}
 
@@ -77,4 +83,31 @@ class ControllerExtensionModuleFeatured extends Controller {
 			return $this->load->view('extension/module/featured', $data);
 		}
 	}
+
+    private function formatMany($number, $currency)
+    {
+        $value = '';
+        $format = true;
+        $decimal_place = $this->currencies[$currency]['decimal_place'];
+
+        if (!$value) {
+            $value = $this->currencies[$currency]['value'];
+        }
+
+        $amount = $value ? (float)$number * $value : (float)$number;
+
+        $amount = round($amount, (int)$decimal_place);
+
+        if (!$format) {
+            return $amount;
+        }
+
+        $string = '';
+        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
+
+        $symbol_right =  " &#8381";
+        $string .= $symbol_right;
+
+        return $string;
+    }
 }

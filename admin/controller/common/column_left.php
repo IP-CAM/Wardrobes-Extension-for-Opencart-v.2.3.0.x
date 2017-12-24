@@ -126,14 +126,6 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
-			if ($this->user->hasPermission('access', 'catalog/review')) {		
-				$catalog[] = array(
-					'name'	   => $this->language->get('text_review'),
-					'href'     => $this->url->link('catalog/review', 'token=' . $this->session->data['token'], true),
-					'children' => array()		
-				);		
-			}
-			
 			if ($this->user->hasPermission('access', 'catalog/information')) {		
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_information'),
@@ -428,6 +420,53 @@ class ControllerCommonColumnLeft extends Controller {
                     'name'     => $this->language->get('text_generalcatalog_main'),
                     'href'     => '',
                     'children' => $generalcatalog
+                );
+            }
+
+
+
+            $special = array();
+            if ($this->user->hasPermission('access', 'special/special')) {
+                $special[] = array(
+                    'name'	   => $this->language->get('text_special'),
+                    'href'     => $this->url->link('special/special', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($special) {
+                $data['menus'][] = array(
+                    'id'       => 'menu-special-client',
+                    'icon'     => 'fa-user',
+                    'name'     => $this->language->get('text_special_main'),
+                    'href'     => '',
+                    'children' => $special
+                );
+            }
+
+
+            $review = array();
+
+            if ($this->user->hasPermission('access', 'review/review')) {
+                $review[] = array(
+                    'name'	   => $this->language->get('text_review'),
+                    'href'     => $this->url->link('review/review', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($this->user->hasPermission('access', 'review/review_settings')) {
+                $review[] = array(
+                    'name'	   => $this->language->get('text_review_settings'),
+                    'href'     => $this->url->link('review/review_settings', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+            if ($review) {
+                $data['menus'][] = array(
+                    'id'       => 'menu-review-client',
+                    'icon'     => 'fa-user',
+                    'name'     => $this->language->get('text_review_main'),
+                    'href'     => '',
+                    'children' => $review
                 );
             }
 

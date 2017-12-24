@@ -139,7 +139,7 @@
   </div>
   <script type="text/javascript"><!--
 $('#button-filter').on('click', function() {
-	url = 'index.php?route=catalog/review&token=<?php echo $token; ?>';
+	url = 'index.php?route=review/review&token=<?php echo $token; ?>';
 	
 	var filter_product = $('input[name=\'filter_product\']').val();
 	

@@ -64,9 +64,9 @@
                     </div>
                   </div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="input-characteristics<?php echo $language['language_id']; ?>"><?php echo $entry_characteristics; ?></label>
+						<label class="col-sm-2 control-label" for="input-characteristic<?php echo $language['language_id']; ?>"><?php echo $entry_characteristic; ?></label>
 						<div class="col-sm-10">
-							<textarea name="product_description[<?php echo $language['language_id']; ?>][characteristics]" placeholder="<?php echo $entry_characteristics; ?>" id="input-characteristics<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['characteristics'] : ''; ?></textarea>
+							<textarea name="product_description[<?php echo $language['language_id']; ?>][characteristic]" placeholder="<?php echo $entry_characteristics; ?>" id="input-characteristics<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['characteristic'] : ''; ?></textarea>
 						</div>
 					</div>
                   <div class="form-group required">
@@ -266,7 +266,7 @@
 					  <input type="text" name="height" value="<?php echo $height; ?>" placeholder="<?php echo $entry_height; ?>" id="input-height" class="form-control" />
 				  </div>
                     <div class="col-sm-4">
-                      <input type="text" name="length" value="<?php echo $length; ?>" placeholder="<?php echo $entry_length; ?>" id="input-length" class="form-control" />
+                      <input type="text" name="depth" value="<?php echo $depth; ?>" placeholder="<?php echo $entry_depth; ?>" id="input-depth" class="form-control" />
                     </div>
 
 
@@ -274,7 +274,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-length-class"><?php echo $entry_length_class; ?></label>
+                <label class="col-sm-2 control-label" for="input-length-class"><?php echo $entry_depth_class; ?></label>
                 <div class="col-sm-10">
                   <select name="length_class_id" id="input-length-class" class="form-control">
                     <?php foreach ($length_classes as $length_class) { ?>

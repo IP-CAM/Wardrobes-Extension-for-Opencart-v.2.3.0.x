@@ -3,14 +3,24 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+
+        $this->document->addScript('catalog/view/javascript/modal_window.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 		$this->load->language('product/product');
 
+
+        $this->load->language('common/header');
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_cupboard'),
+            'href' => $this->url->link('generalcatalog/generalcatalog')
+        );
 
 		$this->load->model('catalog/category');
 
@@ -257,7 +267,7 @@ class ControllerProductProduct extends Controller {
 			$data['button_upload'] = $this->language->get('button_upload');
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$this->load->model('catalog/review');
+			$this->load->model('review/review');
 
 			$data['tab_description'] = $this->language->get('tab_description');
 			$data['tab_attribute'] = $this->language->get('tab_attribute');
@@ -270,6 +280,7 @@ class ControllerProductProduct extends Controller {
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
+			$data['characteristic'] = html_entity_decode($product_info['characteristic'], ENT_QUOTES, 'UTF-8');
 
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];
@@ -288,7 +299,7 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if ($product_info['image']) {
-				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'));
+				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
 			} else {
 				$data['thumb'] = '';
 			}
@@ -305,10 +316,12 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				$price = $this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax'));
+                $data['price'] = 'от ' . $this->formatMany($price, $this->session->data['currency']);
 			} else {
 				$data['price'] = false;
 			}
+
 
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -388,7 +401,8 @@ class ControllerProductProduct extends Controller {
 				$data['customer_name'] = '';
 			}
 
-			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
+			//$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
+            $data['reviews'] = $this->model_review_review->getReviewsByProductId($product_id);
 			$data['rating'] = (int)$product_info['rating'];
 
 			// Captcha
@@ -475,6 +489,16 @@ class ControllerProductProduct extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+            $data['home'] = $this->url->link('common/home');
+            $data['calculator'] = $this->url->link('calculator/calculator');
+            $data['aboutcompany'] = $this->url->link('aboutcompany/aboutcompany');
+            $data['contacts'] = $this->url->link('contacts/contacts');
+            $data['generalcatalog'] = $this->url->link('generalcatalog/generalcatalog');
+
+            $data['width'] = $product_info['width'];
+            $data['height'] = $product_info['height'];
+            $data['depth'] = $product_info['depth'];
+
 			$this->response->setOutput($this->load->view('product/product', $data));
 		} else {
 			$url = '';
@@ -558,7 +582,7 @@ class ControllerProductProduct extends Controller {
 	public function review() {
 		$this->load->language('product/product');
 
-		$this->load->model('catalog/review');
+		$this->load->model('review/review');
 
 		$data['text_no_reviews'] = $this->language->get('text_no_reviews');
 
@@ -570,9 +594,9 @@ class ControllerProductProduct extends Controller {
 
 		$data['reviews'] = array();
 
-		$review_total = $this->model_catalog_review->getTotalReviewsByProductId($this->request->get['product_id']);
+		$review_total = $this->model_review_review->getTotalReviewsByProductId($this->request->get['product_id']);
 
-		$results = $this->model_catalog_review->getReviewsByProductId($this->request->get['product_id'], ($page - 1) * 5, 5);
+		$results = $this->model_review_review->getReviewsByProductId($this->request->get['product_id'], ($page - 1) * 5, 5);
 
 		foreach ($results as $result) {
 			$data['reviews'][] = array(
@@ -624,9 +648,9 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if (!isset($json['error'])) {
-				$this->load->model('catalog/review');
+				$this->load->model('review/review');
 
-				$this->model_catalog_review->addReview($this->request->get['product_id'], $this->request->post);
+				$this->model_review_review->addReview($this->request->get['product_id'], $this->request->post);
 
 				$json['success'] = $this->language->get('text_success');
 			}
@@ -695,4 +719,32 @@ class ControllerProductProduct extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+
+    private function formatMany($number, $currency)
+    {
+        $value = '';
+        $format = true;
+        $decimal_place = $this->currencies[$currency]['decimal_place'];
+
+        if (!$value) {
+            $value = $this->currencies[$currency]['value'];
+        }
+
+        $amount = $value ? (float)$number * $value : (float)$number;
+
+        $amount = round($amount, (int)$decimal_place);
+
+        if (!$format) {
+            return $amount;
+        }
+
+        $string = '';
+        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
+
+        $symbol_right =  " &#8381";
+        $string .= $symbol_right;
+
+        return $string;
+    }
 }

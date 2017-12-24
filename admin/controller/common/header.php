@@ -95,13 +95,13 @@ class ControllerCommonHeader extends Controller {
 			$data['product'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&filter_quantity=0', true);
 
 			// Reviews
-			$this->load->model('catalog/review');
+			$this->load->model('review/review');
 
-			$review_total = $this->model_catalog_review->getTotalReviews(array('filter_status' => 0));
+			$review_total = $this->model_review_review->getTotalReviews(array('filter_status' => 0));
 
 			$data['review_total'] = $review_total;
 
-			$data['review'] = $this->url->link('catalog/review', 'token=' . $this->session->data['token'] . '&filter_status=0', true);
+			$data['review'] = $this->url->link('review/review', 'token=' . $this->session->data['token'] . '&filter_status=0', true);
 
 			// Affliate
 			$this->load->model('marketing/affiliate');

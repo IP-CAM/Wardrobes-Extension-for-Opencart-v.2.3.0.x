@@ -107,16 +107,11 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-date-added"><?php echo $entry_date_added; ?></label>
-            <div class="col-sm-3">
-              <div class="input-group datetime">
-                <input type="text" name="date_added" value="<?php echo $date_added; ?>" placeholder="<?php echo $entry_date_added; ?>" data-date-format="YYYY-MM-DD HH:mm:ss" id="input-date-added" class="form-control" />
-                <span class="input-group-btn">
-                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                </span>
-              </div>
-            </div>
-          </div>
+				<label class="col-sm-2 control-label" for="input-author"><?php echo $entry_date_added; ?></label>
+				<div class="col-sm-10">
+					<input type="text" name="date_added" value="<?php echo $date_added; ?>" placeholder="<?php echo $entry_date_added; ?>" id="input-date_added" class="form-control" />
+				</div>
+			</div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
             <div class="col-sm-10">

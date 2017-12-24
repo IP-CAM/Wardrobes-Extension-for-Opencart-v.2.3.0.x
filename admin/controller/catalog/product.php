@@ -561,7 +561,7 @@ class ControllerCatalogProduct extends Controller {
 
         $data['entry_name'] = $this->language->get('entry_name');
         $data['entry_description'] = $this->language->get('entry_description');
-        $data['entry_characteristics'] = $this->language->get('entry_characteristics');
+        $data['entry_characteristic'] = $this->language->get('entry_characteristic');
         $data['entry_meta_title'] = $this->language->get('entry_meta_title');
         $data['entry_meta_description'] = $this->language->get('entry_meta_description');
         $data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
@@ -587,8 +587,8 @@ class ControllerCatalogProduct extends Controller {
         $data['entry_weight_class'] = $this->language->get('entry_weight_class');
         $data['entry_weight'] = $this->language->get('entry_weight');
         $data['entry_dimension'] = $this->language->get('entry_dimension');
-        $data['entry_length_class'] = $this->language->get('entry_length_class');
-        $data['entry_length'] = $this->language->get('entry_length');
+        $data['entry_depth_class'] = $this->language->get('entry_depth_class');
+        $data['entry_depth'] = $this->language->get('entry_depth');
         $data['entry_width'] = $this->language->get('entry_width');
         $data['entry_height'] = $this->language->get('entry_height');
         $data['entry_image'] = $this->language->get('entry_image');
@@ -962,12 +962,12 @@ class ControllerCatalogProduct extends Controller {
             $data['weight_class_id'] = $this->config->get('config_weight_class_id');
         }
 
-        if (isset($this->request->post['length'])) {
-            $data['length'] = $this->request->post['length'];
+        if (isset($this->request->post['depth'])) {
+            $data['depth'] = $this->request->post['depth'];
         } elseif (!empty($product_info)) {
-            $data['length'] = $product_info['length'];
+            $data['depth'] = $product_info['depth'];
         } else {
-            $data['length'] = '';
+            $data['depth'] = '';
         }
 
         if (isset($this->request->post['width'])) {

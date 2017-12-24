@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<div class="container">
+<div class="container" id="category">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 		<?php if(!next($breadcrumbs)) { ?>
@@ -51,7 +51,7 @@
 		  </div>
       </div>
       <?php if ($products) { ?>
-		<div class="row select-product-box" style="margin-top: 40px; margin-right: -36px;">
+		<div class="row select-product-box" style="margin-top: 22px;">
 			<div class="col-lg-6">
 				<div class="input-select" style="display: table;">
 					<label class=""
@@ -97,34 +97,17 @@
           <div class="product-thumb">
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
 
-              <div class="caption">
-                <h3><?php echo $product['name']; ?></h3>
-                <?php if ($product['price']) { ?>
-                <p class="price">
-                  <?php if (!$product['special']) { ?>
-                  <?php echo $product['price']; ?>
-                  <?php } else { ?>
-                  <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                  <?php } ?>
-                  <?php if ($product['tax']) { ?>
-                  <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                  <?php } ?>
-                </p>
-                <?php } ?>
-                <?php if ($product['rating']) { ?>
-                <div class="rating">
-                  <?php for ($i = 1; $i <= 5; $i++) { ?>
-                  <?php if ($product['rating'] < $i) { ?>
-                  <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                  <?php } else { ?>
-                  <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                  <?php } ?>
-                  <?php } ?>
-                </div>
-                <?php } ?>
-              </div>
-               <button type="button" class="btn pull-left btn-danger" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_more_info_cart; ?></span></button>
+			  <p class="font-size-16 font-type-verdana dark name"><?php echo $product['name']; ?></p>
+			  <?php if ($product['price']) { ?>
+			  <?php if (!$product['special']) { ?>
+			  <p class="price dark font-size-18 font-type-verdana font-bold font-italic" style="text-align: left;"><?php echo trim($product['price']); ?></p>
+			  <?php } else { ?>
+			  <p class="price dark font-size-18 font-type-verdana font-bold font-italic" style="text-align: left;"><span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span></p>
+			  <?php } ?>
+			  <?php } ?>
 
+               <button type="button" class="btn pull-left btn-danger" onClick='location.href="<?php echo $product['href']; ?>"'><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_more_info_cart; ?></span></button>
+			</div>
           </div>
         </div>
         <?php } ?>
@@ -141,10 +124,11 @@
       </div>
       <?php } ?>
 
-		<?php echo $content_bottom; ?></div>
 
+	</div>
+	  <?php echo $content_bottom; ?>
 		  <?php if ($description_down) { ?>
-		  <div class="col-sm-12"><?php echo $description_down; ?></div>
+		  <div class="col-sm-12 text"><?php echo $description_down; ?></div>
 		  <?php } ?>
 
 

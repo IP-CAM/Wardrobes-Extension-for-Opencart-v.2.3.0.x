@@ -24,7 +24,7 @@ class ControllerCalculatorCalculator extends Controller {
         $this->document->addStyle('catalog/view/javascript/jquery/slider/bootstrap-slider.css');
         $this->document->addScript('catalog/view/javascript/jquery/slider/bootstrap-slider.js');
 
-        $this->document->addScript('catalog/view/javascript/jquery/maskedinput/jquery.maskedinput.min.js');
+      //  $this->document->addScript('catalog/view/javascript/jquery/maskedinput/jquery.maskedinput.min.js');
 
      //   $this->document->addStyle('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.css');
      //   $this->document->addScript('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.js');
