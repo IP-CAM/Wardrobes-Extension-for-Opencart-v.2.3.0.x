@@ -1,5 +1,5 @@
 body {
-    font-family: 'Time new romans', sans-serif;
+    font-family: 'Georgia', sans-serif;
     font-weight: 400;
     color: #666;
     color: #212121;
@@ -132,6 +132,7 @@ span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {
 .nav-tabs {
     margin-bottom: 8px;
     margin-top: 375px;
+    width: 735px;
 }
 
 div.required .control-label:before {
@@ -1860,9 +1861,9 @@ footer #f-padding {
     display: none;
 }
 #product .nav.nav-tabs .button p {
-    padding: 5px;
-    margin: 7px;
-    font-size: 17px;
+    padding: 5px!important;
+    margin: 7px!important;
+    font-size: 16px;
 }
 
 #product .nav.nav-tabs .active-button  {
@@ -2017,6 +2018,12 @@ footer #f-padding {
     top: -12px;
     left: -11px;
 }
+#product .empty-review{
+    height: 123px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #product #text-name {
     margin-left: 11px;
@@ -2031,7 +2038,7 @@ footer #f-padding {
 }
 
 #product .phone-box input[type="text"]{
-    width: 172px;
+    width: 170px;
 }
 #product .phone-box input{
     margin-top: 22px;
@@ -2116,6 +2123,16 @@ footer #f-padding {
 
 
 
+#special #product-box {
+    width: 842px;
+    position: relative;
+    height: 872px;
+    margin: auto;
+}
+
+#special #discounts-text {
+    margin-bottom: 22px;
+}
 
 
 
@@ -2188,6 +2205,10 @@ footer #f-padding {
     height: 25px;
     background-color: #d9d9d9;
 }
+
+.line-red {
+    margin-left: 3px;
+}
 .line-red:after {
     position: relative;
     width: 233px;
@@ -2196,6 +2217,7 @@ footer #f-padding {
     top: 3px;
     content: ' ';
     display: block;
+    left: -3px;
 }
 
 .no-padding {
@@ -2232,7 +2254,7 @@ display: block;
 color: #000000;
 }
 .gray {
-color: #666666;
+color: #bdbbbb;
 }
 .red {
     color: #f2213e;
@@ -2301,6 +2323,8 @@ color: #666666;
     color: #312f0c;
     text-decoration: none;
 }
+
+
 
 body {
     /*background: url(../image/catalog_damp.png) no-repeat;*/

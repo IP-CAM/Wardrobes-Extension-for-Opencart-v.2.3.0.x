@@ -178,11 +178,13 @@
 							<label class="col-sm-2 control-label" for="input-product"><span data-toggle="tooltip" title="<?php echo $help_product; ?>"><?php echo $entry_product_discounts; ?></span></label>
 							<div class="col-sm-10">
 								<input type="text" name="product_name_discounts" value="" placeholder="<?php echo $entry_product_discounts; ?>" id="input-product" class="form-control" />
-								<div id="featured-product" class="well well-sm" style="height: 150px; overflow: auto;">
-									<?php foreach ($products_discounts as $product_discounts) { ?>
-									<div id="featured-product<?php echo $product_discounts['product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_discounts['name']; ?>
-										<input type="hidden" name="product_discounts[]" value="<?php echo $product_discounts['product_id']; ?>" />
-									</div>
+								<div id="featured-product-discounts" class="well well-sm" style="height: 150px; overflow: auto;">
+									<?php if(isset($products_discounts)) { ?>
+										<?php foreach ($products_discounts as $product_discounts) { ?>
+										<div id="featured-product-discounts<?php echo $product_discounts['product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_discounts['name']; ?>
+											<input type="hidden" name="product_discounts[]" value="<?php echo $product_discounts['product_id']; ?>" />
+										</div>
+										<?php } ?>
 									<?php } ?>
 								</div>
 							</div>
@@ -192,7 +194,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="input-limit"><?php echo $entry_limit_discounts; ?></label>
 							<div class="col-sm-10">
-								<input type="text" name="limit" value="<?php echo $limit_discounts; ?>" placeholder="<?php echo $entry_limit_discounts; ?>" id="input-limit" class="form-control" />
+								<input type="text" name="limit_discounts" value="<?php echo $limit_discounts; ?>" placeholder="<?php echo $entry_limit_discounts; ?>" id="input-limit" class="form-control" />
 							</div>
 						</div>
 						<!-- LIMIT DISCOUNTS END -->
@@ -215,6 +217,50 @@
 						<!-- STATUS DISCOUNTS END -->
 
 
+						<!-- PRODUCT BESTSELLERS BEGIN -->
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-product"><span data-toggle="tooltip" title="<?php echo $help_product; ?>"><?php echo $entry_product_bestsellers; ?></span></label>
+							<div class="col-sm-10">
+								<input type="text" name="product_name_bestsellers" value="" placeholder="<?php echo $entry_product_bestsellers; ?>" id="input-product" class="form-control" />
+								<div id="featured-product-bestsellers" class="well well-sm" style="height: 150px; overflow: auto;">
+									<?php if(isset($products_bestsellers)) { ?>
+										<?php foreach ($products_bestsellers as $product_bestsellers) { ?>
+										<div id="featured-product-bestsellers<?php echo $product_bestsellers['product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_bestsellers['name']; ?>
+											<input type="hidden" name="product_bestsellers[]" value="<?php echo $product_bestsellers['product_id']; ?>" />
+										</div>
+										<?php } ?>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+						<!-- PRODUCT BESTSELLERS END -->
+						<!-- LIMIT BESTSELLERS BEGIN -->
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-limit"><?php echo $entry_limit_bestsellers; ?></label>
+							<div class="col-sm-10">
+								<input type="text" name="limit_bestsellers" value="<?php echo $limit_bestsellers; ?>" placeholder="<?php echo $entry_limit_bestsellers; ?>" id="input-limit" class="form-control" />
+							</div>
+						</div>
+						<!-- LIMIT BESTSELLERS END -->
+						<!-- STATUS BESTSELLERS BEGIN -->
+						<div class="form-group">
+							<label class="col-sm-2 control-label"
+								   for="input-status"><?php echo $entry_status_bestsellers; ?></label>
+							<div class="col-sm-10">
+								<select name="status_bestsellers" id="input-status" class="form-control">
+									<?php if ($status_bestsellers) { ?>
+									<option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+									<option value="0"><?php echo $text_disabled; ?></option>
+									<?php } else { ?>
+									<option value="1"><?php echo $text_enabled; ?></option>
+									<option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+						<!-- STATUS BESTSELLERS END -->
+
+
 						<div class="tab-pane" id="tab-data">
 
 
@@ -228,8 +274,8 @@
 	<link href="view/javascript/summernote/summernote.css" rel="stylesheet"/>
 	<script type="text/javascript" src="view/javascript/summernote/opencart.js"></script>
 
-	<script type="text/javascript"><!--
-		$('input[name=\'product_name\']').autocomplete({
+	<script type="text/javascript">
+		$('input[name=\'product_name_discounts\']').autocomplete({
 			source: function(request, response) {
 				$.ajax({
 					url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
@@ -245,15 +291,48 @@
 				});
 			},
 			select: function(item) {
-				$('input[name=\'product_name\']').val('');
 
-				$('#featured-product' + item['value']).remove();
+				$('input[name=\'product_name_discounts\']').val('');
 
-				$('#featured-product').append('<div id="featured-product' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product[]" value="' + item['value'] + '" /></div>');
+				$('#featured-product-discounts' + item['value']).remove();
+
+				$('#featured-product-discounts').append('<div id="featured-product-discounts' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_discounts[]" value="' + item['value'] + '" /></div>');
 			}
 		});
 
-		$('#featured-product').delegate('.fa-minus-circle', 'click', function() {
+		$('#featured-product-discounts').delegate('.fa-minus-circle', 'click', function() {
+			$(this).parent().remove();
+		});
+
+
+
+
+		$('input[name=\'product_name_bestsellers\']').autocomplete({
+			source: function(request, response) {
+				$.ajax({
+					url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+					dataType: 'json',
+					success: function(json) {
+						response($.map(json, function(item) {
+							return {
+								label: item['name'],
+								value: item['product_id']
+							}
+						}));
+					}
+				});
+			},
+			select: function(item) {
+
+				$('input[name=\'product_name_bestsellers\']').val('');
+
+				$('#featured-product-bestsellers' + item['value']).remove();
+
+				$('#featured-product-bestsellers').append('<div id="featured-product-bestsellers' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_discounts[]" value="' + item['value'] + '" /></div>');
+			}
+		});
+
+		$('#featured-product-bestsellers').delegate('.fa-minus-circle', 'click', function() {
 			$(this).parent().remove();
 		});
 		//--></script>

@@ -22,7 +22,7 @@ class ControllerSpecialSpecial extends Controller {
 
             $this->session->data['success'] = $this->language->get('text_success');
 
-            $this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=module', true));
+            $this->response->redirect($this->url->link('special/special', 'token=' . $this->session->data['token'] . '&type=module', true));
         }
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -54,6 +54,7 @@ class ControllerSpecialSpecial extends Controller {
 
 		$data['help_keyword'] = $this->language->get('help_keyword');
 		$data['help_bottom'] = $this->language->get('help_bottom');
+        $data['help_product'] = $this->language->get('help_product');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -76,7 +77,7 @@ class ControllerSpecialSpecial extends Controller {
         $data['error_keyword'] = null;
         $data['success'] = $this->success;
 
-
+        $data['token'] = $this->session->data['token'];
         $special_info = $this->model_special_special->getSpecial(0);
 
 
@@ -92,32 +93,36 @@ class ControllerSpecialSpecial extends Controller {
         $data['limit_discounts'] = $special_info['limit_discounts'];
         $data['status_discounts'] = $special_info['status_discounts'];
         $product_discounts = $special_info['product_discounts'];
-        $product_discounts = json_decode($product_discounts, true);
-        foreach ($product_discounts['product'] as $product_discounts_id) {
-            $product_info = $this->model_catalog_product->getProduct($product_discounts_id);
-            if ($product_info) {
-                $data['products_discounts'][] = array(
-                    'product_id' => $product_info['product_id'],
-                    'name'       => $product_info['name']
-                );
+        if($product_discounts != '') {
+            $product_discounts = json_decode($product_discounts, true);
+            foreach ($product_discounts['product'] as $product_discounts_id) {
+                $product_info = $this->model_catalog_product->getProduct($product_discounts_id);
+                if ($product_info) {
+                    $data['products_discounts'][] = array(
+                        'product_id' => $product_info['product_id'],
+                        'name'       => $product_info['name']
+                    );
+                }
             }
         }
+
 
 
         $data['limit_bestsellers'] = $special_info['limit_bestsellers'];
         $data['status_bestsellers'] = $special_info['status_bestsellers'];
         $product_bestsellers = $special_info['product_bestsellers'];
-        $product_bestsellers = json_decode($product_bestsellers, true);
-        foreach ($product_bestsellers as $product_bestsellers_id) {
-            $product_info = $this->model_catalog_product->getProduct($product_bestsellers_id);
-            if ($product_info) {
-                $data['product_bestsellers'][] = array(
-                    'product_id' => $product_info['product_id'],
-                    'name'       => $product_info['name']
-                );
+        if($product_bestsellers != '') {
+            $product_bestsellers = json_decode($product_bestsellers, true);
+            foreach ($product_bestsellers['product'] as $product_bestsellers_id) {
+                $product_info = $this->model_catalog_product->getProduct($product_bestsellers_id);
+                if ($product_info) {
+                    $data['products_bestsellers'][] = array(
+                        'product_id' => $product_info['product_id'],
+                        'name'       => $product_info['name']
+                    );
+                }
             }
         }
-
 
 
 		$data['header'] = $this->load->controller('common/header');
@@ -127,12 +132,6 @@ class ControllerSpecialSpecial extends Controller {
 
 
         //product
-
-
-
-
-
-
 
         if (isset($this->request->post['width'])) {
             $data['width'] = $this->request->post['width'];
@@ -183,8 +182,25 @@ class ControllerSpecialSpecial extends Controller {
         $this->load->model('special/special');
 
         $this->load->language('special/special');
+        $data = $this->request->post;
 
-        $this->model_special_special->editSpecial('0', $this->request->post);
+        if(isset($data['product_discounts'])) {
+            $product = array();
+            $product['product'] = $this->request->post['product_discounts'];
+            $data['product_discounts'] = json_encode($product);
+        } else {
+            $data['product_discounts'] = '';
+        }
+
+        if(isset($data['product_bestsellers'])) {
+            $product = array();
+            $product['product'] = $this->request->post['product_bestsellers'];
+            $data['product_bestsellers'] = json_encode($product);
+        } else {
+            $data['product_bestsellers'] = '';
+        }
+
+        $this->model_special_special->editSpecial('0', $data);
 
         $this->success = $this->language->get('success_update');
 

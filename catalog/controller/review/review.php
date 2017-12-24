@@ -3,7 +3,6 @@ class ControllerReviewReview extends Controller {
 	public function index() {
 
 		$this->load->model('review/review');
-        $this->load->model('review/review');
         $this->load->model('catalog/category');
 
         $review_info = $this->model_review_review->getReview(0);

@@ -19,13 +19,13 @@ class ModelSpecialSpecial extends Model {
             description = '" . $this->db->escape($data['description']) . "',
             width = '" . (int)$data['width'] . "',
             height = '" . (int)$data['height'] . "',
-            status = '" . (int)$data['status'] . ",
+            status = '" . (int)$data['status'] . "',
             limit_discounts = '" . (int)$data['limit_discounts'] . "',
             status_discounts = '" . (int)$data['status_discounts'] . "',
             product_discounts = '" . $this->db->escape($data['product_discounts']) . "',
             limit_bestsellers = '" . (int)$data['limit_bestsellers'] . "',
             status_bestsellers = '" . (int)$data['status_bestsellers'] . "',
-            product_bestsellers = '" . $this->db->escape($data['product_bestsellers']) . "',
+            product_bestsellers = '" . $this->db->escape($data['product_bestsellers']) . "'
             WHERE special_id = '" . (int)$special_id . "'";
         $this->db->query($sql);
 

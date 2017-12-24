@@ -63,8 +63,8 @@
 
 		<?php } ?>
 		<div class="nav nav-tabs border-gray">
-			<div class="button" id="characteristic" style="width: 145px;" ><p class="active-button">Характеристика</p></div>
-			<div class="button" id="description" style="width: 145px;"><p  class="active-div">Описание</p></div>
+			<div class="button" id="characteristic" style="width: 146px;" ><p class="active-button">Характеристика</p></div>
+			<div class="button" id="description" style="width: 146px;"><p  class="active-div">Описание</p></div>
 			<div class="button" id="color" style="width: 146px;"><p class="active-div">Цвет</p></div>
 			<div class="button" id="reviews" style="width: 146px;"><p  class="active-div">Отзывы</p></div>
 			<div class="button" id="delivery" style="width: 146px;"><p  class="active-div">Доставка</p></div>
@@ -110,43 +110,54 @@
 			</div>
 			<div id="reviews" style="display: none">
 				<?php if(!empty($reviews)) { ?>
-				<?php if(isset($reviews[count($reviews)-2])) { ?>
-				<div class="reviews-box" id="review">
-					<p style="color: #3e70c5; font-size: 18px;     margin-bottom: 7px;"><?php echo $reviews[count($reviews)-1]['author']?></p>
+					<?php if(isset($reviews[count($reviews)-2])) { ?>
+							<div class="reviews-box" id="review">
+								<p style="color: #3e70c5; font-size: 18px;     margin-bottom: 7px;"><?php echo $reviews[count($reviews)-1]['author']?></p>
 
-					<p style="padding-top: 0; margin: 0;"><?php echo $reviews[count($reviews)-1]['text']?></p>
+								<p style="padding-top: 0; margin: 0;"><?php echo $reviews[count($reviews)-1]['text']?></p>
 
-					<p style="padding-top: 5px; font-size: 11px;"><?php echo $reviews[count($reviews)-1]['date_added']?></p>
-					<a href="/" style=" position: absolute; color: #3e70c5; top: 90px; left: 177px; font-size: 13px;">Ответить</a>
-				</div>
-				<div class="reviews-box" id="review" style="padding-top: 0px; background-position-y: 4px;">
-					<p style="color: #3e70c5; font-size: 18px;     margin-bottom: 7px;"><?php echo $reviews[count($reviews)-2]['author']?></p>
+								<p style="padding-top: 5px; font-size: 11px;"><?php echo $reviews[count($reviews)-1]['date_added']?></p>
+								<a href="/" style=" position: absolute; color: #3e70c5; top: 90px; left: 177px; font-size: 13px;">Ответить</a>
+							</div>
+							<div class="reviews-box" id="review" style="padding-top: 0px; background-position-y: 4px;">
+								<p style="color: #3e70c5; font-size: 18px;     margin-bottom: 7px;"><?php echo $reviews[count($reviews)-2]['author']?></p>
 
-					<p style="padding-top: 0; margin: 0;"><?php echo $reviews[count($reviews)-2]['text']?></p>
+								<p style="padding-top: 0; margin: 0;"><?php echo $reviews[count($reviews)-2]['text']?></p>
 
-					<p style="padding-top: 0px; font-size: 11px;"><?php echo $reviews[count($reviews)-2]['date_added']?></p>
-					<a href="/" style=" position: absolute; color: #3e70c5; top: 73px; left: 177px; font-size: 13px;">Ответить</a>
-				</div>
-				<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">
-					Оставить отзыв</p>
+								<p style="padding-top: 0px; font-size: 11px;"><?php echo $reviews[count($reviews)-2]['date_added']?></p>
+								<a href="/" style=" position: absolute; color: #3e70c5; top: 73px; left: 177px; font-size: 13px;">Ответить</a>
+							</div>
+							<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">
+								Оставить отзыв</p>
+					<?php } else { ?>
+						<?php if(isset($reviews[count($reviews)-1])) { ?>
+							<div class="reviews-box" id="review">
+								<p style="color: #3e70c5; font-size: 18px;     margin-bottom: 7px;"><?php echo $reviews[count($reviews)-1]['author']?></p>
+								<p style="padding-top: 0; margin: 0;"><?php echo $reviews[count($reviews)-1]['text']?></p>
+								<p style="padding-top: 5px; font-size: 11px;"><?php echo $reviews[count($reviews)-1]['date_added']?></p>
+								<a href="/" style=" position: absolute; color: #3e70c5; top: 90px; left: 177px; font-size: 13px;">Ответить</a>
+							</div>
+							<div class="messange-review">
+								<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">Оставить отзыв</p>
+								<textarea name="review" rows="4" placeholder="Написать комментарий..." class="form-control" id="textarea-review"></textarea>
+								<div class="mes">
+									<p style="position: relative">Вход с помощью</p><a href="/" id="sosseti"></a>
+								</div>
+							</div>
+						<?php } ?>
+					<?php } ?>
 				<?php } else { ?>
-				<?php if(isset($reviews[count($reviews)-1])) { ?>
-				<div class="reviews-box" id="review">
-					<p style="color: #3e70c5; font-size: 18px;     margin-bottom: 7px;"><?php echo $reviews[count($reviews)-1]['author']?></p>
-					<p style="padding-top: 0; margin: 0;"><?php echo $reviews[count($reviews)-1]['text']?></p>
-					<p style="padding-top: 5px; font-size: 11px;"><?php echo $reviews[count($reviews)-1]['date_added']?></p>
-					<a href="/" style=" position: absolute; color: #3e70c5; top: 90px; left: 177px; font-size: 13px;">Ответить</a>
-				</div>
-				<div class="messange-review">
-					<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">Оставить отзыв</p>
-					<textarea name="review" rows="4" placeholder="Написать комментарий..." class="form-control" id="textarea-review"></textarea>
-					<div class="mes">
-						<p style="position: relative">Вход с помощью</p><a href="/" id="sosseti"></a>
-					</div>
-				</div>
 
-				<?php } ?>
-				<?php } ?>
+					<div class="empty-review font-italic gray" id="">
+						Здесь пока нет отзывов
+					</div>
+					<div class="messange-review">
+						<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">Оставить отзыв</p>
+						<textarea name="review" rows="4" placeholder="Написать комментарий..." class="form-control" id="textarea-review"></textarea>
+						<div class="mes">
+							<p style="position: relative">Вход с помощью</p><a href="/" id="sosseti"></a>
+						</div>
+					</div>
 				<?php } ?>
 
 
