@@ -97,22 +97,22 @@
 	<div class="container visible-lg" style="padding-top: 8px;">
 		<div class="row border-top-dark border-bottom-dark" id="navigation_bar">
 			<div class="col-sm-2 text-center">
-				<a href="<?php echo $aboutcompany; ?>"><h4>О компании</h4></a>
+				<a href="<?php echo $aboutcompany; ?>"><h3>О компании</h3></a>
 			</div>
 			<div class="col-sm-2 text-center">
-				<a href="<?php echo $calculator; ?>"><h4>Расчет стоимости</h4></a>
+				<a href="<?php echo $calculator; ?>"><h3>Расчет стоимости</h3></a>
 			</div>
 			<div class="col-sm-2 text-center">
-				<a href="<?php echo $generalcatalog; ?>"><h4>Каталог</h4></a>
+				<a href="<?php echo $generalcatalog; ?>"><h3>Каталог</h3></a>
 			</div>
 			<div class="col-sm-2 text-center">
-				<a href="<?php echo $special; ?>"><h4>Акции</h4></a>
+				<a href="<?php echo $special; ?>"><h3>Акции</h3></a>
 			</div>
 			<div class="col-sm-2 text-center">
-				<a href="<?php echo $review; ?>"><h4>Отзывы</h4></a>
+				<a href="<?php echo $review; ?>"><h3>Отзывы</h3></a>
 			</div>
 			<div class="col-sm-2 text-center">
-				<a href="<?php echo $contacts; ?>"><h4>Контакты</h4></a>
+				<a href="<?php echo $contacts; ?>"><h3>Контакты</h3></a>
 			</div>
 		</div>
 	</div>

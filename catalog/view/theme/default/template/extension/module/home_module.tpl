@@ -6,6 +6,13 @@
 </div>
 <!-- MODAL WINDOW BEGIN END -->
 
+	<div class="row" id="main_inscription">
+		<div class="col-sm-12 text-center">
+			<h1>Популярные <a href="<?php echo $link_calculator; ?>">категории товаров </a></h1>
+		</div>
+	</div>
+
+
 	<div class="row" id="tile_banner">
 		<div class="col-sm-4 text-center">
 
@@ -181,7 +188,7 @@
 			}
 
 			if(!error) {
-				ajaxClientCall();
+				ajaxClientCall(1,4,0);
 			}
 
 		});

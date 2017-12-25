@@ -96,11 +96,15 @@ class ControllerCalculatorCalculator extends Controller {
         foreach($key_cat as $key=>$category_id) {
             foreach($categories_root as $key=>$category_root) {
                 if($category_root['category_id'] == $category_id) {
+                    if($category_root['category_id'] == 70) { //Kostil
+                        continue;
+                    }
                     $cat_root[] = $category_root;
                 }
             }
         }
         $categories_root = $cat_root;
+
         //sort end
 
 

@@ -18,11 +18,29 @@
 		<?php $class = 'col-sm-12'; ?>
 		<?php } ?>
 		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-			<div class="picture-back special">
-			</div>
-			<div class="text_box special"><?php echo $description; ?></div>
+			<div class="text_box special description-up"><?php echo $description; ?></div>
+			<h2 class="line-red font-size-30 font-type-georgia grand-text" id="special-text">Акции</h2>
+			<div id="image-box">
+				<div class="row" style="margin-bottom: 47px;">
+					<div class="col-lg-6">
+						<div class="image" id="one"></div>
+					</div>
+					<div class="col-lg-6">
+						<div class="image" id="two"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="image" id="three"></div>
+					</div>
+					<div class="col-lg-6">
+						<div class="image" id="four"></div>
+					</div>
+				</div>
 
-			<h2 class="line-red font-size-30 font-type-georgia" id="discounts-text">Распродажа %</h2>
+			</div>
+
+			<h2 class="line-red font-size-30 font-type-georgia grand-text" id="">Распродажа %</h2>
 			<div id="product-box">
 				<?php foreach ($products_discounts as $product) { ?>
 				<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -44,7 +62,7 @@
 				<?php } ?>
 			</div>
 
-			<h2 class="line-red font-size-30 font-type-georgia" id="discounts-text">Хиты продаж</h2>
+			<h2 class="line-red font-size-30 font-type-georgia grand-text" id="">Хиты продаж</h2>
 			<div id="product-box">
 				<?php foreach ($products_discounts as $product) { ?>
 				<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">

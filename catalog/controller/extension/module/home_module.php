@@ -2,6 +2,8 @@
 class ControllerExtensionModuleHomeModule extends Controller {
 	public function index($setting) {
         $this->document->addScript('catalog/view/javascript/modal_window.js');
+
+        $data['link_calculator'] = $this->url->link('calculator/calculator');
         if ($this->request->server['HTTPS']) {
             $server = $this->config->get('config_ssl');
         } else {

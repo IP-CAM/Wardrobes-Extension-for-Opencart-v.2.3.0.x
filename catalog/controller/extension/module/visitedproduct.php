@@ -4,6 +4,7 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 		$this->load->language('extension/module/visitedproduct');
 
 		$data['heading_title'] = $this->language->get('heading_title');
+        $data['button_more_info_cart'] = $this->language->get('button_more_info_cart');
 
 		if (isset($this->request->get['path'])) {
 			$parts = explode('_', (string)$this->request->get['path']);
@@ -41,12 +42,11 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 				} 
 				
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
-					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+                    $price = $this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax'));
+                    $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
 				} else {
 					$price = false;
 				}
-
-				var_dump($price);
 				
 
 				if ((float)$result['special']) {
@@ -92,4 +92,32 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 			return $this->load->view('extension/module/visitedproduct', $data);
 		}
 	}
+
+
+    private function formatMany($number, $currency)
+    {
+        $value = '';
+        $format = true;
+        $decimal_place = $this->currencies[$currency]['decimal_place'];
+
+        if (!$value) {
+            $value = $this->currencies[$currency]['value'];
+        }
+
+        $amount = $value ? (float)$number * $value : (float)$number;
+
+        $amount = round($amount, (int)$decimal_place);
+
+        if (!$format) {
+            return $amount;
+        }
+
+        $string = '';
+        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
+
+        $symbol_right =  " &#8381";
+        $string .= $symbol_right;
+
+        return $string;
+    }
 }

@@ -20,7 +20,10 @@
 		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
 			<div class="picture-back contacts">
 			</div>
-			<div class="text_box contacts"><?php echo $description; ?></div>
+			<div class="text_box contacts">
+				<?php echo $description; ?>
+				<div id="image"></div>
+			</div>
 			<?php echo $content_bottom; ?></div>
 		<?php echo $column_right; ?></div>
 	</div>

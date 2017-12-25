@@ -20,7 +20,9 @@ class ControllerCatalogProduct extends Controller {
         $this->load->model('catalog/product');
 
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-            $this->model_catalog_product->addProduct($this->request->post);
+
+            $data = $this->normalizeData($this->request->post);
+            $this->model_catalog_product->addProduct($data);
 
             $this->session->data['success'] = $this->language->get('text_success');
 
@@ -72,7 +74,8 @@ class ControllerCatalogProduct extends Controller {
         $this->load->model('catalog/product');
 
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-            $this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
+            $data = $this->normalizeData($this->request->post);
+            $this->model_catalog_product->editProduct($this->request->get['product_id'], $data);
 
             $this->session->data['success'] = $this->language->get('text_success');
 
@@ -978,6 +981,7 @@ class ControllerCatalogProduct extends Controller {
             $data['width'] = '';
         }
 
+
         if (isset($this->request->post['height'])) {
             $data['height'] = $this->request->post['height'];
         } elseif (!empty($product_info)) {
@@ -1333,7 +1337,7 @@ class ControllerCatalogProduct extends Controller {
             }
 
             if ((utf8_strlen($value['meta_title']) < 3) || (utf8_strlen($value['meta_title']) > 255)) {
-                $this->error['meta_title'][$language_id] = $this->language->get('error_meta_title');
+               // $this->error['meta_title'][$language_id] = $this->language->get('error_meta_title');
             }
         }
 
@@ -1461,5 +1465,35 @@ class ControllerCatalogProduct extends Controller {
 
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
+    }
+
+
+    private function normalizeData($data) {
+        $data['price'] = str_replace(" ", "", $data['price']);
+
+        $data['height'] = $this->normalizeParametr($data['height']);
+        $data['width'] = $this->normalizeParametr($data['width']);
+        $data['depth'] = $this->normalizeParametr($data['depth']);
+
+        return $data;
+    }
+
+    private function normalizeParametr($value)
+    {
+        if($value != '') {
+            if(strpos($value, 'см') === false) {
+                $value .= ' см';
+            }
+        }
+
+        /*
+         * if($value != '') {
+            if(strpos($value, 'см') === false && is_numeric($value) &&
+               strpos($value, 'x') === false && strpos($value, 'х') === false) {
+                $value .= ' см';
+            }
+        }
+         */
+        return $value;
     }
 }

@@ -231,13 +231,6 @@ div.required .control-label:before {
     padding: 0 10px;
 }
 
-#search .btn-lg {
-    font-size: 15px;
-    line-height: 18px;
-    padding: 10px 35px;
-    text-shadow: 0 1px 0 #FFF;
-}
-
 /* cart */
 #cart {
     margin-bottom: 10px;
@@ -400,11 +393,6 @@ footer h5 {
     font-size: 10.2px;
 }
 
-.btn-lg {
-    padding: 10px 16px;
-    font-size: 15px;
-}
-
 .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
     font-size: 12px;
 }
@@ -415,10 +403,6 @@ footer h5 {
 
 .btn-group > .btn-sm {
     font-size: 10.2px;
-}
-
-.btn-group > .btn-lg {
-    font-size: 15px;
 }
 
 .btn-default {
@@ -857,7 +841,7 @@ h2.price {
 }
 
 #navigation_bar {
-    height: 40px;
+    height: 42px;
     display: flex;
     align-items: center;
     margin-bottom: 1px;
@@ -913,6 +897,10 @@ footer li span {
 header {
     padding-bottom: 20px;
 }
+header .col-sm-2 h3{
+    padding: 0;
+    margin: 0;
+}
 
 
 
@@ -935,6 +923,8 @@ header {
 #header-right #address{
     top: -12px;
 }
+
+
 
 /*FOOTER */
 footer.container {
@@ -1143,7 +1133,7 @@ footer #f-padding {
     width: 262px!important;
     border:1px solid #d9d9d9;
     border-radius: 6px;
-    height: 308px;
+    height: 333px;
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -1191,29 +1181,13 @@ footer #f-padding {
     font-weight: 400;
     text-align: left;
 }
-#calculator .owl-wrapper-outer {
-    -webkit-box-shadow: none!important;
-    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2)!important;
-    -o-box-shadow: 0 1px 4px rgba(0,0,0,.2)!important;
-    box-shadow: none!important;
-}
+
 
 
 
 /* calculator_box */
 .error {
     color: #f00;
-}
-.btn_calculator {
-    background-color: #f2213e;
-    color: white!important;
-    outline: none!important;
-}
-.btn_calculator:active {
-    background-color: #b52b28;
-}
-.btn_calculator:hover {
-    color: white!important;
 }
 
 .no-active {
@@ -1428,6 +1402,7 @@ footer #f-padding {
     font-size: 13px;
     width: 120px;
     height: 33px;
+    line-height: 28px;
 }
 
 
@@ -1436,7 +1411,7 @@ footer #f-padding {
 
 
 #cal-dispatch-box {
-    background: url('../image/calculator_get_phone.png');
+    background: url('../image/calculator_get_phone.jpg');
 }
 #cal-dispatch-box div {
     position: absolute;
@@ -1458,7 +1433,7 @@ footer #f-padding {
     width: 95px;
     height: 31px;
     border: none;
-    padding-top: 8px;
+    line-height: 31px;
     font-size: 12px;
 }
 
@@ -1470,17 +1445,20 @@ footer #f-padding {
 
 
 /* banner */
+#calculator #banner {
+    cursor: pointer;
+}
 @media (min-width: 1200px) {
-    #banner a:before {
-        content: url('../image/calculator_banner.png');
+    #calculator #banner div:before {
+        content: url('../image/calculator_banner.jpg');
     }
-    #banner {
+    #calculator #banner {
         padding-bottom:25px;
     }
 }
 @media (max-width: 1200px) {
-    #banner a:before {
-        content: url('../image/calculator_banner_mini.png');
+    #calculator #banner div:before {
+        content: url('../image/calculator_banner_mini.jpg');
     }
 }
 
@@ -1508,8 +1486,8 @@ footer #f-padding {
     display: inline-block;
     left: 50%;
     padding: 15px;
-    width: 300px;
-    height: 323px;
+    width: 597px;
+    height: 305px;
     position: fixed;
     text-align: justify;
     top: 40%;
@@ -1530,14 +1508,24 @@ footer #f-padding {
     text-shadow: 0 1px 0 #fff;
 }
 .modal_window_box .text{
-    padding-top: 20px;
+    text-align: center;
+    height: 162px;
+    padding-top: 62px;
 }
 .modal_window_box .field {
     padding-top: 20px;
+    display: inline-block;
+    text-align: right;
 }
 .modal_window_box .button {
     padding-top: 20px;
     float: right;
+}
+.modal_window_box #close {
+    background: url(../image/window-close.png);
+    top: -24px;
+    position: absolute;
+    right: -46px;
 }
 
 
@@ -1562,21 +1550,22 @@ footer #f-padding {
     left: 0px;
 }
 .picture-back.aboutcompany {
-    background: url('../image/aboutcompany_back.png');
+    background: url('../image/aboutcompany_back.jpg');
 }
 .picture-back.contacts {
-    background: url('../image/contacts_back.png');
+    background: url('../image/contacts_back.jpg');
 }
 .aboutcompany.text_box, .contacts.text_box {
     position: relative;
     background: white;
     border: 1px solid #d9d9d9;
     border-radius: 6px;
-    padding: 26px;
     top: 294px;
     width: 950px;
     left: 79px;
     margin-bottom: 312px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 .aboutcompany ul {
     list-style-type: none;
@@ -1703,6 +1692,8 @@ footer #f-padding {
     left: 7px;
 }
 
+
+
 #category .catalog .picture-characteristic #delivery:before {
     content: url('../image/category_delivery.png');
 }
@@ -1774,25 +1765,13 @@ footer #f-padding {
 #category .carousel-product {
     padding-right: 9px;
 }
-
-#category .owl-wrapper-outer {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
+#category .description-down {
+    font-family: 'Verdana', sans-serif;
+    font-size: 17px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+#category .description-down h1 {
+    margin-bottom: 15px;
+}
 
 
 
@@ -1886,7 +1865,7 @@ footer #f-padding {
     /* position: absolute; */
     height: 228px;
     /* overflow: hidden; */
-    background: url(../image/product-colors.png) no-repeat;
+    background: url(../image/product-colors.jpg) no-repeat;
     background-repeat-x: 5px;
     background-position-x: 83px;
     background-position-y: 35px;
@@ -2120,6 +2099,13 @@ footer #f-padding {
     width: 161px;
 }
 
+#product #visitproduct-maiker {
+    margin-bottom: 28px;
+    margin-top: 40px;
+}
+#product #visitproduct-maiker:after {
+    width: 412px;
+}
 
 
 
@@ -2130,23 +2116,84 @@ footer #f-padding {
     margin: auto;
 }
 
-#special #discounts-text {
+#special .grand-text {
     margin-bottom: 22px;
+}
+#special #special-text:after {
+    width: 140px;
+}
+
+#special #image-box {
+    width: 1059px;
+    position: relative;
+    height: 773px;
+    margin: auto;
+}
+#special #image-box .image {
+    width: 501px;
+    height: 355px;
+}
+#special .image#one {
+    background: url('../image/special-banner-1.jpg') no-repeat;
+}
+#special .image#two {
+    background: url('../image/special-banner-2.jpg') no-repeat;
+}
+#special .image#three {
+    background: url('../image/special-banner-3.jpg') no-repeat;
+}
+#special .image#four {
+    background: url('../image/special-banner-4.jpg') no-repeat;
+}
+#special .special {
+    margin-top: -11px;
 }
 
 
+#review #image {
+    width: 1110px;
+    height: 315px;
+    background: url(../image/review-banner.jpg) no-repeat;
+}
+#review .image-comment#aristo {
+    width: 25%;
+    height: 168px;
+    background: url(../image/review-comment-image.png) no-repeat;
+}
+#review .text-comment  {
+    width: 75%;
+}
+#review .text-comment  {
+    width: 75%;
+}
+#review table  {
+    margin-bottom: 35px;
+}
+#review table a {
+    cursor: pointer;
+}
 
 
-
+#contacts #image {
+    background: url(../image/contacts-images.jpg) no-repeat;
+    margin-top: 40px;
+    height: 183px;
+    width: 910px;
+}
 
 
 
 
 /*download font */
 
+.description-up h1{
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
 @font-face {
     font-family: Verdana; /* Гарнитура шрифта */
-    src: url(stylesheet/veranda.ttf); /* Путь к файлу со шрифтом */
+    src: url(../stylesheet/font/verdana.ttf); /* Путь к файлу со шрифтом */
 }
 
 
@@ -2160,11 +2207,17 @@ footer #f-padding {
 .font-size-30 {
     font-size: 30px!important;
 }
+.font-size-24 {
+    font-size: 24px!important;
+}
 .font-size-18 {
     font-size: 18px!important;
 }
 .font-size-16 {
     font-size: 16px!important;
+}
+.font-size-15 {
+    font-size: 15px!important;
 }
 .font-size-14 {
     font-size: 14px!important;
@@ -2178,15 +2231,13 @@ footer #f-padding {
 .font-italic {
     font-style: italic;
 }
-
-
-
-
-
-.text p{
-    font-size: 19px!important;
-    font-weight: 500;
+.font-underline {
+    text-decoration:underline;
 }
+
+
+
+
 .text {
     font-family: 'Verdana', sans-serif;
     font-size: 14px;
@@ -2207,7 +2258,7 @@ footer #f-padding {
 }
 
 .line-red {
-    margin-left: 3px;
+    margin-left: 7px;
 }
 .line-red:after {
     position: relative;
@@ -2217,51 +2268,55 @@ footer #f-padding {
     top: 3px;
     content: ' ';
     display: block;
-    left: -3px;
+    left: -5px;
 }
 
 .no-padding {
-padding: 0;
+    padding: 0;
 }
+
 .border-bottom-dark {
-border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
+
 .border-top-dark {
-border-top: 1px solid #000000;
+    border-top: 1px solid #000000;
 }
 
 .line-dark-before:before {
-position: relative;
-width: 233px;
-height: 1px;
-background: #000000;
-top: 55px;
-left: 14px;
-content: ' ';
-display: block;
+    position: relative;
+    width: 233px;
+    height: 1px;
+    background: #000000;
+    top: 55px;
+    left: 14px;
+    content: ' ';
+    display: block;
 }
+
 .line-dark-after:after {
-position: relative;
-width: 233px;
-height: 1px;
-background: #000000;
-top: 0;
-left: 0;
-content: ' ';
-display: block;
+    position: relative;
+    width: 233px;
+    height: 1px;
+    background: #000000;
+    top: 0;
+    left: 0;
+    content: ' ';
+    display: block;
 }
+
 .dark {
-color: #000000;
+    color: #000000;
 }
+
 .gray {
-color: #bdbbbb;
+    color: #bdbbbb;
 }
+
 .red {
     color: #f2213e;
 }
-.underline {
-    text-decoration:underline;
-}
+
 
 .block-line {
     display: inline-block;
@@ -2326,10 +2381,41 @@ color: #bdbbbb;
 
 
 
+.button-style-4 {
+    background-color: #7acc39;
+    border-radius: 6px;
+    color: #ffffff;
+    height: 35px;
+    width: 154px;
+    position: relative;
+    display: inline-block;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.button-style-4:hover, .button-style-1:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+.button-product-for-style-4 {
+    height: 30px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+
+
+.owl-wrapper-outer {
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    -o-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
 body {
-    /*background: url(../image/catalog_damp.png) no-repeat;*/
+    /*background: url(../image/special.png) no-repeat;*/
     /*opacity: 0.7;*/
-    background-position-x: -18px;
-    background-position-x: -208px;
-    background-position-y: -60px;
+    background-position-x: -207px;
+    background-position-y: 59px;
 }

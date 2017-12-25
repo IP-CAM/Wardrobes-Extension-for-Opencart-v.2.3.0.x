@@ -2,11 +2,13 @@
 <div class="container container-fix " id="generalcatalog">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
-			<?php if(!next($breadcrumbs)) { ?>
-				<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-				<?php continue; ?>
-			<?php } ?>
-				<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+		<?php if(!next($breadcrumbs)) { ?>
+		<li class="breadcrumb_last"><a class="red"
+									   href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+		</li>
+		<?php continue; ?>
+		<?php } ?>
+		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 		<?php } ?>
 	</ul>
 	<div class="row"><?php echo $column_left; ?>
@@ -21,10 +23,10 @@
 			<div class="row row-big">
 				<div class="col-lg-4">
 					<div class="image-box">
-					<img src="<?php echo $radius['path_image']; ?>"
-						 title="<?php echo $radius['name']; ?>"
-						 alt="<?php echo $radius['name']; ?>"
-						 class="img-responsive center-block"/>
+						<img src="<?php echo $radius['path_image']; ?>"
+							 title="<?php echo $radius['name']; ?>"
+							 alt="<?php echo $radius['name']; ?>"
+							 class="img-responsive center-block"/>
 					</div>
 					<div class="name-box text-center">
 						<p><?php echo $radius['name']; ?></p>
@@ -110,9 +112,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="text_box generalcatalog"><?php echo $description; ?></div>
-			<?php echo $content_bottom; ?></div>
-		<?php echo $column_right; ?></div>
+		</div>
+
 	</div>
+	<div class="row font-size-18"><?php echo $description; ?></div>
+	<div><?php echo $content_bottom; ?></div>
+	<div><?php echo $column_right; ?></div>
 </div>
-	<?php echo $footer; ?>
+<?php echo $footer; ?>

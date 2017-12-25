@@ -328,7 +328,7 @@
 
 				$('#featured-product-bestsellers' + item['value']).remove();
 
-				$('#featured-product-bestsellers').append('<div id="featured-product-bestsellers' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_discounts[]" value="' + item['value'] + '" /></div>');
+				$('#featured-product-bestsellers').append('<div id="featured-product-bestsellers' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_bestsellers[]" value="' + item['value'] + '" /></div>');
 			}
 		});
 

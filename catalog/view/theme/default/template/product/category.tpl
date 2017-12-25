@@ -31,7 +31,7 @@
 		  </div>
 
         <?php if ($description) { ?>
-        <div class="col-lg-12" id="description-p" style="padding-top: 15px;"><?php echo $description; ?></div>
+        <div class="col-lg-12 font-size-16" id="description-p" style="text-align:right; padding-top: 15px;"><?php echo $description; ?></div>
         <?php } ?>
 		  <div class="col-lg-12" style="width: 95%; position: relative; left: 18px;">
 			  <div class="row picture-characteristic line-dark-before">
@@ -95,7 +95,7 @@
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
           <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+              <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
 
 			  <p class="font-size-16 font-type-verdana dark name"><?php echo $product['name']; ?></p>
 			  <?php if ($product['price']) { ?>
@@ -106,8 +106,8 @@
 			  <?php } ?>
 			  <?php } ?>
 
-               <button type="button" class="btn pull-left btn-danger" onClick='location.href="<?php echo $product['href']; ?>"'><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_more_info_cart; ?></span></button>
-			</div>
+              <button type="button" class="btn pull-left btn-danger" onClick='location.href="<?php echo $product['href']; ?>"'><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_more_info_cart; ?></span></button>
+
           </div>
         </div>
         <?php } ?>
@@ -128,7 +128,7 @@
 	</div>
 	  <?php echo $content_bottom; ?>
 		  <?php if ($description_down) { ?>
-		  <div class="col-sm-12 text"><?php echo $description_down; ?></div>
+		  <div class="col-sm-12 description-down"><?php echo $description_down; ?></div>
 		  <?php } ?>
 
 

@@ -1,4 +1,10 @@
 <?php echo $header; ?>
+<!-- MODAL WINDOW BEGIN -->
+<div class="overlay modal_window_box" style="display: none" title="окно"></div>
+<div class="popup modal_window_box" style="display: none">
+	<div class="close_window">x</div>
+</div>
+<!-- MODAL WINDOW BEGIN END -->
 <div class="container " id="product">
 
 <div class="border-gray" id="message-characteristic" style="display: none;">
@@ -73,29 +79,29 @@
 			<div id="characteristic" style="">
 				<div class="characteristic-top">
 					<div id="size-box">
-						<div id="size" class="block-line font-size-18 font-type-verdana">Размеры</div>
+						<div id="size" class="block-line font-size-15 font-type-verdana">Размеры</div>
 						<div id="width" class="block-line">
-							<p class="block-line font-size-18 font-type-verdana">Ширина:</p>
+							<p class="block-line font-size-15 font-type-verdana">Ширина:</p>
 							<?php if($width=='') { ?>
-							<a href="<?php echo $calculator ?>" class="any block-line font-size-18 font-type-verdana red underline">Любая</a>
+							<a href="<?php echo $calculator ?>" class="any block-line font-size-15 font-type-verdana red font-underline">Любая</a>
 							<?php } else { ?>
-							<p class="block-line font-size-18 font-type-verdana"><?php echo $width ?></p>
+							<p class="block-line font-size-15 font-type-verdana"><?php echo $width ?></p>
 							<?php } ?>
 						</div>
 						<div id="height" class="block-line">
-							<p class="block-line font-size-18 font-type-verdana">Высота:</p>
+							<p class="block-line font-size-15 font-type-verdana">Высота:</p>
 							<?php if($height=='') { ?>
-							<a href="<?php echo $calculator ?>" class="any block-line font-size-18 font-type-verdana red underline">Любая</a>
+							<a href="<?php echo $calculator ?>" class="any block-line font-size-15 font-type-verdana red font-underline">Любая</a>
 							<?php } else { ?>
-							<p class="block-line font-size-18 font-type-verdana"><?php echo $height ?></p>
+							<p class="block-line font-size-15 font-type-verdana"><?php echo $height ?></p>
 							<?php } ?>
 						</div>
 						<div id="depth" class="block-line">
-							<p class="block-line font-size-18 font-type-verdana">Глубина:</p>
+							<p class="block-line font-size-15 font-type-verdana">Глубина:</p>
 							<?php if($depth=='') { ?>
-							<a href="<?php echo $calculator ?>" class="any block-line font-size-18 font-type-verdana red underline">Любая</a>
+							<a href="<?php echo $calculator ?>" class="any block-line font-size-15 font-type-verdana red font-underline">Любая</a>
 							<?php } else { ?>
-							<p class="block-line font-size-18 font-type-verdana"><?php echo $depth ?></p>
+							<p class="block-line font-size-15 font-type-verdana"><?php echo $depth ?></p>
 							<?php } ?>
 						</div>
 					</div>
@@ -275,11 +281,8 @@
 				return false;
 			} else {
 				$('.phone-box .error').hide();
-				$("[name='type']").val(4);
-				//alert('модальное окно не нужно');
-				$("[name='two_modal']").val(0);
 				$('.calculator_dispatch .error').hide();
-				ajaxClientCall();
+				ajaxClientCall(1,3,0);
 			}
 		});
 

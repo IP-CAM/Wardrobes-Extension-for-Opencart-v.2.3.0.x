@@ -1,4 +1,10 @@
 <?php echo $header; ?>
+<!-- MODAL WINDOW BEGIN -->
+<div class="overlay modal_window_box" style="display: none" title="окно"></div>
+<div class="popup modal_window_box" style="display: none">
+	<div class="close_window">x</div>
+</div>
+<!-- MODAL WINDOW BEGIN END -->
 <div class="container container-fix " id="calculator">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
@@ -9,12 +15,7 @@
 		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 		<?php } ?>
 	</ul>
-	<!-- MODAL WINDOW BEGIN -->
-	<div class="overlay modal_window_box" style="display: none" title="окно"></div>
-	<div class="popup modal_window_box" style="display: none">
-		<div class="close_window">x</div>
-	</div>
-	<!-- MODAL WINDOW BEGIN END -->
+
 	<div class="row"><?php echo $column_left; ?>
 		<?php if ($column_left && $column_right) { ?>
 		<?php $class = 'col-sm-6'; ?>
@@ -119,7 +120,7 @@
 							<h2 id="cal_top_price">25 000 рублей</h2>
 							<span id="cal_sub_price">25 000 рублей</span>
 
-							<input type="button" id="calculation_button" data-modal="1" class="btn btn-lg btn_calculator" value="Заказать"/>
+							<input type="button" id="calculation_button" data-modal="1" class="button-style-1" value="Заказать"/>
 						</div>
 					</div>
 
@@ -127,7 +128,7 @@
 					<div id="cal-dispatch-box" class="col-lg-6 no-padding">
 						<div class="calculator_dispatch">
 							<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone">
-							<input type="button"  id="dispatch_button" data-modal="1" value="Отправить" class="btn btn-lg btn_calculator" />
+							<input type="button"  id="dispatch_button" data-modal="1" value="Отправить" class="button-style-1" />
 							<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 						</div>
 					</div>
@@ -137,8 +138,8 @@
 			<!-- BANNER BEGIN -->
 			<div class="row">
 				<div class="col-lg-12 text-center" id="banner">
-					<a href="/">
-					</a>
+					<div >
+					</div>
 				</div>
 			</div>
 			<!-- BANNER END -->
@@ -197,15 +198,17 @@
 
 			//Validation telephone
 
-			$('#calculation_button').click(function () {
+			$('#calculation_button, #banner').click(function () {
 				if($('#standard-box').is(':visible')) {
-					$("[name='type']").val(0);
+					ajaxClientCall(1,0,1);
+					//alert('1,0,1');
 				}
 				if($('#exclusive-box').is(':visible')) {
-					$("[name='type']").val(1);
+					ajaxClientCall(1,1,1);
+					//alert('1,1,1');
 				}
 				$("[name='two_modal']").val(1);
-				ajaxClientCall();
+
 			});
 
 			$('#dispatch_button').click(function (event) {
@@ -214,11 +217,8 @@
 					$('.calculator_dispatch .error').show();
 					return false;
 				} else {
-					$("[name='type']").val(2);
-					//alert('модальное окно не нужно');
-					$("[name='two_modal']").val(0);
 					$('.calculator_dispatch .error').hide();
-					ajaxClientCall();
+					ajaxClientCall(1,2,0);
 				}
 			});
 

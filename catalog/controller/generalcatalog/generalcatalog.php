@@ -34,43 +34,43 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
         }
 
         $radius = array();
-        $radius['path_image'] = $server . 'image/catalog/generalcatalog/radius.png';
+        $radius['path_image'] = $server . 'image/catalog/generalcatalog/radius.jpg';
         $radius['name'] = 'Радиусные';
         $radius['href'] = $this->url->link('product/category', 'path=64_64');
         $data['radius'] = $radius;
 
         $standard = array();
-        $standard['path_image'] = $server . 'image/catalog/generalcatalog/standard.png';
+        $standard['path_image'] = $server . 'image/catalog/generalcatalog/standard.jpg';
         $standard['name'] = 'Стандартные';
         $standard['href'] = $this->url->link('product/category', 'path=67_67');
         $data['standard'] = $standard;
 
         $built_in = array();
-        $built_in['path_image'] = $server . 'image/catalog/generalcatalog/built_in.png';
+        $built_in['path_image'] = $server . 'image/catalog/generalcatalog/built_in.jpg';
         $built_in['name'] = 'Встроенные';
         $built_in['href'] = $this->url->link('product/category', 'path=60_60');
         $data['built_in'] = $built_in;
 
         $corner = array();
-        $corner['path_image'] = $server . 'image/catalog/generalcatalog/corner.png';
+        $corner['path_image'] = $server . 'image/catalog/generalcatalog/corner.jpg';
         $corner['name'] = 'Угловые';
         $corner['href'] = $this->url->link('product/category', 'path=66_66');
         $data['corner'] = $corner;
 
         $our_work = array();
-        $our_work['path_image'] = $server . 'image/catalog/generalcatalog/our_work.png';
+        $our_work['path_image'] = $server . 'image/catalog/generalcatalog/our_work.jpg';
         $our_work['name'] = 'Наши работы';
         $our_work['href'] = $this->url->link('product/category', 'path=70_70');
         $data['our_work'] = $our_work;
 
         $hallway = array();
-        $hallway['path_image'] = $server . 'image/catalog/generalcatalog/hallway.png';
+        $hallway['path_image'] = $server . 'image/catalog/generalcatalog/hallway.jpg';
         $hallway['name'] = 'Прихожие';
         $hallway['href'] = $this->url->link('product/category', 'path=69_69');
         $data['hallway'] = $hallway;
 
         $dressing_room = array();
-        $dressing_room['path_image'] = $server . 'image/catalog/generalcatalog/dressing_room.png';
+        $dressing_room['path_image'] = $server . 'image/catalog/generalcatalog/dressing_room.jpg';
         $dressing_room['name'] = 'Гардеробные';
         $dressing_room['href'] = $this->url->link('product/category', 'path=68_68');
         $data['dressing_room'] = $dressing_room;

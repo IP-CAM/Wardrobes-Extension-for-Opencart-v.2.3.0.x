@@ -59,6 +59,7 @@ $_['entry_length_class']     = 'Единица измерения глубины
 $_['entry_length']           = 'Глубины';
 $_['entry_width']            = 'Ширина';
 $_['entry_height']           = 'Высота';
+$_['entry_depth']            = 'Глубина';
 $_['entry_image']            = 'Изображение товара';
 $_['entry_additional_image'] = 'Дополнительные изображения';
 $_['entry_customer_group']   = 'Группа клиентов';
