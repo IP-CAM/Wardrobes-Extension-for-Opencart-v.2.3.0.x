@@ -27,6 +27,21 @@ class ModelCalculatorCalculator extends Model
         return $query->rows;
     }
 
+    public function getProductEmptyFormCategories($category_id)
+    {
+        $sql = "
+            SELECT COUNT(product.product_id)
+            FROM " . DB_PREFIX . "product product
+            LEFT JOIN
+            " . DB_PREFIX . "product_to_category pr_to_cat
+            ON (product.product_id = pr_to_cat.product_id )
+            WHERE pr_to_cat.category_id=" . (int)$category_id;
+        $query = $this->db->query($sql);
+
+
+        return $query->row['COUNT(product.product_id)'];
+    }
+
 }
 
 

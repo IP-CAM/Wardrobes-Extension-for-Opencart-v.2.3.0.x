@@ -135,18 +135,24 @@ class ControllerCalculatorCalculator extends Controller {
         $id = $this->request->post['id'];
         $type= $this->request->post['type'];
 
-        if($type == 'categories') {
-            $categories = $this->model_catalog_category->getCategories($id);
-            $this->normalizationImageLink($categories, $server);
-            $this->normalizationName($categories);
-            $json['data'] = $categories;
-            $json['type'] = 'categories';
-        }
-        if($type == 'products') {
+        $product_count = $this->model_calculator_calculator->getProductEmptyFormCategories($id);
+        if($product_count > 0) {
             $products = $this->model_calculator_calculator->getProductFormCategories($id);
             $this->normalizationImageLink($products, $server);
             $json['data'] = $products;
             $json['type'] = 'products';
+        } else {
+            $categories = $this->model_catalog_category->getCategories($id);
+            if(count($categories) == 0) {
+                $json['data'] = null;
+                $json['type'] = 'categories';
+            } else {
+                $this->normalizationImageLink($categories, $server);
+                $this->normalizationName($categories);
+                $json['data'] = $categories;
+                $json['type'] = 'categories';
+            }
+
         }
 
         $this->response->addHeader('Content-Type: application/json');
