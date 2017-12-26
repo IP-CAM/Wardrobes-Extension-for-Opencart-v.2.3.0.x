@@ -42,7 +42,7 @@ $(document).ready(function () {
             $('.box_root').find('input').prop('checked', false);
             this_root_item.find("input").prop('checked', true);
             this_root_item.find('p').removeClass('no-active');
-            ajaxOpenCategory(id, 'categories'); //Show sub categories
+            ajaxOpenCategory(id, 'root'); //Show sub categories
         } else {
             $('.box_root').find('input').prop('checked', false);
             hideSubCategories(); // Hide sub categories and products
@@ -58,7 +58,7 @@ $(document).ready(function () {
         type_product_box.empty();
     }
 
-    function ajaxRenderCategories(data) {
+    function ajaxRenderCategories(data, root) {
         hideSubCategories();
         var type_sub_box = $('#sub_box');
         var html = '';
@@ -79,8 +79,12 @@ $(document).ready(function () {
         type_sub_box.append(html);
     }
 
-    function ajaxRenderProducts(data) {
-
+    function ajaxRenderProducts(data, root) {
+       // alert('products' + root);
+        if(root == 1) {
+           // alert('hide');
+            hideSubCategories();
+        }
         var type_product_box = $('#product_box');
         type_product_box.empty();
         var html = '<div id="carousel" class="carousel-control">';
@@ -118,11 +122,14 @@ $(document).ready(function () {
 
                 var type = json['type'];
                 if (type.localeCompare("categories") == 0) {
-                    ajaxRenderCategories(json['data']);
+                    ajaxRenderCategories(json['data'], json['root']);
                     check_root_cat_id = id;
                 }
                 if (type.localeCompare("products") == 0) {
-                    ajaxRenderProducts(json['data']);
+                    ajaxRenderProducts(json['data'], json['root']);
+                    check_sub_cat_id = id;
+                }
+                if (type.localeCompare("no_edit") == 0) {
                     check_sub_cat_id = id;
                 }
             },

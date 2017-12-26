@@ -32,8 +32,7 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 		
 		if(isset($this->session->data['products_id']))
 			$this->session->data['products_id'] = array_slice($this->session->data['products_id'], -$setting['limit']);
-
-		if (isset($this->session->data['products_id'])) {
+        if (isset($this->session->data['products_id'])) {
 			foreach ($this->session->data['products_id'] as $result_id) {
 				$result = $this->model_catalog_product->getProduct($result_id);
 

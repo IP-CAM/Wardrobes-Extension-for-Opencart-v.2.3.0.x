@@ -25,9 +25,10 @@ class ControllerCustomerCustomer extends Controller {
             $this->normalizeField($data, 'width');
             $this->normalizeField($data, 'height');
             $this->normalizeField($data, 'depth');
+            $this->normalizeField($data, 'price');
 
             $this->load->model('customer/customer');
-            $products = $this->model_customer_customer->addCustomer($data);
+            $this->model_customer_customer->addCustomer($data);
             $html = $this->load->view('customer/modal_box', $data);
         }
         $json = array();

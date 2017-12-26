@@ -21,13 +21,10 @@ class ControllerCalculatorCalculator extends Controller {
         $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
         $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 
-        $this->document->addStyle('catalog/view/javascript/jquery/slider/bootstrap-slider.css');
-        $this->document->addScript('catalog/view/javascript/jquery/slider/bootstrap-slider.js');
+         $this->document->addStyle('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.css');
+         $this->document->addScript('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.js');
 
-      //  $this->document->addScript('catalog/view/javascript/jquery/maskedinput/jquery.maskedinput.min.js');
 
-     //   $this->document->addStyle('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.css');
-     //   $this->document->addScript('catalog/view/javascript/jquery/fancybox/jquery.fancybox.min.js');
         $this->load->language('common/header');
         $data['breadcrumbs'] = array();
 
@@ -145,7 +142,7 @@ class ControllerCalculatorCalculator extends Controller {
             $categories = $this->model_catalog_category->getCategories($id);
             if(count($categories) == 0) {
                 $json['data'] = null;
-                $json['type'] = 'categories';
+                $json['type'] = 'no_edit';
             } else {
                 $this->normalizationImageLink($categories, $server);
                 $this->normalizationName($categories);
@@ -155,6 +152,11 @@ class ControllerCalculatorCalculator extends Controller {
 
         }
 
+        if($type == 'root') {
+            $json['root'] = '1';
+        } else {
+            $json['root'] = '0';
+        }
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
     }

@@ -29,6 +29,7 @@ $_['column_product']          = 'Продукт';
 $_['column_width']          = 'Ширина';
 $_['column_height']          = 'Высота';
 $_['column_depth']          = 'Глубина';
+$_['column_price']          = 'Цена показанная клиенту';
 
 $_['column_action']         = 'Действие';
 

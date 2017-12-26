@@ -17,7 +17,8 @@ class ModelCustomerCustomer extends Model {
             product_id = '" . (int)$data['product_id'] . "',
             width = '" . (float)$data['width'] . "',
             height = '" . (float)$data['height'] . "',
-            depth = '" . (float)$data['depth'];
+            depth = '" . (float)$data['depth'] . "',
+            price = '" . (float)$data['price'];
         $this->db->query($sql);
     }
 

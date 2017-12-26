@@ -894,9 +894,7 @@ footer li span {
 .list-footer {
     font-size: 14px;
 }
-header {
-    padding-bottom: 20px;
-}
+
 header .col-sm-2 h3{
     padding: 0;
     margin: 0;
@@ -1130,7 +1128,7 @@ footer #f-padding {
 
 
 #calculator .owl-item {
-    width: 262px!important;
+    width: 256px!important;
     border:1px solid #d9d9d9;
     border-radius: 6px;
     height: 333px;
@@ -1241,8 +1239,8 @@ footer #f-padding {
 
 #cal-calculation-box #button-check {
     position: absolute;
-    top: 33px;
-    left: 148px;
+    top: 36px;
+    left: 129px;
 
 }
 #cal-calculation-box #button-check .line {
@@ -1317,14 +1315,19 @@ footer #f-padding {
 }
     #standard-box #slider {
         position: absolute;
-        top: 25px;
         left: 70px;
+        width: 295px;
+        top: 44px;
     }
     #standard-box #slider p {
         display: inline-block;
         font-weight: bold;
         padding-left: 19px;
-        font-size: 17px;
+        font-size: 18px;
+        position: absolute;
+        top: -12px;
+        right: -135px;
+
     }
     #standard-box #width {
         position: absolute;
@@ -1336,11 +1339,7 @@ footer #f-padding {
         top: 87px;
         left: 141px;
     }
-    #standard-box #settings {
-        position: absolute;
-        top: 87px;
-        left: 319px;
-    }
+
 
 
     #exclusive-box #text-width {
@@ -1383,23 +1382,23 @@ footer #f-padding {
 
 #cal-calculation-box #cal_top_price {
     position: absolute;
-    top: 137px;
     left: 28px;
+    top: 129px;
     /* color: green; */
     color: #71ac43;
 }
 #cal-calculation-box #cal_sub_price {
     position: absolute;
-    top: 166px;
-    left: 220px;
-    font-size: 13px;
+    left: 214px;
+    top: 158px;
+    font-size: 14px;
 }
 
 #cal-calculation-box #calculation_button {
     position: absolute;
-    top: 157px;
+    top: 149px;
     left: 399px;
-    font-size: 13px;
+    font-size: 17px;
     width: 120px;
     height: 33px;
     line-height: 28px;
@@ -1434,7 +1433,7 @@ footer #f-padding {
     height: 31px;
     border: none;
     line-height: 31px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .calculator_dispatch .error {
@@ -1453,7 +1452,7 @@ footer #f-padding {
         content: url('../image/calculator_banner.jpg');
     }
     #calculator #banner {
-        padding-bottom:25px;
+        padding-bottom: 42px;
     }
 }
 @media (max-width: 1200px) {
@@ -1530,7 +1529,7 @@ footer #f-padding {
 
 
 
-/* aboutcompany contacts */
+/* aboutcompany contacts TODO */
 .contacts .text-top-right {
     text-align: right;
     position: absolute;
@@ -2181,8 +2180,28 @@ footer #f-padding {
     width: 910px;
 }
 
-
-
+/* home */
+#home .home-partners #partners-gprom {
+    background: url(../image/home-label-gprom.png) no-repeat;
+    width: 100%;
+    height: 175px;
+    background-position: right bottom;
+}
+#home .home-partners #partners-sberb {
+    background: url(../image/home-label-sberb.png) no-repeat;
+    width: 100%;
+    height: 175px;
+    background-position: left bottom;
+}
+#home .owl-pagination {
+    margin-top: -52px;
+}
+#home #tile_banner {
+    margin-top: 20px;
+}
+#home #tile_banner img {
+    margin-top: 20px;
+}
 
 /*download font */
 
@@ -2195,7 +2214,10 @@ footer #f-padding {
     font-family: Verdana; /* Гарнитура шрифта */
     src: url(../stylesheet/font/verdana.ttf); /* Путь к файлу со шрифтом */
 }
-
+@font-face {
+    font-family: Georgia; /* Гарнитура шрифта */
+    src: url(../stylesheet/font/Georgia.ttf); /* Путь к файлу со шрифтом */
+}
 
 .font-type-georgia {
     font-family: 'Georgia',sans-serif;
@@ -2414,8 +2436,8 @@ footer #f-padding {
 }
 
 body {
-    /*background: url(../image/special.png) no-repeat;*/
-    /*opacity: 0.7;*/
-    background-position-x: -207px;
-    background-position-y: 59px;
+    background: url(../image/222.png) no-repeat;
+    opacity: 0.7;
+    background-position-x: -204px;
+    background-position-y: -7px;
 }

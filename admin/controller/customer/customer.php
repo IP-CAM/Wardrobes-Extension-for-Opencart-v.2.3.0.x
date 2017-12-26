@@ -460,7 +460,8 @@ class ControllerCustomerCustomer extends Controller {
                 'type'          => $result['type'],
                 'width'          => $result['width'],
                 'height'          => $result['height'],
-                'depth'          => $result['depth']
+                'depth'          => $result['depth'],
+                'price'          => $result['price']
 			);
 		}
 
@@ -487,6 +488,7 @@ class ControllerCustomerCustomer extends Controller {
         $data['column_width'] = $this->language->get('column_width');
         $data['column_height'] = $this->language->get('column_height');
         $data['column_depth'] = $this->language->get('column_depth');
+        $data['column_price'] = $this->language->get('column_price');
 
 		$data['column_action'] = $this->language->get('column_action');
 

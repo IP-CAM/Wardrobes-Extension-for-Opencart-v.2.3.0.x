@@ -6,8 +6,8 @@
 </div>
 <!-- MODAL WINDOW BEGIN END -->
 
-	<div class="row" id="main_inscription">
-		<div class="col-sm-12 text-center">
+	<div class="row" >
+		<div class="col-sm-12 text-center" style="margin-top: 15px;">
 			<h1>Популярные <a href="<?php echo $link_calculator; ?>">категории товаров </a></h1>
 		</div>
 	</div>
@@ -72,7 +72,7 @@
 
 <!-- COMMENTS BEGIN -->
 
-	<div class="row" id="main_inscription">
+	<div class="row" >
 		<div class="col-sm-12 text-center">
 			<h1>Отзывы наших клиентов</h1>
 		</div>
@@ -118,7 +118,7 @@
 
 <!-- SERVICE BEGIN -->
 
-	<div class="row" id="main_inscription">
+	<div class="row" >
 		<div class="col-sm-12 text-center">
 			<h1>Получите в подарок выезд <br/>
 				дизайнера и технолога на дом</h1>
@@ -165,6 +165,22 @@
 	</div>
 
 <!-- SERVICE END -->
+
+
+<!-- OUR PARTNERS  BEGIN-->
+<div class="row home-partners" >
+	<div class="col-sm-12 text-center">
+		<h1>Наши партнеры</h1>
+	</div>
+	<div class="col-sm-6">
+		<div id="partners-gprom"></div>
+	</div>
+	<div class="col-sm-6">
+		<div id="partners-sberb"></div>
+	</div>
+</div>
+<!-- OUR PARTNERS  END-->
+
 
 <script type="text/javascript">
 

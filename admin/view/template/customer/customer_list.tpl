@@ -121,6 +121,7 @@
 				  <td class="text-right"><?php echo $column_width; ?></td>
 				  <td class="text-right"><?php echo $column_height; ?></td>
 				  <td class="text-right"><?php echo $column_depth; ?></td>
+				  <td class="text-right"><?php echo $column_price; ?></td>
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
@@ -144,6 +145,7 @@
 				  <td class="text-right"><?php echo $customer['width']; ?></td>
 				  <td class="text-right"><?php echo $customer['height']; ?></td>
 				  <td class="text-right"><?php echo $customer['depth']; ?></td>
+				  <td class="text-right"><?php echo $customer['price']; ?></td>
                   <td class="text-right">
                     <button type="button" class="btn btn-warning" disabled><i class="fa fa-unlock"></i></button>
                     <a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
