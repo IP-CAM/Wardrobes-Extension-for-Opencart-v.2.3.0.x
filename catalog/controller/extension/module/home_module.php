@@ -48,10 +48,10 @@ class ControllerExtensionModuleHomeModule extends Controller {
 
 
         $comments = array();
-        for($i = 0 ; $i < 3;  $i++) {
+        for($i = 1 ; $i < 4;  $i++) {
             $comment = array();
             $comment['id'] = $i;
-            $comment['path_image'] = $server . 'image/catalog/comments/comments_photo_' . $i . '.png';
+            $comment['path_image'] = $server . 'image/catalog/home/home-review-' . $i . '.jpg';
             $comment['href'] = '';
             $comment['title'] = '';
             $comment['alt'] = '';

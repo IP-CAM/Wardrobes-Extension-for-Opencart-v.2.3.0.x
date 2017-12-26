@@ -36,16 +36,16 @@
 			<h3 class="text-center">Информация</h3>
 			<div class="col-lg-6">
 				<ul class="list-footer">
-					<li><a href="<?php echo $information['href']; ?>">О компании</a></li>
-					<li><a href="<?php echo $information['href']; ?>">Контакты</a></li>
-					<li><a href="<?php echo $information['href']; ?>">Каталог</a></li>
+					<li><a href="<?php echo $aboutcompany; ?>">О компании</a></li>
+					<li><a href="<?php echo $contacts; ?>">Контакты</a></li>
+					<li><a href="<?php echo $generalcatalog; ?>">Каталог</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-6">
 				<ul class="list-footer">
-					<li><a href="<?php echo $information['href']; ?>">Расчет стоимости</a></li>
-					<li><a href="<?php echo $information['href']; ?>">Акции</a></li>
-					<li><a href="<?php echo $information['href']; ?>">Отзывы и предложение</a></li>
+					<li><a href="<?php echo $calculator; ?>">Расчет стоимости</a></li>
+					<li><a href="<?php echo $special; ?>">Акции</a></li>
+					<li><a href="<?php echo $review; ?>">Отзывы и предложение</a></li>
 				</ul>
 			</div>
 		</div>

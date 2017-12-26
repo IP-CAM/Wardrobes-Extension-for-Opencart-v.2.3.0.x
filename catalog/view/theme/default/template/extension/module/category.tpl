@@ -6,7 +6,7 @@
 			<li><a href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a></li>
 			<li><a href="<?php echo $categories[66]['href'] ?>">Угловые шкафы-купе</a></li>
 			<li><a href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a></li>
-			<li><a href="<?php echo $categories[59]['href'] ?>">Шкафы-Купе</a></li>
+			<!-- <li><a href="<?php echo $categories[59]['href'] ?>">Шкафы-Купе</a></li> -->
 			<li><a href="<?php echo $categories[64]['href'] ?>">Радиусные шкафы-купе</a></li>
 		</ul>
 		<div class="text"><a href="<?php echo $categories[69]['href'] ?>">Прихожие</a></div>

@@ -97,7 +97,7 @@
 
 
 			</div>
-			<div id="image"></div>
+			<a id="image" href="https://vk.com/centr_mebeli"></a>
 			<?php echo $content_bottom; ?></div>
 		<?php echo $column_right; ?></div>
 	</div>

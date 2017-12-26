@@ -55,7 +55,7 @@
 				<?php } ?>
 			</div>
 
-			<div class=" images-item">
+			<div class=" images-item <?php if (!$images) { ?> one-image <?php } ?>">
 				<?php if ($thumb) { ?>
 				<a class="thumbnail" style="width: 631px; height: 400px;" href="<?php echo $popup; ?>"
 				   title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>"
@@ -85,7 +85,7 @@
 							<?php if($width=='') { ?>
 							<a href="<?php echo $calculator ?>" class="any block-line font-size-15 font-type-verdana red font-underline">Любая</a>
 							<?php } else { ?>
-							<p class="block-line font-size-15 font-type-verdana"><?php echo $width ?></p>
+							<p class="block-line <?php if(mb_strlen($width)<8) { ?> font-size-15 <?php } else { ?> font-size-13 <?php } ?>   font-type-verdana"><?php echo $width ?></p>
 							<?php } ?>
 						</div>
 						<div id="height" class="block-line">
@@ -93,7 +93,7 @@
 							<?php if($height=='') { ?>
 							<a href="<?php echo $calculator ?>" class="any block-line font-size-15 font-type-verdana red font-underline">Любая</a>
 							<?php } else { ?>
-							<p class="block-line font-size-15 font-type-verdana"><?php echo $height ?></p>
+							<p class="block-line <?php if(mb_strlen($height)<8) { ?> font-size-15 <?php } else { ?> font-size-13 <?php } ?> font-type-verdana"><?php echo $height ?></p>
 							<?php } ?>
 						</div>
 						<div id="depth" class="block-line">
@@ -101,7 +101,7 @@
 							<?php if($depth=='') { ?>
 							<a href="<?php echo $calculator ?>" class="any block-line font-size-15 font-type-verdana red font-underline">Любая</a>
 							<?php } else { ?>
-							<p class="block-line font-size-15 font-type-verdana"><?php echo $depth ?></p>
+							<p class="block-line <?php if(mb_strlen($depth)<8) { ?> font-size-15 <?php } else { ?> font-size-13 <?php } ?> font-type-verdana"><?php echo $depth ?></p>
 							<?php } ?>
 						</div>
 					</div>

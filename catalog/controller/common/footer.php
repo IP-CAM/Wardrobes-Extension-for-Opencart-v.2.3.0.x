@@ -33,17 +33,16 @@ class ControllerCommonFooter extends Controller {
 			}
 		}
 
-		$data['contact'] = $this->url->link('information/contact');
-		$data['return'] = $this->url->link('account/return/add', '', true);
-		$data['sitemap'] = $this->url->link('information/sitemap');
-		$data['manufacturer'] = $this->url->link('product/manufacturer');
-		$data['voucher'] = $this->url->link('account/voucher', '', true);
-		$data['affiliate'] = $this->url->link('affiliate/account', '', true);
-		$data['special'] = $this->url->link('product/special');
-		$data['account'] = $this->url->link('account/account', '', true);
-		$data['order'] = $this->url->link('account/order', '', true);
-		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
-		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
+        $data['home'] = $this->url->link('common/home');
+
+        $data['aboutcompany'] = $this->url->link('aboutcompany/aboutcompany');
+
+		$data['calculator'] = $this->url->link('calculator/calculator');
+        $data['generalcatalog'] = $this->url->link('generalcatalog/generalcatalog');
+        $data['special'] = $this->url->link('special/special');
+        $data['review'] = $this->url->link('review/review');
+
+		$data['contacts'] = $this->url->link('contacts/contacts');
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
@@ -88,7 +87,7 @@ class ControllerCommonFooter extends Controller {
 
         $vk_link = array();
         $vk_link['path_image'] = $server . 'image/catalog/vk.png';
-        $vk_link['href'] = '';
+        $vk_link['href'] = 'https://vk.com/centr_mebeli';
         $vk_link['title'] = '';
         $vk_link['alt'] = '';
         $data['vk_link'] = $vk_link;
