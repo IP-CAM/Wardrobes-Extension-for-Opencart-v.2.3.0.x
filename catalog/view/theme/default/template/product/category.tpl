@@ -1,4 +1,6 @@
 <?php echo $header; ?>
+<input type="hidden" name="products_json_id" value="<?php echo $products_json_id ?>" />
+<input type="hidden" name="category_id"  value="<?php echo $category_id ?>" />
 <div class="container" id="category">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
@@ -93,7 +95,7 @@
       </div>
       <div class="row product-box" style="padding-top: 27px;">
         <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12" data-product_id=<?php echo $product['product_id']; ?> >
           <div class="product-thumb">
               <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
 
@@ -136,3 +138,4 @@
 </div>
 
 <?php echo $footer; ?>
+

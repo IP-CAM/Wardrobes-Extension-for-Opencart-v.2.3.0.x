@@ -1,5 +1,5 @@
 body {
-    font-family: 'Georgia', sans-serif;
+    font-family: 'Verdana',sans-serif;
     font-weight: 400;
     color: #666;
     color: #212121;
@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-    font-size: 27px;
+    font-size: 24px;
 }
 
 h3 {
@@ -533,6 +533,7 @@ footer h5 {
     overflow: auto;
     border-radius: 6px;
     height: 400px;
+    width: 263px;
 }
 .product-thumb:before, .product-thumb:after {
     position: absolute;
@@ -1005,6 +1006,11 @@ footer #f-padding {
     padding-bottom: 15px;
 }
 
+#calculator .dynamic_category {
+    display: inline-block;
+    float: none;
+}
+
 #calculator .box input {
     position: absolute;
     -webkit-appearance: none;
@@ -1070,7 +1076,7 @@ footer #f-padding {
 
 /*sub_box_item*/
 #calculator .sub_box_item img {
-    margin-top: 11px;
+    margin-top: 22px;
     margin-bottom: 55px;
     margin-right: 21px;
     margin-left: 21px;
@@ -1095,7 +1101,7 @@ footer #f-padding {
 }
 #calculator .sub_box_item p {
     position: absolute;
-    top: 260px;
+    top: 241px;
     left: 20px;
     width: 256px;
     font-size: 18px;
@@ -1108,7 +1114,7 @@ footer #f-padding {
     width: 256px!important;
     border:1px solid #d9d9d9;
     border-radius: 6px;
-    height: 333px;
+    height: 328px;
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -1169,7 +1175,7 @@ footer #f-padding {
     opacity: 0.5;
 }
 
-#calculator-box>div {
+#calculator-box>#cal-calculation-box, #calculator-box>#cal-dispatch-box {
     height: 284px;
     border-radius: 6px;
     border: 1px solid #d9d9d9;
@@ -1266,17 +1272,13 @@ footer #f-padding {
 }
 
 
-#cal-calculation-box #standard:before {
-    content: url('../image/calculator_icon_quest.png');
+#cal-calculation-box #quest-calculation {
+    background: url('../image/calculator_icon_quest.png');
     left: -29px;
     top: 7px;
     position: absolute;
-}
-#cal-calculation-box #standard:after {
-    content: url('../image/calculator_icon_quest.png');
-    left: -29px;
-    top: 7px;
-    position: absolute;
+    width: 18px;
+    height: 18px;
 }
 
 #cal-calculation-box  p {
@@ -1290,7 +1292,16 @@ footer #f-padding {
     padding: 2px;
     margin: 3px;
 }
+#calculator #message-calculation {
+    width: 500px;
+    height: 89px;
+    top: -77px;
+}
+#calculator #message-calculation .arrow {
+    top: 69px;
+    left: 90px;
 
+}
 
 
 
@@ -1318,11 +1329,11 @@ footer #f-padding {
     #standard-box #slider p {
         display: inline-block;
         font-weight: bold;
-        padding-left: 19px;
+        /* padding-left: 19px; */
         font-size: 18px;
         position: absolute;
-        top: -12px;
-        right: -135px;
+        top: -14px;
+        right: -155px;
 
     }
     #standard-box #width {
@@ -1379,22 +1390,22 @@ footer #f-padding {
 #cal-calculation-box #cal_top_price {
     position: absolute;
     left: 28px;
-    top: 129px;
+    top: 136px;
     /* color: green; */
     color: #71ac43;
 }
 #cal-calculation-box #cal_sub_price {
     position: absolute;
     left: 214px;
-    top: 158px;
-    font-size: 14px;
+    top: 161px;
+    font-size: 13px;
 }
 
 #cal-calculation-box #calculation_button {
     position: absolute;
-    top: 149px;
+    top: 153px;
     left: 399px;
-    font-size: 17px;
+    font-size: 16px;
     width: 120px;
     height: 33px;
     line-height: 28px;
@@ -1428,7 +1439,7 @@ footer #f-padding {
     width: 95px;
     height: 31px;
     border: none;
-    line-height: 31px;
+    line-height: 28px;
     font-size: 14px;
 }
 
@@ -1617,11 +1628,7 @@ footer #f-padding {
 }
 
 /* catalog product */
-.list-group {
-    border: 1px solid #DDDDDD;
-    border-radius: 5px;
-    font-family: 'Time new romans', sans-serif;
-}
+
 /* list group */
 .list-group a {
     color: #151414;
@@ -1655,6 +1662,27 @@ footer #f-padding {
     margin-left: 22px;
     padding-top: 16px;
     font-size: 17px;
+}
+
+#column-left #input-slider input{
+    display: inline-block;
+    width: 66px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 4px;
+    outline: none;
+    border: 1px solid #d9d9d9;
+    position: relative;
+}
+#column-left #input-slider {
+    height: 40px;
+    margin-top: 21px;
+}
+#column-left #slider-category {
+    margin-top: 12px;
+    margin-left: 16px;
+    width: 230px;
 }
 
 
@@ -1772,7 +1800,9 @@ footer #f-padding {
 
 
 
-
+#product .owl-carousel .owl-wrapper-outer {
+    width: 1115px;
+}
 
 
 
@@ -1910,30 +1940,11 @@ footer #f-padding {
 #product #message-characteristic {
     width: 290px;
     height: 65px;
-    padding: 6px;
-    line-height: 18px;
-    position: absolute;
-    bottom: 259px;
-    z-index: 100;
-    background-color: white;
+    bottom: 261px;
 }
 #product #message-characteristic .arrow {
-    left: 115px;
-    top: 43px;
-    position: relative;
-    width: 30px;
-    height: 30px;
-    border-bottom: 1px solid #d9d9d9;
-    display: block;
-    transform: rotate(45deg);
-    border-right: 1px solid #d9d9d9;
-    background-color: #FFFFFF;
-    z-index: 3;
-}
-#product #message-characteristic #text {
-    z-index: 100;
-    position: absolute;
-    width: 272px;
+    left: 87px;
+    top: 49px;
 }
 
 
@@ -2499,6 +2510,37 @@ footer #f-padding {
     font-size: 14px;
 }
 
+.message-pupop {
+    width: 290px;
+    height: 65px;
+    padding: 6px;
+    line-height: 18px;
+    position: absolute;
+    bottom: 259px;
+    z-index: 100;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    text-align: justify;
+}
+.message-pupop .arrow {
+    left: 115px;
+    top: 43px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-bottom: 1px solid #d9d9d9;
+    display: block;
+    transform: rotate(45deg);
+    border-right: 1px solid #d9d9d9;
+    background-color: #FFFFFF;
+
+    z-index: 3;
+}
+.message-pupop #text {
+    z-index: 101;
+    position: absolute;
+}
 
 
 .owl-wrapper-outer {
@@ -2509,7 +2551,7 @@ footer #f-padding {
 }
 
 body {
-    /*background: url(../image/222.png) no-repeat;*/
+    /*background: url(../image/11111.jpg) no-repeat;*/
     /*opacity: 0.7;*/
     background-position-x: -21px;
     background-position-y: -7px;

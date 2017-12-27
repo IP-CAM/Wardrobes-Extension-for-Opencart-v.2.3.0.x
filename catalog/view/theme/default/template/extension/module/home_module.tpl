@@ -86,7 +86,7 @@
 				количеством цветов шкафов и материалов. Меня консультировала менеджер Наташа, очень
 				любезная девушка, которая подобрала дизайн шкафа и сказала его стоимость. Всё очень
 				здорово...</p>
-			<a class="pull-right font-size-18 font-underline" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $tile_banner_dressing_rooms['href']; ?>">Читать далее</a>
+			<a class="pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $tile_banner_dressing_rooms['href']; ?>">Читать далее</a>
 		</div>
 		<?php } ?>
 

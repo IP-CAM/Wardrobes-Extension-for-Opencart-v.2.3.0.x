@@ -7,12 +7,14 @@
 <!-- MODAL WINDOW BEGIN END -->
 <div class="container " id="product">
 
-<div class="border-gray" id="message-characteristic" style="display: none;">
+<!-- PUPAP MESSAGE END -->
+<div class="message-pupop" id="message-characteristic" style="display: none;">
 	<p class="font-size-12 font-type-verdana" id="text">Мы можем изготовить шкаф-купе который
 		присутствует на нашем сайте с любыми
 		вашими индивидуальными размерами </p>
 	<p class="arrow"></p>
 </div>
+<!-- PUPAP MESSAGE END -->
 
 <ul class="breadcrumb">
 	<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
@@ -68,7 +70,7 @@
 		</div>
 
 		<?php } ?>
-		<div class="nav nav-tabs border-gray">
+		<div class="nav nav-tabs border-gray font-type-georgia">
 			<div class="button" id="characteristic" style="width: 146px;" ><p class="active-button">Характеристика</p></div>
 			<div class="button" id="description" style="width: 146px;"><p  class="active-div">Описание</p></div>
 			<div class="button" id="color" style="width: 146px;"><p class="active-div">Цвет</p></div>
@@ -293,8 +295,6 @@
 				enabled:true
 			}
 		});
-
-
 	});
 	//--></script>
 

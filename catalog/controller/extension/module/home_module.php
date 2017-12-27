@@ -12,37 +12,37 @@ class ControllerExtensionModuleHomeModule extends Controller {
         }
         $tile_banner_standard = array();
         $tile_banner_standard['path_image'] = $server . 'image/catalog/banners/home-standard.jpg';
-        $tile_banner_standard['href'] = '';
-        $tile_banner_standard['title'] = '';
-        $tile_banner_standard['alt'] = '';
+        $tile_banner_standard['href'] = $this->url->link('product/category', 'path=67_67');
+        $tile_banner_standard['title'] = 'Стандартные';
+        $tile_banner_standard['alt'] = 'Стандартные';
         $data['tile_banner_standard'] = $tile_banner_standard;
 
         $tile_banner_radius = array();
         $tile_banner_radius['path_image'] = $server . 'image/catalog/banners/home-radius.jpg';
-        $tile_banner_radius['href'] = '';
-        $tile_banner_radius['title'] = '';
-        $tile_banner_radius['alt'] = '';
+        $tile_banner_radius['href'] = $this->url->link('product/category', 'path=64_64');
+        $tile_banner_radius['title'] = 'Радиусные';
+        $tile_banner_radius['alt'] = 'Радиусные';
         $data['tile_banner_radius'] = $tile_banner_radius;
 
         $tile_banner_calculator = array();
         $tile_banner_calculator['path_image'] = $server . 'image/catalog/banners/home-calculator.jpg';
-        $tile_banner_calculator['href'] = '';
-        $tile_banner_calculator['title'] = '';
-        $tile_banner_calculator['alt'] = '';
+        $tile_banner_calculator['href'] = $this->url->link('calculator/calculator');
+        $tile_banner_calculator['title'] = 'Калькулятор';
+        $tile_banner_calculator['alt'] = 'Калькулятор';
         $data['tile_banner_calculator'] = $tile_banner_calculator;
 
         $tile_banner_built_in = array();
         $tile_banner_built_in['path_image'] = $server . 'image/catalog/banners/home-built-in.jpg';
-        $tile_banner_built_in['href'] = '';
-        $tile_banner_built_in['title'] = '';
-        $tile_banner_built_in['alt'] = '';
+        $tile_banner_built_in['href'] = $this->url->link('product/category', 'path=60_60');
+        $tile_banner_built_in['title'] = 'Встроенные';
+        $tile_banner_built_in['alt'] = 'Встроенные';
         $data['tile_banner_built_in'] = $tile_banner_built_in;
 
         $tile_banner_dressing_rooms = array();
         $tile_banner_dressing_rooms['path_image'] = $server . 'image/catalog/banners/home-dressing-rooms.jpg';
-        $tile_banner_dressing_rooms['href'] = $this->url->link('review/review');
-        $tile_banner_dressing_rooms['title'] = '';
-        $tile_banner_dressing_rooms['alt'] = '';
+        $tile_banner_dressing_rooms['href'] = $this->url->link('product/category', 'path=68_68');
+        $tile_banner_dressing_rooms['title'] = 'Гардеробные';
+        $tile_banner_dressing_rooms['alt'] = 'Гардеробные';
         $data['tile_banner_dressing_rooms'] = $tile_banner_dressing_rooms;
 
 
