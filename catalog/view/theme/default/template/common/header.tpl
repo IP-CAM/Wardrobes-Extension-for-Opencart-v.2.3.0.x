@@ -95,7 +95,7 @@
 		</div>
 	</div>
 	<div class="container visible-lg" style="padding-top: 8px;">
-		<div class="row border-top-dark border-bottom-dark" id="navigation_bar">
+		<div class="row border-top-dark border-bottom-dark font-type-georgia" id="navigation_bar">
 			<div class="col-sm-2 text-center">
 				<a href="<?php echo $aboutcompany; ?>"><h3>О компании</h3></a>
 			</div>

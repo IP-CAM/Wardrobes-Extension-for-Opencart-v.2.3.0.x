@@ -93,6 +93,7 @@ class ControllerProductCategory extends Controller {
 		}
 
 		$category_info = $this->model_catalog_category->getCategory($category_id);
+        $data['category_id'] = $category_id;
 
 		if ($category_info) {
 			$this->document->setTitle($category_info['meta_title']);
@@ -228,6 +229,14 @@ class ControllerProductCategory extends Controller {
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);
 			}
+
+            $products_json_id = array();
+            foreach($results as $result) {
+                $products_json_id[] = $result['product_id'];
+            }
+            //$data['products_json_id'] = addslashes(json_encode($products_json_id));
+            $data['products_json_id'] = htmlspecialchars(json_encode($products_json_id));
+
 
 			$url = '';
 

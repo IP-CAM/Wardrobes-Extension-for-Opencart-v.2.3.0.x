@@ -1,23 +1,26 @@
 <?php echo $header; ?>
+<input type="hidden" name="product_id" data-modal="1" value="" />
 <!-- MODAL WINDOW BEGIN -->
 <div class="overlay modal_window_box" style="display: none" title="окно"></div>
 <div class="popup modal_window_box" style="display: none">
 	<div class="close_window">x</div>
 </div>
-
-
-
-
-
 <!-- MODAL WINDOW BEGIN END -->
+<!-- PUPAP MESSAGE END -->
+<div class="message-pupop" id="message-calculation" style="display: none;">
+	<p class="font-size-12 font-type-verdana" id="text">Выберите предполагаемую ширину желаемой мебели. Для настройки высоты и глубины перейдите во вкладку "Эксклюзивные". Также в стоимость будет включена возможность изменять материалы, форму, наполнение и любые другие характеристики.</p>
+	<p class="arrow"></p>
+</div>
+<!-- PUPAP MESSAGE END -->
+
 <div class="container container-fix " id="calculator">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
-		<?php if(!next($breadcrumbs)) { ?>
-		<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-		<?php continue; ?>
-		<?php } ?>
-		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+			<?php if(!next($breadcrumbs)) { ?>
+				<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+				<?php continue; ?>
+				<?php } ?>
+				<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 		<?php } ?>
 	</ul>
 
@@ -72,14 +75,14 @@
 			</div>
 			<!-- TYPE OF FURNITURE END -->
 			<!-- SUBTYPE FURNITURE BEGIN -->
-			<h1 class="text-center">Выбирете тип шкафа</h1>
-			<div class="row" id="sub_box">
+			<h1 class="text-center" id="type-wardrobes" hidden="hidden">Выбирете тип шкафа</h1>
+			<div class="row text-center" id="sub_box">
 			</div>
 			<!-- SUBTYPE FURNITURE END -->
 
 			<!-- PRODUCTS BEGIN -->
-			<input type="hidden" name="product_id" data-modal="1" value="" />
-			<h1 class="text-center">Выбирете модель</h1>
+
+			<h1 class="text-center" id="type-products" hidden="hidden">Выбирете модель</h1>
 			<div class="row" id="product_box">
 			</div>
 			<!-- PRODUCTS END -->
@@ -92,6 +95,7 @@
 
 					<div id="cal-calculation-box" class="col-lg-6 no-padding margin-left">
 						<div id="button-check">
+							<div id="quest-calculation"></div>
 							<div id="standard" title="Стандарт">
 								<p>Стандарт</p>
 							</div>
@@ -104,7 +108,6 @@
 							<div id="standard-box">
 								<div id="slider">
 									<div id="slider-range"></div>
-									<div class="slider"></div>
 									<p>Ширина (см)</p>
 								</div>
 
@@ -132,7 +135,7 @@
 
 					<div id="cal-dispatch-box" class="col-lg-6 no-padding">
 						<div class="calculator_dispatch">
-							<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone">
+							<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
 							<input type="button"  id="dispatch_button" data-modal="1" value="Отправить" class="button-style-1" />
 							<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 						</div>
@@ -170,31 +173,45 @@
 			$('.calculator_dispatch .error').hide();
 
 
-			$(function() {
-				var isResizeble = false;
-				$( "#slider-range" ).slider({
-					min: 100,
-					max: 400,
-					slide: function( event, ui ) {
-						if(!isResizeble) {
-							$('.ui-slider-handle.ui-corner-all.ui-state-default').before('<div class="number" style="position: relative; top: -24px;     margin-left: -9px;"></div>');
-							isResizeble = true;
-						} else {
-							var val = $('.ui-slider-handle').css('left');
-							$('.number').css('left', val);
-							//$('.number').css('top)
-						}
-						$('.number').text(ui.value);
-						$( "#input_width" ).val(ui.value);
-						activeStandard();
-					},
-					change: function( event, ui ) {
-						var val = $('.ui-slider-handle').css('left');
-						$('.number').css('left', val);
-					}
-				});
 
-			} );
+
+			$('#quest-calculation').mouseenter(function() {
+				$('#message-calculation').show();
+				$('#cal-calculation-box').append($('#message-calculation'));
+			});
+			$('#quest-calculation').mouseleave(function() {
+				$('#message-calculation').hide();
+			});
+
+
+
+
+
+			$( "#slider-range" ).slider({
+				min: 100,
+				max: 400,
+				range: 'min',
+				slide: function( event, ui ) {
+
+					var val = $('.ui-slider-handle').css('left');
+					$('.number').css('left', val);
+					//$('.number').css('top)
+
+					$('.number').text(ui.value);
+					$( "#input_width" ).val(ui.value);
+					activeStandard();
+				},
+				change: function( event, ui ) {
+					var val = $('.ui-slider-handle').css('left');
+					$('.number').css('left', val);
+				},
+				create: function(event, ui) {
+					$('.ui-slider-handle.ui-corner-all.ui-state-default').before('<div class="number"></div>');
+					$('.number').text('100');
+				}
+			});
+
+
 
 			$('#standard').click(function () {
 				//$(this).append($('#calculator_active_img'));
@@ -226,11 +243,6 @@
 			});
 
 
-
-
-
-
-			//Validation telephone
 
 			$('#calculation_button, #banner').click(function () {
 				if($('#standard-box').is(':visible')) {

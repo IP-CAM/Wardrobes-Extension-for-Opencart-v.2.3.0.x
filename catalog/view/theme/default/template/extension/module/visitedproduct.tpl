@@ -1,5 +1,5 @@
 
-<div class="col-lg-12" style="padding: 0;">
+<div class="col-lg-12" style="padding: 0; margin:0">
 	<h2 class="line-red font-size-30 font-type-georgia" id="visitproduct-maiker"><?php echo $heading_title; ?></h2>
 	<div id="carousel" class="carousel-control" data-ride="carousel">
 

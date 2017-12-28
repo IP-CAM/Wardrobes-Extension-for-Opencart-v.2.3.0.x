@@ -133,7 +133,7 @@ class ControllerCalculatorCalculator extends Controller {
         $type= $this->request->post['type'];
 
         $product_count = $this->model_calculator_calculator->getProductEmptyFormCategories($id);
-        if($product_count > 0) {
+        if($product_count > 0 && $id != 59) {
             $products = $this->model_calculator_calculator->getProductFormCategories($id);
             $this->normalizationImageLink($products, $server);
             $json['data'] = $products;

@@ -1481,7 +1481,7 @@ class ControllerCatalogProduct extends Controller {
     private function normalizeParametr($value)
     {
         if($value != '') {
-            if(strpos($value, 'см') === false) {
+            if(strpos($value, 'см') === false && strpos($value, 'мм') === false) {
                 $value .= ' см';
             }
         }

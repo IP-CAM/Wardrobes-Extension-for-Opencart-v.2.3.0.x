@@ -56,10 +56,13 @@ $(document).ready(function () {
         type_sub_box.empty();
         var type_product_box = $('#product_box');
         type_product_box.empty();
+        $('#type-wardrobes').hide();
+        $('#type-products').hide();
     }
 
     function ajaxRenderCategories(data, root) {
         hideSubCategories();
+        $('#type-wardrobes').show();
         var type_sub_box = $('#sub_box');
         var html = '';
 
@@ -85,6 +88,7 @@ $(document).ready(function () {
            // alert('hide');
             hideSubCategories();
         }
+        $('#type-products').show();
         var type_product_box = $('#product_box');
         type_product_box.empty();
         var html = '<div id="carousel" class="carousel-control">';
@@ -96,7 +100,7 @@ $(document).ready(function () {
             html += 'title="' + value["name"] + '"';
             html += 'alt="' + value["name"] + '"';
             html += 'class="img-responsive center-block"/>';
-            html += '<p>' + value["name"] + " Модель:" + value["model"] + '</p>';
+            html += '<p>' + value["name"] + "<br> Модель:" + value["model"] + '</p>';
             html += '</div>';
 
         });
