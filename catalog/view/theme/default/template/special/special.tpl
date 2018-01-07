@@ -1,3 +1,9 @@
+<!-- PUPAP MESSAGE END -->
+<div class="message-pupop" id="contacts-pupop" style="display: none;">
+	<p class="font-size-12 font-type-verdana" id="text">Выберите предполагаемую ширину желаемой мебели. Для настройки высоты и глубины перейдите во вкладку "Эксклюзивные". Также в стоимость будет включена возможность изменять материалы, форму, наполнение и любые другие характеристики.</p>
+	<p class="arrow"></p>
+</div>
+<!-- PUPAP MESSAGE END -->
 <?php echo $header; ?>
 <div class="container container-fix " id="special">
 	<ul class="breadcrumb">
@@ -92,3 +98,31 @@
 	</div>
 </div>
 	<?php echo $footer; ?>
+
+<script type="text/javascript">
+
+
+
+	$(document).ready(function () {
+
+
+
+
+
+		$('#quest-calculation').mouseenter(function() {
+			$('#contacts-pupop').show();
+			$('#cal-calculation-box').append($('#contacts-pupop'));
+		});
+		$('#quest-calculation').mouseleave(function() {
+			$('#contacts-pupop').hide();
+		});
+
+
+
+
+	});
+
+
+
+
+</script>

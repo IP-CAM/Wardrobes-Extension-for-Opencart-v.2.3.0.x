@@ -1,167 +1,179 @@
 $(document).ready(function () {
+    var standard_text = 'стандарт';
+    var exclusive_text = 'эксклюзив';
+
+    $('#exclusive-box').hide();
+    $('#standard p').addClass('active-button');
+    $('#cal_sub_price').text(exclusive_text + ' ' + $('#cal_sub_price').text());
+    $('.calculator_dispatch .error').hide();
 
 
-    var check_root_cat_id = 0; //if root category not select
-    var check_sub_cat_id = 0; //if sub category not select
-    var check_product_id = 0; //if sub category not select
 
 
-    $('.box_root_item').click(function () {
-        ajaxRenderRoot($(this));
+    $('#quest-calculation').mouseenter(function() {
+        $('#message-calculation').show();
+        $('#cal-calculation-box').append($('#message-calculation'));
     });
-    $('.box_root_item input').change(function () {
-        ajaxRenderRoot($(this));
+    $('#quest-calculation').mouseleave(function() {
+        $('#message-calculation').hide();
     });
 
 
-    $(document).on('click', '.dynamic_category', function () {
-        $('.dynamic_category').find('img').addClass('no-active');
-        $('.dynamic_category').find('p').addClass('no-active');
-        var this_sub_category = $(this);
-        var id = this_sub_category.find('input:checkbox').val();
-        if(check_sub_cat_id != id) {
-            ajaxOpenCategory(id, 'products');
-            $('.dynamic_category').find('input').prop('checked', false);
-            this_sub_category.find("input").prop('checked', true);
-            this_sub_category.find('img').removeClass('no-active');
-            this_sub_category.find('p').removeClass('no-active');
 
+
+
+    $( "#slider-range" ).slider({
+        min: 100,
+        max: 400,
+        range: 'min',
+        slide: function( event, ui ) {
+
+            var val = $('.ui-slider-handle').css('left');
+            $('.number').css('left', val);
+            //$('.number').css('top)
+
+            $('.number').text(ui.value);
+            $( "#input_width" ).val(ui.value);
+            activeStandard();
+        },
+        change: function( event, ui ) {
+            var val = $('.ui-slider-handle').css('left');
+            $('.number').css('left', val);
+        },
+        create: function(event, ui) {
+            $('.ui-slider-handle.ui-corner-all.ui-state-default').before('<div class="number"></div>');
+            $('.number').text('100');
+        }
+    });
+
+
+
+    $('#standard').click(function () {
+        //$(this).append($('#calculator_active_img'));
+        $('#exclusive-box').hide();
+        $('#standard-box').show();
+        $('#standard p').addClass('active-button');
+        $('#exclusive p').removeClass('active-button');
+        var text = $('#cal_sub_price').text();
+        text = text.replace(standard_text, exclusive_text);
+        $('#cal_sub_price').text(text);
+        $("[name='type']").val(0);
+
+
+        $('#input_height').val('240');
+        $('#input_depth').val('60');
+
+        activeStandard()
+    });
+    $('#exclusive').click(function () {
+        $('#exclusive-box').show();
+        $('#standard-box').hide();
+        $('#exclusive p').addClass('active-button');
+        $('#standard p').removeClass('active-button');
+        var text = $('#cal_sub_price').text();
+        text = text.replace(exclusive_text, standard_text);
+        $('#cal_sub_price').text(text);
+        $("[name='type']").val(1);
+        activeExclusive();
+    });
+
+
+
+    $('#calculation_button, #banner').click(function () {
+        if($('#standard-box').is(':visible')) {
+            var price = 'price='+$('#cal_top_price').text();
+            ajaxClientCall(1,0,1, price);
+            //alert('1,0,1');
+        }
+        if($('#exclusive-box').is(':visible')) {
+            var price = 'price='+$('#cal_top_price').text();
+            ajaxClientCall(1,1,1, price);
+            //alert('1,1,1');
+        }
+        $("[name='two_modal']").val(1);
+
+    });
+    $('#dispatch_button').click(function (event) {
+        var text = $("[name='telephone']").val();
+        if (text == '') {
+            $('.calculator_dispatch .error').show();
+            return false;
         } else {
-            var product_box = $('#product_box');
-            product_box.empty();
+            $('.calculator_dispatch .error').hide();
+            ajaxClientCall(1,2,0);
         }
     });
 
-    function ajaxRenderRoot(this_root_item) {
-        var id = this_root_item.find('input').val();
-        $(".box_root_item").find('p').addClass('no-active');
-        //alert('id=' + id + '&check_root_id=' + check_root_cat_id);
 
-        if(check_root_cat_id != id) {
-            //	alert('dfg');
-            $('.box_root').find('input').prop('checked', false);
-            this_root_item.find("input").prop('checked', true);
-            this_root_item.find('p').removeClass('no-active');
-            ajaxOpenCategory(id, 'root'); //Show sub categories
+    var input_size = $('#input_width, #input_height, #input_depth');
+    input_size.keypress(function() {
+        activeExclusive();
+    });
+    input_size.change(function() {
+        activeExclusive();
+    });
+    input_size.keydown(function() {
+        activeExclusive();
+    });
+    input_size.keyup(function() {
+        activeExclusive();
+    });
+
+
+    function activeExclusive() {
+        $( "#cal_top_price" ).text(calcExclusive() + ' рублей');
+        $('#cal_sub_price').text(standard_text + ' ' + calcStandard($('.number').text()) + ' рублей');
+    }
+    function activeStandard() {
+        $( "#cal_top_price" ).text(Math.round(calcStandard($('.number').text())) + ' рублей' );
+        $('#cal_sub_price').text(exclusive_text + ' ' + calcExclusive() + ' рублей');
+    }
+
+    function calcStandard(value) {
+        var price = 0;
+        if(value < 111) {
+            var value_norm = value - 100;
+            if(value_norm < 0) { value_norm = 0}
+            price = 8400 + (value_norm *  505);
         } else {
-            $('.box_root').find('input').prop('checked', false);
-            hideSubCategories(); // Hide sub categories and products
-            check_root_cat_id = 0;
+            var value_norm = value - 110;
+            price = 13450 + (value_norm *  143.8);
         }
-
+        return Math.round(price);
     }
 
-    function hideSubCategories() {
-        var type_sub_box = $('#sub_box');
-        type_sub_box.empty();
-        var type_product_box = $('#product_box');
-        type_product_box.empty();
-        $('#type-wardrobes').hide();
-        $('#type-products').hide();
-    }
-
-    function ajaxRenderCategories(data, root) {
-        hideSubCategories();
-        $('#type-wardrobes').show();
-        var type_sub_box = $('#sub_box');
-        var html = '';
-
-        $.each(data, function (index, value) {
-            html += '<div class="col-sm-3 dynamic_category">';
-            html += '<div class="box sub_box_item">';
-            html += '<input type="checkbox" name="category_sub" value="' + value['category_id'] + '" >';
-            html += '<img src="' + value['image'] + '"';
-            html += 'title="' + value["name"] + '"';
-            html += 'alt="' + value["name"] + '"';
-            html += 'class="img-responsive center-block no-active"/>';
-            html += '<p>' + value["name"] + '</p>';
-            html += '</div>';
-            html += '</div>';
-        });
-
-        type_sub_box.append(html);
-    }
-
-    function ajaxRenderProducts(data, root) {
-       // alert('products' + root);
-        if(root == 1) {
-           // alert('hide');
-            hideSubCategories();
-        }
-        $('#type-products').show();
-        var type_product_box = $('#product_box');
-        type_product_box.empty();
-        var html = '<div id="carousel" class="carousel-control">';
-        $.each(data, function (index, value) {
-
-            html += '<div class="product_item box">';
-            html += '<input type="checkbox" name="products" value="' + value['product_id'] + '" >';
-            html += '<img src="' + value['image'] + '"';
-            html += 'title="' + value["name"] + '"';
-            html += 'alt="' + value["name"] + '"';
-            html += 'class="img-responsive center-block"/>';
-            html += '<p>' + value["name"] + "<br> Модель:" + value["model"] + '</p>';
-            html += '</div>';
-
-        });
-        html += '</div>';
-        type_product_box.append(html);
-        $("#carousel").owlCarousel({
-            navigation: true,
-            pagination:  false,
-            navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
-        });
-    }
-
-    function ajaxOpenCategory(id, type) {
-        //alert('id=' + id + '&type=' + type);
-        $.ajax({
-            url: 'index.php?route=calculator/calculator/ajaxOpen',
-            dataType: 'json',
-            data: 'id=' + id + '&type=' + type,
-            type: 'post',
-            beforeSend: function () {
-            },
-            success: function (json) {
-
-                var type = json['type'];
-                if (type.localeCompare("categories") == 0) {
-                    ajaxRenderCategories(json['data'], json['root']);
-                    check_root_cat_id = id;
-                }
-                if (type.localeCompare("products") == 0) {
-                    ajaxRenderProducts(json['data'], json['root']);
-                    check_sub_cat_id = id;
-                }
-                if (type.localeCompare("no_edit") == 0) {
-                    check_sub_cat_id = id;
-                }
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                //alert('error');
-                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    function calcExclusive() {
+        var width = $('#input_width').val();
+        var height = $('#input_height').val();
+        var depth = $('#input_depth').val();
+        if(width != "" && height != "" && depth != "") {
+            var height_rep_1 = 100;
+            var height_rep_2 = 150;
+            var height_rep_3 = 273;
+            var height_sum = 0;
+            if(height<height_rep_1) {
+                height_sum = 10000;
+            } else if(height<height_rep_2) {
+                height_sum = 12200;
+            } else  {
+                height_sum = 15100;
             }
-        });
-    }
 
-
-    $(document).on('click', '.product_item', function () {
-        $('.product_item').find('img').addClass('no-active');
-        $('.product_item').find('p').addClass('no-active');
-        var this_product = $(this);
-        var id = this_product.find('input:checkbox').val();
-        if(check_product_id != id) {
-            $('.product_item').find('input').prop('checked', false);
-            this_product.find("input").prop('checked', true);
-            this_product.find('img').removeClass('no-active');
-            this_product.find('p').removeClass('no-active');
-            $('input[name="product_id"]').val(id);
-        } else {
-            var product_box = $('#product_box');
-            product_box.empty();
+            var width_sum = (height_sum*width)/100;
+            var depth_sum= 0;
+            var reper_depth = 61;
+            if(depth <reper_depth) {
+                depth_sum = 0;
+            } else {
+                depth_sum = (depth - reper_depth) * 1100;
+            }
+            var sum = width_sum + depth_sum;
+            if(height > height_rep_3) {
+                sum = sum*1.30;
+            }
+            return Math.round(sum);
 
         }
-    });
+        return -1;
+    }
 });
-
-

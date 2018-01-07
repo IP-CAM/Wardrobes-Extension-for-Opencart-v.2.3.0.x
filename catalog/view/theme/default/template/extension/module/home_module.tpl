@@ -161,37 +161,3 @@
 	</div>
 </div>
 <!-- OUR PARTNERS  END-->
-
-
-<script type="text/javascript">
-
-
-
-	$(document).ready(function () {
-		//Validation telephone
-		$('#service_button').click(function (event) {
-			var error = 0;
-			if($("[name='name']").val() == '') {
-				$("[name='name']").parent().find('.error').show();
-				error = 1;
-			} else {
-				$("[name='name']").parent().find('.error').hide();
-			}
-			if($("[name='telephone']").val() == '') {
-				$("[name='telephone']").parent().find('.error').show();
-				error = 1;
-			} else {
-				$("[name='telephone']").parent().find('.error').hide();
-			}
-
-			if(!error) {
-				ajaxClientCall(1,4,0);
-			}
-
-		});
-
-	});
-
-
-
-</script>

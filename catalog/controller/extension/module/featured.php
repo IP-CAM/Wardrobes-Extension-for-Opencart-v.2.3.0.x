@@ -105,7 +105,7 @@ class ControllerExtensionModuleFeatured extends Controller {
         $string = '';
         $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
 
-        $symbol_right =  " &#8381";
+        $symbol_right =  " &#8381;";
         $string .= $symbol_right;
 
         return $string;

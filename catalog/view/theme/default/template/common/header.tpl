@@ -25,6 +25,7 @@
 	<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
 	<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+	<link href="catalog/view/theme/default/stylesheet/stylesheet-mobile.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)"  />
 	<?php foreach ($styles as $style) { ?>
 	<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
 		  media="<?php echo $style['media']; ?>"/>
@@ -86,7 +87,7 @@
 					<?php } ?>
 				</div>
 			</div>
-			<!-- <div class="col-sm-5"><?php echo $search; ?> -->
+
 			<div class="col-sm-3 text-right" id="header-right">
 				<h4 id="time">График работы: 09:00 до 17:30</h4>
 				<h3 id="phone">+7 (812) 965 30 61</h3>

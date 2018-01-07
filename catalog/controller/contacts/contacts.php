@@ -5,6 +5,10 @@ class ControllerContactsContacts extends Controller {
 		$this->load->model('contacts/contacts');
         $this->load->model('catalog/category');
 
+
+        $this->document->addStyle('catalog/view/javascript/jquery/jquery-ui/jquery-ui.min.css');
+        $this->document->addScript('catalog/view/javascript/jquery/jquery-ui/jquery-ui.min.js');
+
         $contacts_info = $this->model_contacts_contacts->getContacts(0);
         $this->load->language('common/header');
 		$data['breadcrumbs'] = array();

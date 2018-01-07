@@ -32,6 +32,8 @@ function getURLVar(key) {
 	}
 }
 
+
+
 $(document).ready(function() {
 	// Highlight any found errors
 	$('.text-danger').each(function() {
@@ -125,6 +127,78 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
+
+
+
+    //For product
+    if($('#product').length > 0) {
+        $('.nav-tabs .button').on('click', function() {
+            $('.nav-tabs .button p').removeClass('active-button');
+            $(this).find('p').addClass('active-button');
+
+            var name = $(this).data('tab');
+            $('.check-info>div').hide();
+            $('.check-info').find('#' + name).show();
+        });
+
+        $('#characteristic .any').mouseenter(function() {
+            $('#message-characteristic').show();
+            $(this).before($('#message-characteristic'));
+        });
+        $('#characteristic .any').mouseleave(function() {
+            $('#message-characteristic').hide();
+        });
+
+
+
+        $('#active').click(function (event) {
+            var text = $("[name='telephone']").val();
+            if (text == '') {
+                $('.phone-box .error').show();
+                return false;
+            } else {
+                $('.phone-box .error').hide();
+                $('.calculator_dispatch .error').hide();
+                ajaxClientCall(1,3,0);
+            }
+        });
+
+        $('.thumbnails').magnificPopup({
+            type:'image',
+            delegate: 'a',
+            gallery: {
+                enabled:true
+            }
+        });
+    }
+
+
+
+
+    //Validation telephone (Home Page)
+    $('#service_button').click(function (event) {
+        var error = 0;
+        if($("[name='name']").val() == '') {
+            $("[name='name']").parent().find('.error').show();
+            error = 1;
+        } else {
+            $("[name='name']").parent().find('.error').hide();
+        }
+        if($("[name='telephone']").val() == '') {
+            $("[name='telephone']").parent().find('.error').show();
+            error = 1;
+        } else {
+            $("[name='telephone']").parent().find('.error').hide();
+        }
+
+        if(!error) {
+            ajaxClientCall(1,4,0);
+        }
+
+    });
+
+
+
 });
 
 // Cart add remove functions

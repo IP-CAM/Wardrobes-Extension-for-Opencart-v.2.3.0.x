@@ -3,7 +3,7 @@
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 			<?php if(!next($breadcrumbs)) { ?>
-				<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+				<li class="breadcrumb_last"><span class="red">О компании</span></li>
 				<?php continue; ?>
 			<?php } ?>
 				<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>

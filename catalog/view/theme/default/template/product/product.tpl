@@ -19,7 +19,7 @@
 <ul class="breadcrumb">
 	<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 	<?php if(!next($breadcrumbs)) { ?>
-	<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+	<li class="breadcrumb_last"><span class="red"><?php echo $breadcrumb['text']; ?></span></li>
 	<?php continue; ?>
 	<?php } ?>
 	<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -71,14 +71,14 @@
 
 		<?php } ?>
 		<div class="nav nav-tabs border-gray font-type-georgia">
-			<div class="button" id="characteristic" style="width: 146px;" ><p class="active-button">Характеристика</p></div>
-			<div class="button" id="description" style="width: 146px;"><p  class="active-div">Описание</p></div>
-			<div class="button" id="color" style="width: 146px;"><p class="active-div">Цвет</p></div>
-			<div class="button" id="reviews" style="width: 146px;"><p  class="active-div">Отзывы</p></div>
-			<div class="button" id="delivery" style="width: 146px;"><p  class="active-div">Доставка</p></div>
+			<div class="button" data-tab="characteristic-tab" style="width: 146px;" ><p class="active-button">Характеристика</p></div>
+			<div class="button" data-tab="description-tab" style="width: 146px;"><p  class="active-div">Описание</p></div>
+			<div class="button" data-tab="color-tab" style="width: 146px;"><p class="active-div">Цвет</p></div>
+			<div class="button" data-tab="reviews-tab" style="width: 146px;"><p  class="active-div">Отзывы</p></div>
+			<div class="button" data-tab="delivery-tab" style="width: 146px;"><p  class="active-div">Доставка</p></div>
 		</div>
 		<div class="check-info border-gray">
-			<div id="characteristic" style="">
+			<div id="characteristic-tab" style="">
 				<div class="characteristic-top">
 					<div id="size-box">
 						<div id="size" class="block-line font-size-15 font-type-verdana">Размеры</div>
@@ -110,13 +110,13 @@
 				</div>
 				<div style="margin: 15px"><?php echo $characteristic; ?></div>
 			</div>
-			<div id="description" style="padding: 12px; display: none">
+			<div id="description-tab" style="padding: 12px; display: none">
 				<?php echo $description; ?>
 			</div>
-			<div id="color" style="padding: 12px; display: none">
+			<div id="color-tab" style="padding: 12px; display: none">
 				<p style="    position: absolute; left: 43px;" >Доступные цвета</p>
 			</div>
-			<div id="reviews" style="display: none">
+			<div id="reviews-tab" style="display: none">
 				<?php if(!empty($reviews)) { ?>
 					<?php if(isset($reviews[count($reviews)-2])) { ?>
 							<div class="reviews-box" id="review">
@@ -156,7 +156,7 @@
 					<?php } ?>
 				<?php } else { ?>
 
-					<div class="empty-review font-italic gray" id="">
+					<div class="empty-review font-italic gray">
 						Здесь пока нет отзывов
 					</div>
 					<div class="messange-review">
@@ -170,7 +170,7 @@
 
 
 			</div>
-			<div id="delivery" style="padding: 12px; padding-top: 28px; display: none">
+			<div id="delivery-tab" style="padding: 12px; padding-top: 28px; display: none">
 				<div class="delivery-box" id="calck"><p>После заказа с вами свяжется менеджер для уточнения удобной времени доставки.</p></div>
 				<div class="delivery-box" id="cart"><p style="padding-top: 15px;">Доставка и изготовление происходит в течении 7 дней.</p></div>
 				<div class="delivery-box" id="drill"><p style="padding-top: 12px;">Монтаж  и сборка происходит в течении 2 - 4 часов в зависимости от сложности</p></div>
@@ -254,50 +254,6 @@
 <?php echo $content_bottom; ?></div>
 <?php echo $column_right; ?></div>
 </div>
-<script type="text/javascript"><!--
-	$(document).ready(function() {
-
-		$('.nav-tabs .button').on('click', function() {
-			$('.nav-tabs .button p').removeClass('active-button');
-			$(this).find('p').addClass('active-button');
-
-			var id = $(this).attr('id');
-			$('.check-info>div').hide();
-			$('.check-info').find('#' + id).show();
-		});
-
-		$('#characteristic .any').mouseenter(function() {
-			$('#message-characteristic').show();
-			$(this).before($('#message-characteristic'));
-		});
-		$('#characteristic .any').mouseleave(function() {
-			$('#message-characteristic').hide();
-		});
-
-
-
-		$('#active').click(function (event) {
-			var text = $("[name='telephone']").val();
-			if (text == '') {
-				$('.phone-box .error').show();
-				return false;
-			} else {
-				$('.phone-box .error').hide();
-				$('.calculator_dispatch .error').hide();
-				ajaxClientCall(1,3,0);
-			}
-		});
-
-		$('.thumbnails').magnificPopup({
-			type:'image',
-			delegate: 'a',
-			gallery: {
-				enabled:true
-			}
-		});
-	});
-	//--></script>
-
 
 
 

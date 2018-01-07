@@ -15,6 +15,7 @@ class ControllerCalculatorCalculator extends Controller {
 
         //of table Calculator_description
 		$calculator_info = $this->model_calculator_calculator->getCalculator(0);
+        $this->document->addScript('catalog/view/javascript/calculator_open_product.js');
         $this->document->addScript('catalog/view/javascript/calculator.js');
         $this->document->addScript('catalog/view/javascript/modal_window.js');
 
@@ -93,7 +94,10 @@ class ControllerCalculatorCalculator extends Controller {
         foreach($key_cat as $key=>$category_id) {
             foreach($categories_root as $key=>$category_root) {
                 if($category_root['category_id'] == $category_id) {
-                    if($category_root['category_id'] == 70) { //Kostil
+                    if($category_root['category_id'] == 60 ||
+                       $category_root['category_id'] == 70 ||
+                       $category_root['category_id'] == 64 ||
+                       $category_root['category_id'] == 66) { //Kostil
                         continue;
                     }
                     $cat_root[] = $category_root;
@@ -139,7 +143,10 @@ class ControllerCalculatorCalculator extends Controller {
             $json['data'] = $products;
             $json['type'] = 'products';
         } else {
-            $categories = $this->model_catalog_category->getCategories($id);
+            $categories = array();
+            $categories[] = $this->model_catalog_category->getCategory(60);
+            $categories[] = $this->model_catalog_category->getCategory(64);
+            $categories[] = $this->model_catalog_category->getCategory(66);
             if(count($categories) == 0) {
                 $json['data'] = null;
                 $json['type'] = 'no_edit';

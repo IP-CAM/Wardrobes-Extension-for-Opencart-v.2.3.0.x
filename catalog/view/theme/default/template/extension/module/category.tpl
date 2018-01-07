@@ -17,8 +17,8 @@
 <div class="border-gray text-center"  style="width:263px; height: 151px">
 	<p class="font-size-18 font-type-georgia" style="margin-top: 22px;">Минимальная цена (руб.)</p>
 	<div id="input-slider">
-		<input type="text" name="input-min" data-modal="1" value="0" class="input-medium bfh-phone font-size-14" style="float: left;margin-left: 31px;">
-		<input type="text" name="input-max" data-modal="1" value="200000" class="input-medium bfh-phone font-size-14" style="float: right;margin-right: 30px;">
+		<input type="text" name="category-input-min" data-modal="1" value="0" class="input-medium bfh-phone font-size-14" style="float: left;margin-left: 31px;">
+		<input type="text" name="category-input-max" data-modal="1" value="200000" class="input-medium bfh-phone font-size-14" style="float: right;margin-right: 30px;">
 	</div>
 	<div id="slider-category"></div>
 </div>
@@ -80,41 +80,5 @@
 			}
 		});
 	}
-	function ajaxFilterPrice() {
-		$.ajax({
-			url: 'index.php?route=extension/module/category/ajaxFilterPrice',
-			dataType: 'json',
-			data: 'products_json_id=' + $('[name="products_json_id"]').val() + '&min=' + $('[name="input-min"]').val() + '&max=' + $('[name="input-max"]').val(),
-			type: 'post',
-			beforeSend: function () {
-			},
-			success: function (json) {
-				//alert($.isArray(json));
-				$('.product-layout').each(function (index, value) {
-					var arJson = json['approved_product_id'];
-					for(var i=0; i<arJson.length; i++) {
-						if(arJson[i] == $(this).data('product_id')) {
-							$(this).css('color', '#FFFFFF');
-							$(this).hide();
-							console.log("BINGO !!!! json['approved_product_id'] " + json['approved_product_id']);
-						} else {
-							$(this).show();
-						}
-					}
-
-				});
-			},
-			error: function (xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	}
-
-
-
-
-
-
-
 
 </script>

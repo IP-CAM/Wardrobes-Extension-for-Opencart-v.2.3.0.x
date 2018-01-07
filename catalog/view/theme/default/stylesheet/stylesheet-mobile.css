@@ -24,8 +24,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Georgia', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 h3 {
@@ -535,6 +534,15 @@ footer h5 {
     border-radius: 6px;
     height: 400px;
     width: 263px;
+}
+.product-thumb:before, .product-thumb:after {
+    position: absolute;
+    width: 4px;
+    height: 224px;
+    background: #ffffff;
+    content: ' ';
+    display: block;
+    top: 21px;
 }
 .product-thumb:after {
     left: 9px;
@@ -1529,69 +1537,30 @@ footer #f-padding {
 
 
 /* aboutcompany contacts TODO */
-
-/*#contacts #img-1 {
-    background: url('../image/contacts/1.jpg');
-}
-#contacts #img-2 {
-    background: url('../image/contacts/2.jpg');
-}
-#contacts #img-3 {
-    background: url('../image/contacts/3.jpg');
-}
-#contacts #img-4 {
-    background: url('../image/contacts/4.jpg');
-}
-#contacts #img-5 {
-    background: url('../image/contacts/5.jpg');
-}*/
-
-#contacts .img {
-    width: 170px;
-    height: 180px;
-    cursor: pointer;
-    float: left;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-}
-
-/*#contacts .picture-max  {
-    width: auto;
-    height: auto;
-}*/
-
-
-#contacts .img  {
-    margin-right: 0;
-}
-
-
-#contacts .text-top-right {
+.contacts .text-top-right {
     text-align: right;
     position: absolute;
     right: 38px;
     top: 44px;
 }
-#contacts .text_box.contacts div {
+.text_box.contacts div {
     padding-bottom: 7px;
 }
-#contacts .text_box.contacts img {
+.text_box.contacts img {
     margin-bottom: 3px;
 }
-#contacts .picture-back {
+.picture-back {
     position: absolute;
     width: 1140px;
     height: 482px;
     left: 0px;
 }
-#contacts .picture-back.aboutcompany {
+.picture-back.aboutcompany {
     background: url('../image/aboutcompany_back.jpg');
 }
-#contacts .picture-back.contacts {
+.picture-back.contacts {
     background: url('../image/contacts_back.jpg');
 }
-
 .aboutcompany.text_box, .contacts.text_box {
     position: relative;
     background: white;
@@ -1748,7 +1717,7 @@ footer #f-padding {
 
 
 
-#category .catalog .picture-characteristic #fast-delivery:before {
+#category .catalog .picture-characteristic #delivery:before {
     content: url('../image/category_delivery.png');
 }
 #category .catalog .picture-characteristic #compilation:before {
@@ -1911,7 +1880,7 @@ footer #f-padding {
     width: 734px;
     height: 270px;
 }
-#product .check-info #color-tab {
+#product .check-info #color {
     width: 100%;
     /* top: 22px; */
     -moz-background-size: 100%;
@@ -1955,15 +1924,15 @@ footer #f-padding {
 
 
 
-#product .characteristic-tab .any {
+#product #characteristic .any {
     cursor: pointer;
 }
-#product .characteristic-tab .any:focus,
-#product .characteristic-tab .any:hover{
+#product #characteristic .any:focus,
+#product #characteristic .any:hover{
     color: #f2213e;
 }
 
-#product .characteristic-tab span, .description-tab span {
+#product #characteristic span, #description span {
     font-size: 16px!important;
     font-family: 'Verdana'!important;
 }
@@ -2146,7 +2115,7 @@ footer #f-padding {
 
 
 
-#special .products-box {
+#special #product-box {
     width: 842px;
     position: relative;
     height: 872px;
@@ -2193,7 +2162,7 @@ footer #f-padding {
     background: url(../image/review-banner.jpg) no-repeat;
     display: block;
 }
-#review .image-comment.aristo {
+#review .image-comment#aristo {
     width: 25%;
     height: 168px;
     background: url(../image/review-comment-image.png) no-repeat;
@@ -2211,6 +2180,13 @@ footer #f-padding {
     cursor: pointer;
 }
 
+
+#contacts #image {
+    background: url(../image/contacts-images.jpg) no-repeat;
+    margin-top: 40px;
+    height: 183px;
+    width: 910px;
+}
 
 /* home */
 #home .home-partners {
@@ -2235,10 +2211,10 @@ footer #f-padding {
 #home .owl-pagination {
     margin-top: -52px;
 }
-#home .tile_banner {
+#home #tile_banner {
 
 }
-#home .tile_banner img {
+#home #tile_banner img {
     margin-top: 20px;
 }
 #home .block-im-1, #home .block-im-4 {
