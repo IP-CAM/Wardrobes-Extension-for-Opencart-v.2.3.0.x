@@ -1546,7 +1546,7 @@ footer #f-padding {
     background: url('../image/contacts/5.jpg');
 }*/
 
-#contacts .img {
+#contacts .img-box {
     width: 170px;
     height: 180px;
     cursor: pointer;
@@ -1554,13 +1554,28 @@ footer #f-padding {
     margin: 0;
     padding: 0;
     position: absolute;
+    overflow: hidden;
+    border-radius: 6px;
 }
 
-/*#contacts .picture-max  {
-    width: auto;
-    height: auto;
-}*/
+#contacts .img-box img{
+    display: block;
+    position: absolute;
+    left: -50%;
+    margin: auto;
+    top: 0%;
+    width: 264%;
 
+}
+#contacts .img-box .img-gr {
+    left: 0!important;
+    top: 0!important;
+    margin: auto;
+    height: auto;
+    min-height: auto;
+    min-width: auto;
+    width: auto;
+}
 
 #contacts .img  {
     margin-right: 0;
