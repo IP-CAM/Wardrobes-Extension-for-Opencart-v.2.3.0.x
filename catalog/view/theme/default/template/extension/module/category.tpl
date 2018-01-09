@@ -1,7 +1,8 @@
 <div class="border-gray list-group line-dark-before"  style="width:263px; height: 361px">
 	<h4>Мебель</h4>
 	<div class="body">
-		<a href="<?php echo $categories[59]['href'] ?>"><p>Шкафы</p></a>
+		<!-- <a href="<?php echo $categories[59]['href'] ?>"><p>Шкафы</p></a> -->
+		<p>Шкафы</p>
 		<ul class="">
 			<li><a href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a></li> 
       <li><a href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a></li>

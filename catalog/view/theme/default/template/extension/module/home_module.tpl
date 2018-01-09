@@ -105,7 +105,7 @@
 	</div>
 
 
-	<div class="row">
+	<div class="row service">
 		<div  class=" col-sm-12 col-lg-6" id="background-service">
 		</div>
 
@@ -139,6 +139,8 @@
 	</div>
 
 <!-- SERVICE END -->
+
+
 
 
 <!-- OUR PARTNERS  BEGIN-->

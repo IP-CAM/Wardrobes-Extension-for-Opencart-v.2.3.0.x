@@ -171,9 +171,11 @@
 
 			</div>
 			<div id="delivery-tab" style="padding: 12px; padding-top: 28px; display: none">
+				<!--noindex-->
 				<div class="delivery-box" id="calck"><p>После заказа с вами свяжется менеджер для уточнения удобной времени доставки.</p></div>
 				<div class="delivery-box" id="cart"><p style="padding-top: 15px;">Доставка и изготовление происходит в течении 7 дней.</p></div>
 				<div class="delivery-box" id="drill"><p style="padding-top: 12px;">Монтаж  и сборка происходит в течении 2 - 4 часов в зависимости от сложности</p></div>
+				<!--/noindex-->
 			</div>
 
 		</div>

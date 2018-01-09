@@ -148,7 +148,7 @@ $(document).ready(function() {
 
 
 
-    //Validation telephone (Home Page)
+    // For Home Page Validation telephone
     $('#service_button').click(function (event) {
         var error = 0;
         if($("[name='name']").val() == '') {
@@ -205,12 +205,49 @@ $(document).ready(function() {
         }
     });
     }          
-    
-    
-    
-    
-    
 
+
+    //For product
+    if($('#product').length > 0) {
+        $('.nav-tabs .button').on('click', function() {
+            $('.nav-tabs .button p').removeClass('active-button');
+            $(this).find('p').addClass('active-button');
+
+            var id = $(this).data('tab');
+            $('.check-info>div').hide();
+            $('.check-info').find('#' + id).show();
+        });
+
+        $('#characteristic .any').mouseenter(function() {
+            $('#message-characteristic').show();
+            $(this).before($('#message-characteristic'));
+        });
+        $('#characteristic .any').mouseleave(function() {
+            $('#message-characteristic').hide();
+        });
+
+
+
+        $('#active').click(function (event) {
+            var text = $("[name='telephone']").val();
+            if (text == '') {
+                $('.phone-box .error').show();
+                return false;
+            } else {
+                $('.phone-box .error').hide();
+                $('.calculator_dispatch .error').hide();
+                ajaxClientCall(1,3,0);
+            }
+        });
+
+        $('.thumbnails').magnificPopup({
+            type:'image',
+            delegate: 'a',
+            gallery: {
+                enabled:true
+            }
+        });
+    }
 });
 
 // Cart add remove functions

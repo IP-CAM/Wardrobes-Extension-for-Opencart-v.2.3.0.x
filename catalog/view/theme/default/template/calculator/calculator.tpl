@@ -121,9 +121,11 @@
 								<input type="text" name="height" id="input_height" data-modal="1" value="240" class="form-control">
 								<span id="text-depth">Глубина (см)</span>
 								<input type="text" name="depth" id="input_depth" data-modal="1" value="60" class="form-control">
-
+								<p>Минимальные размеры: 100х100х100</p>
+								<p>Максимальные размеры: 200х100х100</p>
 
 							</div>
+
 							<h2 id="cal_top_price">8400 рублей</h2>
 							<span id="cal_sub_price">15100 рублей</span>
 
