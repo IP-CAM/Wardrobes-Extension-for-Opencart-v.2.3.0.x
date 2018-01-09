@@ -14,7 +14,7 @@ class ControllerCalculatorCalculator extends Controller {
 		);
 
         //of table Calculator_description
-		$calculator_info = $this->model_calculator_calculator->getCalculator(0);
+		    $calculator_info = $this->model_calculator_calculator->getCalculator(0);
         $this->document->addScript('catalog/view/javascript/calculator_open_product.js');
         $this->document->addScript('catalog/view/javascript/calculator.js');
         $this->document->addScript('catalog/view/javascript/modal_window.js');
@@ -97,6 +97,7 @@ class ControllerCalculatorCalculator extends Controller {
                     if($category_root['category_id'] == 60 ||
                        $category_root['category_id'] == 70 ||
                        $category_root['category_id'] == 64 ||
+                       $category_root['category_id'] == 72 ||
                        $category_root['category_id'] == 66) { //Kostil
                         continue;
                     }

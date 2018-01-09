@@ -80,6 +80,7 @@ class ControllerCommonHeader extends Controller {
         $data['review'] = $this->url->link('review/review');
 
 		$data['contacts'] = $this->url->link('contacts/contacts');
+        $data['our_work'] = $this->url->link('product/category', 'path=70_70');
 
 
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);

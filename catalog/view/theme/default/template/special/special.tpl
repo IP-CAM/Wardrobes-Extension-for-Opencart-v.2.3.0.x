@@ -1,15 +1,9 @@
-<!-- PUPAP MESSAGE END -->
-<div class="message-pupop" id="contacts-pupop" style="display: none;">
-	<p class="font-size-12 font-type-verdana" id="text">Выберите предполагаемую ширину желаемой мебели. Для настройки высоты и глубины перейдите во вкладку "Эксклюзивные". Также в стоимость будет включена возможность изменять материалы, форму, наполнение и любые другие характеристики.</p>
-	<p class="arrow"></p>
-</div>
-<!-- PUPAP MESSAGE END -->
 <?php echo $header; ?>
 <div class="container container-fix " id="special">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 			<?php if(!next($breadcrumbs)) { ?>
-				<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+				<li class="breadcrumb_last"><span class="red">Акции</span></li>
 				<?php continue; ?>
 			<?php } ?>
 				<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -46,8 +40,8 @@
 
 			</div>
 
-			<h2 class="line-red font-size-30 font-type-georgia grand-text" id="">Распродажа %</h2>
-			<div id="product-box">
+			<h2 class="line-red font-size-30 font-type-georgia grand-text">Распродажа %</h2>
+			<div class="products-box">
 				<?php foreach ($products_discounts as $product) { ?>
 				<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
 					<div class="product-thumb">
@@ -68,8 +62,8 @@
 				<?php } ?>
 			</div>
 
-			<h2 class="line-red font-size-30 font-type-georgia grand-text" id="">Хиты продаж</h2>
-			<div id="product-box">
+			<h2 class="line-red font-size-30 font-type-georgia grand-text">Хиты продаж</h2>
+			<div class="products-box">
 				<?php foreach ($products_discounts as $product) { ?>
 				<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
 					<div class="product-thumb">
@@ -98,31 +92,3 @@
 	</div>
 </div>
 	<?php echo $footer; ?>
-
-<script type="text/javascript">
-
-
-
-	$(document).ready(function () {
-
-
-
-
-
-		$('#quest-calculation').mouseenter(function() {
-			$('#contacts-pupop').show();
-			$('#cal-calculation-box').append($('#contacts-pupop'));
-		});
-		$('#quest-calculation').mouseleave(function() {
-			$('#contacts-pupop').hide();
-		});
-
-
-
-
-	});
-
-
-
-
-</script>

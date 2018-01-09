@@ -8,12 +8,12 @@
 
 	<div class="row" >
 		<div class="col-sm-12 text-center" style="margin-top: 15px;">
-			<h1>Популярные <a class="font-underline" href="<?php echo $link_calculator; ?>">категории товаров </a></h1>
+			<h2>Популярные категории товаров</h2>
 		</div>
 	</div>
 
 
-	<div class="row" id="tile_banner">
+	<div class="row tile_banner">
 		<div class="block-im block-root-1">
 				<div class="block-im-1">
 					<a href="<?php echo $tile_banner_standard['href']; ?>">
@@ -66,15 +66,15 @@
 
 <!-- COMMENTS BEGIN -->
 
-	<div class="row" >
+	<div class="row visible-lg" >
 		<div class="col-sm-12 text-center">
-			<h1>Отзывы наших клиентов</h1>
+			<h2>Отзывы наших клиентов</h2>
 		</div>
 	</div>
 
 
 
-	<div class="row" id="home-review">
+	<div class="row visible-lg" id="home-review">
 
 		<?php foreach($comments as $comment) { ?>
 		<div class="text-left col-sm-4">
@@ -86,7 +86,7 @@
 				количеством цветов шкафов и материалов. Меня консультировала менеджер Наташа, очень
 				любезная девушка, которая подобрала дизайн шкафа и сказала его стоимость. Всё очень
 				здорово...</p>
-			<a class="pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $tile_banner_dressing_rooms['href']; ?>">Читать далее</a>
+			<a class="pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $link_review; ?>">Читать далее</a>
 		</div>
 		<?php } ?>
 
@@ -99,26 +99,19 @@
 
 	<div class="row" >
 		<div class="col-sm-12 text-center description-up" style=" margin-top: 20px;">
-			<h1>Получите в подарок выезд <br/>
-				дизайнера и технолога на дом</h1>
+			<h2>Получите в подарок выезд <br/>
+				дизайнера и технолога на дом</h2>
 		</div>
 	</div>
 
 
-	<div class="row" id="tile_banner">
-		<div class="">
-			<div class=" col-sm-6">
-				<img src="<?php echo $service['path_image']; ?>"
-					 title="<?php echo $service['title']; ?>"
-					 alt="<?php echo $service['alt']; ?>"
-					 style="margin-top: 9px;"
-					 class="img-responsive pull-right"/>
-			</div>
+	<div class="row">
+		<div  class=" col-sm-12 col-lg-6" id="background-service">
 		</div>
 
-		<div class="col-sm-6 service_box">
+		<div class="col-sm-12  service_box">
 
-			<p style="margin-top: 17px;     padding-right: 38px;">Выезд специалиста на замер,
+			<p>Выезд специалиста на замер,<br>
 				составление эскиза на месте в подарок.
 				Услуга предоставляется для прихожих,
 				гардеробных, встроенных и других шкафов. </p>
@@ -133,7 +126,7 @@
 				</div>
 
 			</div>
-			<div class="pull-right" style="position: relative;right: 68px;top: 11px;">
+			<div class="pull-right button" style="position: relative;right: 68px;top: 11px;">
 				<button title="Заказать"
 						name="service_button"
 						style="width: 115px;"
@@ -149,9 +142,9 @@
 
 
 <!-- OUR PARTNERS  BEGIN-->
-<div class="row home-partners" style="margin-top: 4px;" >
+<div class="row home-partners visible-lg" style="margin-top: 4px;" >
 	<div class="col-sm-12 text-center">
-		<h1>Наши партнеры</h1>
+		<h2>Наши партнеры</h2>
 	</div>
 	<div class="col-sm-6">
 		<div id="partners-gprom"></div>
@@ -161,3 +154,5 @@
 	</div>
 </div>
 <!-- OUR PARTNERS  END-->
+
+

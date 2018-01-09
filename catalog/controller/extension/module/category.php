@@ -46,6 +46,31 @@ class ControllerExtensionModuleCategory extends Controller {
 	}
 
 
+    public function ajaxFilterPrice()
+    {
+        $data= $this->request->post['products_json_id'];
+        $data = htmlspecialchars_decode($data);
+        $data = json_decode($data);
+        $min = $this->request->post['min'];
+        $max = $this->request->post['max'];
+        $this->load->model('catalog/product');
+        $approved_product_id = array();
+        foreach($data as $product_id) {
+            $product = $this->model_catalog_product->getProduct((int)$product_id);
+            $price = $this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax'));
+            if($price <= $max && $price >= $min) {
+                $approved_product_id[] = $product_id;
+            }
+
+        }
+        $json['approved_product_id'] = $approved_product_id;
+        $s = json_encode($json);
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
+    }
+
+
+
     public function productFilterPrice()
     {
         $this->load->model('catalog/product');
@@ -70,7 +95,7 @@ class ControllerExtensionModuleCategory extends Controller {
 
             $data['categories'][] = array(
                 'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-                'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'])
+                'href' => $this->url->link('product/category', 'path=' . $result['category_id'] . '_' . $result['category_id'])
             );
         }
 
@@ -174,7 +199,7 @@ class ControllerExtensionModuleCategory extends Controller {
         $string = '';
         $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
 
-        $symbol_right =  " &#8381;";
+        $symbol_right =  " &#8381";
         $string .= $symbol_right;
 
         return $string;

@@ -4,6 +4,7 @@
 		<div class="col-lg-3">
 
 		</div>
+<!--noindex-->		
 		<div class="col-lg-2">
 			<a href="<?php echo $instagram_link['href']; ?>">
 				<img src="<?php echo $instagram_link['path_image']; ?>"
@@ -12,7 +13,7 @@
 					 class="img-responsive center-block"/></a>
 		</div>
 		<div class="col-lg-2">
-			<a href="<?php echo $vk_link['href']; ?>">
+			<a href="<?php echo $vk_link['href']; ?>"  rel="nofollow">
 				<img src="<?php echo $vk_link['path_image']; ?>"
 					 title="<?php echo $vk_link['title']; ?>"
 					 alt="<?php echo $vk_link['alt']; ?>"
@@ -24,7 +25,7 @@
 					 title="<?php echo $twitter_link['title']; ?>"
 					 alt="<?php echo $twitter_link['alt']; ?>"
 					 class="img-responsive center-block"/></a>
-		</div>
+		</div><!--/noindex-->
 
 		<div class="col-lg-3">
 
@@ -79,6 +80,7 @@
 	</div>
 	<div class="row hidden-lg footer-body-mini">
 		<div class="col-sm-4">
+<!--noindex-->		    
 			<a class="pull-left" href="<?php echo $instagram_link['href']; ?>">
 				<img src="<?php echo $instagram_link['path_image']; ?>"
 					 title="<?php echo $instagram_link['title']; ?>"
@@ -95,6 +97,7 @@
 					 alt="<?php echo $twitter_link['alt']; ?>"
 					 class="img-responsive center-block"/></a>
 		</div>
+<!--/noindex-->		
 		<div class="col-sm-4">
 		</div>
 		<div class="col-sm-4">
@@ -108,15 +111,15 @@
 		<div class="col-sm-12">
 			<p class="text-center">© Центр мебели. Все права защищены 2017г.</p>
 		</div>
-	</div>
+	</div>  
+  
+       
+</footer>    
 
-</footer>
 
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
+        
+  
+  
 
-<!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
 
 </body></html>

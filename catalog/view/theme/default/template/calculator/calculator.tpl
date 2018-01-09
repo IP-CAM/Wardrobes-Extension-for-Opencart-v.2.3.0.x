@@ -1,5 +1,4 @@
 <?php echo $header; ?>
-<input type="hidden" name="product_id" data-modal="1" value="" />
 <!-- MODAL WINDOW BEGIN -->
 <div class="overlay modal_window_box" style="display: none" title="окно"></div>
 <div class="popup modal_window_box" style="display: none">
@@ -17,7 +16,7 @@
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 			<?php if(!next($breadcrumbs)) { ?>
-				<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+				<li class="breadcrumb_last"><span class="red">Расчет стоимости</span></li>
 				<?php continue; ?>
 				<?php } ?>
 				<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -43,7 +42,7 @@
 			</div>
 			<!-- CONTENT END -->
 			<!-- TYPE OF FURNITURE BEGIN -->
-			<h1 class="text-center">Выберите тип мебели</h1>
+			<h2 class="text-center">Выберите тип мебели</h2>
 
 			<div class="row">
 				<div class="col-mg-0 col-lg-2">
@@ -75,19 +74,19 @@
 			</div>
 			<!-- TYPE OF FURNITURE END -->
 			<!-- SUBTYPE FURNITURE BEGIN -->
-			<h1 class="text-center" id="type-wardrobes" hidden="hidden">Выбирете тип шкафа</h1>
+			<h2 class="text-center" id="type-wardrobes" hidden="hidden">Выберите тип шкафа</h2>
 			<div class="row text-center" id="sub_box">
 			</div>
 			<!-- SUBTYPE FURNITURE END -->
 
 			<!-- PRODUCTS BEGIN -->
-
-			<h1 class="text-center" id="type-products" hidden="hidden">Выбирете модель</h1>
+			<input type="hidden" name="product_id" data-modal="1" value="" />
+			<h2 class="text-center" id="type-products" hidden="hidden">Выбирете модель</h2>
 			<div class="row" id="product_box">
 			</div>
 			<!-- PRODUCTS END -->
 			<!-- CALCULATOR BEGIN -->
-			<h1 class="text-center">Подберите размеры для изделия</h1>
+			<h2 class="text-center">Подберите размеры для изделия</h2>
 
 				<input type="hidden" name="type" data-modal="1" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
 				<input type="hidden" name="two_modal" data-modal="1" value="0" />

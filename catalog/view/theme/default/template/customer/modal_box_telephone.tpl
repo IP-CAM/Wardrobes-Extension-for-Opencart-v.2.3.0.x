@@ -8,7 +8,7 @@
 	<input type="hidden" name="<?php echo $key ?>" data-modal="2" value="<?php echo $field ?>" />
 <?php } ?>
 <input type="hidden" name="two_modal" data-modal="2" value="0" />
-<div class="text" style="text-align: center; height: 162px;   padding-top: 62px;"><span class="font-size-24 font-type-verdana">Напишите свой номер телефона и мы свяжемся с вами</span></div>
+<div class="text" style="text-align: center; height: 162px;   padding-top: 62px;"><span class="font-size-24 font-type-verdana">Напишите свой номер телефона, и мы свяжемся с вами</span></div>
 <div class="field">
 	<input type="text" style="height: 44px; font-size: 17px; width: 357px;" name="telephone" placeholder="Введите свой номер телефона..." data-modal="2" class="input-fild-telephone form-control">
 	<span style="font-size: 10px; display: block;">примерное время ожидания 2 минуты</span>

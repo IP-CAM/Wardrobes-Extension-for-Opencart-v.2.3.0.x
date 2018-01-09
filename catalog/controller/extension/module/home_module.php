@@ -27,8 +27,8 @@ class ControllerExtensionModuleHomeModule extends Controller {
         $tile_banner_calculator = array();
         $tile_banner_calculator['path_image'] = $server . 'image/catalog/banners/home-calculator.jpg';
         $tile_banner_calculator['href'] = $this->url->link('calculator/calculator');
-        $tile_banner_calculator['title'] = 'Калькулятор';
-        $tile_banner_calculator['alt'] = 'Калькулятор';
+        $tile_banner_calculator['title'] = 'Шкафы-купе на заказ';
+        $tile_banner_calculator['alt'] = 'Шкафы-купе на заказ';
         $data['tile_banner_calculator'] = $tile_banner_calculator;
 
         $tile_banner_built_in = array();
@@ -58,13 +58,6 @@ class ControllerExtensionModuleHomeModule extends Controller {
             $comments[] = $comment;
         }
         $data['comments'] = $comments;
-
-        $service = array();
-        $service['path_image'] = $server . 'image/catalog/service.png';
-        $service['href'] = '';
-        $service['title'] = '';
-        $service['alt'] = '';
-        $data['service'] = $service;
 
         return $this->load->view('extension/module/home_module', $data);
 	}

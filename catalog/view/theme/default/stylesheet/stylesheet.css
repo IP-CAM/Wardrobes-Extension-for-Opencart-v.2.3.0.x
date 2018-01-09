@@ -845,7 +845,7 @@ h2.price {
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .service_box {
         width: 398px;
     }
@@ -1454,11 +1454,6 @@ footer #f-padding {
         padding-bottom: 42px;
     }
 }
-@media (max-width: 1200px) {
-    #calculator #banner div:before {
-        content: url('../image/calculator_banner_mini.jpg');
-    }
-}
 
 
 
@@ -1529,84 +1524,30 @@ footer #f-padding {
 
 
 /* aboutcompany contacts TODO */
-
-/*#contacts #img-1 {
-    background: url('../image/contacts/1.jpg');
-}
-#contacts #img-2 {
-    background: url('../image/contacts/2.jpg');
-}
-#contacts #img-3 {
-    background: url('../image/contacts/3.jpg');
-}
-#contacts #img-4 {
-    background: url('../image/contacts/4.jpg');
-}
-#contacts #img-5 {
-    background: url('../image/contacts/5.jpg');
-}*/
-
-#contacts .img-box {
-    width: 170px;
-    height: 180px;
-    cursor: pointer;
-    float: left;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    overflow: hidden;
-    border-radius: 6px;
-}
-
-#contacts .img-box img{
-    display: block;
-    position: absolute;
-    left: -50%;
-    margin: auto;
-    top: 0%;
-    width: 264%;
-
-}
-#contacts .img-box .img-gr {
-    left: 0!important;
-    top: 0!important;
-    margin: auto;
-    height: auto;
-    min-height: auto;
-    min-width: auto;
-    width: auto;
-}
-
-#contacts .img  {
-    margin-right: 0;
-}
-
-
-#contacts .text-top-right {
+.contacts .text-top-right {
     text-align: right;
     position: absolute;
     right: 38px;
     top: 44px;
 }
-#contacts .text_box.contacts div {
+.text_box.contacts div {
     padding-bottom: 7px;
 }
-#contacts .text_box.contacts img {
+.text_box.contacts img {
     margin-bottom: 3px;
 }
-#contacts .picture-back {
+.picture-back {
     position: absolute;
     width: 1140px;
     height: 482px;
     left: 0px;
 }
-#contacts .picture-back.aboutcompany {
+.picture-back.aboutcompany {
     background: url('../image/aboutcompany_back.jpg');
 }
-#contacts .picture-back.contacts {
+.picture-back.contacts {
     background: url('../image/contacts_back.jpg');
 }
-
 .aboutcompany.text_box, .contacts.text_box {
     position: relative;
     background: white;
@@ -2227,6 +2168,37 @@ footer #f-padding {
 }
 
 
+#contacts .img-box {
+    width: 170px;
+    height: 180px;
+    cursor: pointer;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+#contacts .img-box img{
+    display: block;
+    position: absolute;
+    left: -50%;
+    margin: auto;
+    top: 0%;
+    width: 264%;
+
+}
+#contacts .img-box .img-gr {
+    left: 0!important;
+    top: 0!important;
+    margin: auto;
+    height: auto;
+    min-height: auto;
+    min-width: auto;
+    width: auto;
+}
+
 /* home */
 #home .home-partners {
 
@@ -2284,6 +2256,11 @@ footer #f-padding {
     width: 100px;
 }
 
+#home #background-service {
+    background: url(../image/home-service.jpg) no-repeat;
+    height: 280px;
+    background-position: right bottom;
+}
 #home .service_input {
     margin: 20px;
 }
@@ -2298,6 +2275,15 @@ footer #f-padding {
     width: 115px;
     height: 30px;
     line-height: 21px;
+}
+#home .service_box>p {
+    margin-top: 17px;
+    padding-right: 38px;
+}
+#home .service_box .button {
+    position: relative;
+    right: 68px;
+    top: 11px;
 }
 #home a {
     width: 115px;
@@ -2459,7 +2445,7 @@ footer #f-padding {
 }
 
 .red {
-    color: #f2213e;
+    color: #f2213e!important;
 }
 
 
@@ -2590,8 +2576,8 @@ footer #f-padding {
 }
 
 body {
-    /*background: url(../image/11111.jpg) no-repeat;*/
-    /*opacity: 0.7;*/
-    background-position-x: -21px;
-    background-position-y: -7px;
+    /*background: url(../image/000.png) no-repeat;
+    opacity: 0.7;
+    background-position-x: 78px;
+    background-position-y: 53px;*/
 }

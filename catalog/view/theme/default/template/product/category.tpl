@@ -5,7 +5,7 @@
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 		<?php if(!next($breadcrumbs)) { ?>
-		<li class="breadcrumb_last"><a class="red" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+		<li class="breadcrumb_last"><span class="red"><?php echo $breadcrumb['text']; ?></span></li>
 		<?php continue; ?>
 		<?php } ?>
 		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -20,24 +20,24 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?> catalog"><?php echo $content_top; ?>
-      <h2 class="line-dark-before cat-bef-h4" style="position: absolute; top: -37px;left: 24px;"><?php echo $heading_title; ?></h2>
+      <h1 class="line-dark-before cat-bef-h4" style="position: absolute; top: -37px;left: 24px;"><?php echo $heading_title; ?></h1>
       <div class="row" style="margin-top: 25px;">
 		  <div class="col-lg-12">
 			  <div id="reference_characteristic">
-				  <a class="gray" href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a></li>
-				  <a class="gray" href="<?php echo $categories[66]['href'] ?>">Угловые шкафы-купе</a></li>
-				  <a class="gray" href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a></li>
+				  <a class="gray" href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a>  
+          <a class="gray" href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a>
+				  <a class="gray" href="<?php echo $categories[66]['href'] ?>">Угловые шкафы-купе</a>			  
 				  <!-- <a class="gray" href="<?php echo $categories[59]['href'] ?>">Шкафы-Купе</a></li> -->
-				  <a class="gray" href="<?php echo $categories[64]['href'] ?>">Радиусные шкафы-купе</a></li>
+				  <a class="gray" href="<?php echo $categories[64]['href'] ?>">Радиусные шкафы-купе</a>
 			  </div>
 		  </div>
 
         <?php if ($description) { ?>
-        <div class="col-lg-12 font-size-16" id="description-p" style="text-align:right; padding-top: 15px;"><?php echo $description; ?></div>
+        <div class="col-lg-12 font-size-16" id="description-p" style="text-align:justify; padding-top: 15px;"><?php echo $description; ?></div>
         <?php } ?>
 		  <div class="col-lg-12" style="width: 95%; position: relative; left: 18px;">
 			  <div class="row picture-characteristic line-dark-before">
-				  <div class="col-lg-3" id="delivery">
+				  <div class="col-lg-3" id="fast-delivery">
 					  <p class="text pull-right" style="padding-left: 9px;">Быстрая доставка</p>
 				  </div>
 				  <div class="col-lg-3" id="compilation">

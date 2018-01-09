@@ -1,31 +1,31 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'https://c-mb.ru/admin/');
-define('HTTP_CATALOG', 'https://c-mb.ru/');
+define('HTTP_SERVER', 'http://opencart-2.3-wardrobes/admin/');
+define('HTTP_CATALOG', 'http://opencart-2.3-wardrobes/');
 
 // HTTPS
-define('HTTPS_SERVER', 'https://c-mb.ru/admin/');
-define('HTTPS_CATALOG', 'https://c-mb.ru/');
+define('HTTPS_SERVER', 'http://opencart-2.3-wardrobes/admin/');
+define('HTTPS_CATALOG', 'http://opencart-2.3-wardrobes/');
 
 // DIR
-define('DIR_APPLICATION', '/home/centrshkaf/domains/c-mb.ru/public_html/admin/');
-define('DIR_SYSTEM', '/home/centrshkaf/domains/c-mb.ru/public_html/system/');
-define('DIR_IMAGE', '/home/centrshkaf/domains/c-mb.ru/public_html/image/');
-define('DIR_LANGUAGE', '/home/centrshkaf/domains/c-mb.ru/public_html/admin/language/');
-define('DIR_TEMPLATE', '/home/centrshkaf/domains/c-mb.ru/public_html/admin/view/template/');
-define('DIR_CONFIG', '/home/centrshkaf/domains/c-mb.ru/public_html/system/config/');
-define('DIR_CACHE', '/home/centrshkaf/domains/c-mb.ru/public_html/system/storage/cache/');
-define('DIR_DOWNLOAD', '/home/centrshkaf/domains/c-mb.ru/public_html/system/storage/download/');
-define('DIR_LOGS', '/home/centrshkaf/domains/c-mb.ru/public_html/system/storage/logs/');
-define('DIR_MODIFICATION', '/home/centrshkaf/domains/c-mb.ru/public_html/system/storage/modification/');
-define('DIR_UPLOAD', '/home/centrshkaf/domains/c-mb.ru/public_html/system/storage/upload/');
-define('DIR_CATALOG', '/home/centrshkaf/domains/c-mb.ru/public_html/catalog/');
+define('DIR_APPLICATION', 'W:/domains/opencart-2.3-wardrobes/admin/');
+define('DIR_SYSTEM', 'W:/domains/opencart-2.3-wardrobes/system/');
+define('DIR_IMAGE', 'W:/domains/opencart-2.3-wardrobes/image/');
+define('DIR_LANGUAGE', 'W:/domains/opencart-2.3-wardrobes/admin/language/');
+define('DIR_TEMPLATE', 'W:/domains/opencart-2.3-wardrobes/admin/view/template/');
+define('DIR_CONFIG', 'W:/domains/opencart-2.3-wardrobes/system/config/');
+define('DIR_CACHE', 'W:/domains/opencart-2.3-wardrobes/system/storage/cache/');
+define('DIR_DOWNLOAD', 'W:/domains/opencart-2.3-wardrobes/system/storage/download/');
+define('DIR_LOGS', 'W:/domains/opencart-2.3-wardrobes/system/storage/logs/');
+define('DIR_MODIFICATION', 'W:/domains/opencart-2.3-wardrobes/system/storage/modification/');
+define('DIR_UPLOAD', 'W:/domains/opencart-2.3-wardrobes/system/storage/upload/');
+define('DIR_CATALOG', 'W:/domains/opencart-2.3-wardrobes/catalog/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'centrshkaf_occmb');
-define('DB_PASSWORD', 'n3wDjreq');
-define('DB_DATABASE', 'centrshkaf_occmb');
+define('DB_USERNAME', 'mysql');
+define('DB_PASSWORD', 'mysql');
+define('DB_DATABASE', 'opencart-2.3-wardrobes');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

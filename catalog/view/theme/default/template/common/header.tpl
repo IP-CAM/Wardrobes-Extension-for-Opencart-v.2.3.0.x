@@ -18,64 +18,38 @@
 	<?php } ?>
 	<?php if ($keywords) { ?>
 	<meta name="keywords" content="<?php echo $keywords; ?>"/>
-	<?php } ?>
-	<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-	<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-	<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<?php } ?>   
+    <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
 	<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
 	<link href="catalog/view/theme/default/stylesheet/stylesheet-mobile.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)"  />
+	 <script  src="catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
+	 
+	<script  src="catalog/view/javascript/bootstrap/js/bootstrap.min.js"></script>
+	
 	<?php foreach ($styles as $style) { ?>
 	<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
 		  media="<?php echo $style['media']; ?>"/>
 	<?php } ?>
-	<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+	<script   src="catalog/view/javascript/common.js"></script>
 	<?php foreach ($links as $link) { ?>
 	<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
 	<?php } ?>
 	<?php foreach ($scripts as $script) { ?>
-	<script src="<?php echo $script; ?>" type="text/javascript"></script>
+	<script src="<?php echo $script; ?>"></script>
 	<?php } ?>
 	<?php foreach ($analytics as $analytic) { ?>
 	<?php echo $analytic; ?>
 	<?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
-<!--<nav id="top">
-  <div class="container">
-    <?php echo $currency; ?>
-    <?php echo $language; ?>
-    <div id="top-links" class="nav pull-right">
-      <ul class="list-inline">
-        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
-        <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <?php if ($logged) { ?>
-            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-            <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-            <?php } else { ?>
-            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-            <?php } ?>
-          </ul>
-        </li>
-        <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
-        <li><a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shopping_cart; ?></span></a></li>
-        <li><a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_checkout; ?></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav> -->
 <header>
 	<div class="container visible-lg">
 		<div class="row">
 			<div class="col-sm-3 text-left" id="header-left">
 				<h4 id="delivery">Доставка и установка:</h4>
-				<h3 id="address_city">г. Санкт- Петербург и Лениградская область</h3>
+				<h3 id="address_city">г. Санкт-Петербург и Лениградская область</h3>
 			</div>
 			<div class="col-sm-6">
 				<div id="logo" class="text-center">
@@ -87,7 +61,7 @@
 					<?php } ?>
 				</div>
 			</div>
-
+		
 			<div class="col-sm-3 text-right" id="header-right">
 				<h4 id="time">График работы: 09:00 до 17:30</h4>
 				<h3 id="phone">+7 (812) 965 30 61</h3>
@@ -128,12 +102,14 @@
 
 			<div id="menu_mini_box">
 				<ul>
-					<li>Каталог</li>
-					<li>О компании</li>
+					<li><a href="<?php echo $generalcatalog; ?>">Каталог</a></li>
 					<li><a href="<?php echo $calculator; ?>">Расчет стоимости</a></li>
-					<li>Акции</li>
-					<li>Отзывы</li>
-					<li>Контакты</li>
+					<li><a href="<?php echo $aboutcompany; ?>">О компании</a></li>
+					<li><a href="<?php echo $review; ?>">Отзывы</a></li>
+					<li><a href="<?php echo $contacts; ?>">Контакты</a></li>
+					<li><a href="<?php echo $special; ?>">Акции</a></li>
+					<hr>
+					<li><a class="red" href="<?php echo $our_work; ?>">Наши работы</a></li>
 				</ul>
 			</div>
 
@@ -156,7 +132,7 @@
 
 
 </header>
-<script type="text/javascript">
+<script>
 	// Menu
 	$('#menu-mini').click(function() {
 		$('#menu_mini_box').toggle();
