@@ -1611,7 +1611,7 @@ footer #f-padding {
 }
 .generalcatalog_image_box p {
     font-size: 26px;
-    font-family: 'Time new romans', sans-serif;
+    /*font-family: 'Time new romans', sans-serif;*/
 }
 
 /* catalog product */

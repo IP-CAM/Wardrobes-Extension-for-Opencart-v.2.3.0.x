@@ -34,46 +34,76 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
         }
 
         $radius = array();
-        $radius['path_image'] = $server . 'image/catalog/generalcatalog/radius.jpg';
+        $radius['path_image'] = $server . 'image/catalog/generalcatalog/desktop/radius.jpg';
         $radius['name'] = 'Радиусные';
         $radius['href'] = $this->url->link('product/category', 'path=64_64');
         $data['radius'] = $radius;
 
         $standard = array();
-        $standard['path_image'] = $server . 'image/catalog/generalcatalog/standard.jpg';
+        $standard['path_image'] = $server . 'image/catalog/generalcatalog/desktop/standard.jpg';
         $standard['name'] = 'Стандартные';
         $standard['href'] = $this->url->link('product/category', 'path=67_67');
         $data['standard'] = $standard;
 
         $built_in = array();
-        $built_in['path_image'] = $server . 'image/catalog/generalcatalog/built_in.jpg';
+        $built_in['path_image'] = $server . 'image/catalog/generalcatalog/desktop/built_in.jpg';
         $built_in['name'] = 'Встроенные';
         $built_in['href'] = $this->url->link('product/category', 'path=60_60');
         $data['built_in'] = $built_in;
 
         $corner = array();
-        $corner['path_image'] = $server . 'image/catalog/generalcatalog/corner.jpg';
+        $corner['path_image'] = $server . 'image/catalog/generalcatalog/desktop/corner.jpg';
         $corner['name'] = 'Угловые';
         $corner['href'] = $this->url->link('product/category', 'path=66_66');
         $data['corner'] = $corner;
 
         $our_work = array();
-        $our_work['path_image'] = $server . 'image/catalog/generalcatalog/our_work.jpg';
+        $our_work['path_image'] = $server . 'image/catalog/generalcatalog/desktop/our_work.jpg';
         $our_work['name'] = 'Наши работы';
         $our_work['href'] = $this->url->link('product/category', 'path=70_70');
         $data['our_work'] = $our_work;
 
         $hallway = array();
-        $hallway['path_image'] = $server . 'image/catalog/generalcatalog/hallway.jpg';
+        $hallway['path_image'] = $server . 'image/catalog/generalcatalog/desktop/hallway.jpg';
         $hallway['name'] = 'Прихожие';
         $hallway['href'] = $this->url->link('product/category', 'path=69_69');
         $data['hallway'] = $hallway;
 
         $dressing_room = array();
-        $dressing_room['path_image'] = $server . 'image/catalog/generalcatalog/dressing_room.jpg';
+        $dressing_room['path_image'] = $server . 'image/catalog/generalcatalog/desktop/dressing_room.jpg';
         $dressing_room['name'] = 'Гардеробные';
         $dressing_room['href'] = $this->url->link('product/category', 'path=68_68');
         $data['dressing_room'] = $dressing_room;
+
+
+        //mobile version
+        if (isset($this->request->server['HTTP_REFERER'])) {
+            $referer_mobile = $this->request->server['HTTP_REFERER'];
+        } else {
+            $referer_mobile = $this->url->link('common/home');
+        }
+        $data['referer_mobile'] = $referer_mobile;
+
+
+        $box_images_mobile_ar = array(
+            ['name_img'=>'standard', 'name'=>'Стандартные' , 'id' =>'67'],
+            ['name_img'=>'built_in','name'=>'Встроенные' , 'id' =>'60'],
+            ['name_img'=>'corner','name'=>'Угловые' , 'id' =>'66'],
+            ['name_img'=>'our_work','name'=>'Наши работы' , 'id' =>'70'],
+            ['name_img'=>'radius','name'=>'Радиусные' , 'id' =>'64'],
+            ['name_img'=>'hallway','name'=>'Прихожие' , 'id' =>'69'],
+            ['name_img'=>'dressing_room', 'name'=>'Гардеробные' , 'id' =>'68']
+        );
+        $box_images_mobile = array();
+        foreach($box_images_mobile_ar as $box_image_mobile_ar) {
+            $box_image = array();
+            $box_image['path_image'] = $server . 'image/catalog/generalcatalog/mobile/' . $box_image_mobile_ar['name_img']. '.jpg';
+            $box_image['name'] = $box_image_mobile_ar['name'];
+            $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_mobile_ar['id'] . '_' . $box_image_mobile_ar['id']);
+            $box_images_mobile[] = $box_image;
+        }
+        $data['box_images_mobile'] = $box_images_mobile;
+
 
 
         $data['description'] = html_entity_decode($contacts_info['description'], ENT_QUOTES, 'UTF-8');

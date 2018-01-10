@@ -72,3 +72,93 @@ h2 {
     left: -171px;
 }
 
+
+#generalcatalog .mobile-box #back{
+    position: absolute;
+    top: -45px;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+}
+#generalcatalog .mobile-box {
+    height: 541px;
+    width: 440px;
+    position: relative;
+    margin: 65px auto 0;
+}
+#generalcatalog .box-mobile {
+    position: absolute;
+    display: inline-block;
+}
+#generalcatalog .box-mobile .name-box-mobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+#generalcatalog .reference-mobile {
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+#generalcatalog .box-mobile#box-1 p, #generalcatalog .box-mobile#box-5 p {
+    font-size: 22px;
+    line-height: 40px;
+}
+#generalcatalog .box-mobile#box-1 .name-box-mobile, #generalcatalog .box-mobile#box-5 .name-box-mobile {
+    width:180px;
+    height: 40px;
+}
+
+#generalcatalog .box-mobile#box-2 p, #generalcatalog .box-mobile#box-3 p,
+#generalcatalog .box-mobile#box-6 p, #generalcatalog .box-mobile#box-7 p
+{
+    font-size: 16px;
+    line-height: 30px;
+}
+#generalcatalog .box-mobile#box-2 .name-box-mobile, #generalcatalog .box-mobile#box-3 .name-box-mobile,
+#generalcatalog .box-mobile#box-6 .name-box-mobile, #generalcatalog .box-mobile#box-7 .name-box-mobile
+{
+    width:134px;
+    height: 30px;
+}
+
+#generalcatalog .box-mobile#box-4 p {
+    font-size: 27px;
+    line-height: 48px;
+}
+#generalcatalog .box-mobile#box-4 .name-box-mobile {
+    width:224px;
+    height: 50px;
+}
+
+#generalcatalog .box-mobile#box-1 {
+
+}
+#generalcatalog .box-mobile#box-2 {
+    right: 0;
+}
+#generalcatalog .box-mobile#box-3 {
+    right: 0;
+    top: 104px;
+}
+#generalcatalog .box-mobile#box-4 {
+    top: 208px
+}
+#generalcatalog .box-mobile#box-5 {
+    bottom: 0;
+
+}
+#generalcatalog .box-mobile#box-6 {
+    right: 0;
+    bottom: 104px;
+}
+#generalcatalog .box-mobile#box-7 {
+    right: 0;
+    bottom: 0;
+}
+
