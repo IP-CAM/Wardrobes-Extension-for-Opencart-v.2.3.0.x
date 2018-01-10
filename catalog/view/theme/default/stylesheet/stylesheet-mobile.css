@@ -80,7 +80,11 @@ h2 {
     height: 30px;
     text-align: center;
     line-height: 28px;
+    background:  url('../image/generalcatalog-back-mobile.png') no-repeat;
+    background-size: contain;
+    background-position-x: 5px;
 }
+
 #generalcatalog .mobile-box {
     height: 541px;
     width: 440px;

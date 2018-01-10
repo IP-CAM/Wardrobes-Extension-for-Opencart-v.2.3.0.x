@@ -46,7 +46,7 @@
 				<ul class="list-footer">
 					<li><a href="<?php echo $calculator; ?>">Расчет стоимости</a></li>
 					<li><a href="<?php echo $special; ?>">Акции</a></li>
-					<li><a href="<?php echo $review; ?>">Отзывы и предложение</a></li>
+					<li><a href="<?php echo $review; ?>">Отзывы и предложения</a></li>
 				</ul>
 			</div>
 		</div>
