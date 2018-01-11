@@ -3,6 +3,12 @@
 #calculator #banner div:before {
     content: url('../image/calculator_banner_mini.jpg');
 }
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 #menu_mini_box li{
     list-style-type:none;
 }
@@ -43,7 +49,6 @@ body {
 }
 
 
-
 .slideout-open .slideout-menu {
     display: block;
 }
@@ -51,6 +56,12 @@ body {
 #menu_mini_box {
     position: relative;
     top: 66px;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+    overflow-x: hidden;
 }
 
 /* menu end*/
@@ -143,6 +154,7 @@ h2 {
 #generalcatalog .mobile-box #back{
     position: absolute;
     top: -45px;
+    left: 15px;
     width: 120px;
     height: 30px;
     text-align: center;
@@ -209,25 +221,50 @@ h2 {
 
 }
 #generalcatalog .box-mobile#box-2 {
-    right: 0;
+
 }
 #generalcatalog .box-mobile#box-3 {
-    right: 0;
-    top: 104px;
+
 }
 #generalcatalog .box-mobile#box-4 {
-    top: 208px
+
 }
 #generalcatalog .box-mobile#box-5 {
-    bottom: 0;
 
 }
 #generalcatalog .box-mobile#box-6 {
-    right: 0;
-    bottom: 104px;
+
 }
 #generalcatalog .box-mobile#box-7 {
-    right: 0;
-    bottom: 0;
+
 }
 
+#generalcatalog .col-hh-6 {
+    width: 53.2%;
+    padding-right: 2px;
+}
+#generalcatalog .col-hh-5 {
+    width: 46.8%;
+    padding-left: 2px;
+
+}
+
+
+/*footer*/
+footer #line {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #000000;
+  width:100%;
+  text-align: center;
+    align-content: center;
+}
+footer .footer-body-mini span {
+    font-size: 3.0vw;
+}
+footer .col-hh-4 {
+    padding-left: 4px;
+    padding-right: 4px;
+}

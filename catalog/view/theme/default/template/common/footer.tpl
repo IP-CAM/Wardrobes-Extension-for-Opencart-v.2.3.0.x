@@ -70,45 +70,56 @@
 
 
 	<div class="row f-up hidden-lg">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6 text-center">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6 text-center">
 			<h3 class=" text-center">Связаться с нами</h3>
 			<div class="connect_with_us center-block img-responsive"></div>
 			<span>Россия, Санкт-Петербург, Уманский переулок, 71</span>
 		</div>
-		<div class="col-sm-3"></div>
+		<div class="col-xs-3"></div>
 	</div>
 	<div class="row hidden-lg footer-body-mini">
-		<div class="col-sm-4">
-<!--noindex-->		    
-			<a class="pull-left" href="<?php echo $instagram_link['href']; ?>">
-				<img src="<?php echo $instagram_link['path_image']; ?>"
-					 title="<?php echo $instagram_link['title']; ?>"
-					 alt="<?php echo $instagram_link['alt']; ?>"
-					 class="img-responsive center-block"/></a>
-			<a id="f-padding" href="<?php echo $vk_link['href']; ?>">
-				<img src="<?php echo $vk_link['path_image']; ?>"
-					 title="<?php echo $vk_link['title']; ?>"
-					 alt="<?php echo $vk_link['alt']; ?>"
-					 class="img-responsive center-block"/></a>
-			<a class="pull-right" href="<?php echo $twitter_link['href']; ?>">
-				<img src="<?php echo $twitter_link['path_image']; ?>"
-					 title="<?php echo $twitter_link['title']; ?>"
-					 alt="<?php echo $twitter_link['alt']; ?>"
-					 class="img-responsive center-block"/></a>
+		<div class="col-xs-4">
+<!--noindex-->
+			<div class="row">
+				<div class="col-xs-4 col-hh-4">
+					<a class="pull-left" href="<?php echo $instagram_link['href']; ?>">
+						<img src="<?php echo $instagram_link['path_image']; ?>"
+							 title="<?php echo $instagram_link['title']; ?>"
+							 alt="<?php echo $instagram_link['alt']; ?>"
+							 class="img-responsive center-block"/></a>
+				</div>
+				<div class="col-xs-4 col-hh-4 text-center">
+					<a  class="pull-center" href="<?php echo $vk_link['href']; ?>">
+						<img src="<?php echo $vk_link['path_image']; ?>"
+							 title="<?php echo $vk_link['title']; ?>"
+							 alt="<?php echo $vk_link['alt']; ?>"
+							 class="img-responsive center-block"/></a>
+				</div>
+				<div class="col-xs-4 col-hh-4">
+					<a class="pull-right" href="<?php echo $twitter_link['href']; ?>">
+						<img src="<?php echo $twitter_link['path_image']; ?>"
+							 title="<?php echo $twitter_link['title']; ?>"
+							 alt="<?php echo $twitter_link['alt']; ?>"
+							 class="img-responsive center-block"/></a>
+				</div>
+			</div>
+
+
+
 		</div>
 <!--/noindex-->		
-		<div class="col-sm-4">
+		<div class="col-xs-2">
 		</div>
-		<div class="col-sm-4">
+		<div class="col-xs-6 text-right">
 			<span>+7 (812) 965 3061</span>
 			<span>9653061@gmail.com</span>
 		</div>
 	</div>
 
-
-	<div class="row down border-top-dark">
-		<div class="col-sm-12">
+	<!-- <hr id="line"> -->
+	<div class="row down border-top-dark ">
+		<div class="col-xs-12">
 			<p class="text-center">© Центр мебели. Все права защищены 2018 г.</p>
 		</div>
 	</div>  

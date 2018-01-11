@@ -151,7 +151,7 @@ $(document).ready(function() {
         'panel': document.getElementById('panel'),
         'menu': document.getElementById('menu'),
         'padding': 180,
-        'tolerance': 0
+        'tolerance': 70
     });
     // Toggle button
     document.querySelector('#menu-mini').addEventListener('click', function () {

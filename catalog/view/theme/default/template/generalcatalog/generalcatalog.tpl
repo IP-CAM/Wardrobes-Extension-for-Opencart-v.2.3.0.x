@@ -118,24 +118,53 @@
 	</div>
 	<div class="row hidden-lg generalcatalog_image_box mobile-box">
 
-		<a href="<?php echo $referer_mobile; ?>" id="back" class="border-gray">Назад</a>
+		<div class="col-xs-12 text-left">
+			<a href="<?php echo $referer_mobile; ?>" id="back" class="border-gray">Назад</a>
+		</div>
 
-		<?php foreach($box_images_mobile as $key => $box_image_mobile) { ?>
-		<a class="reference-mobile" href="<?php echo $box_image_mobile['href']; ?>">
-			<div class="box-mobile" id="box-<?php echo ((int)$key + 1); ?>">
-				<div class="image-box">
-						<img src="<?php echo $box_image_mobile['path_image']; ?>"
-						 title="<?php echo $box_image_mobile['name']; ?>"
-						 alt="<?php echo $box_image_mobile['name']; ?>"
-						 class="img-responsive center-block"/>
+
+
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-xs-6 col-hh-6">
+					<?php echo $box_images_mobile_html['standard']; ?>
 				</div>
-				<div class="name-box name-box-mobile text-center">
-					<p class="font-type-georgia"><?php echo $box_image_mobile['name']; ?></p>
+				<div class="col-xs-6 col-hh-5">
+					<div class="row">
+						<div class="col-xs-12">
+							<?php echo $box_images_mobile_html['built_in']; ?>
+						</div>
+						<div class="col-xs-12">
+							<?php echo $box_images_mobile_html['corner']; ?>
+						</div>
+					</div>
 				</div>
 			</div>
-		</a>
+		</div>
+		<div class="col-xs-12">
+			<?php echo $box_images_mobile_html['our_work']; ?>
+		</div>
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-xs-6 col-hh-6">
+					<?php echo $box_images_mobile_html['radius']; ?>
+				</div>
+				<div class="col-xs-6 col-hh-5">
+					<div class="row">
+						<div class="col-xs-12">
+							<?php echo $box_images_mobile_html['hallway']; ?>
+						</div>
+						<div class="col-xs-12">
+							<?php echo $box_images_mobile_html['dressing_room']; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-	<?php } ?>
+
+
+
 
 
 

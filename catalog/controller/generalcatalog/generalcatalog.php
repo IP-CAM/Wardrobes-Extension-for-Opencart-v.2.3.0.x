@@ -99,10 +99,31 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
             $box_image = array();
             $box_image['path_image'] = $server . 'image/catalog/generalcatalog/mobile/' . $box_image_mobile_ar['name_img']. '.jpg';
             $box_image['name'] = $box_image_mobile_ar['name'];
+            $box_image['name_img'] = $box_image_mobile_ar['name_img'];
             $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_mobile_ar['id'] . '_' . $box_image_mobile_ar['id']);
             $box_images_mobile[] = $box_image;
         }
         $data['box_images_mobile'] = $box_images_mobile;
+
+        $box_images_mobile_html = array();
+        foreach($box_images_mobile as $key => $box_image_mobile) {
+            $html_block = '';
+            $html_block .= '<a class="reference-mobile" href="' . $box_image_mobile['href'] . '">';
+            $html_block .= '<div class="box-mobile" id="box-' . ((int)$key + 1) . '">';
+            $html_block .= '<div class="image-box">';
+            $html_block .= '<img src="' . $box_image_mobile['path_image'] . '"';
+            $html_block .= 'title="' . $box_image_mobile['name'] . ' "';
+            $html_block .= 'alt="' . $box_image_mobile['name'] . '"';
+            $html_block .= 'class="img-responsive center-block"/>';
+            $html_block .= '</div>';
+            $html_block .= '<div class="name-box name-box-mobile text-center">';
+            $html_block .= '<p class="font-type-georgia">' . $box_image_mobile['name'] . '</p>';
+            $html_block .= '</div>';
+            $html_block .= '</div>';
+            $html_block .= '</a>';
+            $box_images_mobile_html[$box_image_mobile['name_img']] = $html_block;
+        }
+        $data['box_images_mobile_html'] = $box_images_mobile_html;
 
 
 
