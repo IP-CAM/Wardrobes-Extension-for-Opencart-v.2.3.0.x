@@ -146,9 +146,19 @@ $(document).ready(function() {
 	});
 
 
+    //For header
+    var slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding': 180,
+        'tolerance': 0
+    });
+    // Toggle button
+    document.querySelector('#menu-mini').addEventListener('click', function () {
+        slideout.toggle();
+    });
 
-
-    // For Home Page Validation telephone
+    // For Home (Page Validation telephone)
     $('#service_button').click(function (event) {
         var error = 0;
         if($("[name='name']").val() == '') {

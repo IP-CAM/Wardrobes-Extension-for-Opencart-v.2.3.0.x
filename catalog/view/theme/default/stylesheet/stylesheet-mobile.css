@@ -10,6 +10,60 @@
     color: #000000;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.slideout-menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 256px;
+    min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+    display: none;
+}
+
+.slideout-menu-left {
+    left: 0;
+}
+
+.slideout-menu-right {
+    right: 0;
+}
+
+.slideout-panel {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+    background-color: #FFF; /* A background-color is required */
+    min-height: 100vh;
+}
+
+
+
+.slideout-open .slideout-menu {
+    display: block;
+}
+
+#menu_mini_box {
+    position: relative;
+    top: 66px;
+}
+
+/* menu end*/
+
+
+
+
+
+
+
+
+
+
 p {
     font-size: 14px;
 }
@@ -99,13 +153,11 @@ h2 {
 }
 
 #generalcatalog .mobile-box {
-    height: 541px;
-    width: 440px;
     position: relative;
     margin: 65px auto 0;
 }
 #generalcatalog .box-mobile {
-    position: absolute;
+    position: relative;
     display: inline-block;
 }
 #generalcatalog .box-mobile .name-box-mobile {

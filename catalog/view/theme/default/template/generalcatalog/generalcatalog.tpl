@@ -116,27 +116,26 @@
 		</div>
 		<div class="row font-size-18"><?php echo $description; ?></div>
 	</div>
-	<div class="hidden-lg generalcatalog_image_box mobile-box">
+	<div class="row hidden-lg generalcatalog_image_box mobile-box">
 
 		<a href="<?php echo $referer_mobile; ?>" id="back" class="border-gray">Назад</a>
+
 		<?php foreach($box_images_mobile as $key => $box_image_mobile) { ?>
 		<a class="reference-mobile" href="<?php echo $box_image_mobile['href']; ?>">
 			<div class="box-mobile" id="box-<?php echo ((int)$key + 1); ?>">
 				<div class="image-box">
-
 						<img src="<?php echo $box_image_mobile['path_image']; ?>"
 						 title="<?php echo $box_image_mobile['name']; ?>"
 						 alt="<?php echo $box_image_mobile['name']; ?>"
 						 class="img-responsive center-block"/>
-
 				</div>
 				<div class="name-box name-box-mobile text-center">
 					<p class="font-type-georgia"><?php echo $box_image_mobile['name']; ?></p>
 				</div>
-		</a>
 			</div>
+		</a>
 
-		<?php } ?>
+	<?php } ?>
 
 
 

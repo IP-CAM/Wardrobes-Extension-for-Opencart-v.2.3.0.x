@@ -72,7 +72,7 @@
 	<div class="row f-up hidden-lg">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 text-center">
-			<h3 class=" text-center">Связатся с нами</h3>
+			<h3 class=" text-center">Связаться с нами</h3>
 			<div class="connect_with_us center-block img-responsive"></div>
 			<span>Россия, Санкт-Петербург, Уманский переулок, 71</span>
 		</div>
@@ -109,17 +109,17 @@
 
 	<div class="row down border-top-dark">
 		<div class="col-sm-12">
-			<p class="text-center">© Центр мебели. Все права защищены 2017г.</p>
+			<p class="text-center">© Центр мебели. Все права защищены 2018 г.</p>
 		</div>
 	</div>  
   
-       
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter34144825 = new Ya.Metrika({ id:34144825, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/34144825" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->       
 </footer>    
 
 
         
   
   
-
+</main>
 
 </body></html>

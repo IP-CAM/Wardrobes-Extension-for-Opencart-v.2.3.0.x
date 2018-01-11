@@ -108,12 +108,7 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
 }
 
 
-#menu_mini_box {
-    display: none;
-    position: absolute;
-    top: 66px;
-    left: -193px;
-}
+
 
 
 
