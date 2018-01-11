@@ -27,32 +27,45 @@ h2 {
 }
 
 /* home */
-#home .tile_banner .block-im:not(.block-root-2) img {
-    width: 216px;
-    height: 106px;
-}
-#home .tile_banner .block-root-2 img  {
-    width: 216px;
-    height: 219px;
-}
-#home .tile_banner .block-root-2 {
-    float: left;
-}
-#home .tile_banner .block-im-4, .tile_banner .block-im-5 {
-    display: inline-block;
-    margin-bottom: 0;
-    margin-top: -15px;
+#home .tile_banner img {
+    margin-top: 0;
 }
 
 #home .service {
-    height: 300px;
+
+}
+#home .margin-top {
+    margin-top: 4px;
+}
+
+#home .service_input {
+    margin: 3vw;
+}
+
+#home .button-style-1{
+    height: 28px;
+    width: 154px;
+    line-height: 24px;
 }
 
 #home #background-service {
-    position: absolute;
     background: url(../image/home-service-mobile.jpg) no-repeat;
-    height: 280px;
+   height: auto;
+    background-size: contain;
 }
+#home .service p {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 15px;
+    font-size: 2.8vw;
+    line-height: 1.25;
+}
+#home.service_input input {
+    width:55wv;
+    font-size: 3vw;
+    height: 5vw;
+}
+
 #home .service_box>p {
     text-align: center;
     margin-top: 8px;

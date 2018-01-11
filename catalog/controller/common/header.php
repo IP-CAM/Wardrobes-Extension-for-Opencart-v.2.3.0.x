@@ -3,6 +3,7 @@ class ControllerCommonHeader extends Controller {
 	public function index() {
 		// Analytics
 		$this->load->model('extension/extension');
+        $this->document->addScript('admin/view/javascript/jquery/slideout/slideout.min.js');
 
 		$data['analytics'] = array();
 
