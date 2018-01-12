@@ -33,47 +33,47 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
             $server = $this->config->get('config_url');
         }
 
-        $radius = array();
-        $radius['path_image'] = $server . 'image/catalog/generalcatalog/desktop/radius.jpg';
-        $radius['name'] = 'Радиусные';
-        $radius['href'] = $this->url->link('product/category', 'path=64_64');
-        $data['radius'] = $radius;
 
-        $standard = array();
-        $standard['path_image'] = $server . 'image/catalog/generalcatalog/desktop/standard.jpg';
-        $standard['name'] = 'Стандартные';
-        $standard['href'] = $this->url->link('product/category', 'path=67_67');
-        $data['standard'] = $standard;
+        $box_images_ar = array(
+            ['name_img'=>'standard', 'name'=>'Стандартные' , 'id' =>'67'],
+            ['name_img'=>'built_in','name'=>'Встроенные' , 'id' =>'60'],
+            ['name_img'=>'corner','name'=>'Угловые' , 'id' =>'66'],
+            ['name_img'=>'our_work','name'=>'Наши работы' , 'id' =>'70'],
+            ['name_img'=>'radius','name'=>'Радиусные' , 'id' =>'64'],
+            ['name_img'=>'hallway','name'=>'Прихожие' , 'id' =>'69'],
+            ['name_img'=>'dressing_room', 'name'=>'Гардеробные' , 'id' =>'68']
+        );
+        $box_images_mobile = array();
+        foreach($box_images_ar as $box_image_ar) {
+            $box_image = array();
+            $box_image['path_image'] = $server . 'image/catalog/generalcatalog/desktop/' . $box_image_ar['name_img']. '.jpg';
+            $box_image['name'] = $box_image_ar['name'];
+            $box_image['name_img'] = $box_image_ar['name_img'];
+            $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_ar['id'] . '_' . $box_image_ar['id']);
+            $box_images_mobile[] = $box_image;
+        }
 
-        $built_in = array();
-        $built_in['path_image'] = $server . 'image/catalog/generalcatalog/desktop/built_in.jpg';
-        $built_in['name'] = 'Встроенные';
-        $built_in['href'] = $this->url->link('product/category', 'path=60_60');
-        $data['built_in'] = $built_in;
 
-        $corner = array();
-        $corner['path_image'] = $server . 'image/catalog/generalcatalog/desktop/corner.jpg';
-        $corner['name'] = 'Угловые';
-        $corner['href'] = $this->url->link('product/category', 'path=66_66');
-        $data['corner'] = $corner;
+        $box_images_html = array();
+        foreach($box_images_mobile as $key => $box_image) {
+            $html_block = '';
+            $html_block .= '<a class="reference" href="' . $box_image['href'] . '">';
+            $html_block .= '<div class="box" id="box-' . ((int)$key + 1) . '">';
+            $html_block .= '<div class="image-box">';
+            $html_block .= '<img src="' . $box_image['path_image'] . '"';
+            $html_block .= 'title="' . $box_image['name'] . ' "';
+            $html_block .= 'alt="' . $box_image['name'] . '"';
+            $html_block .= 'class="img-responsive center-block"/>';
+            $html_block .= '</div>';
+            $html_block .= '<div class="name-box name-box text-center">';
+            $html_block .= '<p class="font-type-georgia">' . $box_image['name'] . '</p>';
+            $html_block .= '</div>';
+            $html_block .= '</div>';
+            $html_block .= '</a>';
+            $box_images_html[$box_image['name_img']] = $html_block;
+        }
+        $data['box_images_html'] = $box_images_html;
 
-        $our_work = array();
-        $our_work['path_image'] = $server . 'image/catalog/generalcatalog/desktop/our_work.jpg';
-        $our_work['name'] = 'Наши работы';
-        $our_work['href'] = $this->url->link('product/category', 'path=70_70');
-        $data['our_work'] = $our_work;
-
-        $hallway = array();
-        $hallway['path_image'] = $server . 'image/catalog/generalcatalog/desktop/hallway.jpg';
-        $hallway['name'] = 'Прихожие';
-        $hallway['href'] = $this->url->link('product/category', 'path=69_69');
-        $data['hallway'] = $hallway;
-
-        $dressing_room = array();
-        $dressing_room['path_image'] = $server . 'image/catalog/generalcatalog/desktop/dressing_room.jpg';
-        $dressing_room['name'] = 'Гардеробные';
-        $dressing_room['href'] = $this->url->link('product/category', 'path=68_68');
-        $data['dressing_room'] = $dressing_room;
 
 
         //mobile version
@@ -103,7 +103,6 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
             $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_mobile_ar['id'] . '_' . $box_image_mobile_ar['id']);
             $box_images_mobile[] = $box_image;
         }
-        $data['box_images_mobile'] = $box_images_mobile;
 
         $box_images_mobile_html = array();
         foreach($box_images_mobile as $key => $box_image_mobile) {

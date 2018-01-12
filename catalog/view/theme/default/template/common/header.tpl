@@ -24,6 +24,7 @@
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
 	<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
 	<link href="catalog/view/theme/default/stylesheet/stylesheet-mobile.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)"  />
+	<link href="catalog/view/theme/default/stylesheet/stylesheet-mobile-360.css" rel="stylesheet" type="text/css" media="screen and (max-width:480px)"  />
 	 <script  src="catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
 	 
 	<script  src="catalog/view/javascript/bootstrap/js/bootstrap.min.js"></script>

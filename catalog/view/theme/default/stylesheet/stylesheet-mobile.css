@@ -7,6 +7,7 @@
 .container {
     padding-right: 15px;
     padding-left: 15px;
+    width: 470px;
 }
 
 #menu_mini_box li{
@@ -91,6 +92,28 @@ h2 {
     width: 397px;
 }
 
+
+.back a{
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+    background: url(../image/back-mobile.png) no-repeat;
+    background-size: contain;
+    background-position-x: 5px;
+    display: inline-block;
+
+}
+.back {
+    margin-top: 22px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
 /* home */
 #home .tile_banner img {
     margin-top: 0;
@@ -115,7 +138,7 @@ h2 {
 
 #home #background-service {
     background: url(../image/home-service-mobile.jpg) no-repeat;
-   height: auto;
+   height: 280px;
     background-size: contain;
 }
 #home .service p {
@@ -151,23 +174,9 @@ h2 {
 }
 
 
-#generalcatalog .mobile-box #back{
-    position: absolute;
-    top: -45px;
-    left: 15px;
-    width: 120px;
-    height: 30px;
-    text-align: center;
-    line-height: 28px;
-    background:  url('../image/generalcatalog-back-mobile.png') no-repeat;
-    background-size: contain;
-    background-position-x: 5px;
-}
 
-#generalcatalog .mobile-box {
-    position: relative;
-    margin: 65px auto 0;
-}
+
+
 #generalcatalog .box-mobile {
     position: relative;
     display: inline-block;
@@ -191,7 +200,7 @@ h2 {
     line-height: 40px;
 }
 #generalcatalog .box-mobile#box-1 .name-box-mobile, #generalcatalog .box-mobile#box-5 .name-box-mobile {
-    width:180px;
+    width:158px;
     height: 40px;
 }
 
@@ -217,28 +226,6 @@ h2 {
     height: 50px;
 }
 
-#generalcatalog .box-mobile#box-1 {
-
-}
-#generalcatalog .box-mobile#box-2 {
-
-}
-#generalcatalog .box-mobile#box-3 {
-
-}
-#generalcatalog .box-mobile#box-4 {
-
-}
-#generalcatalog .box-mobile#box-5 {
-
-}
-#generalcatalog .box-mobile#box-6 {
-
-}
-#generalcatalog .box-mobile#box-7 {
-
-}
-
 #generalcatalog .col-hh-6 {
     width: 53.2%;
     padding-right: 2px;
@@ -248,6 +235,89 @@ h2 {
     padding-left: 2px;
 
 }
+
+
+/*caTEGORY */
+#category #logo-category {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+#category #name-box {
+     display: inline-block;
+     white-space: nowrap;
+     float: right;
+
+    text-align: right;
+ }
+#category #name-box p{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    font-size: 18px;
+}
+
+
+#category .back a{
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#category .check-right {
+    right: 8px;
+}
+#category .select-product-box{
+    display: flex;
+    align-items: center;
+}
+#category label{
+    font-size: 14px;
+    width: 124px;
+    margin: 0;
+}
+#category select{
+    width: 223px;
+    height: 33px;
+    display: inline-block;
+}
+#category .select-product-box select {
+    width: 100%;
+}
+#category .margin-bottom-mobile {
+    margin-bottom: 20px;
+}
+#category .product-grid {
+    margin-bottom: 10px;
+}
+#category .product-grid .name p  {
+    margin-top: 10px;
+}
+
+#category .product-grid>.col-xs-12 {
+    display: flex;
+    align-items: center;
+    height: 140px;
+}
+#category .product-grid>.col-xs-12>.col-xs-8 {
+    padding-right: 0;
+    height: 100%;
+}
+#category .product-grid>.col-xs-12>.col-xs-8>p {
+    text-align: left;
+    position: absolute;
+}
+#category .product-grid>.col-xs-12>.col-xs-8>p.name-product {
+    top: 5px;
+}
+#category .product-grid>.col-xs-12>.col-xs-8>p.price {
+    bottom: 37px;
+}
+#category .product-grid>.col-xs-12>.col-xs-8>button.button-style-1 {
+    position: absolute;
+    bottom: 7px;
+}
+
 
 
 /*footer*/
@@ -262,9 +332,17 @@ footer #line {
     align-content: center;
 }
 footer .footer-body-mini span {
-    font-size: 3.0vw;
+    font-size: 15px;
 }
 footer .col-hh-4 {
     padding-left: 4px;
     padding-right: 4px;
+}
+
+footer .icon{
+    float: left;
+}
+footer .icon .vk-icon {
+    padding-left: 7px;
+    padding-right: 7px;
 }

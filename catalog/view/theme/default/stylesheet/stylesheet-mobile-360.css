@@ -1,0 +1,58 @@
+/*root */
+.container {
+    width: auto;
+}
+.font-size-16 {
+    font-size: 15px!important;
+}
+.check-right {
+    display: none;
+}
+.back a {
+    width: 100px;
+    font-size: 14px;
+    padding-right: 0;
+    text-align: center;
+}
+.back a {
+    background: none;
+}
+
+/*header*/
+#logo-mini{
+    text-align: right;
+    margin-right: 30px;
+}
+
+/*home */
+#home #background-service {
+    height: 57vw;
+}
+
+
+
+/*category */
+
+
+#category .product-grid>.col-xs-12>.col-xs-8>button {
+    padding: 3px 17px;
+}
+
+
+#category .back a {
+    width: 100px;
+    font-size: 14px;
+    padding-right: 0;
+    text-align: center;
+}
+#category .back a {
+    background: none;
+}
+#category #name-box p {
+    font-size: 12px;
+}
+
+/*footer*/
+footer .footer-body-mini span {
+    font-size: 13px;
+}

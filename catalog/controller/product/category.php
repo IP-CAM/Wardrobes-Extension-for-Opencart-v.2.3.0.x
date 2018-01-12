@@ -95,6 +95,14 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
         $data['category_id'] = $category_id;
 
+        //mobile version
+        if (isset($this->request->server['HTTP_REFERER'])) {
+            $referer_mobile = $this->request->server['HTTP_REFERER'];
+        } else {
+            $referer_mobile = $this->url->link('common/home');
+        }
+        $data['referer_mobile'] = $referer_mobile;
+
 		if ($category_info) {
 			$this->document->setTitle($category_info['meta_title']);
 			$this->document->setDescription($category_info['meta_description']);
@@ -393,6 +401,13 @@ class ControllerProductCategory extends Controller {
             foreach ($categories as $category) {
                 $children_data[$category['category_id']]['href'] = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $category['category_id']);
             }
+
+            if ($this->request->server['HTTPS']) {
+                $server = $this->config->get('config_ssl');
+            } else {
+                $server = $this->config->get('config_url');
+            }
+            $data['category_image'] = $server . 'image/' .  $category['image'];
             $data['categories'] = $children_data;
 
 			$this->response->setOutput($this->load->view('product/category', $data));
@@ -427,6 +442,9 @@ class ControllerProductCategory extends Controller {
 				'text' => $this->language->get('text_error'),
 				'href' => $this->url->link('product/category', $url)
 			);
+
+
+
 
 			$this->document->setTitle($this->language->get('text_error'));
 

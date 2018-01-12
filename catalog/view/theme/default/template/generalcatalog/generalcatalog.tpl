@@ -22,92 +22,29 @@
 			<div id="content" class="<?php echo $class; ?> generalcatalog_image_box"><?php echo $content_top; ?>
 				<div class="row row-big">
 					<div class="col-lg-4">
-						<div class="image-box">
-							<img src="<?php echo $radius['path_image']; ?>"
-								 title="<?php echo $radius['name']; ?>"
-								 alt="<?php echo $radius['name']; ?>"
-								 class="img-responsive center-block"/>
-						</div>
-						<div class="name-box text-center">
-							<p><?php echo $radius['name']; ?></p>
-						</div>
-						<a class="reference" href="<?php echo $radius['href']; ?>"></a>
+						<?php echo $box_images_html['radius']; ?>
 					</div>
 					<div class="col-lg-4">
-						<div class="image-box">
-							<img src="<?php echo $standard['path_image']; ?>"
-								 title="<?php echo $standard['name']; ?>"
-								 alt="<?php echo $standard['name']; ?>"
-								 class="img-responsive center-block"/>
-						</div>
-						<div class="name-box text-center">
-							<p><?php echo $standard['name']; ?></p>
-						</div>
-						<a class="reference" href="<?php echo $standard['href']; ?>"></a>
+						<?php echo $box_images_html['standard']; ?>
 					</div>
 					<div class="col-lg-4">
-						<div class="image-box">
-							<img src="<?php echo $built_in['path_image']; ?>"
-								 title="<?php echo $built_in['name']; ?>"
-								 alt="<?php echo $built_in['name']; ?>"
-								 class="img-responsive center-block"/>
-						</div>
-						<div class="name-box text-center">
-							<p><?php echo $built_in['name']; ?></p>
-						</div>
-						<a class="reference" href="<?php echo $built_in['href']; ?>"></a>
+						<?php echo $box_images_html['built_in']; ?>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-4">
-						<div class="image-box">
-							<img src="<?php echo $corner['path_image']; ?>"
-								 title="<?php echo $corner['name']; ?>"
-								 alt="<?php echo $corner['name']; ?>"
-								 class="img-responsive center-block"/>
-						</div>
-						<div class="name-box text-center">
-							<p><?php echo $corner['name']; ?></p>
-						</div>
-						<a class="reference" href="<?php echo $corner['href']; ?>"></a>
+						<?php echo $box_images_html['corner']; ?>
 					</div>
 					<div class="col-lg-4">
-						<div class="image-box">
-							<img src="<?php echo $our_work['path_image']; ?>"
-								 title="<?php echo $our_work['name']; ?>"
-								 alt="<?php echo $our_work['name']; ?>"
-								 class="img-responsive center-block"/>
-						</div>
-						<div class="name-box text-center">
-							<p><?php echo $our_work['name']; ?></p>
-						</div>
-						<a class="reference" href="<?php echo $our_work['href']; ?>"></a>
+						<?php echo $box_images_html['our_work']; ?>
 					</div>
 					<div class="col-lg-4">
 						<div class="row">
 							<div class="col-lg-12 col-min">
-								<div class="image-box">
-									<img src="<?php echo $hallway['path_image']; ?>"
-										 title="<?php echo $hallway['name']; ?>"
-										 alt="<?php echo $hallway['name']; ?>"
-										 class="img-responsive center-block"/>
-								</div>
-								<div class="name-box name-box-mini text-center">
-									<p><?php echo $hallway['name']; ?></p>
-								</div>
-								<a class="reference" href="<?php echo $hallway['href']; ?>"></a>
+								<?php echo $box_images_html['hallway']; ?>
 							</div>
 							<div class="col-lg-12">
-								<div class="image-box">
-									<img src="<?php echo $dressing_room['path_image']; ?>"
-										 title="<?php echo $dressing_room['name']; ?>"
-										 alt="<?php echo $dressing_room['name']; ?>"
-										 class="img-responsive center-block"/>
-								</div>
-								<div class="name-box name-box-mini text-center">
-									<p><?php echo $dressing_room['name']; ?></p>
-								</div>
-								<a class="reference" href="<?php echo $dressing_room['href']; ?>"></a>
+								<?php echo $box_images_html['dressing_room']; ?>
 							</div>
 						</div>
 					</div>
@@ -118,8 +55,8 @@
 	</div>
 	<div class="row hidden-lg generalcatalog_image_box mobile-box">
 
-		<div class="col-xs-12 text-left">
-			<a href="<?php echo $referer_mobile; ?>" id="back" class="border-gray">Назад</a>
+		<div class="col-xs-12 text-left back">
+			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
 		</div>
 
 
