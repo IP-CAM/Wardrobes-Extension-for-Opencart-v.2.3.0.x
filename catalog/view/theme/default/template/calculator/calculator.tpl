@@ -367,7 +367,7 @@ $(document).ready(function () {
 		$("[name='type-products']").show();
 		var type_product_box = $("[name='product_box']");
 		type_product_box.empty();
-		var html = '<div id="carousel" class="carousel-control">';
+		var html = '<div id="carousel" class=" owl-carousel">';
 		$.each(data, function (index, value) {
 			html += '<div class="product_item box">';
 			html += '<input type="checkbox" name="products" value="' + value['product_id'] + '" >';
@@ -381,10 +381,14 @@ $(document).ready(function () {
 
 		html += '</div>';
 		type_product_box.append(html);
+//		$("#carousel").owlCarousel({
+//			navigation: true,
+//			pagination:  false,
+//			navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+//		});
 		$("#carousel").owlCarousel({
-			navigation: true,
-			pagination:  false,
-			navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+			nav:true,
+			navText : ["",""]
 		});
 
 	}
@@ -399,10 +403,10 @@ $(document).ready(function () {
 		$("[name='type-products']").show();
 		var type_product_box = $("[name='product_box']");
 		type_product_box.empty();
-		var html = '<div id="product-box-mobile" id="carusel">';
-		for(var i = 0; i < data.length; i++) {
-
-
+		var html = '<div class="product-box-mobile" id="carusel">';
+		for(var i = 0; i < data.length;) {
+			html += '<div class="product-box-carusel-mobile">';
+			for(var ii = 0; ii < 4; ii++) {
 				html += '<div class="product_item box sub_box_item">';
 				html += '<input type="checkbox" name="products" value="' + data[i]['product_id'] + '" >';
 				html += '<img src="' + data[i]['image'] + '"';
@@ -411,16 +415,14 @@ $(document).ready(function () {
 				html += 'class="img-responsive center-block"/>';
 				html += '<p>Модель: ' + data[i]["model"] + '</p>';
 				html += '</div>';
-
+			}
+			html += '</div>';
+			i += 4;
 		}
 
 		html += '</div>';
 		type_product_box.append(html);
-		$("#carousel").owlCarousel({
-			navigation: true,
-			pagination:  false,
-			navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
-		});
+
 	}
 
 
