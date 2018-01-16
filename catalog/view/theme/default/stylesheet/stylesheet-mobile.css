@@ -22,6 +22,10 @@ body {
     height: 100%;
 }
 
+p {
+    margin: 0;
+}
+
 .slideout-menu {
     position: absolute;
     top: 0;
@@ -65,9 +69,29 @@ body {
     overflow-x: hidden;
 }
 
+
+.modal {
+    display: none;
+    overflow: auto;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
 /* menu end*/
 
-
+/*header*/
+.back a{
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
+}
 
 
 
@@ -145,7 +169,7 @@ h2 {
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 15px;
-    font-size: 2.8vw;
+    font-size: 18px;
     line-height: 1.25;
 }
 #home.service_input input {
@@ -236,6 +260,10 @@ h2 {
 
 }
 
+#generalcatalog  .generalcatalog_image_box {
+    margin-bottom: 20px;
+}
+
 
 /*caTEGORY */
 #category #logo-category {
@@ -258,11 +286,7 @@ h2 {
 }
 
 
-#category .back a{
-    width: 120px;
-    font-size: 14px;
-    text-align: center;
-}
+
 
 #category .check-right {
     right: 8px;
@@ -290,6 +314,10 @@ h2 {
 #category .product-grid {
     margin-bottom: 10px;
 }
+#category .product-grid:last-child {
+    margin-bottom: 20px;
+}
+
 #category .product-grid .name p  {
     margin-top: 10px;
 }
@@ -311,13 +339,228 @@ h2 {
     top: 5px;
 }
 #category .product-grid>.col-xs-12>.col-xs-8>p.price {
-    bottom: 37px;
+    bottom: 50px;
 }
 #category .product-grid>.col-xs-12>.col-xs-8>button.button-style-1 {
     position: absolute;
     bottom: 7px;
 }
+/*product*/
 
+
+#product #name-box {
+    display: inline-block;
+    white-space: nowrap;
+    float: right;
+
+    text-align: right;
+}
+#product #name-box p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    font-size: 14px;
+    margin-top: 5px;
+}
+#product .thumbnail{
+    height: 245px;
+}
+#product .ome-image{
+    position: inherit;
+}
+#product .images-item{
+   width: auto;
+   position: inherit;
+   margin: 0;
+}
+#product .price{
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+#product .price h2{
+    margin: 0;
+}
+#product .thumbnail {
+    margin-bottom: 0;
+}
+#product .button-calc-mobile{
+    margin-bottom: 15px;
+}
+#product .button-phone-mobile{
+    margin-bottom: 20px;
+}
+#product .nav-tabs {
+     width: auto;
+     display: flex;
+     margin-bottom: 0;
+     margin-top: 0;
+}
+#product .nav.nav-tabs .button {
+    flex: 1;
+}
+
+#product .button-tabs-mobile{
+    margin-bottom: 7px;
+}
+#product .check-info {
+    width: auto;
+    height: auto;
+}
+
+#product .button-tab-mobile{
+    margin-bottom: 15px;
+}
+#product #characteristic-tab .characteristic-top-text-mobile {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+#product #characteristic-tab #size-box-mobile{
+    white-space: nowrap;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-left: 4px;
+    margin-right: 3px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+#product #characteristic-tab #size-box-mobile>div {
+    flex: 1;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+#product #characteristic-tab #size-box-mobile .block-line-mobile p{
+    display: inline-block;
+    font-size: 14px;
+    margin: 0;
+}
+#product #characteristic-tab #size-box-mobile .block-line-mobile .name{
+    font-size: 16px;
+}
+#product #characteristic-tab .characteristic-box-mobile{
+    text-align: center;
+}
+
+#product #description-tab {
+    text-align: justify;
+}
+
+#product #delivery-tab {
+    padding-top: 20px;
+}
+#product #delivery-tab>.row {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+#product #delivery-tab p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#product .button-perfect-mobile{
+    margin-bottom: 15px;
+}
+#product #perfect .element>p, #product #perfect .our-advantages>p  {
+    font-size: 13px;
+    margin-top: 6px;
+    line-height: 1.2;
+}
+#product #perfect .name-perfect {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+#product #perfect .payment, #product #perfect .our-advantages {
+    display: flex;
+    margin-bottom: 15px;
+}
+#product #perfect .element {
+    display: inline-block;
+    flex: 1;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+#product #perfect hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #d9d9d9;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+#product #phone-add {
+    padding: 10px 45px 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+#product #phone-add p {
+    margin-bottom: 30px;
+}
+
+#calculator .text-type-furniture {
+    margin: 0;
+    margin-bottom: 10px;
+}
+#calculator .box_root-mobile, #calculator .dynamic_category {
+    position: relative;
+    margin-bottom: 5px;
+    flex: 1;
+}
+#calculator .box_root_item p {
+    left: 13px;
+}
+#calculator .box-root-sub {
+    display: flex;
+    flex-wrap: wrap;
+    width: 308px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    text-align: left;
+}
+#calculator .sub_box_item.box  {
+    width: 150px;
+    height: 190px;
+    position: relative;
+    text-align: center;
+}
+#calculator .sub_box_item.box img {
+    margin: 0;
+    width: 90%;
+    display: inline-block;
+    margin-top: 20px;
+}
+#calculator .sub_box_item.box input {
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    top: 2px;
+}
+#calculator .sub_box_item.box p {
+    position: static;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#calculator .product_item.sub_box_item.box {
+    height: 210px;
+}
+#calculator .product_item.sub_box_item.box img {
+    margin-top: 25px;
+}
+#calculator .product_item.sub_box_item.box p {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 7px;
+}
 
 
 /*footer*/
@@ -345,4 +588,15 @@ footer .icon{
 footer .icon .vk-icon {
     padding-left: 7px;
     padding-right: 7px;
+}
+footer .body-footer {
+    padding-left: 110px;
+    padding-right: 110px;
+}
+footer.container {
+    margin-top: 0;
+}
+footer .down {
+    padding-top: 12px;
+    padding-bottom: 12px;
 }

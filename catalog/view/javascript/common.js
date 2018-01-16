@@ -158,8 +158,8 @@ $(document).ready(function() {
         slideout.toggle();
     });
 
-    // For Home (Page Validation telephone)
-    $('#service_button').click(function (event) {
+    // For Home                 (Page Validation telephone)
+    $("[name='service_button']").click(function (event) {
         var error = 0;
         if($("[name='name']").val() == '') {
             $("[name='name']").parent().find('.error').show();
@@ -173,16 +173,32 @@ $(document).ready(function() {
         } else {
             $("[name='telephone']").parent().find('.error').hide();
         }
-
         if(!error) {
             ajaxClientCall(1,4,0);
         }
+    });
 
-    }); 
-    
-    //For category    
-  
-    if($('#category').length > 0) { 
+    $("[name='service_button-mobile']").click(function (event) {
+        var error = 0;
+        if($("[name='name-mobile']").val() == '') {
+            $("[name='name-mobile']").parent().find('.error').show();
+            error = 1;
+        } else {
+            $("[name='name-mobile']").parent().find('.error').hide();
+        }
+        if($("[name='telephone-mobile']").val() == '') {
+            $("[name='telephone-mobile']").parent().find('.error').show();
+            error = 1;
+        } else {
+            $("[name='telephone-mobile']").parent().find('.error').hide();
+        }
+        if(!error) {
+            ajaxClientCall(1,4,0);
+        }
+    });
+
+    //For category
+    if($('#category').length > 0) {
           $("#slider-category").slider({
         range: true,
         min: 0,
@@ -214,7 +230,7 @@ $(document).ready(function() {
             return false;
         }
     });
-    }          
+    }
 
 
     //For product
@@ -238,15 +254,16 @@ $(document).ready(function() {
 
 
 
-        $('#active').click(function (event) {
-            var text = $("[name='telephone']").val();
+        $("[name='active']").click(function (event) {
+            var root = $(this).parent();
+            var text = root.find("[name='telephone']").val();
             if (text == '') {
-                $('.phone-box .error').show();
+                $('.error').show();
                 return false;
             } else {
                 $('.phone-box .error').hide();
-                $('.calculator_dispatch .error').hide();
-                ajaxClientCall(1,3,0);
+                $('.error').hide();
+                ajaxClientCall($(this).data('modal'),3,0);
             }
         });
 

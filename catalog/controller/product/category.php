@@ -95,7 +95,7 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
         $data['category_id'] = $category_id;
 
-        //mobile version
+        //for mobile version
         if (isset($this->request->server['HTTP_REFERER'])) {
             $referer_mobile = $this->request->server['HTTP_REFERER'];
         } else {

@@ -55,18 +55,25 @@ class ControllerCommonHome extends Controller {
         $data['tile_banner_dressing_rooms'] = $tile_banner_dressing_rooms;
 
 
+        $comments = array(
+            ['name' => 'Алёна Соболева', 'text' => 'Купила шкаф-купе в «Центр Мебели» и не пожалела о том, что выбрала их. Цены ниже чем на других сайтах, качество, а также своевременная доставка. Сам шкаф большой и вместительный, всё работает. Выполнили  мои пожелания и рекомендации. Вся семья довольна... также посоветую всем своим подругам'],
+            ['name' => 'Дмитрий Пучков', 'text' => 'Для своей квартиры искал шкаф-купе. Мой шкаф-купе был нестандартный размера,поэтому решили, что нужно составить индивидуальный проект. После консультации с дизайнером-замерщиком, сделали небольшие поправки в проекте... Доставили быстро, вопреки сомнениям, я был удивлён качественной сборкой, разнообразием материалов,  и приятными менеджерами в фирме. Всем советую!'],
+            ['name' => 'Арина Игнатьевна', 'text' => 'Нашла Вас в ВКонтакте и захотела купить шкаф-купе.  Была приятно удивлена большим количеством  цветов шкафов и материалов. Меня консультировала  менеджер Наташа,  очень любезная девушка, которая подобрала дизайн шкафа и сказала его стоимость. Всё очень здорово... настоящие «профессионалы своего дела»!']
+        );
 
-        $comments = array();
-        for($i = 1 ; $i < 4;  $i++) {
-            $comment = array();
-            $comment['id'] = $i;
-            $comment['path_image'] = $server . 'image/catalog/home/home-review-' . $i . '.jpg';
-            $comment['href'] = '';
-            $comment['title'] = '';
-            $comment['alt'] = '';
-            $comments[] = $comment;
+        $comments_norm = array();
+        foreach($comments as $key => $comment) {
+            $comment_norm = array();
+            $comment_norm['id'] = $key;
+            $comment_norm['name'] = $comment['name'];
+            $comment_norm['path_image'] = $server . 'image/catalog/home/home-review-' . ($key+1) . '.jpg';
+            $comment_norm['href'] = '';
+            $comment_norm['title'] = '';
+            $comment_norm['alt'] = $comment['name'];
+            $comment_norm['text'] = $comment['text'];
+            $comments_norm[] = $comment_norm;
         }
-        $data['comments'] = $comments;
+        $data['comments'] = $comments_norm;
 
 
         $data['column_left'] = $this->load->controller('common/column_left');

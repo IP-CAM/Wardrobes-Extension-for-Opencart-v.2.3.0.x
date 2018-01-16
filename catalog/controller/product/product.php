@@ -9,6 +9,13 @@ class ControllerProductProduct extends Controller {
         $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 		$this->load->language('product/product');
 
+        //for mobile version
+        if (isset($this->request->server['HTTP_REFERER'])) {
+            $referer_mobile = $this->request->server['HTTP_REFERER'];
+        } else {
+            $referer_mobile = $this->url->link('common/home');
+        }
+        $data['referer_mobile'] = $referer_mobile;
 
         $this->load->language('common/header');
 		$data['breadcrumbs'] = array();

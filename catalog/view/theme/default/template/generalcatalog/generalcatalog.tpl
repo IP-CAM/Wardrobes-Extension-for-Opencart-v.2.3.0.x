@@ -53,14 +53,13 @@
 		</div>
 		<div class="row font-size-18"><?php echo $description; ?></div>
 	</div>
+
+	<!-- FOR MOBILE -->
 	<div class="row hidden-lg generalcatalog_image_box mobile-box">
 
 		<div class="col-xs-12 text-left back">
 			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
 		</div>
-
-
-
 		<div class="col-xs-12">
 			<div class="row">
 				<div class="col-xs-6 col-hh-6">
@@ -98,13 +97,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
 	</div>
 
 	<div><?php echo $content_bottom; ?></div>

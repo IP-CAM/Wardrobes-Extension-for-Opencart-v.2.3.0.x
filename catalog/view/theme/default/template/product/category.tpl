@@ -137,10 +137,7 @@
 </div>
 
 
-
-
-
-
+<!-- FOR MOBILE -->
 <div class="container hidden-lg" id="category">
 	<div class="row">
 		<div class="col-xs-12 text-left back">
@@ -161,7 +158,7 @@
 						<?php foreach ($sorts as $sorts) { ?>
 						<?php if ($sorts['value'] == $sort . '-' . $order) { ?>
 						<option value="<?php echo $sorts['href']; ?>"
-								selected="selectedes"><?php echo $sorts['text']; ?></option>
+								selected="selected"><?php echo $sorts['text']; ?></option>
 						<?php } else { ?>
 						<option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
 						<?php } ?>

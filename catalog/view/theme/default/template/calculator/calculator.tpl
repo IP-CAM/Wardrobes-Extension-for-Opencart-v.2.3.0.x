@@ -12,7 +12,7 @@
 </div>
 <!-- PUPAP MESSAGE END -->
 
-<div class="container container-fix " id="calculator">
+<div class="container visible-lg" id="calculator">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 			<?php if(!next($breadcrumbs)) { ?>
@@ -51,8 +51,8 @@
 					<div class="row">
 						<?php foreach($categories_root as $category_root) { ?>
 						<div class="col-lg-3">
-							<div class="box_root_item box">
-								<input type="checkbox" name="category_root" value="<?php echo $category_root['category_id'] ?>" >
+							<div class="box_root_item box border-gray" data-cal_root="1">
+								<input type="checkbox" name="category_root" value="<?php echo $category_root['category_id'] ?>" data-cal_root="1" >
 								<img src="<?php echo $category_root['image']; ?>"
 									 title="<?php echo $category_root['name']; ?>"
 									 alt="<?php echo $category_root['name']; ?>"
@@ -74,15 +74,18 @@
 			</div>
 			<!-- TYPE OF FURNITURE END -->
 			<!-- SUBTYPE FURNITURE BEGIN -->
-			<h2 class="text-center" id="type-wardrobes" hidden="hidden">Выберите тип шкафа</h2>
-			<div class="row text-center" id="sub_box">
+			<div class="col-lg-12">
+				<h2 class="text-center" name="type-wardrobes" hidden="hidden">Выберите тип шкафа</h2>
+			</div>
+
+			<div class="col-lg-12 text-center" name="sub_box">
 			</div>
 			<!-- SUBTYPE FURNITURE END -->
 
 			<!-- PRODUCTS BEGIN -->
 			<input type="hidden" name="product_id" data-modal="1" value="" />
-			<h2 class="text-center" id="type-products" hidden="hidden">Выбирете модель</h2>
-			<div class="row" id="product_box">
+			<h2 class="text-center" name="type-products" hidden="hidden">Выбирете модель</h2>
+			<div class="row" name="product_box">
 			</div>
 			<!-- PRODUCTS END -->
 			<!-- CALCULATOR BEGIN -->
@@ -156,4 +159,345 @@
 			<?php echo $column_right; ?></div>
 	</div>
 </div>
+
+
+
+
+<!-- FOR MOBILE -->
+<div class="container hidden-lg" id="calculator">
+	<div class="row">
+		<div class="col-xs-12 text-left back">
+			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
+		</div>
+		<div class="col-xs-12 text-type-furniture">
+			<h2 class="text-center">Выберите тип мебели</h2>
+		</div>
+
+		<div class="col-xs-12 box_root">
+			<div class="box-root-sub">
+				<?php foreach($categories_root as $category_root) { ?>
+				<div class="box_root box_root-mobile">
+					<div class="box_root_item box  border-gray" data-cal_root="1">
+						<input type="checkbox" name="category_root" value="<?php echo $category_root['category_id'] ?>" data-cal_root="1">
+						<img src="<?php echo $category_root['image']; ?>"
+							 title="<?php echo $category_root['name']; ?>"
+							 alt="<?php echo $category_root['name']; ?>"
+							 class="img-responsive center-block"/>
+						<p class="no-active">
+							<?php if($category_root['category_id'] == 59) { ?>
+							Шкафы - Купе на заказ
+							<?php } else { ?>
+							<?php echo $category_root['name']; ?>
+							<?php } ?>
+						</p>
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+		<!-- TYPE OF FURNITURE END -->
+
+		<!-- SUBTYPE FURNITURE BEGIN -->
+		<div class="col-xs-12">
+			<h2 class="text-center" name="type-wardrobes" hidden="hidden">Выберите тип шкафа</h2>
+		</div>
+		<div class="col-xs-12 text-center" >
+			<div class="box-root-sub" name="sub_box">
+
+			</div>
+		</div>
+		<!-- SUBTYPE FURNITURE END -->
+
+		<!-- PRODUCTS BEGIN -->
+		<input type="hidden" name="product_id" data-modal="1" value="" />
+		<div class="col-xs-12">
+			<h2 class="text-center" name="type-products" hidden="hidden">Выбирете модель</h2>
+		</div>
+		<div class="col-xs-12 text-center" >
+			<div class="box-root-sub" name="product_box">
+
+			</div>
+		</div>
+		<!-- PRODUCTS END -->
+
+	</div>
+</div>
+
 	<?php echo $footer; ?>
+
+<script>
+$(document).ready(function () {
+
+
+
+
+
+	var check_sub_cat_id = 0; //if sub category not select
+	var check_product_id = 0; //if sub category not select
+
+
+
+	//Выбор главной категории
+	$("[data-cal_root]:visible:not(input)").click(function () {
+		ajaxRenderRoot($(this));
+	});
+	//Выбор главной категории
+	$("input[data-cal_root]:visible").change(function () {
+		ajaxRenderRoot($(this));
+	});
+
+	function ajaxRenderRoot(this_root_item) {
+		var id = this_root_item.parent().find('input').val();
+		//alert('check_root_cat_id' + check_root_cat_id + 'id' +id);
+		$(".box_root_item:visible").find('p').addClass('no-active');
+
+		if( check_sub_cat_id != id) {
+
+			$('.box_root:visible').find('input').prop('checked', false);
+			this_root_item.find("input").prop('checked', true);
+			this_root_item.find('p').removeClass('no-active');
+			ajaxOpenCategory(id, 'root'); //Show sub categories
+
+		} else { //Если этот элемент уже был выбран, то закрываем все, и делаем как было
+			$('.box_root:visible').find('input').prop('checked', false);
+			hideSubCategories(); // Hide sub categories and products
+			check_sub_cat_id = 0;
+		}
+
+	}
+
+
+
+
+	$(document).on('click', '.dynamic_category', function () {
+
+		$('.dynamic_category').find('img').addClass('no-active');
+		$('.dynamic_category').find('p').addClass('no-active');
+		var this_sub_category = $(this);
+		var id = this_sub_category.find('input:checkbox').val();
+		if(check_sub_cat_id != id) {
+			ajaxOpenCategory(id, 'products');
+			$('.dynamic_category').find('input').prop('checked', false);
+			this_sub_category.find("input").prop('checked', true);
+			this_sub_category.find('img').removeClass('no-active');
+			this_sub_category.find('p').removeClass('no-active');
+		} else {
+			var product_box = $("[name='product_box']");
+			product_box.empty();
+		}
+
+	});
+
+
+
+
+
+
+	function hideSubCategories() {
+		var type_sub_box = $("[name='sub_box']");
+		type_sub_box.empty();
+		var type_product_box = $("[name='product_box']");
+		type_product_box.empty();
+		$("[name='type-wardrobes']").hide();
+		$('#type-products').hide();
+	}
+
+
+
+	function ajaxRenderCategories_desktop(data, root) {
+
+		hideSubCategories();
+		$("[name='type-wardrobes']").show();
+		var type_sub_box = $("[name='sub_box']:visible");
+		var html = '';
+		$.each(data, function (index, value) {
+			html += '<div class="col-sm-3 dynamic_category">';
+			html += '<div class="box sub_box_item">';
+			html += '<input type="checkbox" name="category_sub" value="' + value['category_id'] + '" >';
+			html += '<img src="' + value['image'] + '"';
+			html += 'title="' + value["name"] + '"';
+			html += 'alt="' + value["name"] + '"';
+			html += 'class="img-responsive center-block no-active"/>';
+			html += '<p>' + value["name"] + '</p>';
+			html += '</div>';
+			html += '</div>';
+		});
+
+		type_sub_box.append(html);
+
+	}
+
+
+
+
+
+	function ajaxRenderCategories_mobile(data, root) {
+
+		hideSubCategories();
+		$("[name='type-wardrobes']").show();
+		var type_sub_box = $("[name='sub_box']:visible");
+		var html = '';
+		$.each(data, function (index, value) {
+			html += '<div class="dynamic_category">';
+			html += '<div class="box sub_box_item">';
+			html += '<input type="checkbox" name="category_sub" value="' + value['category_id'] + '" >';
+			html += '<img src="' + value['image'] + '"';
+			html += 'title="' + value["name"] + '"';
+			html += 'alt="' + value["name"] + '"';
+			html += 'class="img-responsive center-block no-active"/>';
+			html += '<p>' + value["name"] + '</p>';
+			html += '</div>';
+			html += '</div>';
+		});
+
+		type_sub_box.append(html);
+
+	}
+
+
+
+	function ajaxRenderProducts_desktop(data, root) {
+
+		// alert('products' + root);
+		if(root == 1) {
+			// alert('hide');
+			hideSubCategories();
+		}
+
+		$("[name='type-products']").show();
+		var type_product_box = $("[name='product_box']");
+		type_product_box.empty();
+		var html = '<div id="carousel" class="carousel-control">';
+		$.each(data, function (index, value) {
+			html += '<div class="product_item box">';
+			html += '<input type="checkbox" name="products" value="' + value['product_id'] + '" >';
+			html += '<img src="' + value['image'] + '"';
+			html += 'title="' + value["name"] + '"';
+			html += 'alt="' + value["name"] + '"';
+			html += 'class="img-responsive center-block"/>';
+			html += '<p>' + value["name"] + "<br> Модель:" + value["model"] + '</p>';
+			html += '</div>';
+		});
+
+		html += '</div>';
+		type_product_box.append(html);
+		$("#carousel").owlCarousel({
+			navigation: true,
+			pagination:  false,
+			navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+		});
+
+	}
+
+
+	function ajaxRenderProducts_mobile(data, root) {
+
+		// alert('products' + root);
+		if(root == 1) {
+			hideSubCategories();
+		}
+		$("[name='type-products']").show();
+		var type_product_box = $("[name='product_box']");
+		type_product_box.empty();
+		var html = '<div id="product-box-mobile" id="carusel">';
+		for(var i = 0; i < data.length; i++) {
+
+
+				html += '<div class="product_item box sub_box_item">';
+				html += '<input type="checkbox" name="products" value="' + data[i]['product_id'] + '" >';
+				html += '<img src="' + data[i]['image'] + '"';
+				html += 'title="' + data[i]["name"] + '"';
+				html += 'alt="' + data[i]["name"] + '"';
+				html += 'class="img-responsive center-block"/>';
+				html += '<p>Модель: ' + data[i]["model"] + '</p>';
+				html += '</div>';
+
+		}
+
+		html += '</div>';
+		type_product_box.append(html);
+		$("#carousel").owlCarousel({
+			navigation: true,
+			pagination:  false,
+			navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+		});
+	}
+
+
+	function ajaxOpenCategory(id, type) {
+		$.ajax({
+			url: 'index.php?route=calculator/calculator/ajaxOpen',
+			dataType: 'json',
+			data: 'id=' + id + '&type=' + type,
+			type: 'post',
+			beforeSend: function () {
+			},
+			success: function (json) {
+				var type = json['type'];
+				if (type.localeCompare("categories") == 0) {
+					if($('.visible-lg').is(':visible')) {
+						ajaxRenderCategories_desktop(json['data'], json['root']); //Для компьютерной версии
+					} else  {
+						ajaxRenderCategories_mobile(json['data'], json['root']); //Для мобильной версии
+					}
+
+				}
+				if (type.localeCompare("products") == 0) {
+					if($('.visible-lg').is(':visible')) {
+						ajaxRenderProducts_desktop(json['data'], json['root']); //Для компьютерной версии
+					} else {
+						ajaxRenderProducts_mobile(json['data'], json['root']); //Для мобильной версии
+					}
+				}
+				if (type.localeCompare("no_edit") == 0) {
+				}
+				check_sub_cat_id = id;
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+
+		});
+
+	}
+
+
+
+
+
+	$(document).on('click', '.product_item', function () {
+
+		$('.product_item').find('img').addClass('no-active');
+		$('.product_item').find('p').addClass('no-active');
+
+		var this_product = $(this);
+
+		var id = this_product.find('input:checkbox').val();
+
+		if(check_product_id != id) {
+
+			$('.product_item').find('input').prop('checked', false);
+
+			this_product.find("input").prop('checked', true);
+
+			this_product.find('img').removeClass('no-active');
+
+			this_product.find('p').removeClass('no-active');
+
+			$('input[name="product_id"]').val(id);
+
+		} else {
+			var product_box = $("[name='product_box']");
+			product_box.empty();
+		}
+
+	});
+
+});
+
+
+
+
+
+
+</script>

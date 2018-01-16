@@ -111,7 +111,11 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
 
 
 
+/*modal window */
+.modal.in .modal-dialog {
 
+   /* transform: translate(-50%, -50%);*/
+}
 
 
 .input-group input, .input-group select, .input-group .dropdown-menu, .input-group .popover {
@@ -1026,24 +1030,14 @@ footer #f-padding {
 }
 
 /*box_root_item*/
-#calculator .box_root_item img {
-    margin-top: 15px;
-    margin-bottom: 44px;
-    margin-right: 33px;
-    margin-left: 33px;
-}
-#calculator .box_root_item {
-    border:1px solid #d9d9d9;
-    border-radius: 6px;
-    display: inline-block;
-}
 
 #calculator .box_root_item.box input {
-    left: 148px;
+
     top: 2px;
     width: 16px;
     height: 16px;
     cursor: pointer;
+    right: 5px;
 }
 #calculator .box_root_item.box input:checked::after {
     top: -6px;
@@ -1052,25 +1046,22 @@ footer #f-padding {
 }
 
 #calculator .box_root_item p {
-    position: absolute;
-    top: 107px;
-    left: 28px;
-    width: 130px;
+    position: static;
     font-size: 13px;
     font-weight: 600;
     text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 #calculator .box_root_item img {
     margin-top: 15px;
-    margin-bottom: 44px;
-    margin-right: 33px;
-    margin-left: 33px;
 }
 #calculator .box_root_item {
-    border:1px solid #d9d9d9;
-    border-radius: 6px;
     display: inline-block;
     cursor: pointer;
+    position: relative;
+    width: 150px;
+    height: 157px;
 }
 
 /*sub_box_item*/
@@ -1166,9 +1157,7 @@ footer #f-padding {
 
 
 /* calculator_box */
-.error {
-    color: #f00;
-}
+
 
 .no-active {
     opacity: 0.5;
@@ -1464,69 +1453,6 @@ footer #f-padding {
 
 
 
-/* modal window */
-.overlay {
-    background-color: rgba(217, 216, 216, 0.7);
-    bottom: 0;
-    cursor: default;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 99999;
-    -webkit-transition: opacity .5s;
-    -moz-transition: opacity .5s;
-    -ms-transition: opacity .5s;
-    -o-transition: opacity .5s;
-    transition: opacity .5s;
-}
-.popup {
-    background-color: #fff;
-    border: 3px solid #fff;
-    display: inline-block;
-    left: 50%;
-    padding: 15px;
-    width: 597px;
-    height: 305px;
-    position: fixed;
-    text-align: justify;
-    top: 40%;
-    z-index: 999999;
-    transform: translate(-50%, -50%);
-    border-radius: 11px;
-}
-.popup .close_window {
-    position: absolute;
-    top: 2px;
-    right: 11px;
-    cursor: pointer;
-    font-family: 'tahoma', sans-serif;
-    font-size: 19.5px;
-    font-weight: bold;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-}
-.modal_window_box .text{
-    text-align: center;
-    height: 162px;
-    padding-top: 62px;
-}
-.modal_window_box .field {
-    padding-top: 20px;
-    display: inline-block;
-    text-align: right;
-}
-.modal_window_box .button {
-    padding-top: 20px;
-    float: right;
-}
-.modal_window_box #close {
-    background: url(../image/window-close.png);
-    top: -24px;
-    position: absolute;
-    right: -46px;
-}
 
 
 
@@ -2247,6 +2173,25 @@ footer #f-padding {
     margin-top: 43px;
 }
 
+#home #home-review .review-top{
+    display: flex;
+}
+#home #home-review .review-image {
+    flex: 1;
+}
+#home #home-review .review-name {
+    flex: 2;
+}
+#home #home-review .review-name>h3 {
+    text-align: left;
+    margin: 0;
+    font-size: 24px;
+    width: 55px;
+}
+#home #home-review .review-top{
+
+}
+
 /*download font */
 #home .block-im {
     display: inline-block;
@@ -2308,6 +2253,10 @@ footer #f-padding {
 
 
 
+.error {
+    color: #f00;
+    white-space: nowrap;
+}
 
 
 
@@ -2447,6 +2396,9 @@ footer #f-padding {
 
 .red {
     color: #f2213e!important;
+}
+.green {
+    color: #7acc39!important;
 }
 
 

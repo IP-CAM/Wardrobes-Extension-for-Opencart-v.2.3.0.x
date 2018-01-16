@@ -45,7 +45,7 @@
 	<?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
-<nav id="menu" class="hidden-lg">
+<nav id="menu" class="hidden-lg" hidden="hidden">
 	<div id="menu_mini_box">
 		<ul>
 			<li><a href="<?php echo $generalcatalog; ?>">Каталог</a></li>

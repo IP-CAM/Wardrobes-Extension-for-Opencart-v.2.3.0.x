@@ -1,3 +1,21 @@
+<!-- modal window start -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+	 aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body" id="modal-body">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Ок</button>
+			</div>
+		</div>
+	</div>
+</div> <!-- modal window end -->
+
+
 <?php echo $header; ?>
 <div class="container" id="home">
 <div class="row">
@@ -15,14 +33,6 @@
 <?php } ?>
 <div id="content" style="margin-top: 11px;" class="<?php echo $class; ?>"><?php echo $content_top; ?>
 
-
-<!-- TILE BANNER BEGIN -->
-<!-- MODAL WINDOW BEGIN -->
-<div class="overlay modal_window_box" style="display: none" title="окно"></div>
-<div class="popup modal_window_box" style="display: none">
-	<div class="close_window">x</div>
-</div>
-<!-- MODAL WINDOW BEGIN END -->
 
 <div class="row">
 	<div class="col-xs-12 text-center" style="margin-top: 15px;">
@@ -136,31 +146,36 @@
 
 <!-- COMMENTS BEGIN -->
 
-<!--		<div class="row visible-lg" >
-			<div class="col-xs-12 text-center">
-				<h2>Отзывы наших клиентов</h2>
-			</div>
+	<div class="row visible-lg" >
+		<div class="col-xs-12 text-center">
+			<h2>Отзывы наших клиентов</h2>
 		</div>
+	</div>
 
 
 
-		<div class="row visible-lg" id="home-review">
+	<div class="row visible-lg" id="home-review">
 
-			<?php foreach($comments as $comment) { ?>
-			<div class="text-left col-xs-4">
-				<img src="<?php echo $comment['path_image']; ?>"
-					 title="<?php echo $comment['title']; ?>"
-					 alt="<?php echo $comment['alt']; ?>"
-					 class="comments_image img-responsive"/>
-				<p style="padding-top: 9px;">Нашла Вас в ВКонтакте и захотела купить шкаф-купе. Была приятно удивлена большим
-					количеством цветов шкафов и материалов. Меня консультировала менеджер Наташа, очень
-					любезная девушка, которая подобрала дизайн шкафа и сказала его стоимость. Всё очень
-					здорово...</p>
-				<a class="pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $link_review; ?>">Читать далее</a>
+		<?php foreach($comments as $comment) { ?>
+		<div class="text-left col-xs-4">
+			<div class="review-top">
+				<div class="review-image">
+					<img src="<?php echo $comment['path_image']; ?>"
+						 title="<?php echo $comment['title']; ?>"
+						 alt="<?php echo $comment['alt']; ?>"
+						 class="comments_image img-responsive"/>
+				</div>
+				<div class="review-name">
+					<h3 class="font-type-georgia"><?php echo $comment['name']; ?></h3>
+				</div>
+
 			</div>
-			<?php } ?>
+			<p class="text-left" style="padding-top: 9px;"><?php echo $comment['text']; ?></p>
+			<!--<a class="pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $link_review; ?>">Читать далее</a> -->
+		</div>
+		<?php } ?>
 
-		</div> -->
+	</div>
 
 <!-- COMMENTS END -->
 
@@ -201,7 +216,6 @@
 			<button title="Заказать"
 					name="service_button"
 					style="width: 115px;"
-					id="service_button"
 					class="button-style-1">
 				Заказать
 			</button>
@@ -222,18 +236,18 @@
 					Услуга предоставляется для прихожих,
 					гардеробных, встроенных и других шкафов. </p>
 				<div class="service_input">
-					<input type="text" data-modal="1" name="name" value="" placeholder="ФИО" class="text-center">
+					<input type="text" data-modal="1" name="name-mobile" value="" placeholder="ФИО" class="text-center">
 					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
 				</div>
 				<div class="service_input text-center">
-					<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон" class="text-center">
+					<input type="text" data-modal="1" name="telephone-mobile" value="" placeholder="Введите свой телефон" class="text-center">
 					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 				</div>
 				<button title="Заказать"
-						name="service_button"
+						name="service_button-mobile"
 						style="width: 115px; margin-bottom: 5vw;"
-						id="service_button"
-						class="button-style-1">
+						class="button-style-1"
+						onclick="yaCounter‎35873337.reachGoal('nomer'); return true;">
 					Заказать
 				</button>
 			</div>

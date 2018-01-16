@@ -70,13 +70,13 @@
 
 
 	<div class="row f-up hidden-lg">
-		<div class="col-xs-3"></div>
-		<div class="col-xs-6 text-center">
+
+		<div class="col-xs-12 text-center body-footer">
 			<h3 class=" text-center">Связаться с нами</h3>
 			<div class="connect_with_us center-block img-responsive"></div>
 			<span>Россия, Санкт-Петербург, Уманский переулок, 71</span>
 		</div>
-		<div class="col-xs-3"></div>
+
 	</div>
 	<div class="row hidden-lg footer-body-mini">
 		<div class="col-xs-6">
@@ -113,7 +113,7 @@
 	<!-- <hr id="line"> -->
 	<div class="row down border-top-dark ">
 		<div class="col-xs-12">
-			<p class="text-center">© Центр мебели. Все права защищены 2018 г.</p>
+			<p class="text-center font-size-12 font-type-georgia">© Центр мебели. Все права защищены 2018 г.</p>
 		</div>
 	</div>  
   

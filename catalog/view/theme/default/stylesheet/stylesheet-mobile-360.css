@@ -18,10 +18,11 @@
     background: none;
 }
 
+
 /*header*/
 #logo-mini{
-    text-align: right;
-    margin-right: 30px;
+   /* text-align: right;*/
+    margin-right: -9px;
 }
 
 /*home */
@@ -29,7 +30,15 @@
     height: 57vw;
 }
 
-
+#home .service p {
+    font-size: 14px;
+}
+#home .service_input {
+    margin: 0;
+}
+#menu-mini h3 {
+    display: none;
+}
 
 /*category */
 
@@ -52,7 +61,54 @@
     font-size: 12px;
 }
 
+
+#product .nav.nav-tabs .button:first-child {
+    flex: 2;
+}
+#product #characteristic-tab #size-box-mobile {
+    flex-direction: column;
+    height: 100%;
+}
+
+#product #characteristic-tab #size-box-mobile>div {
+    flex: 1;
+    padding: 0;
+    padding: 3px;
+}
+#product #perfect .payment, #product #perfect .our-advantages {
+    flex-direction: column;
+}
+#product #perfect .element>p, #product #perfect .our-advantages>p {
+    font-size: 14px;
+    margin-top: 9px;
+    line-height: 1.2;
+    margin-bottom: 9px;
+}
+#product #phone-add {
+    padding: 10px 10px 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#product #phone-add p {
+    margin-bottom: 15px;
+}
+#product #phone-add .input-fild-telephone {
+    text-align: center;
+    margin-bottom: 15px;
+}
+#product #phone-add .input-fild-telephone, #product #phone-add input[type='button'] {
+    width: 100%;
+    border-radius: 6px;
+}
+
+
+
+
 /*footer*/
 footer .footer-body-mini span {
     font-size: 13px;
+}
+footer .body-footer {
+    padding-left: 20%;
+    padding-right: 20%;
 }
