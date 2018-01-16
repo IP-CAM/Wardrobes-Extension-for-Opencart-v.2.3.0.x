@@ -6,7 +6,7 @@ class ControllerProductProduct extends Controller {
 
         $this->document->addScript('catalog/view/javascript/modal_window.js');
         $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
-        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.js');
 		$this->load->language('product/product');
 
         //for mobile version

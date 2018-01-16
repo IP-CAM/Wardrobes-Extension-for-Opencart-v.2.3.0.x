@@ -1157,7 +1157,7 @@ footer #f-padding {
 
 
 /* calculator_box */
-
+/*
 .owl-prev{
     background-image: url("../image/calculator-carousel-arrow.png");
     background-size: cover;
@@ -1170,7 +1170,7 @@ footer #f-padding {
     width: 26px;
     height: 47px;
 }
-
+*/
 .no-active {
     opacity: 0.5;
 }

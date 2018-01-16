@@ -19,8 +19,8 @@ class ControllerCalculatorCalculator extends Controller {
         $this->document->addScript('catalog/view/javascript/calculator.js');
         $this->document->addScript('catalog/view/javascript/modal_window.js');
 
-        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
-        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 
          $this->document->addStyle('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.css');
          $this->document->addScript('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.js');
