@@ -1,10 +1,12 @@
 <?php echo $header; ?>
+
 <!-- MODAL WINDOW BEGIN -->
 <div class="overlay modal_window_box" style="display: none" title="окно"></div>
-<div class="popup modal_window_box" style="display: none">
+<div class="popup modal_window_box" id="modal_window_box" style="display: none">
 	<div class="close_window">x</div>
 </div>
 <!-- MODAL WINDOW BEGIN END -->
+
 <!-- PUPAP MESSAGE END -->
 <div class="message-pupop" id="message-calculation" style="display: none;">
 	<p class="font-size-12 font-type-verdana" id="text">Выберите предполагаемую ширину желаемой мебели. Для настройки высоты и глубины перейдите во вкладку "Эксклюзивные". Также в стоимость будет включена возможность изменять материалы, форму, наполнение и любые другие характеристики.</p>
@@ -319,6 +321,7 @@
 
 
 		</div>
+		<a href="#modal_window_box" class="btn btn-primary" data-toggle="modal">Открыть модальное окно</a>
 
 		<!-- CALCULATOR END -->
 

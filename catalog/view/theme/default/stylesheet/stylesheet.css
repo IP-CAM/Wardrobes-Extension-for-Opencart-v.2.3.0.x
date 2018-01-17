@@ -1295,6 +1295,7 @@ footer #f-padding {
     position: absolute;
     width: 18px;
     height: 18px;
+    cursor: pointer;
 }
 
 #cal-calculation-box  p {

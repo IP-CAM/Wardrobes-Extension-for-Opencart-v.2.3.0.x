@@ -14,7 +14,7 @@ class ControllerCalculatorCalculator extends Controller {
 		);
 
         //of table Calculator_description
-		    $calculator_info = $this->model_calculator_calculator->getCalculator(0);
+        $calculator_info = $this->model_calculator_calculator->getCalculator(0);
         $this->document->addScript('catalog/view/javascript/calculator_open_product.js');
         $this->document->addScript('catalog/view/javascript/calculator.js');
         $this->document->addScript('catalog/view/javascript/modal_window.js');
