@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<div class="container container-fix " id="special">
+<div class="container  visible-lg" id="special">
 	<ul class="breadcrumb">
 		<?php foreach ($breadcrumbs as $key => $breadcrumb) { ?>
 			<?php if(!next($breadcrumbs)) { ?>
@@ -91,4 +91,30 @@
 		</div>
 	</div>
 </div>
+
+<!-- FOR MOBILE -->
+<div class="container hidden-lg" id="special">
+	<div class="row">
+		<div class="col-xs-12 text-left back">
+			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
+		</div>
+
+		<div class="special-plit">
+			<div class="col-xs-12">
+				<div class="image" id="one"></div>
+			</div>
+			<div class="col-xs-12">
+				<div class="image" id="two"></div>
+			</div>
+			<div class="col-xs-12">
+				<div class="image" id="three"></div>
+			</div>
+			<div class="col-xs-12">
+				<div class="image" id="four"></div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
 	<?php echo $footer; ?>

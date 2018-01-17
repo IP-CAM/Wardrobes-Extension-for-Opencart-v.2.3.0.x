@@ -98,25 +98,25 @@
 					<div id="cal-calculation-box" class="col-lg-6 no-padding margin-left">
 						<div id="button-check">
 							<div id="quest-calculation"></div>
-							<div id="standard" title="Стандарт">
+							<div id="standard" name="standard" title="Стандарт">
 								<p>Стандарт</p>
 							</div>
 							<div class="line"></div>
-							<div id="exclusive" title="Эксклюзив">
+							<div id="exclusive" name="exclusive" title="Эксклюзив">
 								<p>Эксклюзив</p>
 							</div>
 						</div>
-						<div id="calculation-standard-or-exclusive">
-							<div id="standard-box">
+						<div class="calculation-standard-or-exclusive">
+							<div name="standard-box" class="standard-box">
 								<div id="slider">
-									<div id="slider-range"></div>
+									<div name="slider-range"></div>
 									<p>Ширина (см)</p>
 								</div>
 
 								<span id="width">Высота: 240см</span>
 								<span id="height">Глубина: 60см </span>
 							</div>
-							<div id="exclusive-box">
+							<div name="exclusive-box" class="exclusive-box">
 
 								<span id="text-width">Ширина (см)</span>
 								<input type="text" name="width" id="input_width" data-modal="1" value="100" class="form-control">
@@ -124,15 +124,21 @@
 								<input type="text" name="height" id="input_height" data-modal="1" value="240" class="form-control">
 								<span id="text-depth">Глубина (см)</span>
 								<input type="text" name="depth" id="input_depth" data-modal="1" value="60" class="form-control">
-								<p>Минимальные размеры: 100х100х100</p>
-								<p>Максимальные размеры: 200х100х100</p>
+								<p class="size-min">Минимальные размеры: 100х100х100</p>
+								<p class="size-max">Максимальные размеры: 200х100х100</p>
 
 							</div>
 
-							<h2 id="cal_top_price">8400 рублей</h2>
-							<span id="cal_sub_price">15100 рублей</span>
 
-							<input type="button" id="calculation_button" data-modal="1" class="button-style-1" value="Заказать"/>
+							<h2 class="cal_top_price " name="cal_top_price">При включенном JS тут отображается цена</h2>
+							<span class="cal_sub_price" name="cal_sub_price">При включенном JS тут отображается цена</span>
+
+							<input type="button"
+								   id="calculation_button"
+								   data-modal="1"
+								   class="button-style-1"
+								   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
+								   value="Заказать"/>
 						</div>
 					</div>
 
@@ -140,7 +146,12 @@
 					<div id="cal-dispatch-box" class="col-lg-6 no-padding">
 						<div class="calculator_dispatch">
 							<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
-							<input type="button"  id="dispatch_button" data-modal="1" value="Отправить" class="button-style-1" />
+							<input type="button"
+								   id="dispatch_button"
+								   data-modal="1"
+								   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
+								   value="Отправить"
+								   class="button-style-1" />
 							<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 						</div>
 					</div>
@@ -213,290 +224,105 @@
 		<div class="col-xs-12">
 			<h2 class="text-center" name="type-products" hidden="hidden">Выбирете модель</h2>
 		</div>
-		<div class="col-xs-12 text-center" >
+		<div class="col-xs-12 text-center product-root-box" >
 			<div class="box-root-sub" name="product_box">
 
 			</div>
 		</div>
 		<!-- PRODUCTS END -->
 
+		<!-- CALCULATOR BEGIN -->
+		<div class="col-xs-12">
+			<h2 class="text-center" name="type-products" hidden="hidden">Подберите размеры для изделия</h2>
+		</div>
+
+		<input type="hidden" name="type" data-modal="1" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
+		<input type="hidden" name="two_modal" data-modal="1" value="0" />
+		<div class="col-xs-12" id="calculator-box">
+
+			<div id="cal-calculation-box" class="col-xs-12 no-padding margin-left">
+				<div class="row">
+					<div class="col-xs-12 button-box">
+						<div id="button-check">
+							<div name="standard" id="standard" title="Стандарт">
+								<p>Стандарт</p>
+							</div>
+							<div name="exclusive" id="exclusive" title="Эксклюзив">
+								<p>Эксклюзив</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<div class="calculation-standard-or-exclusive">
+
+							<div name="standard-box" class="standard-box">
+								<div class="block">
+									<span>Ширина (см) </span><span name="width-text-mobile"></span>
+								</div>
+								<div class="block">
+									<div id="slider">
+										<div name="slider-range"></div>
+									</div>
+								</div>
+								<div class="block">
+									<span id="width">Высота: 240см</span>
+									<span id="height">Глубина: 60см </span>
+								</div>
+							</div>
+
+							<div name="exclusive-box" class="exclusive-box">
+								<div class="size">
+									<span>Ширина (см)</span>
+									<input type="text" name="width" data-modal="1" value="100" class="form-control">
+								</div>
+								<div class="size">
+									<span>Высота (см)</span>
+									<input type="text" name="height" data-modal="1" value="240" class="form-control">
+								</div>
+								<div class="size">
+									<span>Глубина (см)</span>
+									<input type="text" name="depth" data-modal="1" value="60" class="form-control">
+								</div>
+								<div class="size">
+									<p>Минимальные размеры: 100х100х100</p>
+									<p>Максимальные размеры: 200х100х100</p>
+								</div>
+							</div>
+							<div class="price">
+								<span class="cal_sub_price " name="cal_sub_price">При включенном JS тут отображается цена</span>
+								<h2 class="cal_top_price font-type-verdana" name="cal_top_price">При включенном JS тут отображается цена</h2>
+								<input type="button"
+									   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
+									   id="calculation_button"
+									   data-modal="1"
+									   class="button-style-1"
+									   value="Заказать"/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			<div id="cal-dispatch-box" class="col-xs-12">
+				<div class="calculator_dispatch">
+					<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
+					<input type="button"
+						   id="dispatch_button"
+						   data-modal="1"
+						   value="Отправить"
+						   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
+						   class="button-style-1" />
+					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
+				</div>
+			</div>
+
+
+		</div>
+
+		<!-- CALCULATOR END -->
+
 	</div>
 </div>
 
 	<?php echo $footer; ?>
-
-<script>
-$(document).ready(function () {
-
-
-
-
-
-	var check_sub_cat_id = 0; //if sub category not select
-	var check_product_id = 0; //if sub category not select
-
-
-
-	//Выбор главной категории
-	$("[data-cal_root]:visible:not(input)").click(function () {
-		ajaxRenderRoot($(this));
-	});
-	//Выбор главной категории
-	$("input[data-cal_root]:visible").change(function () {
-		ajaxRenderRoot($(this));
-	});
-
-	function ajaxRenderRoot(this_root_item) {
-		var id = this_root_item.parent().find('input').val();
-		//alert('check_root_cat_id' + check_root_cat_id + 'id' +id);
-		$(".box_root_item:visible").find('p').addClass('no-active');
-
-		if( check_sub_cat_id != id) {
-
-			$('.box_root:visible').find('input').prop('checked', false);
-			this_root_item.find("input").prop('checked', true);
-			this_root_item.find('p').removeClass('no-active');
-			ajaxOpenCategory(id, 'root'); //Show sub categories
-
-		} else { //Если этот элемент уже был выбран, то закрываем все, и делаем как было
-			$('.box_root:visible').find('input').prop('checked', false);
-			hideSubCategories(); // Hide sub categories and products
-			check_sub_cat_id = 0;
-		}
-
-	}
-
-
-
-
-	$(document).on('click', '.dynamic_category', function () {
-
-		$('.dynamic_category').find('img').addClass('no-active');
-		$('.dynamic_category').find('p').addClass('no-active');
-		var this_sub_category = $(this);
-		var id = this_sub_category.find('input:checkbox').val();
-		if(check_sub_cat_id != id) {
-			ajaxOpenCategory(id, 'products');
-			$('.dynamic_category').find('input').prop('checked', false);
-			this_sub_category.find("input").prop('checked', true);
-			this_sub_category.find('img').removeClass('no-active');
-			this_sub_category.find('p').removeClass('no-active');
-		} else {
-			var product_box = $("[name='product_box']");
-			product_box.empty();
-		}
-
-	});
-
-
-
-
-
-
-	function hideSubCategories() {
-		var type_sub_box = $("[name='sub_box']");
-		type_sub_box.empty();
-		var type_product_box = $("[name='product_box']");
-		type_product_box.empty();
-		$("[name='type-wardrobes']").hide();
-		$('#type-products').hide();
-	}
-
-
-
-	function ajaxRenderCategories_desktop(data, root) {
-
-		hideSubCategories();
-		$("[name='type-wardrobes']").show();
-		var type_sub_box = $("[name='sub_box']:visible");
-		var html = '';
-		$.each(data, function (index, value) {
-			html += '<div class="col-sm-3 dynamic_category">';
-			html += '<div class="box sub_box_item">';
-			html += '<input type="checkbox" name="category_sub" value="' + value['category_id'] + '" >';
-			html += '<img src="' + value['image'] + '"';
-			html += 'title="' + value["name"] + '"';
-			html += 'alt="' + value["name"] + '"';
-			html += 'class="img-responsive center-block no-active"/>';
-			html += '<p>' + value["name"] + '</p>';
-			html += '</div>';
-			html += '</div>';
-		});
-
-		type_sub_box.append(html);
-
-	}
-
-
-
-
-
-	function ajaxRenderCategories_mobile(data, root) {
-
-		hideSubCategories();
-		$("[name='type-wardrobes']").show();
-		var type_sub_box = $("[name='sub_box']:visible");
-		var html = '';
-		$.each(data, function (index, value) {
-			html += '<div class="dynamic_category">';
-			html += '<div class="box sub_box_item">';
-			html += '<input type="checkbox" name="category_sub" value="' + value['category_id'] + '" >';
-			html += '<img src="' + value['image'] + '"';
-			html += 'title="' + value["name"] + '"';
-			html += 'alt="' + value["name"] + '"';
-			html += 'class="img-responsive center-block no-active"/>';
-			html += '<p>' + value["name"] + '</p>';
-			html += '</div>';
-			html += '</div>';
-		});
-
-		type_sub_box.append(html);
-
-	}
-
-
-
-	function ajaxRenderProducts_desktop(data, root) {
-
-		// alert('products' + root);
-		if(root == 1) {
-			// alert('hide');
-			hideSubCategories();
-		}
-
-		$("[name='type-products']").show();
-		var type_product_box = $("[name='product_box']");
-		type_product_box.empty();
-		var html = '<div id="carousel" class=" owl-carousel  owl-theme">';
-		$.each(data, function (index, value) {
-			html += '<div class="product_item box">';
-			html += '<input type="checkbox" name="products" value="' + value['product_id'] + '" >';
-			html += '<img src="' + value['image'] + '"';
-			html += 'title="' + value["name"] + '"';
-			html += 'alt="' + value["name"] + '"';
-			html += 'class="img-responsive center-block"/>';
-			html += '<p>' + value["name"] + "<br> Модель:" + value["model"] + '</p>';
-			html += '</div>';
-		});
-
-		html += '</div>';
-		type_product_box.append(html);
-		$("#carousel").owlCarousel({
-			nav:true,
-			navText : ["",""],
-			item: 1
-		});
-
-
-	}
-
-
-	function ajaxRenderProducts_mobile(data, root) {
-
-		// alert('products' + root);
-		if(root == 1) {
-			hideSubCategories();
-		}
-		$("[name='type-products']").show();
-		var type_product_box = $("[name='product_box']");
-		type_product_box.empty();
-		var html = '<div name="carousel" class=" owl-carousel owl-theme">';
-		for(var i = 0; i < 5; i++) {
-			html += '<div class=" product_item box">';
-
-				html += '<img src="' + data[i]['image'] + '"';
-				html += 'title="' + data[i]["name"] + '"';
-				html += 'alt="' + data[i]["name"] + '" style="width:50px; height:45px;"';
-				html += 'class="img-responsive center-block"/>';
-
-			html += '</div>';
-
-		}
-
-		html += '</div>';
-		type_product_box.append(html);
-		$("name='carousel']").owlCarousel({
-			nav:true,
-			navText : ["",""],
-			items: 1
-		});
-	}
-
-
-	function ajaxOpenCategory(id, type) {
-		$.ajax({
-			url: 'index.php?route=calculator/calculator/ajaxOpen',
-			dataType: 'json',
-			data: 'id=' + id + '&type=' + type,
-			type: 'post',
-			beforeSend: function () {
-			},
-			success: function (json) {
-				var type = json['type'];
-				if (type.localeCompare("categories") == 0) {
-					if($('.visible-lg').is(':visible')) {
-						ajaxRenderCategories_desktop(json['data'], json['root']); //Для компьютерной версии
-					} else  {
-						ajaxRenderCategories_mobile(json['data'], json['root']); //Для мобильной версии
-					}
-
-				}
-				if (type.localeCompare("products") == 0) {
-					if($('.visible-lg').is(':visible')) {
-						ajaxRenderProducts_desktop(json['data'], json['root']); //Для компьютерной версии
-					} else {
-						ajaxRenderProducts_mobile(json['data'], json['root']); //Для мобильной версии
-					}
-				}
-				if (type.localeCompare("no_edit") == 0) {
-				}
-				check_sub_cat_id = id;
-			},
-			error: function (xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-
-		});
-
-	}
-
-
-
-
-
-	$(document).on('click', '.product_item', function () {
-
-		$('.product_item').find('img').addClass('no-active');
-		$('.product_item').find('p').addClass('no-active');
-
-		var this_product = $(this);
-
-		var id = this_product.find('input:checkbox').val();
-
-		if(check_product_id != id) {
-
-			$('.product_item').find('input').prop('checked', false);
-
-			this_product.find("input").prop('checked', true);
-
-			this_product.find('img').removeClass('no-active');
-
-			this_product.find('p').removeClass('no-active');
-
-			$('input[name="product_id"]').val(id);
-
-		} else {
-			var product_box = $("[name='product_box']");
-			product_box.empty();
-		}
-
-	});
-
-});
-
-
-
-
-
-
-</script>

@@ -502,6 +502,25 @@ h2 {
     margin-bottom: 30px;
 }
 
+
+#calculator .box_root_item.box input:checked::after,
+#calculator .sub_box_item.box input:checked::after{
+    content: "";
+}
+#calculator .box_root_item.box input:checked,
+#calculator .sub_box_item.box input:checked {
+    background: url(../image/checkmark_grand.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 1px;
+}
+#calculator .box_root_item.box input {
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    right: 5px;
+}
 #calculator .text-type-furniture {
     margin: 0;
     margin-bottom: 10px;
@@ -552,6 +571,7 @@ h2 {
 
 #calculator .product_item.sub_box_item.box {
     height: 210px;
+    margin-bottom: 4px;
 }
 #calculator .product_item.sub_box_item.box img {
     margin-top: 25px;
@@ -560,6 +580,9 @@ h2 {
     padding-left: 7px;
     padding-right: 7px;
     padding-top: 7px;
+    position: absolute;
+    left: 0;
+    top: 171px;
 }
 #calculator .owl-item {
     width: auto;
@@ -568,6 +591,174 @@ h2 {
     height: auto;
     margin: 0;
 }
+
+#calculator .product-root-box {
+    padding-bottom: 20px;
+}
+#calculator #calculator-box>#cal-calculation-box, #calculator-box>#cal-dispatch-box {
+    width: 100%;
+    position: relative;
+    height: auto;
+    margin-bottom: -6px;
+}
+
+#calculator #calculator-box>#cal-calculation-box #standard {
+    position: relative;
+}
+#calculator #calculator-box>#cal-calculation-box #standard:after {
+    position: absolute;
+    width: 1px;
+    height: 26px;
+    background: #d9d9d9;
+    top: 2px;
+    right: -1px;
+    content: ' ';
+    display: block;
+}
+
+#calculator #cal-calculation-box .button-box {
+    display: flex;
+    justify-content: center;
+}
+#calculator #cal-calculation-box #button-check {
+    position: static;
+    margin-top: 15px;
+}
+#calculator .calculation-standard-or-exclusive {
+    position: relative;
+    top: 0;
+    text-align: center;
+
+}
+#calculator .standard-box, #exclusive-box {
+    position: relative;
+}
+#calculator .block {
+    position: relative;
+    text-align: center;
+}
+#cal-calculation-box .standard-box .block:nth-child(1) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#cal-calculation-box>div {
+    height: 100%;
+}
+#cal-calculation-box .block:nth-child(2) {
+    margin-bottom: 20px;
+}
+#cal-calculation-box .standard-box .block p {
+    padding: 0;
+    margin: 0;
+}
+
+#calculator .standard-box #slider {
+    position: static;
+    margin: 0 auto;
+}
+
+#calculator .standard-box #width, #calculator .standard-box #height {
+    position: static;
+}
+
+
+#calculator .exclusive-box .size {
+    margin-top: 16px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#calculator .exclusive-box .size input{
+    margin-top: 10px;
+}
+
+#calculator .calculation-standard-or-exclusive .price {
+    position: static;
+    width: 100%;
+    bottom: 0;
+    display: block;
+}
+#calculator #cal-calculation-box .cal_sub_price {
+    position: static;
+    margin-top: 10px;
+    display: block;
+}
+#calculator #cal-calculation-box .cal_top_price {
+    position: static;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 14px;
+}
+#calculator #cal-calculation-box #calculation_button {
+    position: static;
+    width: 225px;
+    height: 35px;
+    margin-bottom: 14px;
+}
+#calculator #cal-dispatch-box div {
+    position: relative;
+    top: 130px;
+    left: 0;
+}
+#calculator #calculator-box>#cal-dispatch-box {
+    width: 100%;
+    position: relative;
+    height: 248px;
+}
+#cal-dispatch-box {
+    background-size: contain;
+}
+
+/* slider */
+#calculator .ui-slider-horizontal .ui-slider-handle {
+    top: -9px;
+}
+#calculator .ui-slider .ui-slider-handle {
+    width: 22px;
+    height: 22px;
+}
+
+
+
+#aboutcompany .picture-back.aboutcompany, #contacts .picture-back.contacts {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#aboutcompany .picture-back, #contacts .picture-back {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    left: 0;
+}
+#aboutcompany .aboutcompany.text_box, .contacts.text_box {
+    top: 0;
+    margin: 0;
+    margin-top: 127px;
+    width: 100%;
+    left: 0;
+    margin-bottom: 30px;
+}
+#aboutcompany .aboutcompany.text_box, .contacts.text_box {
+    padding-bottom: 20px;
+}
+#special .special-plit .image {
+    height: 312px;
+
+}
+#special .special-plit>div {
+    margin-bottom: 10px;
+}
+#special .special-plit>div:last-child {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
 
 
 /*footer*/

@@ -1068,8 +1068,8 @@ footer #f-padding {
 #calculator .sub_box_item img {
     margin-top: 22px;
     margin-bottom: 55px;
-    margin-right: 21px;
-    margin-left: 21px;
+    margin-right: 14px;
+    margin-left: 14px;
 }
 #calculator .sub_box_item {
     border:1px solid #d9d9d9;
@@ -1092,9 +1092,9 @@ footer #f-padding {
 #calculator .sub_box_item p {
     position: absolute;
     top: 241px;
-    left: 20px;
-    width: 256px;
-    font-size: 18px;
+    /* left: 20px; */
+    width: 239px;
+    font-size: 16px;
     font-weight: 400;
     text-align: center;
 }
@@ -1121,6 +1121,8 @@ footer #f-padding {
 #calculator .product_item {
     width: 100%;
     height: 100%;
+    position: relative;
+
 }
 #calculator .product_item input {
     right: 23px;
@@ -1152,6 +1154,20 @@ footer #f-padding {
     font-weight: 400;
     text-align: left;
 }
+
+#calculator .size-min {
+    top: 106px;
+    position: absolute;
+    left: 20px;
+    font-size: 12px;
+}
+#calculator .size-max {
+    top: 126px;
+    position: absolute;
+    left: 20px;
+    font-size: 12px;
+}
+
 
 
 
@@ -1305,7 +1321,7 @@ footer #f-padding {
 
 
 
-#calculation-standard-or-exclusive {
+.calculation-standard-or-exclusive {
     position: absolute;
     top: 75px;
     left: 0;
@@ -1313,20 +1329,20 @@ footer #f-padding {
     height: 100%;
 }
 
-#standard-box, #exclusive-box {
+.standard-box, #exclusive-box {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
-    #standard-box #slider {
+    .standard-box #slider {
         position: absolute;
         left: 70px;
         width: 295px;
         top: 44px;
     }
-    #standard-box #slider p {
+    .standard-box #slider p {
         display: inline-block;
         font-weight: bold;
         /* padding-left: 19px; */
@@ -1336,12 +1352,12 @@ footer #f-padding {
         right: -155px;
 
     }
-    #standard-box #width {
+    .standard-box #width {
         position: absolute;
         top: 87px;
         left: 31px;
     }
-    #standard-box #height {
+    .standard-box #height {
         position: absolute;
         top: 87px;
         left: 141px;
@@ -1349,36 +1365,36 @@ footer #f-padding {
 
 
 
-    #exclusive-box #text-width {
+    .exclusive-box #text-width {
         position: absolute;
         top: 28px;
         left: 70px;
     }
-    #exclusive-box #text-height {
+   .exclusive-box #text-height {
         position: absolute;
         top: 28px;
         left: 232px;
     }
-    #exclusive-box #text-depth {
+    .exclusive-box #text-depth {
         position: absolute;
         top: 28px;
         left: 387px;
     }
-    #exclusive-box #input_width {
+    .exclusive-box #input_width {
         position: absolute;
         top: 65px;
         left: 82px;
         font-size: 13px;
         width: 60px;
     }
-    #exclusive-box #input_height {
+    .exclusive-box #input_height {
         position: absolute;
         top: 65px;
         left: 239px;
         font-size: 13px;
         width: 60px;
     }
-    #exclusive-box #input_depth {
+    .exclusive-box #input_depth {
         position: absolute;
         top: 65px;
         left: 399px;
@@ -1387,29 +1403,35 @@ footer #f-padding {
     }
 
 
-#cal-calculation-box #cal_top_price {
+#cal-calculation-box .cal_top_price {
     position: absolute;
-    left: 28px;
-    top: 136px;
-    /* color: green; */
+    margin: 0;
+    top: 154px;
+    right: 341px;
     color: #71ac43;
 }
-#cal-calculation-box #cal_sub_price {
+#cal-calculation-box .cal_sub_price {
     position: absolute;
-    left: 214px;
     top: 161px;
     font-size: 13px;
+    right: 159px;
+}
+#cal-calculation-box .cal_sub_price.mini {
+    top: 162px;
+    font-size: 11px;
 }
 
 #cal-calculation-box #calculation_button {
     position: absolute;
     top: 153px;
-    left: 399px;
+    left: 410px;
     font-size: 16px;
     width: 120px;
     height: 33px;
+
     line-height: 28px;
 }
+
 
 
 
@@ -2067,15 +2089,19 @@ footer #f-padding {
 }
 #special .image#one {
     background: url('../image/special-banner-1.jpg') no-repeat;
+    background-size: contain;
 }
 #special .image#two {
     background: url('../image/special-banner-2.jpg') no-repeat;
+    background-size: contain;
 }
 #special .image#three {
     background: url('../image/special-banner-3.jpg') no-repeat;
+    background-size: contain;
 }
 #special .image#four {
     background: url('../image/special-banner-4.jpg') no-repeat;
+    background-size: contain;
 }
 #special .special {
     margin-top: -11px;

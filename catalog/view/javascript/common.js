@@ -151,7 +151,8 @@ $(document).ready(function() {
         'panel': document.getElementById('panel'),
         'menu': document.getElementById('menu'),
         'padding': 180,
-        'tolerance': 70
+        'tolerance': 70,
+        'touch': false
     });
     // Toggle button
     document.querySelector('#menu-mini').addEventListener('click', function () {
@@ -233,244 +234,131 @@ $(document).ready(function() {
     }
 
 
-    //For product
-    if($('#product').length > 0) {
-        $('.nav-tabs .button').on('click', function() {
-            $('.nav-tabs .button p').removeClass('active-button');
-            $(this).find('p').addClass('active-button');
-
-            var id = $(this).data('tab');
-            $('.check-info>div').hide();
-            $('.check-info').find('#' + id).show();
-        });
-
-        $('#characteristic .any').mouseenter(function() {
-            $('#message-characteristic').show();
-            $(this).before($('#message-characteristic'));
-        });
-        $('#characteristic .any').mouseleave(function() {
-            $('#message-characteristic').hide();
-        });
 
 
 
-        $("[name='active']").click(function (event) {
-            var root = $(this).parent();
-            var text = root.find("[name='telephone']").val();
-            if (text == '') {
-                $('.error').show();
-                return false;
-            } else {
-                $('.phone-box .error').hide();
-                $('.error').hide();
-                ajaxClientCall($(this).data('modal'),3,0);
-            }
-        });
 
-        $('.thumbnails').magnificPopup({
-            type:'image',
-            delegate: 'a',
-            gallery: {
-                enabled:true
-            }
-        });
-    }
+
+
 });
 
-// Cart add remove functions
-var cart = {
-	'add': function(product_id, quantity) {
-		$.ajax({
-			url: 'index.php?route=checkout/cart/add',
-			type: 'post',
-			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
-			dataType: 'json',
-			beforeSend: function() {
-				$('#cart > button').button('loading');
-			},
-			complete: function() {
-				$('#cart > button').button('reset');
-			},
-			success: function(json) {
-				$('.alert, .text-danger').remove();
 
-				if (json['redirect']) {
-					location = json['redirect'];
-				}
+//FOR PRODUCT BEGIN
 
-				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+    $(document).ready(function() {
+        if($('#product').length > 0) {
+            sizeCharacteristic();
+            sizeName();
 
-					// Need to set timeout otherwise it wont update the total
-					setTimeout(function () {
-						$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-					}, 100);
+            $('.nav-tabs .button').on('click', function () {
+                $('.nav-tabs .button p').removeClass('active-button');
+                $(this).find('p').addClass('active-button');
 
-					$('html, body').animate({ scrollTop: 0 }, 'slow');
+                var id = $(this).data('tab');
+                $('.check-info>div').hide();
+                $('.check-info').find('#' + id).show();
+            });
 
-					$('#cart > ul').load('index.php?route=common/cart/info ul li');
-				}
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	},
-	'update': function(key, quantity) {
-		$.ajax({
-			url: 'index.php?route=checkout/cart/edit',
-			type: 'post',
-			data: 'key=' + key + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
-			dataType: 'json',
-			beforeSend: function() {
-				$('#cart > button').button('loading');
-			},
-			complete: function() {
-				$('#cart > button').button('reset');
-			},
-			success: function(json) {
-				// Need to set timeout otherwise it wont update the total
-				setTimeout(function () {
-					$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-				}, 100);
+            $('#characteristic .any').mouseenter(function () {
+                $('#message-characteristic').show();
+                $(this).before($('#message-characteristic'));
+            });
+            $('#characteristic .any').mouseleave(function () {
+                $('#message-characteristic').hide();
+            });
 
-				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-					location = 'index.php?route=checkout/cart';
-				} else {
-					$('#cart > ul').load('index.php?route=common/cart/info ul li');
-				}
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	},
-	'remove': function(key) {
-		$.ajax({
-			url: 'index.php?route=checkout/cart/remove',
-			type: 'post',
-			data: 'key=' + key,
-			dataType: 'json',
-			beforeSend: function() {
-				$('#cart > button').button('loading');
-			},
-			complete: function() {
-				$('#cart > button').button('reset');
-			},
-			success: function(json) {
-				// Need to set timeout otherwise it wont update the total
-				setTimeout(function () {
-					$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-				}, 100);
 
-				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-					location = 'index.php?route=checkout/cart';
-				} else {
-					$('#cart > ul').load('index.php?route=common/cart/info ul li');
-				}
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	}
-}
+            $("[name='active']").click(function (event) {
+                var root = $(this).parent();
+                var text = root.find("[name='telephone']").val();
+                if (text == '') {
+                    $('.error').show();
+                    return false;
+                } else {
+                    $('.phone-box .error').hide();
+                    $('.error').hide();
+                    ajaxClientCall($(this).data('modal'), 3, 0);
+                }
+            });
 
-var voucher = {
-	'add': function() {
+            $('.thumbnails').magnificPopup({
+                type: 'image',
+                delegate: 'a',
+                gallery: {
+                    enabled: true
+                }
+            });
 
-	},
-	'remove': function(key) {
-		$.ajax({
-			url: 'index.php?route=checkout/cart/remove',
-			type: 'post',
-			data: 'key=' + key,
-			dataType: 'json',
-			beforeSend: function() {
-				$('#cart > button').button('loading');
-			},
-			complete: function() {
-				$('#cart > button').button('reset');
-			},
-			success: function(json) {
-				// Need to set timeout otherwise it wont update the total
-				setTimeout(function () {
-					$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-				}, 100);
+            $(window).resize(function () {
+                sizeCharacteristic();
+                sizeName()
+            });
 
-				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-					location = 'index.php?route=checkout/cart';
-				} else {
-					$('#cart > ul').load('index.php?route=common/cart/info ul li');
-				}
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	}
-}
 
-var wishlist = {
-	'add': function(product_id) {
-		$.ajax({
-			url: 'index.php?route=account/wishlist/add',
-			type: 'post',
-			data: 'product_id=' + product_id,
-			dataType: 'json',
-			success: function(json) {
-				$('.alert').remove();
+            function sizeName() {
+                var root_object = $('.back');
+                var text_object = root_object.find('p');
 
-				if (json['redirect']) {
-					location = json['redirect'];
-				}
+                var width = root_object.width();
 
-				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-				}
+                var back_button = root_object.find('a');
+                //alert('width + ' + width + 'p_left' + p_left + 'p_right' +p_right + 'text_object.width() ' + text_object.width());
+                for (var i = 0; i < 25; i++) {
+                    if (width - back_button.width() - 5 < text_object.width()) {
+                        var size_old = text_object.css('font-size');
+                        text_object.css('font-size', (parseInt(size_old) - 1) + 'px');
+                    } else {
+                        break;
+                    }
+                }
+            }
 
-				$('#wishlist-total span').html(json['total']);
-				$('#wishlist-total').attr('title', json['total']);
+            function sizeCharacteristic() {
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	},
-	'remove': function() {
+                if ($(window).width() > 480) { //Если размер совсем маленький, делаем все в столбик
+                    var root = $('#size-box-mobile');
+                    var width_mobile = root.find('#width-mobile');
+                    var height_mobile = root.find('#height-mobile');
+                    var depth_mobile = root.find('#depth-mobile');
+                    for (var i = 0; i < 25; i++) {
+                        var width_div_size = width_mobile.width();
+                        var height_div_size = height_mobile.width();
+                        var depth_div_size = depth_mobile.width();
+                        //padding
+                        var width_p = parseInt(width_mobile.css('padding-left'));
+                        var height_p = parseInt(height_mobile.css('padding-left'));
+                        var depth_p = parseInt(depth_mobile.css('padding-left'));
 
-	}
-}
+                        if (width_div_size + height_div_size + depth_div_size + width_p + height_p + depth_p + 5 > root.width()) {
+                            updateSize(width_mobile);
+                            updateSize(height_mobile);
+                            updateSize(depth_mobile);
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            }
 
-var compare = {
-	'add': function(product_id) {
-		$.ajax({
-			url: 'index.php?route=product/compare/add',
-			type: 'post',
-			data: 'product_id=' + product_id,
-			dataType: 'json',
-			success: function(json) {
-				$('.alert').remove();
+            function updateSize(width_mobile) {
+                updateSizeItem(width_mobile, 'p.name');
+                updateSizeItem(width_mobile, 'a');
+                updateSizeItem(width_mobile, 'p.size');
+            }
 
-				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            function updateSizeItem(width_mobile, value) {
+                var text = '.' + width_mobile.attr('class') + ' ' + value;
+                if ($(text).length > 0) {
+                    var size_old = width_mobile.find(value).css('font-size');
+                    width_mobile.find(value).css('font-size', (parseInt(size_old) - 1) + 'px');
+                }
+            }
+        }
+});
 
-					$('#compare-total').html(json['total']);
 
-					$('html, body').animate({ scrollTop: 0 }, 'slow');
-				}
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	},
-	'remove': function() {
 
-	}
-}
+
 
 /* Agree to Terms */
 $(document).delegate('.agree', 'click', function(e) {
@@ -504,129 +392,4 @@ $(document).delegate('.agree', 'click', function(e) {
 	});
 });
 
-// Autocomplete */
-(function($) {
-	$.fn.autocomplete = function(option) {
-		return this.each(function() {
-			this.timer = null;
-			this.items = new Array();
 
-			$.extend(this, option);
-
-			$(this).attr('autocomplete', 'off');
-
-			// Focus
-			$(this).on('focus', function() {
-				this.request();
-			});
-
-			// Blur
-			$(this).on('blur', function() {
-				setTimeout(function(object) {
-					object.hide();
-				}, 200, this);
-			});
-
-			// Keydown
-			$(this).on('keydown', function(event) {
-				switch(event.keyCode) {
-					case 27: // escape
-						this.hide();
-						break;
-					default:
-						this.request();
-						break;
-				}
-			});
-
-			// Click
-			this.click = function(event) {
-				event.preventDefault();
-
-				value = $(event.target).parent().attr('data-value');
-
-				if (value && this.items[value]) {
-					this.select(this.items[value]);
-				}
-			}
-
-			// Show
-			this.show = function() {
-				var pos = $(this).position();
-
-				$(this).siblings('ul.dropdown-menu').css({
-					top: pos.top + $(this).outerHeight(),
-					left: pos.left
-				});
-
-				$(this).siblings('ul.dropdown-menu').show();
-			}
-
-			// Hide
-			this.hide = function() {
-				$(this).siblings('ul.dropdown-menu').hide();
-			}
-
-			// Request
-			this.request = function() {
-				clearTimeout(this.timer);
-
-				this.timer = setTimeout(function(object) {
-					object.source($(object).val(), $.proxy(object.response, object));
-				}, 200, this);
-			}
-
-			// Response
-			this.response = function(json) {
-				html = '';
-
-				if (json.length) {
-					for (i = 0; i < json.length; i++) {
-						this.items[json[i]['value']] = json[i];
-					}
-
-					for (i = 0; i < json.length; i++) {
-						if (!json[i]['category']) {
-							html += '<li data-value="' + json[i]['value'] + '"><a href="#">' + json[i]['label'] + '</a></li>';
-						}
-					}
-
-					// Get all the ones with a categories
-					var category = new Array();
-
-					for (i = 0; i < json.length; i++) {
-						if (json[i]['category']) {
-							if (!category[json[i]['category']]) {
-								category[json[i]['category']] = new Array();
-								category[json[i]['category']]['name'] = json[i]['category'];
-								category[json[i]['category']]['item'] = new Array();
-							}
-
-							category[json[i]['category']]['item'].push(json[i]);
-						}
-					}
-
-					for (i in category) {
-						html += '<li class="dropdown-header">' + category[i]['name'] + '</li>';
-
-						for (j = 0; j < category[i]['item'].length; j++) {
-							html += '<li data-value="' + category[i]['item'][j]['value'] + '"><a href="#">&nbsp;&nbsp;&nbsp;' + category[i]['item'][j]['label'] + '</a></li>';
-						}
-					}
-				}
-
-				if (html) {
-					this.show();
-				} else {
-					this.hide();
-				}
-
-				$(this).siblings('ul.dropdown-menu').html(html);
-			}
-
-			$(this).after('<ul class="dropdown-menu"></ul>');
-			$(this).siblings('ul.dropdown-menu').delegate('a', 'click', $.proxy(this.click, this));
-
-		});
-	}
-})(window.jQuery);

@@ -199,7 +199,7 @@
 			<div class="text text-right">Если возникли вопросы, вы можете обратиться в нашу справочную службу, мы Вам перезвоним через 20 секунд.</div>
 			<div>
 				<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-fild-telephone">
-				<input type="button" name="active" data-modal="1" value="Отправить" class="button-style-2" style="margin-left: 6px;" />
+				<input type="button" name="active" data-modal="1" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;" value="Отправить" class="button-style-2" style="margin-left: 6px;"  />
 			</div>
 			<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 		</div>
@@ -219,12 +219,14 @@
 		<?php } ?>
 		<?php } ?>
 
+		<button
+		   title="Заказать"
+		   class="due button-style-1 font-type-verdana font-size-18"
+		   style="margin-bottom: 15px; line-height: 39px;">Заказать
+		</button>
 		<a href="<?php echo $calculator ?>"
 		   title="Рассчитать"
-		   class="due button-style-1 font-type-verdana font-size-18" style="margin-bottom: 15px;">Рассчитать</a>
-		<a href="<?php echo $calculator ?>"
-		   title="Купить в рассрочку от 2 000 руб./мес"
-		   class="due button-style-3 font-type-verdana font-size-16">Купить в рассрочку от 2 000 руб./мес</a>
+		   class="due button-style-3 font-type-verdana font-size-16">Рассчитать</a>
 		<div class="advantages border-gray">
 			<div class="advantages-top" style="margin-top: 12px;">
 				<p class="ont-type-georgia font-size-18">Способы оплаты</p>
@@ -294,20 +296,22 @@
 			<div class="price"><h2 class="font-italic font-bold font-size-30 font-type-verdana green"><?php echo $price; ?></h2></div>
 		</div>
 		<div class="col-xs-12 button-calc-mobile">
-			<a href="<?php echo $calculator ?>"
+			<button
 			   title="Заказать товар"
-			   class="due button-style-1 font-type-verdana font-size-18">Рассчитать</a>
+			   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
+			   class="due button-style-1 font-type-verdana font-size-18">Заказать
+			</button>
 		</div>
 		<div class="col-xs-12 button-phone-mobile">
 			<a href="<?php echo $calculator ?>"
-			   title="Купить в рассрочку от 2 000 руб./мес"
-			   class="due button-style-3 font-type-verdana font-size-16">Купить в рассрочку от 2 000 руб./мес</a>
+			   title="Рассчитать"
+			   class="due button-style-3 font-type-verdana font-size-16">Рассчитать</a>
 		</div>
 		<div class="col-xs-12 button-tabs-mobile">
 			<div class="nav nav-tabs border-gray font-type-georgia">
-				<div class="button" data-tab="characteristic-tab" style="width: 33.3%;" ><p class="active-button">Характеристика</p></div>
-				<div class="button" data-tab="description-tab" style="width: 33.3%;"><p  class="active-div">Описание</p></div>
-				<div class="button" data-tab="delivery-tab" style="width: 33.3%;"><p  class="active-div">Доставка</p></div>
+				<div class="button" data-tab="characteristic-tab"><p class="active-button">Характеристика</p></div>
+				<div class="button" data-tab="description-tab"><p  class="active-div">Описание</p></div>
+				<div class="button" data-tab="delivery-tab"><p  class="active-div">Доставка</p></div>
 			</div>
 		</div>
 		<div class="col-xs-12 button-tab-mobile">
@@ -421,7 +425,7 @@
 				<p class="font-size-14">Если возникли вопросы, вы можете обратиться
 					в нашу справочную службу, мы вам перезвоним через 20 секунд.</p>
 				<input type="text" name="telephone" data-modal="2" value="" placeholder="Ваш телефон" class="input-fild-telephone">
-				<input type="button" name="active" data-modal="2" value="Отправить" class="button-style-2" />
+				<input type="button" name="active" data-modal="2" value="Отправить" class="button-style-2" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"/>
 				<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</span>
 			</div>
 		</div>
@@ -431,68 +435,3 @@
 
 
 <?php echo $footer; ?>
-<script>
-	$(document).ready(function() {
-		sizeCharacteristic();
-		sizeName()
-	});
-	$(window).resize(function () {
-		sizeCharacteristic();
-		sizeName()
-	});
-	function sizeName() {
-		var root_object = $('.back');
-		var text_object = root_object.find('p');
-
-		var width = root_object.width();
-
-		var back_button =root_object.find('a');
-		//alert('width + ' + width + 'p_left' + p_left + 'p_right' +p_right + 'text_object.width() ' + text_object.width());
-		for (var i = 0; i < 25; i++) {
-			if (width - back_button.width() - 5 < text_object.width()) {
-				var size_old = text_object.css('font-size');
-				text_object.css('font-size' , (parseInt(size_old)-1)+'px');
-			} else {
-				break;
-			}
-		}
-
-	}
-	function sizeCharacteristic() {
-		if($(window).width() > 480) { //Если размер совсем маленький, делаем все в столбик
-			var root = $('#size-box-mobile');
-			var width_mobile = root.find('#width-mobile');
-			var height_mobile = root.find('#height-mobile');
-			var depth_mobile = root.find('#depth-mobile');
-			for (var i = 0; i < 25; i++) {
-				var width_div_size = width_mobile.width();
-				var height_div_size = height_mobile.width();
-				var depth_div_size = depth_mobile.width();
-				//padding
-				var width_p = parseInt(width_mobile.css('padding-left'));
-				var height_p = parseInt(height_mobile.css('padding-left'));
-				var depth_p = parseInt(depth_mobile.css('padding-left'));
-
-				if (width_div_size + height_div_size + depth_div_size + width_p + height_p + depth_p > root.width()) {
-					updateSize(width_mobile);
-					updateSize(height_mobile);
-					updateSize(depth_mobile);
-				} else {
-					break;
-				}
-			}
-		}
-	}
-	function updateSize(width_mobile) {
-		updateSizeItem(width_mobile, 'p.name');
-		updateSizeItem(width_mobile, 'a');
-		updateSizeItem(width_mobile, 'p.size');
-	}
-	function updateSizeItem(width_mobile, value) {
-		var text = '.' +width_mobile.attr('class') + ' ' + value;
-		if($(text).length > 0) {
-			var size_old = width_mobile.find(value).css('font-size');
-			width_mobile.find(value).css('font-size' , (parseInt(size_old)-1)+'px');
-		}
-	}
-</script>

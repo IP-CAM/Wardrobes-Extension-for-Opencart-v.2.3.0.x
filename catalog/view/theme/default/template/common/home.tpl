@@ -216,7 +216,8 @@
 			<button title="Заказать"
 					name="service_button"
 					style="width: 115px;"
-					class="button-style-1">
+					class="button-style-1"
+					onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
 				Заказать
 			</button>
 		</div>
@@ -247,7 +248,7 @@
 						name="service_button-mobile"
 						style="width: 115px; margin-bottom: 5vw;"
 						class="button-style-1"
-						onclick="yaCounter‎35873337.reachGoal('nomer'); return true;">
+						onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
 					Заказать
 				</button>
 			</div>

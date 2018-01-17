@@ -65,6 +65,9 @@
 #product .nav.nav-tabs .button:first-child {
     flex: 2;
 }
+#product .nav.nav-tabs .button p {
+    font-size: 14px;
+}
 #product #characteristic-tab #size-box-mobile {
     flex-direction: column;
     height: 100%;
@@ -99,6 +102,37 @@
 #product #phone-add .input-fild-telephone, #product #phone-add input[type='button'] {
     width: 100%;
     border-radius: 6px;
+}
+#calculator .standard-box #slider {
+    width: 271px;
+}
+#calculator #calculator-box>#cal-dispatch-box {
+    height: 49vw;
+}
+#calculator #cal-dispatch-box div {
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+#cal-dispatch-box input[type="text"] {
+    width: 96%;
+}
+#cal-dispatch-box input[type="button"] {
+    right: 5%;
+    left: initial;
+}
+
+#aboutcompany .aboutcompany.text_box, #contacts .contacts.text_box {
+    margin-top: 100px;
+}
+#aboutcompany .picture-back, #contacts .picture-back {
+    width: 96%;
+    margin-left: 2%;
+}
+#special .special-plit .image {
+    height: 64vw;
 }
 
 

@@ -51,7 +51,7 @@
 			<li><a href="<?php echo $generalcatalog; ?>">Каталог</a></li>
 			<li><a href="<?php echo $calculator; ?>">Расчет стоимости</a></li>
 			<li><a href="<?php echo $aboutcompany; ?>">О компании</a></li>
-			<li><a href="<?php echo $review; ?>">Отзывы</a></li>
+			<!-- <li><a href="<?php echo $review; ?>">Отзывы</a></li> -->
 			<li><a href="<?php echo $contacts; ?>">Контакты</a></li>
 			<li><a href="<?php echo $special; ?>">Акции</a></li>
 			<hr>

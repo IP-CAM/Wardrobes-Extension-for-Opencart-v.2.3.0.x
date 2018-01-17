@@ -19,11 +19,13 @@ class ControllerCalculatorCalculator extends Controller {
         $this->document->addScript('catalog/view/javascript/calculator.js');
         $this->document->addScript('catalog/view/javascript/modal_window.js');
 
-        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.css');
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
         $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+
 
          $this->document->addStyle('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.css');
          $this->document->addScript('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.js');
+        $this->document->addScript('catalog/view/javascript/jquery/touch-punch-ui/jquery.ui.touch-punch.js');
 
 
         $this->load->language('common/header');
@@ -38,6 +40,14 @@ class ControllerCalculatorCalculator extends Controller {
             'text' => $calculator_info['title'],
             'href' => $this->url->link('calculator/calculator')
         );
+
+        //for mobile version
+        if (isset($this->request->server['HTTP_REFERER'])) {
+            $referer_mobile = $this->request->server['HTTP_REFERER'];
+        } else {
+            $referer_mobile = $this->url->link('common/home');
+        }
+        $data['referer_mobile'] = $referer_mobile;
 
 
         $this->document->setTitle($calculator_info['meta_title']);

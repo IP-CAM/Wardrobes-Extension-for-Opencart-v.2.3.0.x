@@ -22,6 +22,13 @@ class ControllerContactsContacts extends Controller {
 
         //of table Calculator_description
 
+        //for mobile version
+        if (isset($this->request->server['HTTP_REFERER'])) {
+            $referer_mobile = $this->request->server['HTTP_REFERER'];
+        } else {
+            $referer_mobile = $this->url->link('common/home');
+        }
+        $data['referer_mobile'] = $referer_mobile;
 
         $this->document->setTitle($contacts_info['meta_title']);
         $this->document->setDescription($contacts_info['meta_description']);
