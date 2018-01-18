@@ -1,7 +1,7 @@
 <?php
 class ControllerExtensionModuleHomeModule extends Controller {
 	public function index($setting) {
-        $this->document->addScript('catalog/view/javascript/modal_window.js');
+
 
         $data['link_calculator'] = $this->url->link('calculator/calculator');
         $data['link_review'] = $this->url->link('review/review');

@@ -4,7 +4,8 @@ class ControllerProductProduct extends Controller {
 
 	public function index() {
 
-        $this->document->addScript('catalog/view/javascript/modal_window.js');
+        $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
         $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
         $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.js');
 		$this->load->language('product/product');
@@ -290,6 +291,7 @@ class ControllerProductProduct extends Controller {
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['characteristic'] = html_entity_decode($product_info['characteristic'], ENT_QUOTES, 'UTF-8');
+
 
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];

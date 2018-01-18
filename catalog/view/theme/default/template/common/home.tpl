@@ -206,7 +206,6 @@
 			<button title="Заказать"
 					name="service_button"
 					style="width: 115px;"
-					data-modal="1"
 					class="button-style-1"
 					onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
 				Заказать
@@ -223,26 +222,28 @@
 		<div class="col-xs-12" >
 			<div id="background-service">
 				<!-- <img style="position: relative; width: 100%; height: 100%;" src="../catalog/view/theme/default/image/home-service-mobile.jpg"> -->
-				<p>Выезд специалиста на замер,<br>
+				<p name="text_free">Выезд специалиста на замер,<br>
 					составление эскиза на месте в подарок.
 					Услуга предоставляется для прихожих,
 					гардеробных, встроенных и других шкафов. </p>
-				<div class="service_input">
-					<input type="text" data-modal="1" name="name" value="" placeholder="ФИО" class="text-center">
-					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
+				<div class="bottom-box">
+					<div class="service_input">
+						<input type="text" data-modal="2" name="name" value="" placeholder="ФИО" class="text-center">
+						<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите имя</span>
+					</div>
+					<div class="service_input text-center">
+						<input type="text" data-modal="2" name="telephone" value="" placeholder="Введите свой телефон" class="text-center">
+						<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</span>
+					</div>
+					<button title="Заказать"
+							name="service_button"
+							style="width: 115px; margin-bottom: 5vw;"
+							class="button-style-1"
+							data-modal="2"
+							onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
+						Заказать
+					</button>
 				</div>
-				<div class="service_input text-center">
-					<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон" class="text-center">
-					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
-				</div>
-				<button title="Заказать"
-						name="service_button"
-						style="width: 115px; margin-bottom: 5vw;"
-						data-modal="2"
-						class="button-style-1"
-						onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
-					Заказать
-				</button>
 			</div>
 
 		</div>

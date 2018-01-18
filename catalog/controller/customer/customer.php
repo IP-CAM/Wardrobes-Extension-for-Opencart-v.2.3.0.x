@@ -33,6 +33,7 @@ class ControllerCustomerCustomer extends Controller {
         }
         $json = array();
         $json['html'] = $html;
+
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
 

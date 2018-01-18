@@ -31,13 +31,18 @@
 }
 
 #home .service p {
-    font-size: 14px;
+    font-size: 16px;
 }
 #home .service_input {
-    margin: 0;
+    margin: 10px;
 }
 #menu-mini h3 {
     display: none;
+}
+#home .service p {
+    padding-left: 0%;
+    padding-right: 0%;
+    line-height: 1.25;
 }
 
 /*category */

@@ -1,13 +1,11 @@
 <?php echo $header; ?>
-<!-- modal window start -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			KJH lskdjfsd klsdfnsdlk
-		</div>
-	</div>
+
+<!-- MODAL WINDOW BEGIN -->
+<div class="overlay modal_window_box" style="display: none" title="окно"></div>
+<div class="popup modal_window_box" id="modal_window_box" style="display: none">
+	<div class="close_window">x</div>
 </div>
-<!-- modal window end -->
+<!-- MODAL WINDOW BEGIN END -->
 
 
 
@@ -20,7 +18,7 @@
 </div>
 <!-- PUPAP MESSAGE END -->
 
-
+<input type="hidden" name="product_id" data-modal="1" value="<?php echo $product_id; ?>" />
 
 
 <div class="container visible-lg"  id="product">
@@ -199,7 +197,7 @@
 			<div class="text text-right">Если возникли вопросы, вы можете обратиться в нашу справочную службу, мы Вам перезвоним через 20 секунд.</div>
 			<div>
 				<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-fild-telephone">
-				<input type="button" name="active" data-modal="1" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;" value="Отправить" class="button-style-2" style="margin-left: 6px;"  />
+				<input type="button" name="active-phone" data-modal="1" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;" value="Отправить" class="button-style-2" style="margin-left: 6px;"  />
 			</div>
 			<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 		</div>
@@ -221,6 +219,8 @@
 
 		<button
 		   title="Заказать"
+		   data-modal="2"
+		   name="to_order"
 		   class="due button-style-1 font-type-verdana font-size-18"
 		   style="margin-bottom: 15px; line-height: 39px;">Заказать
 		</button>
@@ -298,6 +298,8 @@
 		<div class="col-xs-12 button-calc-mobile">
 			<button
 			   title="Заказать товар"
+			   data-modal="3"
+			   name="to_order"
 			   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
 			   class="due button-style-1 font-type-verdana font-size-18">Заказать
 			</button>
@@ -424,9 +426,9 @@
 			<div class="border-gray" id="phone-add">
 				<p class="font-size-14">Если возникли вопросы, вы можете обратиться
 					в нашу справочную службу, мы вам перезвоним через 20 секунд.</p>
-				<input type="text" name="telephone" data-modal="2" value="" placeholder="Ваш телефон" class="input-fild-telephone">
-				<input type="button" name="active" data-modal="2" value="Отправить" class="button-style-2" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"/>
-				<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</span>
+				<input type="text" name="telephone" data-modal="4" value="" placeholder="Ваш телефон" class="input-fild-telephone">
+				<input type="button" name="active-phone" data-modal="4" value="Отправить" class="button-style-2" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"/>
+				<span class="error" data-modal="4" hidden="hidden">Пожалуйста, введите телефон</span>
 			</div>
 		</div>
 	</div>

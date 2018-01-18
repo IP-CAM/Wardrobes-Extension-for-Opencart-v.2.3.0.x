@@ -194,6 +194,12 @@ h2 {
     top: 11px;
     left: -171px;
 }
+#home .bottom-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 
 

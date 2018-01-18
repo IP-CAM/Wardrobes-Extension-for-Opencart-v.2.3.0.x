@@ -159,32 +159,7 @@ $(document).ready(function() {
         slideout.toggle();
     });
 
-    // For Home                 (Page Validation telephone)
-    if ($('#home').length > 0) {
-        $("[name='service_button']").click(function (event) {
-            var error = 0;
-            if ($("[name='name']:visible").val() == '') {
-                $("[name='name']").parent().find('.error').show();
-                error = 1;
-            } else {
-                $("[name='name']").parent().find('.error').hide();
-            }
-            if ($("[name='telephone']:visible").val() == '') {
-                $("[name='telephone']").parent().find('.error').show();
-                error = 1;
-            } else {
-                $("[name='telephone']").parent().find('.error').hide();
-            }
-            if (!error) {
-                if (mobileDetect()) {
-                    ajaxClientCall(2, 4, 1);
-                } else {
-                    ajaxClientCall(1, 4, 1);
-                }
 
-            }
-        });
-    }
 
 
 
@@ -233,6 +208,52 @@ $(document).ready(function() {
 });
 
 
+
+//FOR HOME BEGIN
+// For Home
+function textHomeClip() {
+    if ($(window).width() < 480) {
+        $("[name='text_free']").text('Выезд специалиста на замер, составление эскиза на месте в подарок.');
+    } else {
+        $("[name='text_free']").text('Выезд специалиста на замер, составление эскиза на месте в подарок. Услуга предоставляется для прихожих, гардеробных, встроенных и других шкафов.');
+    }
+}
+$(window).resize(function () {
+    textHomeClip();
+});
+
+// (Page Validation telephone)
+$(document).ready(function() {
+    textHomeClip();
+    if ($('#home').length > 0) {
+        $("[name='service_button']").click(function (event) {
+            var error = 0;
+            if ($("[name='name']:visible").val() == '') {
+                $("[name='name']").parent().find('.error').show();
+                error = 1;
+            } else {
+                $("[name='name']").parent().find('.error').hide();
+            }
+            if ($("[name='telephone']:visible").val() == '') {
+                $("[name='telephone']").parent().find('.error').show();
+                error = 1;
+            } else {
+                $("[name='telephone']").parent().find('.error').hide();
+            }
+            if (!error) {
+                if (mobileDetect()) {
+                    ajaxClientCall(2, 4, 0);
+                } else {
+                    ajaxClientCall(1, 4, 0);
+                }
+
+            }
+        });
+    }
+});
+
+//FOR HOME END
+
 //FOR PRODUCT BEGIN
 
     $(document).ready(function() {
@@ -257,8 +278,8 @@ $(document).ready(function() {
                 $('#message-characteristic').hide();
             });
 
-
-            $("[name='active']").click(function (event) {
+            //Форма для ввода телефона
+            $("[name='active-phone']").click(function (event) {
                 var root = $(this).parent();
                 var text = root.find("[name='telephone']").val();
                 if (text == '') {
@@ -267,9 +288,18 @@ $(document).ready(function() {
                 } else {
                     $('.phone-box .error').hide();
                     $('.error').hide();
+                    $("[name='product_id']").data('modal', $(this).data('modal'));
+
                     ajaxClientCall($(this).data('modal'), 3, 0);
                 }
             });
+
+            //Модальное окно с вводом телефона
+            $("[name='to_order']").click(function (event) {
+                    $("[name='product_id']").data('modal', $(this).data('modal'));
+                    ajaxClientCall($(this).data('modal'), 3, 1);
+            });
+
 
             $('.thumbnails').magnificPopup({
                 type: 'image',
