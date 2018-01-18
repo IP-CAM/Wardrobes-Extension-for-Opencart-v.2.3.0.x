@@ -7,6 +7,9 @@ class ControllerCommonHome extends Controller {
         $this->document->setDescription($this->config->get('config_meta_description'));
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
 
+        $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
+
         if (isset($this->request->get['route'])) {
             $this->document->addLink($this->config->get('config_url'), 'canonical');
         }
@@ -56,17 +59,24 @@ class ControllerCommonHome extends Controller {
 
 
         $comments = array(
-            ['name' => 'Алёна Соболева', 'text' => 'Купила шкаф-купе в «Центр Мебели» и не пожалела о том, что выбрала их. Цены ниже чем на других сайтах, качество, а также своевременная доставка. Сам шкаф большой и вместительный, всё работает. Выполнили  мои пожелания и рекомендации. Вся семья довольна... также посоветую всем своим подругам'],
-            ['name' => 'Иван Пучков', 'text' => 'Для своей квартиры искал шкаф-купе. Мой шкаф-купе был нестандартный размера,поэтому решили, что нужно составить индивидуальный проект. После консультации с дизайнером-замерщиком, сделали небольшие поправки в проекте... Доставили быстро, вопреки сомнениям, я был удивлён качественной сборкой, разнообразием материалов,  и приятными менеджерами в фирме. Всем советую!'],
-            ['name' => 'Арина Игнатьевна', 'text' => 'Нашла Вас в ВКонтакте и захотела купить шкаф-купе.  Была приятно удивлена большим количеством  цветов шкафов и материалов. Меня консультировала  менеджер Наташа,  очень любезная девушка, которая подобрала дизайн шкафа и сказала его стоимость. Всё очень здорово... настоящие «профессионалы своего дела»!']
+            ['name' => 'Алёна Соболева', 'text' => 'Купила шкаф-купе в магазине «Центр Мебели» и не пожалела о том, что выбрала их. Цены ниже чем на других сайтах, качество, а также своевременная доставка. Сам шкаф большой и вместительный, всё работает. Выполнили мои пожелания и рекомендации. Вся семья довольна... посоветую всем своим подругам!'],
+            ['name' => 'Иван Савельев', 'text' => 'Был потрясён большим количеством цветов и материалов. Позвонил. Меня консультировала менеджер Наташа, очень любезная девушка, которая подобрала дизайн дверей-купе и посчитала стоимость. Купил шкаф-купе - очень здорово. Настоящие профессионалы своего дела!'],
+            ['name' => 'Арина Игнатьевна', 'text' => 'Долго искала где купить шкаф-купе. Хотела заказать шкаф нестандартного размера, поэтому специально решила купить у производителя. После консультации с менеджером внесли небольшие поправки в изначальном проекте. Сделали и доставили, вопреки сомнениям, быстро. Была приятно удивлена бесплатной доставкой и сборкой.']
         );
+
+
+
+        $this->load->model('tool/image');
 
         $comments_norm = array();
         foreach($comments as $key => $comment) {
+            //$file_path_image_old = $server .'image/catalog/home/home-review-' . ($key+1) . '.jpg';
+
+
             $comment_norm = array();
             $comment_norm['id'] = $key;
             $comment_norm['name'] = $comment['name'];
-            $comment_norm['path_image'] = $server . 'image/catalog/home/home-review-' . ($key+1) . '.jpg';
+            $comment_norm['path_image'] = $this->model_tool_image->resize('catalog/home/home-review-' . ($key+1) . '.jpg', 150, 150);
             $comment_norm['href'] = '';
             $comment_norm['title'] = '';
             $comment_norm['alt'] = $comment['name'];
@@ -85,4 +95,56 @@ class ControllerCommonHome extends Controller {
 
 		$this->response->setOutput($this->load->view('common/home', $data));
 	}
+
+
+    /**
+     * @param string $aInitialImageFilePath - строка, представляющая путь к обрезаемому изображению
+     * @param string $aNewImageFilePath - строка, представляющая путь куда нахо сохранить выходное обрезанное изображение
+     * @param int $aNewImageWidth - ширина выходного обрезанного изображения
+     * @param int $aNewImageHeight - высота выходного обрезанного изображения
+     */
+    function cropImage($aInitialImageFilePath, $aNewImageFilePath, $aNewImageWidth, $aNewImageHeight) {
+        if (($aNewImageWidth < 0) || ($aNewImageHeight < 0)) {
+            return false;
+        }
+
+        // Массив с поддерживаемыми типами изображений
+        $lAllowedExtensions = array(1 => "gif", 2 => "jpeg", 3 => "png");
+
+        // Получаем размеры и тип изображения в виде числа
+        list($lInitialImageWidth, $lInitialImageHeight, $lImageExtensionId) = getimagesize($aInitialImageFilePath);
+
+        if (!array_key_exists($lImageExtensionId, $lAllowedExtensions)) {
+            return false;
+        }
+        $lImageExtension = $lAllowedExtensions[$lImageExtensionId];
+
+        // Получаем название функции, соответствующую типу, для создания изображения
+        $func = 'imagecreatefrom' . $lImageExtension;
+        // Создаём дескриптор исходного изображения
+        $lInitialImageDescriptor = $func($aInitialImageFilePath);
+
+        // Определяем отображаемую область
+        $lCroppedImageWidth = 0;
+        $lCroppedImageHeight = 0;
+        $lInitialImageCroppingX = 0;
+        $lInitialImageCroppingY = 0;
+        if ($aNewImageWidth / $aNewImageHeight > $lInitialImageWidth / $lInitialImageHeight) {
+            $lCroppedImageWidth = floor($lInitialImageWidth);
+            $lCroppedImageHeight = floor($lInitialImageWidth * $aNewImageHeight / $aNewImageWidth);
+            $lInitialImageCroppingY = floor(($lInitialImageHeight - $lCroppedImageHeight) / 2);
+        } else {
+            $lCroppedImageWidth = floor($lInitialImageHeight * $aNewImageWidth / $aNewImageHeight);
+            $lCroppedImageHeight = floor($lInitialImageHeight);
+            $lInitialImageCroppingX = floor(($lInitialImageWidth - $lCroppedImageWidth) / 2);
+        }
+
+        // Создаём дескриптор для выходного изображения
+        $lNewImageDescriptor = imagecreatetruecolor($aNewImageWidth, $aNewImageHeight);
+        imagecopyresampled($lNewImageDescriptor, $lInitialImageDescriptor, 0, 0, $lInitialImageCroppingX, $lInitialImageCroppingY, $aNewImageWidth, $aNewImageHeight, $lCroppedImageWidth, $lCroppedImageHeight);
+        $func = 'image' . $lImageExtension;
+
+        // сохраняем полученное изображение в указанный файл
+        return $func($lNewImageDescriptor, $aNewImageFilePath);
+    }
 }

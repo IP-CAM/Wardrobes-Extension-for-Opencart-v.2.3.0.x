@@ -1422,7 +1422,7 @@ footer #f-padding {
     font-size: 11px;
 }
 
-#cal-calculation-box #calculation_button {
+#cal-calculation-box .calculation-button {
     position: absolute;
     top: 153px;
     left: 410px;
@@ -2275,7 +2275,10 @@ footer #f-padding {
     height: 30px;
     line-height: 21px;
 }
-
+#home .comments_image {
+    width: 100px;
+    border-radius: 50%;
+}
 
 
 

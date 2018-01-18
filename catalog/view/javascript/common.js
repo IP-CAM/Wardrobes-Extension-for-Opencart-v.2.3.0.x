@@ -160,43 +160,33 @@ $(document).ready(function() {
     });
 
     // For Home                 (Page Validation telephone)
-    $("[name='service_button']").click(function (event) {
-        var error = 0;
-        if($("[name='name']").val() == '') {
-            $("[name='name']").parent().find('.error').show();
-            error = 1;
-        } else {
-            $("[name='name']").parent().find('.error').hide();
-        }
-        if($("[name='telephone']").val() == '') {
-            $("[name='telephone']").parent().find('.error').show();
-            error = 1;
-        } else {
-            $("[name='telephone']").parent().find('.error').hide();
-        }
-        if(!error) {
-            ajaxClientCall(1,4,0);
-        }
-    });
+    if ($('#home').length > 0) {
+        $("[name='service_button']").click(function (event) {
+            var error = 0;
+            if ($("[name='name']:visible").val() == '') {
+                $("[name='name']").parent().find('.error').show();
+                error = 1;
+            } else {
+                $("[name='name']").parent().find('.error').hide();
+            }
+            if ($("[name='telephone']:visible").val() == '') {
+                $("[name='telephone']").parent().find('.error').show();
+                error = 1;
+            } else {
+                $("[name='telephone']").parent().find('.error').hide();
+            }
+            if (!error) {
+                if (mobileDetect()) {
+                    ajaxClientCall(2, 4, 1);
+                } else {
+                    ajaxClientCall(1, 4, 1);
+                }
 
-    $("[name='service_button-mobile']").click(function (event) {
-        var error = 0;
-        if($("[name='name-mobile']").val() == '') {
-            $("[name='name-mobile']").parent().find('.error').show();
-            error = 1;
-        } else {
-            $("[name='name-mobile']").parent().find('.error').hide();
-        }
-        if($("[name='telephone-mobile']").val() == '') {
-            $("[name='telephone-mobile']").parent().find('.error').show();
-            error = 1;
-        } else {
-            $("[name='telephone-mobile']").parent().find('.error').hide();
-        }
-        if(!error) {
-            ajaxClientCall(1,4,0);
-        }
-    });
+            }
+        });
+    }
+
+
 
     //For category
     if($('#category').length > 0) {
@@ -356,8 +346,14 @@ $(document).ready(function() {
         }
 });
 
-
-
+//Моя фуекция
+function mobileDetect() {
+    var mobile_detect = false;
+    if($('.hidden-lg').is(':visible')) {
+        mobile_detect = true; //Для компьютерной версии
+    }
+    return mobile_detect;
+}
 
 
 /* Agree to Terms */

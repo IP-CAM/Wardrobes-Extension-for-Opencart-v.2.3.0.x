@@ -109,7 +109,7 @@
 #calculator #calculator-box>#cal-dispatch-box {
     height: 49vw;
 }
-#calculator #cal-dispatch-box div {
+#calculator #cal-dispatch-box .calculator_dispatch {
     position: absolute;
     top: 75%;
     left: 0;
@@ -123,6 +123,19 @@
     right: 5%;
     left: initial;
 }
+#calculator-box .error-box {
+    padding-left: 9px;
+}
+
+
+#calculator #banner-mobile {
+    content: url('../image/calculator_banner_mini.jpg');
+    height: 49vw;
+    width: 100%;
+}
+
+
+
 
 #aboutcompany .aboutcompany.text_box, #contacts .contacts.text_box {
     margin-top: 100px;

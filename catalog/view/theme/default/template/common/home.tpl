@@ -1,19 +1,9 @@
-<!-- modal window start -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
-	 aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
-			<div class="modal-body" id="modal-body">
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Ок</button>
-			</div>
-		</div>
-	</div>
-</div> <!-- modal window end -->
+<!-- MODAL WINDOW BEGIN -->
+<div class="overlay modal_window_box" style="display: none" title="окно"></div>
+<div class="popup modal_window_box" id="modal_window_box" style="display: none">
+	<div class="close_window">x</div>
+</div>
+<!-- MODAL WINDOW BEGIN END -->
 
 
 <?php echo $header; ?>
@@ -216,6 +206,7 @@
 			<button title="Заказать"
 					name="service_button"
 					style="width: 115px;"
+					data-modal="1"
 					class="button-style-1"
 					onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
 				Заказать
@@ -237,16 +228,17 @@
 					Услуга предоставляется для прихожих,
 					гардеробных, встроенных и других шкафов. </p>
 				<div class="service_input">
-					<input type="text" data-modal="1" name="name-mobile" value="" placeholder="ФИО" class="text-center">
+					<input type="text" data-modal="1" name="name" value="" placeholder="ФИО" class="text-center">
 					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
 				</div>
 				<div class="service_input text-center">
-					<input type="text" data-modal="1" name="telephone-mobile" value="" placeholder="Введите свой телефон" class="text-center">
+					<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон" class="text-center">
 					<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 				</div>
 				<button title="Заказать"
-						name="service_button-mobile"
+						name="service_button"
 						style="width: 115px; margin-bottom: 5vw;"
+						data-modal="2"
 						class="button-style-1"
 						onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;">
 					Заказать

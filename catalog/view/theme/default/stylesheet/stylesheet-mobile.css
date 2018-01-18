@@ -1,8 +1,6 @@
 /*    mobile version */
 /*header */
-#calculator #banner div:before {
-    content: url('../image/calculator_banner_mini.jpg');
-}
+
 
 .container {
     padding-right: 15px;
@@ -688,13 +686,13 @@ h2 {
     margin: 0;
     margin-bottom: 14px;
 }
-#calculator #cal-calculation-box #calculation_button {
+#calculator #cal-calculation-box .calculation-button {
     position: static;
     width: 225px;
     height: 35px;
     margin-bottom: 14px;
 }
-#calculator #cal-dispatch-box div {
+#calculator #cal-dispatch-box .calculator_dispatch {
     position: relative;
     top: 130px;
     left: 0;
@@ -707,6 +705,13 @@ h2 {
 #cal-dispatch-box {
     background-size: contain;
 }
+#calculator-box {
+    padding-bottom: 20px;
+}
+#calculator-box  .error-box {
+    display: block;
+    position: static;
+}
 
 /* slider */
 #calculator .ui-slider-horizontal .ui-slider-handle {
@@ -715,6 +720,13 @@ h2 {
 #calculator .ui-slider .ui-slider-handle {
     width: 22px;
     height: 22px;
+}
+
+
+#calculator #banner-mobile {
+    content: url('../image/calculator_banner_mini.jpg');
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 
