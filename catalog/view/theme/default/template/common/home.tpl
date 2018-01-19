@@ -32,52 +32,33 @@
 
 
 <div class="row tile_banner visible-lg">
-	<div class="block-im block-root-1">
-		<div class="block-im-1">
-			<a href="<?php echo $tile_banner_standard['href']; ?>">
-				<img src="<?php echo $tile_banner_standard['path_image']; ?>"
-					 title="<?php echo $tile_banner_standard['title']; ?>"
-					 alt="<?php echo $tile_banner_standard['alt']; ?>"
-					 class="img-responsive"/></a>
-		</div>
-		<div class="block-im-2">
-			<a href="<?php echo $tile_banner_radius['href']; ?>">
-				<img src="<?php echo $tile_banner_radius['path_image']; ?>"
-					 title="<?php echo $tile_banner_radius['title']; ?>"
-					 alt="<?php echo $tile_banner_radius['alt']; ?>"
-					 class="img-responsive"/></a>
-		</div>
-
-	</div>
-	<div class="block-im text-center block-root-2">
-		<a href="<?php echo $tile_banner_calculator['href']; ?>">
-			<img src="<?php echo $tile_banner_calculator['path_image']; ?>"
-				 title="<?php echo $tile_banner_calculator['title']; ?>"
-				 alt="<?php echo $tile_banner_calculator['alt']; ?>"
-				 class="img-responsive"/></a>
-	</div>
-
-	<div class="block-im block-root-3">
-
-		<div class="block-im-4">
-			<a href="<?php echo $tile_banner_built_in['href']; ?>">
-				<img src="<?php echo $tile_banner_built_in['path_image']; ?>"
-					 title="<?php echo $tile_banner_built_in['title']; ?>"
-					 alt="<?php echo $tile_banner_built_in['alt']; ?>"
-					 class="img-responsive"/></a>
-		</div>
-
-
-		<div class="block-im-5">
-			<a href="<?php echo $tile_banner_dressing_rooms['href']; ?>">
-				<img src="<?php echo $tile_banner_dressing_rooms['path_image']; ?>"
-					 title="<?php echo $tile_banner_dressing_rooms['title']; ?>"
-					 alt="<?php echo $tile_banner_dressing_rooms['alt']; ?>"
-					 class="img-responsive"/></a>
+	<div class="col-lg-12">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-lg-12">
+						<?php echo $box_images_html['standard']; ?>
+					</div>
+					<div class="col-lg-12">
+						<?php echo $box_images_html['radius']; ?>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<?php echo $box_images_html['calculator']; ?>
+			</div>
+			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-lg-12">
+						<?php echo $box_images_html['built_in']; ?>
+					</div>
+					<div class="col-lg-12">
+						<?php echo $box_images_html['dressing_room']; ?>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
-
 </div>
 
 

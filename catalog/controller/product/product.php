@@ -4,6 +4,13 @@ class ControllerProductProduct extends Controller {
 
 	public function index() {
 
+        if(isset($this->session->data['products_id']))
+        {
+            if(!in_array($this->request->get['product_id'], $this->session->data['products_id']))
+                $this->session->data['products_id'][] = $this->request->get['product_id'];
+        }
+        else $this->session->data['products_id'][] = $this->request->get['product_id'];
+
         $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
         $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
         $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');

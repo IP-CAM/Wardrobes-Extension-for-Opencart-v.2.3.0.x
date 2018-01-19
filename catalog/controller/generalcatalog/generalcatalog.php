@@ -33,7 +33,6 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
             $server = $this->config->get('config_url');
         }
 
-
         $box_images_ar = array(
             ['name_img'=>'standard', 'name'=>'Стандартные' , 'id' =>'67'],
             ['name_img'=>'built_in','name'=>'Встроенные' , 'id' =>'60'],

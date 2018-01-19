@@ -17,45 +17,106 @@ class ControllerCommonHome extends Controller {
 
         $data['link_calculator'] = $this->url->link('calculator/calculator');
         $data['link_review'] = $this->url->link('review/review');
+
+
         if ($this->request->server['HTTPS']) {
             $server = $this->config->get('config_ssl');
         } else {
             $server = $this->config->get('config_url');
         }
-        $tile_banner_standard = array();
-        $tile_banner_standard['path_image'] = $server . 'image/catalog/banners/home-standard.jpg';
-        $tile_banner_standard['href'] = $this->url->link('product/category', 'path=67_67');
-        $tile_banner_standard['title'] = 'Стандартные';
-        $tile_banner_standard['alt'] = 'Стандартные';
-        $data['tile_banner_standard'] = $tile_banner_standard;
 
-        $tile_banner_radius = array();
-        $tile_banner_radius['path_image'] = $server . 'image/catalog/banners/home-radius.jpg';
-        $tile_banner_radius['href'] = $this->url->link('product/category', 'path=64_64');
-        $tile_banner_radius['title'] = 'Радиусные';
-        $tile_banner_radius['alt'] = 'Радиусные';
-        $data['tile_banner_radius'] = $tile_banner_radius;
+        $box_images_ar = array(
+            ['name_img'=>'standard', 'name'=>'Стандартные' , 'id' =>'67'],
+            ['name_img'=>'built_in','name'=>'Встроенные' , 'id' =>'60'],
+            ['name_img'=>'radius','name'=>'Радиусные' , 'id' =>'64'],
+            ['name_img'=>'dressing_room', 'name'=>'Гардеробные' , 'id' =>'68'],
+            ['name_img'=>'calculator','name'=>'Рассчет стоимости' , 'id' =>'-1']
+        );
+        $box_images_mobile = array();
+        foreach($box_images_ar as $box_image_ar) {
+            $box_image = array();
+            $box_image['path_image'] = $server . 'image/catalog/home/banners/desktop/' . $box_image_ar['name_img']. '.jpg';
+            $box_image['name'] = $box_image_ar['name'];
+            $box_image['name_img'] = $box_image_ar['name_img'];
+            if($box_image_ar['id'] != -1) {
+                $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_ar['id'] . '_' . $box_image_ar['id']);
+            } else {
+                $box_image['href'] = $this->url->link('calculator/calculator');
+            }
+            $box_images_mobile[] = $box_image;
+        }
 
-        $tile_banner_calculator = array();
-        $tile_banner_calculator['path_image'] = $server . 'image/catalog/banners/home-calculator.jpg';
-        $tile_banner_calculator['href'] = $this->url->link('calculator/calculator');
-        $tile_banner_calculator['title'] = 'Шкафы-купе на заказ';
-        $tile_banner_calculator['alt'] = 'Шкафы-купе на заказ';
-        $data['tile_banner_calculator'] = $tile_banner_calculator;
 
-        $tile_banner_built_in = array();
-        $tile_banner_built_in['path_image'] = $server . 'image/catalog/banners/home-built-in.jpg';
-        $tile_banner_built_in['href'] = $this->url->link('product/category', 'path=60_60');
-        $tile_banner_built_in['title'] = 'Встроенные';
-        $tile_banner_built_in['alt'] = 'Встроенные';
-        $data['tile_banner_built_in'] = $tile_banner_built_in;
+        $box_images_html = array();
+        foreach($box_images_mobile as $key => $box_image) {
+            $html_block = '';
+            $html_block .= '<a class="reference" href="' . $box_image['href'] . '">';
+            $html_block .= '<div class="box" id="box-' . ((int)$key + 1) . '">';
+            $html_block .= '<div class="image-box">';
+            $html_block .= '<img src="' . $box_image['path_image'] . '"';
+            $html_block .= 'title="' . $box_image['name'] . ' "';
+            $html_block .= 'alt="' . $box_image['name'] . '"';
+            $html_block .= 'class="img-responsive center-block"/>';
+            $html_block .= '</div>';
+            $html_block .= '<div class="name-box name-box text-center">';
+            $html_block .= '<p class="font-type-georgia">' . $box_image['name'] . '</p>';
+            $html_block .= '</div>';
+            $html_block .= '</div>';
+            $html_block .= '</a>';
+            $box_images_html[$box_image['name_img']] = $html_block;
+        }
+        $data['box_images_html'] = $box_images_html;
 
-        $tile_banner_dressing_rooms = array();
-        $tile_banner_dressing_rooms['path_image'] = $server . 'image/catalog/banners/home-dressing-rooms.jpg';
-        $tile_banner_dressing_rooms['href'] = $this->url->link('product/category', 'path=68_68');
-        $tile_banner_dressing_rooms['title'] = 'Гардеробные';
-        $tile_banner_dressing_rooms['alt'] = 'Гардеробные';
-        $data['tile_banner_dressing_rooms'] = $tile_banner_dressing_rooms;
+
+
+        //mobile version
+        if (isset($this->request->server['HTTP_REFERER'])) {
+            $referer_mobile = $this->request->server['HTTP_REFERER'];
+        } else {
+            $referer_mobile = $this->url->link('common/home');
+        }
+        $data['referer_mobile'] = $referer_mobile;
+
+
+        $box_images_mobile_ar = array(
+            ['name_img'=>'standard', 'name'=>'Стандартные' , 'id' =>'67'],
+            ['name_img'=>'built_in','name'=>'Встроенные' , 'id' =>'60'],
+            ['name_img'=>'corner','name'=>'Угловые' , 'id' =>'66'],
+            ['name_img'=>'our_work','name'=>'Наши работы' , 'id' =>'70'],
+            ['name_img'=>'radius','name'=>'Радиусные' , 'id' =>'64'],
+            ['name_img'=>'hallway','name'=>'Прихожие' , 'id' =>'69'],
+            ['name_img'=>'dressing_room', 'name'=>'Гардеробные' , 'id' =>'68']
+        );
+        $box_images_mobile = array();
+        foreach($box_images_mobile_ar as $box_image_mobile_ar) {
+            $box_image = array();
+            $box_image['path_image'] = $server . 'image/catalog/generalcatalog/mobile/' . $box_image_mobile_ar['name_img']. '.jpg';
+            $box_image['name'] = $box_image_mobile_ar['name'];
+            $box_image['name_img'] = $box_image_mobile_ar['name_img'];
+            $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_mobile_ar['id'] . '_' . $box_image_mobile_ar['id']);
+            $box_images_mobile[] = $box_image;
+        }
+
+        $box_images_mobile_html = array();
+        foreach($box_images_mobile as $key => $box_image_mobile) {
+            $html_block = '';
+            $html_block .= '<a class="reference-mobile" href="' . $box_image_mobile['href'] . '">';
+            $html_block .= '<div class="box-mobile" id="box-' . ((int)$key + 1) . '">';
+            $html_block .= '<div class="image-box">';
+            $html_block .= '<img src="' . $box_image_mobile['path_image'] . '"';
+            $html_block .= 'title="' . $box_image_mobile['name'] . ' "';
+            $html_block .= 'alt="' . $box_image_mobile['name'] . '"';
+            $html_block .= 'class="img-responsive center-block"/>';
+            $html_block .= '</div>';
+            $html_block .= '<div class="name-box name-box-mobile text-center">';
+            $html_block .= '<p class="font-type-georgia">' . $box_image_mobile['name'] . '</p>';
+            $html_block .= '</div>';
+            $html_block .= '</div>';
+            $html_block .= '</a>';
+            $box_images_mobile_html[$box_image_mobile['name_img']] = $html_block;
+        }
+        $data['box_images_mobile_html'] = $box_images_mobile_html;
+
 
 
         $comments = array(

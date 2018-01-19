@@ -1,4 +1,4 @@
-
+<?php if(isset($products)) { ?>
 <div class="col-lg-12" style="padding: 0; margin:0">
 	<h2 class="line-red font-size-30 font-type-georgia" id="visitproduct-maiker"><?php echo $heading_title; ?></h2>
 	<div id="carousel" class="carousel-control" data-ride="carousel">
@@ -26,19 +26,22 @@
 
 	</div>
 </div>
-
+<?php } ?>
 <script>
 
 
 
 	$(document).ready(function () {
-		$("#carousel").owlCarousel({
-			interval: 500,
-			navigation: true,
-			items: 4,
-			pagination:  false,
-			navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
-		});
+		if($("#carousel").length> 0) {
+			$("#carousel").owlCarousel({
+				interval: 500,
+				navigation: true,
+				items: 4,
+				pagination:  false,
+				navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
+			});
+		}
+
 	});
 
 
