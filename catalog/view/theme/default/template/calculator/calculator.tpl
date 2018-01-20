@@ -135,7 +135,6 @@
 								   name="calculation_button"
 								   data-modal="1"
 								   class="calculation-button button-style-1"
-								   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
 								   value="Заказать"/>
 						</div>
 					</div>
@@ -146,7 +145,6 @@
 							<input type="button"
 								   name="dispatch-button"
 								   data-modal="1"
-								   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
 								   value="Отправить"
 								   class="button-style-1" />
 							<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
@@ -288,7 +286,7 @@
 								<span class="cal_sub_price " name="cal_sub_price">При включенном JS тут отображается цена</span>
 								<h2 class="cal_top_price font-type-verdana" name="cal_top_price">При включенном JS тут отображается цена</h2>
 								<input type="button"
-									   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
+
 									   name="calculation_button"
 									   data-modal="2"
 									   class="calculation-button button-style-1"
@@ -307,7 +305,6 @@
 						   name="dispatch-button"
 						   data-modal="2"
 						   value="Отправить"
-						   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
 						   class="button-style-1" />
 					<div class="error-box">
 						<p class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</p>

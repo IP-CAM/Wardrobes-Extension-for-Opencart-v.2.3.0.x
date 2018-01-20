@@ -76,7 +76,7 @@
 }
 /* OpenCart Code */
 .owl-carousel {
-	margin: 0 0 20px;
+	margin: 0px 0 40px;
 	background: #fff;
 	direction: ltr !important;
 	z-index: 1;
@@ -109,7 +109,8 @@
 }
 .owl-carousel .owl-buttons div i {
 	font-size: 40px;
-    margin: -9px 0 0;
+    margin: 0;
+    /*margin: -9px 0 0;*/
 }
 .owl-pagination {
 	text-align: center;

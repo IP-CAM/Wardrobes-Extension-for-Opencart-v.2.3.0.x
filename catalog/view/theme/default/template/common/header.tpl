@@ -64,11 +64,11 @@
 	<header>
 		<div class="container visible-lg">
 			<div class="row">
-				<div class="col-sm-3 text-left" id="header-left">
-					<h4 id="delivery">Доставка и установка:</h4>
-					<h3 id="address_city">г. Санкт-Петербург и Лениградская область</h3>
+				<div class="col-lg-3 text-left" id="header-left">
+					<h4>Доставка и установка:</h4>
+					<h3>г. Санкт-Петербург и Лениградская область</h3>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<div id="logo" class="text-center">
 						<?php if ($logo) { ?>
 						<a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"
@@ -79,10 +79,12 @@
 					</div>
 				</div>
 
-				<div class="col-sm-3 text-right" id="header-right">
-					<h4 id="time">График работы: 09:00 до 17:30</h4>
-					<h3 id="phone">+7 (812) 965 30 61</h3>
-					<h3 id="address">Уманский переулок, 71</h3>
+				<div class="col-lg-3 text-right">
+					<h4>График работы: 09:00 до 17:30</h4>
+					<div id="right-bottom-header">
+						<h3>+7 (812) 965 30 61</h3>
+						<h3>Уманский переулок, 71</h3>
+					</div>
 				</div>
 			</div>
 		</div>

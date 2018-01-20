@@ -197,7 +197,7 @@
 			<div class="text text-right">Если возникли вопросы, вы можете обратиться в нашу справочную службу, мы Вам перезвоним через 20 секунд.</div>
 			<div>
 				<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-fild-telephone">
-				<input type="button" name="active-phone" data-modal="1" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;" value="Отправить" class="button-style-2" style="margin-left: 6px;"  />
+				<input type="button" name="active-phone" data-modal="1" value="Отправить" class="button-style-2" style="margin-left: 6px;"  />
 			</div>
 			<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 		</div>
@@ -300,7 +300,6 @@
 			   title="Заказать товар"
 			   data-modal="3"
 			   name="to_order"
-			   onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"
 			   class="due button-style-1 font-type-verdana font-size-18">Заказать
 			</button>
 		</div>
@@ -427,7 +426,7 @@
 				<p class="font-size-14">Если возникли вопросы, вы можете обратиться
 					в нашу справочную службу, мы вам перезвоним через 20 секунд.</p>
 				<input type="text" name="telephone" data-modal="4" value="" placeholder="Ваш телефон" class="input-fild-telephone">
-				<input type="button" name="active-phone" data-modal="4" value="Отправить" class="button-style-2" onclick="yaCounter34144825.reachGoal('nomer', {URL: document.location.origin}); return true;"/>
+				<input type="button" name="active-phone" data-modal="4" value="Отправить" class="button-style-2"/>
 				<span class="error" data-modal="4" hidden="hidden">Пожалуйста, введите телефон</span>
 			</div>
 		</div>

@@ -33,29 +33,28 @@
 	</div>
 	<div class="row footer-body  visible-lg">
 
-		<div class="col-sm-4">
+		<div class="col-sm-4 list-box-footer">
 			<h3 class="text-center">Информация</h3>
 			<div class="col-lg-6">
-				<ul class="list-footer">
+				<ul class="list-footer one">
 					<li><a href="<?php echo $aboutcompany; ?>">О компании</a></li>
 					<li><a href="<?php echo $contacts; ?>">Контакты</a></li>
 					<li><a href="<?php echo $generalcatalog; ?>">Каталог</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-6">
-				<ul class="list-footer">
+				<ul class="list-footer two">
 					<li><a href="<?php echo $calculator; ?>">Расчет стоимости</a></li>
 					<li><a href="<?php echo $special; ?>">Акции</a></li>
-					<li><a href="<?php echo $review; ?>">Отзывы и предложения</a></li>
+					<!-- <li><a href="<?php echo $review; ?>">Отзывы и предложения</a></li> -->
 				</ul>
 			</div>
 		</div>
-		<div class="col-lg-4">
-			<h3 class=" text-center">Способы оплаты</h3>
-				<img src="<?php echo $base; ?>image/catalog/payment_methods.png"
+		<div class="col-lg-4 payment-methods-box">
+			<h3 class="payment-methods text-center">Способы оплаты</h3>
+				<img src="<?php echo $base; ?>image/catalog/footer/payment_methods.png"
 					 title="Способы оплаты"
-					 alt="Способы оплаты"
-					 class="img-responsive pull-right"/>
+					 alt="Способы оплаты"/>
 		</div>
 		<div class="col-lg-4">
 			<h3 class="text-center">Связаться с нами</h3>

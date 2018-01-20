@@ -42,19 +42,19 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
             ['name_img'=>'hallway','name'=>'Прихожие' , 'id' =>'69'],
             ['name_img'=>'dressing_room', 'name'=>'Гардеробные' , 'id' =>'68']
         );
-        $box_images_mobile = array();
+        $box_images = array();
         foreach($box_images_ar as $box_image_ar) {
             $box_image = array();
             $box_image['path_image'] = $server . 'image/catalog/generalcatalog/desktop/' . $box_image_ar['name_img']. '.jpg';
             $box_image['name'] = $box_image_ar['name'];
             $box_image['name_img'] = $box_image_ar['name_img'];
             $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_ar['id'] . '_' . $box_image_ar['id']);
-            $box_images_mobile[] = $box_image;
+            $box_images[] = $box_image;
         }
 
 
         $box_images_html = array();
-        foreach($box_images_mobile as $key => $box_image) {
+        foreach($box_images as $key => $box_image) {
             $html_block = '';
             $html_block .= '<a class="reference" href="' . $box_image['href'] . '">';
             $html_block .= '<div class="box" id="box-' . ((int)$key + 1) . '">';

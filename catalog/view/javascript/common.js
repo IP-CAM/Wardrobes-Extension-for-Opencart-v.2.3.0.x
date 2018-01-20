@@ -230,23 +230,38 @@ $(document).ready(function() {
             var error = 0;
             if ($("[name='name']:visible").val() == '') {
                 $("[name='name']").parent().find('.error').show();
-                error = 1;
+                error += 1;
             } else {
                 $("[name='name']").parent().find('.error').hide();
             }
             if ($("[name='telephone']:visible").val() == '') {
                 $("[name='telephone']").parent().find('.error').show();
-                error = 1;
+                error += 2;
             } else {
                 $("[name='telephone']").parent().find('.error').hide();
             }
             if (!error) {
                 if (mobileDetect()) {
+                    $('.service_input').css('margin', '3vw');
                     ajaxClientCall(2, 4, 0);
                 } else {
                     ajaxClientCall(1, 4, 0);
                 }
+            } else {
+                if (mobileDetect()) {
+                    $('.service_input').css('margin', '3vw');
+                    if(error == 1) {
+                        $('.service_input.one').css('margin', 0);
+                    }
+                    if(error == 2) {
+                        $('.service_input.two').css('margin', 0);
+                    }
+                    if(error == 3) {
+                        $('.service_input.one').css('margin', 0);
+                        $('.service_input.two').css('margin', 0);
+                    }
 
+                }
             }
         });
     }

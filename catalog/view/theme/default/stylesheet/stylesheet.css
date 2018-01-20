@@ -223,16 +223,6 @@ div.required .control-label:before {
     width: 160px;
 }
 
-/* search */
-#search {
-    margin-bottom: 10px;
-}
-
-#search .input-lg {
-    height: 40px;
-    line-height: 20px;
-    padding: 0 10px;
-}
 
 /* cart */
 #cart {
@@ -313,6 +303,7 @@ footer hr {
 
 footer a {
     color: black;
+    font-size: 12px;
 }
 
 
@@ -333,7 +324,35 @@ footer #line {
     text-align: center;
     margin-left: -15px;
 }
-
+footer li {
+    color:#e31616;
+    padding-bottom: 12px;
+    list-style-type: none;
+    position: relative;
+}
+footer li span {
+    color:black;
+}
+footer .list-footer {
+    font-size: 14px;
+}
+footer .list-footer li:before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    display: inline;
+    background: red;
+    border-radius: 2px;
+    left: -11px;
+    top: 8px;
+}
+/*footer .list-footer.two li:last-child::before {
+    top: 17px;
+}*/
+footer .payment-methods-box {
+    text-align: center;
+}
 /* alert */
 .alert {
     padding: 8px 14px 8px 14px;
@@ -523,7 +542,7 @@ footer #line {
 }
 
 
-/* carousel */
+/* carousel */ /*  TODO */
 .carousel-caption {
     color: #FFFFFF;
     text-shadow: 0 1px 0 #000000;
@@ -857,96 +876,75 @@ h2.price {
 }
 
 
-@media (min-width: 1200px) {
-    .service_box {
-        width: 398px;
-    }
-
-}
 
 
 
-footer li {
-    color:#e31616;
-    padding-bottom: 10px;
-}
-footer li span {
-    color:black;
-}
-.list-footer {
-    font-size: 14px;
-}
-
-header .col-sm-2 h3{
-    padding: 0;
-    margin: 0;
-}
 
 
 
 /* HEADER */
-#header-left>*, #header-right>* {
-    position:relative;
+header h3 {
+    padding: 0;
+    margin: 0;
 }
-#header-left #delivery{
-    top: 8px;
+header h4 {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
 }
-#header-left #address_city{
-    top: 3px;
+
+header #header-left h3 {
+    margin-top: 20px;
 }
-#header-right #time{
-    top: 8px;
-}
-#header-right #phone{
-    top: 3px;
-}
-#header-right #address{
-    top: -12px;
+header #right-bottom-header {
+    margin-top: 20px;
 }
 
 
 
 /*FOOTER */
+footer span {
+    font-size: 14px;
+}
 footer.container {
 
 }
-.footer-body {
+footer .footer-body {
     padding-top: 31px;
     padding-bottom: 12px;
 }
-.footer-body h3 {
+footer .footer-body h3 {
     font-size: 16px;
     padding-bottom: 15px;
 }
-.footer-body ul {
+footer .footer-body ul {
     padding: 0; /* Убираем поля */
     margin-left: 20px; /* Отступ слева */
     list-style-type: square;
 }
-.footer-body .list-unstyled {
+footer .footer-body .list-unstyled {
     padding-left: 53px;
 }
-.footer-body i {
+footer .footer-body i {
 
-    left: 61px;
+    left: -30px;
     position: absolute;
     font-size: 22px;
 }
-.footer-body i.fa-map-marker {
-    left: 42px;
+footer .footer-body i.fa-map-marker {
+    left: -30px;
     font-size: 22px;
 }
-.footer-body i.fa-mobile-phone {
-    left: 44px;
+footer .footer-body i.fa-mobile-phone {
+    left: -29px;
     font-size: 26px;
-    top: 96px;
 }
-.footer-body i.fa-envelope-o {
-    left: 40px;
+footer .footer-body i.fa-envelope-o {
+    left: -33px;
     font-size: 20px;
 }
 
-.footer-body-mini {
+footer .footer-body-mini {
     padding-bottom: 12px;
 }
 
@@ -958,7 +956,7 @@ footer .hidden-lg img {
 }
 
 
-.list-unstyled li {
+footer .list-unstyled li {
     font-size: 16px;
     list-style-type: none;
     list-style-position: outside;
@@ -966,11 +964,6 @@ footer .hidden-lg img {
 footer .down {
     padding-top: 12px;
     padding-bottom: 2px;
-}
-@media (max-width: 1200px) {
-    footer .down p {
-        font-size: 12px;
-    }
 }
 
 footer .f-up {
@@ -995,6 +988,9 @@ footer .info {
 
 footer #f-padding {
     padding-left: 16px;
+}
+footer .payment-methods{
+    text-align: center;
 }
 
 /* CALCULATOR */
@@ -2166,10 +2162,66 @@ footer #f-padding {
 }
 
 /* home */
-#home .tile_banner {
+#home h1, #home h2, #home h3 {
+    margin: 0; /*на данной странице нат пользовательского текста, по этому сами выбираем отступы, для каждого конкретного случяя */
+}
+#home p {
+    margin: 0; /*на данной странице нат пользовательского текста, по этому сами выбираем отступы, для каждого конкретного случяя */
+}
+#home .home-text-1 {
+    margin-top: 20px;
+    margin-bottom: 17px;
+}
+#home .home-text-2 {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+#home .home-text-3 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#home .home-text-4 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#home .home-text-5 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+#home .row-norm {
     margin-right: -20px;
     margin-left: -20px;
 }
+#home .link-generalcatalog {
+    color: #1b57bb;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#home .link-generalcatalog:hover,
+#home .link-generalcatalog:focus {
+    color: #23527c;
+}
+
+#home .tile_banner .root-box-flex {
+    display: flex;
+}
+#home .tile_banner .root-sub-box-flex {
+    flex: 1;
+    flex-direction: column;
+}
+#home .tile_banner .root-sub-sub-box-flex {
+    flex: 1;
+    position: relative;
+}
+#home .tile_banner .root-sub-sub-box-flex:first-child {
+    flex: 1;
+    margin-bottom: 7px;
+}
+
+
+
+/* тут тоже самое, что и в grandcatalog */
 #home .tile_banner img {
     position: relative;
 }
@@ -2192,21 +2244,9 @@ footer #f-padding {
     font-size: 26px;
 }
 
-#home .block-root-1 {
-    margin-left: 5px;
-}
-#home .block-root-2 {
-    margin-left: 10px;
-}
-#home .block-root-3 {
-    margin-left: 10px;
-}
 
 
 
-#home .home-partners {
-
-}
 #home .home-partners #partners-gprom {
     background: url(../image/home-label-gprom.png) no-repeat;
     width: 100%;
@@ -2229,27 +2269,40 @@ footer #f-padding {
 
 
 
-#home #home-review {
-    margin-top: 43px;
+#home .review {
+    display: flex;
 }
-
+#home .review-box {
+    flex: 1;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin-right: 20px;
+}
+#home .review-box:last-child {
+    margin-right: 0;
+}
 #home #home-review .review-top{
     display: flex;
+    margin-bottom: 15px;
 }
 #home #home-review .review-image {
     flex: 1;
 }
-#home #home-review .review-name {
+#home #home-review .review-top-right{
     flex: 2;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+#home #home-review .review-name,
+#home #home-review .review-link {
+    flex: 1;
 }
 #home #home-review .review-name>h3 {
     text-align: left;
-    margin: 0;
     font-size: 24px;
     width: 55px;
-}
-#home #home-review .review-top{
-
+    line-height: 1.3;
 }
 
 /*download font */
@@ -2258,40 +2311,70 @@ footer #f-padding {
     vertical-align: top;
 }
 
-#home .comments_image {
-    width: 100px;
+#home .service {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #home #background-service {
     background: url(../image/home-service.jpg) no-repeat;
-    height: 280px;
-    background-position: right bottom;
+    height: 282px;
+    width: 812px;
+    background-position: left bottom;
+    border-radius: 12px;
+    position: relative;
+}
+
+#home .service_box_box {
+   margin-top: 30px;
+    position: relative;
 }
 #home .service_input {
-    margin: 20px;
+    margin-left: 20px;
+    position: absolute;
 }
+#home .service_input.one {
+
+}
+#home .service_input.two {
+    top: 55px;
+}
+
 #home .service_input input{
     border-radius: 9px;
     border: 1px solid #303030;
     padding: 4px;
     outline: none;
     width: 281px;
+
+}
+
+#home .service_box {
+    width: 390px;
+    position: absolute;
+    right: 0;
 }
 #home .service_box button {
     width: 115px;
     height: 30px;
     line-height: 21px;
+    position: absolute;
+    right: 89px;
+    top: 113px;
 }
 #home .service_box>p {
-    margin-top: 17px;
-    padding-right: 38px;
+    margin-top: 5px;
+    padding-right: 16%;
+    font-size: 14px;
+    line-height: 1.3;
 }
 #home .service_box .button {
     position: relative;
     right: 68px;
     top: 11px;
 }
-#home a {
+#home .link-review a {
     width: 115px;
     height: 30px;
     line-height: 21px;
@@ -2316,6 +2399,7 @@ footer #f-padding {
 
 
 
+
 .error {
     color: #f00;
     white-space: nowrap;
@@ -2324,10 +2408,6 @@ footer #f-padding {
 
 
 
-.description-up h1{
-    margin-top: 20px;
-    margin-bottom: 25px;
-}
 
 @font-face {
     font-family: Verdana; /* Гарнитура шрифта */
@@ -2456,7 +2536,6 @@ footer #f-padding {
 .gray {
     color: #bdbbbb;
 }
-
 .red {
     color: #f2213e!important;
 }
