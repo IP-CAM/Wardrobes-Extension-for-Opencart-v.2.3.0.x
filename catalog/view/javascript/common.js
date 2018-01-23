@@ -224,6 +224,17 @@ $(window).resize(function () {
 
 // (Page Validation telephone)
 $(document).ready(function() {
+    $('body').on('mouseenter', '.owl-prev , .owl-next', function(){
+            $('.owl-prev').addClass('owl-prev-active');
+            $('.owl-next').addClass('owl-next-active');
+        }
+    );
+    $('body').on('mouseleave', '.owl-prev, .owl-next', function(){
+            $('.owl-prev').removeClass('owl-prev-active');
+            $('.owl-next').removeClass('owl-next-active');
+        }
+    );
+
     textHomeClip();
     if ($('#home').length > 0) {
         $("[name='service_button']").click(function (event) {

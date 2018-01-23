@@ -4,7 +4,7 @@
 		<div class="col-lg-3">
 
 		</div>
-<!--noindex-->		
+		<!--noindex-->
 		<div class="col-lg-2">
 			<a href="<?php echo $instagram_link['href']; ?>">
 				<img src="<?php echo $instagram_link['path_image']; ?>"
@@ -25,7 +25,8 @@
 					 title="<?php echo $twitter_link['title']; ?>"
 					 alt="<?php echo $twitter_link['alt']; ?>"
 					 class="img-responsive center-block"/></a>
-		</div><!--/noindex-->
+		</div>
+		<!--/noindex-->
 
 		<div class="col-lg-3">
 

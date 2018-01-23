@@ -99,7 +99,7 @@
 			  <?php } ?>
 			  <?php } ?>
 
-              <button type="button" class="btn pull-left btn-danger" onClick='location.href="<?php echo $product['href']; ?>"'><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_more_info_cart; ?></span></button>
+              <button type="button" class="btn pull-left button-style-1" onClick='location.href="<?php echo $product['href']; ?>"'><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_more_info_cart; ?></span></button>
 
           </div>
         </div>

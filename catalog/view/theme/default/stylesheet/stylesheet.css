@@ -70,9 +70,7 @@ label {
     font-weight: normal;
 }
 
-select.form-control, textarea.form-control, input[type="text"].form-control, input[type="password"].form-control, input[type="datetime"].form-control, input[type="datetime-local"].form-control, input[type="date"].form-control, input[type="month"].form-control, input[type="time"].form-control, input[type="week"].form-control, input[type="number"].form-control, input[type="email"].form-control, input[type="url"].form-control, input[type="search"].form-control, input[type="tel"].form-control, input[type="color"].form-control {
-    font-size: 12px;
-}
+
 
 
 #menu-mini {
@@ -106,142 +104,8 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
     margin: 0;
     left: 30px;
     top: 25px;
-
 }
 
-
-
-.owl-arrow {
-    background-image: url("../image/calculator-carousel-arrow.png");
-    background-size: cover;
-    width: 26px;
-    height: 47px;
-    position: absolute;
-    top: 128px;
-    cursor: pointer;
-}
-.owl-prev{
-    left: -10px;
-
-}
-.owl-next{
-    transform: rotate(180deg);
-    right: -10px;
-}
-
-.owl-dots {
-    margin: 0 auto; /*for centering the dots*/
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 24px;
-}
-.owl-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 100%;
-    background: rgba(155, 149, 149, 0.6);
-    margin-right: 5px;
-    display: inline-block;  /*for making them horizontal, if you want vertical then you can use- display: block*/
-}
-.owl-dot.active {
-    background: #000000;
-}
-
-
-
-.input-group input, .input-group select, .input-group .dropdown-menu, .input-group .popover {
-    font-size: 12px;
-}
-
-.input-group .input-group-addon {
-    font-size: 12px;
-    height: 30px;
-}
-
-/* Fix some bootstrap issues */
-span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {
-    display: inline;
-}
-
-.nav-tabs {
-    margin-bottom: 8px;
-    margin-top: 375px;
-    width: 735px;
-}
-
-div.required .control-label:before {
-    content: '* ';
-    color: #F00;
-    font-weight: bold;
-}
-
-/* Gradent to all drop down menus */
-.dropdown-menu li > a:hover {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #229ac8;
-    background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-    background-repeat: repeat-x;
-}
-
-/* top */
-#top {
-    background-color: #EEEEEE;
-    border-bottom: 1px solid #e2e2e2;
-    padding: 4px 0px 3px 0;
-    margin: 0 0 20px 0;
-    min-height: 40px;
-}
-
-#top .container {
-    padding: 0 20px;
-}
-
-#top #form-currency .currency-select,
-#top #form-language .language-select {
-    text-align: left;
-}
-
-#top #form-currency .currency-select:hover,
-#top #form-language .language-select:hover {
-    text-shadow: none;
-    color: #ffffff;
-    background-color: #229ac8;
-    background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-    background-repeat: repeat-x;
-}
-
-#top .btn-link, #top-links li, #top-links a {
-    color: #888;
-    text-shadow: 0 1px 0 #FFF;
-    text-decoration: none;
-}
-
-#top .btn-link:hover, #top-links a:hover {
-    color: #444;
-}
-
-#top-links .dropdown-menu a {
-    text-shadow: none;
-}
-
-#top-links .dropdown-menu a:hover {
-    color: #FFF;
-}
-
-#top .btn-link strong {
-    font-size: 14px;
-    line-height: 14px;
-}
-
-#top-links {
-    padding-top: 6px;
-}
-
-#top-links a + a {
-    margin-left: 15px;
-}
 
 /* logo */
 #logo {
@@ -256,142 +120,9 @@ div.required .control-label:before {
 }
 
 
-/* cart */
-#cart {
-    margin-bottom: 10px;
-}
-
-#cart > .btn {
-    font-size: 12px;
-    line-height: 18px;
-    color: #FFF;
-}
-
-#cart.open > .btn {
-    background-image: none;
-    background-color: #FFFFFF;
-    border: 1px solid #E6E6E6;
-    color: #666;
-    box-shadow: none;
-    text-shadow: none;
-}
-
-#cart.open > .btn:hover {
-    color: #444;
-}
-
-#cart .dropdown-menu {
-    background: #eee;
-    z-index: 1001;
-}
-
-#cart .dropdown-menu {
-    min-width: 100%;
-}
-
-@media (max-width: 478px) {
-    #cart .dropdown-menu {
-        width: 100%;
-    }
-}
-
-#cart .dropdown-menu table {
-    margin-bottom: 10px;
-}
-
-#cart .dropdown-menu li > div {
-    min-width: 427px;
-    padding: 0 10px;
-}
-
-@media (max-width: 478px) {
-    #cart .dropdown-menu li > div {
-        min-width: 100%;
-    }
-}
-
-#cart .dropdown-menu li p {
-    margin: 20px 0;
-}
-
-
 /* content */
 #content {
     min-height: 600px;
-}
-
-/* footer */
-footer {
-    margin-top: 30px;
-    padding-top: 30px;
-    /*background-color: #303030;*/
-    color: black;
-}
-
-footer hr {
-    border-top: none;
-    border-bottom: 1px solid #666;
-}
-
-footer a {
-    color: black;
-    font-size: 12px;
-}
-
-
-
-footer h5 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    color: black;
-}
-
-footer #line {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 0;
-    border-top: 1px solid #000000;
-    width:1140px;
-    text-align: center;
-    margin-left: -15px;
-}
-footer li {
-    color:#e31616;
-    padding-bottom: 12px;
-    list-style-type: none;
-    position: relative;
-}
-footer .list-unstyled li p{
-    font-size: 13px;
-    line-height: 0.9;
-    color: #000000;
-}
-
-footer .list-footer {
-    font-size: 14px;
-}
-footer .list-footer li:before {
-    content: "";
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    display: inline;
-    background: red;
-    border-radius: 2px;
-    left: -11px;
-    top: 8px;
-}
-footer .list-footer.two li:first-child::before {
-  /*  top: 17px;
-    line-height: 1; */
-}
-footer .payment-methods-box {
-    text-align: center;
-}
-/* alert */
-.alert {
-    padding: 8px 14px 8px 14px;
 }
 
 /* breadcrumb */
@@ -400,10 +131,6 @@ footer .payment-methods-box {
     padding: 0;
     margin-top: 12px;
     margin-bottom: 13px;
-}
-
-.breadcrumb i {
-    font-size: 15px;
 }
 
 .breadcrumb > li {
@@ -438,146 +165,8 @@ footer .payment-methods-box {
     display: none;
 }
 
-.pagination {
-    margin: 0;
-}
 
-/* buttons */
-.buttons {
-    margin: 1em 0;
-}
 
-.btn {
-    padding: 5px 34px;
-    font-size: 14px;
-    border: none!important;
-    border-radius: 6px;
-    /* box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05); */
-}
-
-.btn-xs {
-    font-size: 9px;
-}
-
-.btn-sm {
-    font-size: 10.2px;
-}
-
-.btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
-    font-size: 12px;
-}
-
-.btn-group > .btn-xs {
-    font-size: 9px;
-}
-
-.btn-group > .btn-sm {
-    font-size: 10.2px;
-}
-
-.btn-default {
-    color: #777;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    background-color: #e7e7e7;
-    background-image: linear-gradient(to bottom, #eeeeee, #dddddd);
-    background-repeat: repeat-x;
-    border-color: #dddddd #dddddd #b3b3b3 #b7b7b7;
-}
-
-.btn-primary {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #229ac8;
-    background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-    background-repeat: repeat-x;
-    border-color: #1f90bb #1f90bb #145e7a;
-}
-
-.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
-    background-color: #1f90bb;
-    background-position: 0 -15px;
-}
-
-.btn-warning {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #faa732;
-    background-image: linear-gradient(to bottom, #fbb450, #f89406);
-    background-repeat: repeat-x;
-    border-color: #f89406 #f89406 #ad6704;
-}
-
-.btn-warning:hover, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
-    box-shadow: inset 0 1000px 0 rgba(0, 0, 0, 0.1);
-}
-
-.btn-danger {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #f2213e;
-    /*background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);*/
-    background-repeat: repeat-x;
-    /*border-color: #bd362f #bd362f #802420;*/
-    outline: none;
-}
-
-.btn-danger:hover, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
-    box-shadow: inset 0 1000px 0 rgba(0, 0, 0, 0.1);
-}
-
-.btn-success {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #5bb75b;
-    background-image: linear-gradient(to bottom, #62c462, #51a351);
-    background-repeat: repeat-x;
-    border-color: #51a351 #51a351 #387038;
-}
-
-.btn-success:hover, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
-    box-shadow: inset 0 1000px 0 rgba(0, 0, 0, 0.1);
-}
-
-.btn-info {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #df5c39;
-    background-image: linear-gradient(to bottom, #e06342, #dc512c);
-    background-repeat: repeat-x;
-    border-color: #dc512c #dc512c #a2371a;
-}
-
-.btn-info:hover, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
-    background-image: none;
-    background-color: #df5c39;
-}
-
-.btn-link {
-    border-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    color: #23A1D1;
-    border-radius: 0;
-}
-
-.btn-link, .btn-link:active, .btn-link[disabled] {
-    background-color: rgba(0, 0, 0, 0);
-    background-image: none;
-    box-shadow: none;
-}
-
-.btn-inverse {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #363636;
-    background-image: linear-gradient(to bottom, #444444, #222222);
-    background-repeat: repeat-x;
-    border-color: #222222 #222222 #000000;
-}
-
-.btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
-    background-color: #222222;
-    background-image: linear-gradient(to bottom, #333333, #111111);
-}
 
 
 /* carousel */ /*  TODO */
@@ -942,6 +531,59 @@ header #right-bottom-header {
 
 /*FOOTER */
 
+
+/* footer */
+footer {
+    margin-top: 30px;
+    padding-top: 30px;
+    /*background-color: #303030;*/
+    color: black;
+}
+
+footer a {
+    color: black;
+    font-size: 12px;
+}
+
+footer #line {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #000000;
+    width:1140px;
+    text-align: center;
+    margin-left: -15px;
+}
+footer li {
+    color:#e31616;
+    padding-bottom: 12px;
+    list-style-type: none;
+    position: relative;
+}
+
+
+footer .list-footer {
+    font-size: 14px;
+}
+footer .list-footer li:before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    display: inline;
+    background: red;
+    border-radius: 2px;
+    left: -11px;
+    top: 8px;
+}
+footer .list-footer.two li:first-child::before {
+    /*  top: 17px;
+      line-height: 1; */
+}
+footer .payment-methods-box {
+    text-align: center;
+}
+
 footer.container {
 
 }
@@ -959,9 +601,7 @@ footer .footer-body ul {
     margin-left: 20px; /* Отступ слева */
     list-style-type: square;
 }
-footer .footer-body .list-unstyled {
-    padding-left: 53px;
-}
+
 footer .footer-body i {
     left: -30px;
     position: absolute;
@@ -995,12 +635,18 @@ footer .hidden-lg img {
     height: 32px;
     margin-top: 7px;
 }
-
-
+footer .footer-body .list-unstyled {
+    padding-left: 53px;
+}
 footer .list-unstyled li {
     font-size: 16px;
     list-style-type: none;
     list-style-position: outside;
+}
+footer .list-unstyled li p{
+    font-size: 13px;
+    line-height: 0.9;
+    color: #000000;
 }
 footer .down {
     padding-top: 12px;
@@ -1843,7 +1489,11 @@ footer .payment-methods{
 
 
 
-
+#product .nav-tabs {
+    margin-bottom: 8px;
+    margin-top: 375px;
+    width: 735px;
+}
 #product .nav.nav-tabs .button {
     text-align: center;
     height: 44px;
@@ -2217,6 +1867,7 @@ footer .payment-methods{
 }
 
 /* home */
+
 #home h1, #home h2, #home h3 {
     margin: 0; /*на данной странице нат пользовательского текста, по этому сами выбираем отступы, для каждого конкретного случяя */
 }
@@ -2243,6 +1894,58 @@ footer .payment-methods{
     margin-top: 25px;
     margin-bottom: 10px;
 }
+
+#home .owl-arrow {
+    background-image: url("../image/calculator-carousel-arrow.png");
+    background-size: cover;
+    width: 26px;
+    height: 47px;
+    position: absolute;
+    top: 128px;
+    cursor: pointer;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+}
+#home .transformation{
+    transform: rotate(180deg);
+}
+
+/*carusel */
+#home .owl-prev{
+    left: -10px;
+
+}
+#home .owl-next{
+    right: -10px;
+}
+
+#home .owl-prev-active{
+    left: -15px;
+}
+#home .owl-next-active{
+    right: -15px;
+}
+
+
+#home .owl-dots {
+    margin: 0 auto; /*for centering the dots*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+}
+#home .owl-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background: rgba(155, 149, 149, 0.6);
+    margin-right: 5px;
+    display: inline-block;  /*for making them horizontal, if you want vertical then you can use- display: block*/
+}
+#home .owl-dot.active {
+    background: #000000;
+}
+/*carusel */
 
 #home .row-norm {
     margin-right: -20px;

@@ -43,7 +43,19 @@ class ModelCustomerCustomer extends Model {
             $body_text .= "Продукт для клиента: " . $query->row['model'] . ' ';
         }
 
+        $str = $this->config->get('config_mail_alert_email');
+        $lists = explode(',', $str);
+        foreach($lists as $list) {
+            if($list != "0" && (string)$list != "") {
+                $this->send($list, $body_text);
+            }
+        }
+        $this->send($this->config->get('config_email'), $body_text);
 
+    }
+
+
+    private function send($from_mail, $body_text){
         $this->load->language('mail/forgotten');
         $mail = new Mail();
         $mail->protocol = $this->config->get('config_mail_protocol');
@@ -54,7 +66,7 @@ class ModelCustomerCustomer extends Model {
         $mail->smtp_port = $this->config->get('config_mail_smtp_port');
         $mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
-        $mail->setTo($this->config->get('config_email'));
+        $mail->setTo($from_mail);
         $mail->setFrom($this->config->get('config_email'));
         $mail->setSender(html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'));
         $mail->setSubject(html_entity_decode('Новый клиент', ENT_QUOTES, 'UTF-8'));
