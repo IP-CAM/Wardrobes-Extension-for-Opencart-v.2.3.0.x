@@ -67,6 +67,7 @@
 							<h3 class="font-type-georgia"><?php echo $comment['name']; ?></h3>
 						</div>
 						<?php if(isset($comment['reference'])) { ?>
+						<!--noindex-->
 						<div class="review-link">
 							<a href="<?php echo $comment['reference']['link']; ?>">
 								<img src="<?php echo $comment['reference']['image_path']; ?>"
@@ -75,6 +76,7 @@
 									 class="img-responsive"/>
 							</a>
 						</div>
+						<!--/noindex-->
 						<?php } ?>
 					</div>
 
@@ -97,7 +99,7 @@
 		<div class="border-gray" id="background-service">
 			<div class="service_box">
 				<p>Выезд специалиста на замер,<br>
-					составление эскиза на месте в подарок.<br>
+					составление эскиза на месте <a class="red font-underline" href="<?php echo $special; ?>">в подарок</a>.<br>
 					Услуга предоставляется для прихожих,<br>
 					гардеробных, встроенных и других шкафов. </p>
 				<div class="service_box_box">
@@ -109,7 +111,7 @@
 						<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон">
 						<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 					</div>
-					<div class="pull-right button" style="position: relative;right: 68px;top: 11px;">
+					<div class="pull-right button">
 						<button title="Заказать"
 								name="service_button"
 								style="width: 115px;"
@@ -137,8 +139,6 @@
 	</div>
 </div>
 <!-- OUR PARTNERS  END-->
-
-
 
 <?php echo $content_bottom; ?>
 
@@ -219,7 +219,5 @@
 	</div>
 </div>
 
-
-</div>
 
 <?php echo $footer; ?>

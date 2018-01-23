@@ -79,24 +79,24 @@ class ControllerCommonFooter extends Controller {
         }
 
         $instagram_link = array();
-        $instagram_link['path_image'] = $server . 'image/catalog/instagram.png';
-        $instagram_link['href'] = '';
-        $instagram_link['title'] = '';
-        $instagram_link['alt'] = '';
+        $instagram_link['path_image'] = $server . 'catalog/view/theme/default/image/footer-icon-instagram.png';
+        $instagram_link['href'] = 'https://www.instagram.com/centr_mebeli_spb';
+        $instagram_link['title'] = 'Мы в Инстаграм';
+        $instagram_link['alt'] = 'Мы в Инстаграм';
         $data['instagram_link'] = $instagram_link;
 
         $vk_link = array();
-        $vk_link['path_image'] = $server . 'image/catalog/vk.png';
+        $vk_link['path_image'] = $server . 'catalog/view/theme/default/image/footer-icon-vk.png';
         $vk_link['href'] = 'https://vk.com/centr_mebeli';
-        $vk_link['title'] = '';
-        $vk_link['alt'] = '';
+        $vk_link['title'] = 'Мы в ВК';
+        $vk_link['alt'] = 'Мы в ВК';
         $data['vk_link'] = $vk_link;
 
         $twitter_link = array();
-        $twitter_link['path_image'] = $server . 'image/catalog/twitter.png';
-        $twitter_link['href'] = '';
-        $twitter_link['title'] = '';
-        $twitter_link['alt'] = '';
+        $twitter_link['path_image'] = $server . 'catalog/view/theme/default/image/footer-icon-facebook.png';
+        $twitter_link['href'] = 'Мы в Фейсбук';
+        $twitter_link['title'] = 'Мы в Фейсбук';
+        $twitter_link['alt'] = 'Мы в Фейсбук';
         $data['twitter_link'] = $twitter_link;
 
 

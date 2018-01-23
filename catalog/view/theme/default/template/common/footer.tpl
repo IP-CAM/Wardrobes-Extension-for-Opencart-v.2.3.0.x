@@ -59,9 +59,9 @@
 		<div class="col-lg-4">
 			<h3 class="text-center">Связаться с нами</h3>
 			<ul class="list-unstyled">
-				<li><i class="fa fa-map-marker"></i><span>Россия, Санкт-Петербург, Уманский переулок, 71</span></li>
-				<li><i class="fa fa-mobile-phone"></i><span>+7 (812) 965 3061</span></li>
-				<li><i class="fa fa-envelope-o"></i><span>9653061@gmail.com</span></li>
+				<li><i class="footer-icon-right-1"></i><p>Россия, Санкт-Петербург, Уманский переулок, 71</p></li>
+				<li><i class="footer-icon-right-2"></i><p>+7 (812) 965 3061</p></li>
+				<li><i class="footer-icon-right-3"></i><p>9653061@gmail.com</p></li>
 			</ul>
 		</div>
 	</div>

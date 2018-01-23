@@ -20,12 +20,12 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?> catalog"><?php echo $content_top; ?>
-      <h1 class="line-dark-before cat-bef-h4" style="position: absolute; top: -37px;left: 24px;"><?php echo $heading_title; ?></h1>
+      <h1 class="line-dark-before cat-bef-h4"><?php echo $heading_title; ?></h1>
       <div class="row" style="margin-top: 25px;">
 		  <div class="col-lg-12">
 			  <div id="reference_characteristic">
 				  <a class="gray" href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a>
-          <a class="gray" href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a>
+         		 <a class="gray" href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a>
 				  <a class="gray" href="<?php echo $categories[66]['href'] ?>">Угловые шкафы-купе</a>
 				  <!-- <a class="gray" href="<?php echo $categories[59]['href'] ?>">Шкафы-Купе</a></li> -->
 				  <a class="gray" href="<?php echo $categories[64]['href'] ?>">Радиусные шкафы-купе</a>
@@ -35,25 +35,17 @@
         <?php if ($description) { ?>
         <div class="col-lg-12 font-size-16" id="description-p" style="text-align:justify; padding-top: 15px;"><?php echo $description; ?></div>
         <?php } ?>
-		  <div class="col-lg-12" style="width: 95%; position: relative; left: 18px;">
-			  <div class="row picture-characteristic line-dark-before">
-				  <div class="col-lg-3" id="fast-delivery">
-					  <p class="text pull-right" style="padding-left: 9px;">Быстрая доставка</p>
-				  </div>
-				  <div class="col-lg-3" id="compilation">
-					  <p class="text pull-right" style="padding-left: 7px;">Бесплатная сборка</p>
-				  </div>
-				  <div class="col-lg-3" id="quality">
-					  <p class="text pull-right" style="padding-left: 0;">Качество и надежность</p>
-				  </div>
-				  <div class="col-lg-3" id="installments">
-					  <p class="text pull-right" style="padding-left: 4px;">Рассчрочка 0% без переплат</p>
-				  </div>
+		  <div class="col-lg-12" style="left: 18px;">
+			  <div class="picture-characteristic line-dark-before row">
+				  <p class="text pull-right" style="    margin-left: 126px; position: static;">Быстрая доставка</p>
+				  <p class="text pull-right" style="    position: static;margin-left: 94px;">Бесплатная сборка</p>
+				  <p class="text pull-right" style="position: static;margin-left: 84px;">Качество и надежность</p>
+				  <p class="text pull-right" style="padding-left: 4px;position: static;margin-left: 82px;width: 120px;">Рассчрочка 0% без переплат</p>
 			  </div>
 		  </div>
       </div>
       <?php if ($products) { ?>
-		<div class="row select-product-box" style="margin-top: 22px;">
+		<div class="row select-product-box" style="    margin-top: 36px;">
 			<div class="col-lg-6">
 				<div class="input-select" style="display: table;">
 					<label class=""

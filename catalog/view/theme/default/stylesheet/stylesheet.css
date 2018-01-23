@@ -111,11 +111,43 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
 
 
 
-/*modal window */
-.modal.in .modal-dialog {
-
-   /* transform: translate(-50%, -50%);*/
+.owl-arrow {
+    background-image: url("../image/calculator-carousel-arrow.png");
+    background-size: cover;
+    width: 26px;
+    height: 47px;
+    position: absolute;
+    top: 128px;
+    cursor: pointer;
 }
+.owl-prev{
+    left: -10px;
+
+}
+.owl-next{
+    transform: rotate(180deg);
+    right: -10px;
+}
+
+.owl-dots {
+    margin: 0 auto; /*for centering the dots*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+}
+.owl-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background: rgba(155, 149, 149, 0.6);
+    margin-right: 5px;
+    display: inline-block;  /*for making them horizontal, if you want vertical then you can use- display: block*/
+}
+.owl-dot.active {
+    background: #000000;
+}
+
 
 
 .input-group input, .input-group select, .input-group .dropdown-menu, .input-group .popover {
@@ -330,9 +362,12 @@ footer li {
     list-style-type: none;
     position: relative;
 }
-footer li span {
-    color:black;
+footer .list-unstyled li p{
+    font-size: 13px;
+    line-height: 0.9;
+    color: #000000;
 }
+
 footer .list-footer {
     font-size: 14px;
 }
@@ -347,9 +382,10 @@ footer .list-footer li:before {
     left: -11px;
     top: 8px;
 }
-/*footer .list-footer.two li:last-child::before {
-    top: 17px;
-}*/
+footer .list-footer.two li:first-child::before {
+  /*  top: 17px;
+    line-height: 1; */
+}
 footer .payment-methods-box {
     text-align: center;
 }
@@ -361,8 +397,9 @@ footer .payment-methods-box {
 /* breadcrumb */
 .breadcrumb {
     margin-left: -12px;
-    padding: 8px 0;
-    margin-top: 2px;
+    padding: 0;
+    margin-top: 12px;
+    margin-bottom: 13px;
 }
 
 .breadcrumb i {
@@ -375,6 +412,9 @@ footer .payment-methods-box {
     position: relative;
     white-space: nowrap;
     color: #ef3636!important;
+}
+.breadcrumb > li.breadcrumb_last{
+    padding-left: 5px;
 }
 
 .breadcrumb > li + li:before {
@@ -390,11 +430,9 @@ footer .payment-methods-box {
 .breadcrumb > li:after {
     display: block;
     position: absolute;
-    content: url('../image/arrow.png');
+    content: url(../image/arrow.png);
     top: 1px;
-    width: 27px;
-    height: 26px;
-    right: -19px;
+    right: -3px;
 }
 .breadcrumb > .breadcrumb_last:after {
     display: none;
@@ -903,19 +941,18 @@ header #right-bottom-header {
 
 
 /*FOOTER */
-footer span {
-    font-size: 14px;
-}
+
 footer.container {
 
 }
 footer .footer-body {
-    padding-top: 31px;
+    padding-top: 54px;
     padding-bottom: 12px;
 }
 footer .footer-body h3 {
     font-size: 16px;
     padding-bottom: 15px;
+    margin: 0;
 }
 footer .footer-body ul {
     padding: 0; /* Убираем поля */
@@ -926,22 +963,26 @@ footer .footer-body .list-unstyled {
     padding-left: 53px;
 }
 footer .footer-body i {
-
     left: -30px;
     position: absolute;
-    font-size: 22px;
 }
-footer .footer-body i.fa-map-marker {
+footer .footer-body .footer-icon-right-1 {
+    left: -31px;
+    background-image: url(../image/footer-icon-right-1.svg);
+    width: 10px;
+    height: 15px;
+}
+footer .footer-body .footer-icon-right-2 {
     left: -30px;
-    font-size: 22px;
+    background-image: url('../image/footer-icon-right-2.svg');
+    width: 10px;
+    height: 15px;
 }
-footer .footer-body i.fa-mobile-phone {
-    left: -29px;
-    font-size: 26px;
-}
-footer .footer-body i.fa-envelope-o {
+footer .footer-body .footer-icon-right-3 {
     left: -33px;
-    font-size: 20px;
+    background-image: url('../image/footer-icon-right-3.svg');
+    width: 15px;
+    height: 11px;
 }
 
 footer .footer-body-mini {
@@ -1169,20 +1210,8 @@ footer .payment-methods{
 
 
 /* calculator_box */
-/*
-.owl-prev{
-    background-image: url("../image/calculator-carousel-arrow.png");
-    background-size: cover;
-    width: 26px;
-    height: 47px;
-}
-.owl-next{
-    background-image: url("../image/calculator-carousel-arrow.png");
-    background-size: cover;
-    width: 26px;
-    height: 47px;
-}
-*/
+
+
 .no-active {
     opacity: 0.5;
 }
@@ -1541,20 +1570,21 @@ footer .payment-methods{
     content: ' ';
     display: block;
 }
-.generalcatalog_image_box .row-big, .generalcatalog_image_box .col-min {
+
+#generalcatalog .row-big, #generalcatalog .col-min {
     margin-bottom: 15px;
 }
-.generalcatalog_image_box .col-lg-4, .generalcatalog_image_box .col-lg-12 {
+#generalcatalog .col-lg-4, #generalcatalog .col-lg-12 {
     padding-right: 7px!important;
     padding-left: 7px!important;
 }
-.generalcatalog_image_box img {
+#generalcatalog img {
     position: relative;
 }
-.generalcatalog_image_box .image-box {
+#generalcatalog .image-box {
     position: relative;
 }
-.generalcatalog_image_box .name-box {
+#generalcatalog .name-box {
     position: absolute;
     width: 242px;
     height: 54px;
@@ -1567,11 +1597,20 @@ footer .payment-methods{
     margin: auto;
 }
 
-.generalcatalog_image_box p {
+#generalcatalog .generalcatalog_image_box p {
     font-size: 26px;
     /*font-family: 'Time new romans', sans-serif;*/
 }
 
+#generalcatalog .description a {
+    color: #1b57bb;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#generalcatalog .description .a:hover,
+#generalcatalog .description a:focus {
+    color: #23527c;
+}
 /* catalog product */
 
 /* list group */
@@ -1635,44 +1674,57 @@ footer .payment-methods{
     display: inline-block;
     text-decoration: underline;
     padding-top: 2px;
-    padding-left: 8px;
+    padding-right: 15px;
 }
-#content .cat-bef-h4:before {
+
+#category .cat-bef-h4 {
+    position: absolute;
+    top: -31px;
+    left: 24px;
+}
+#category .cat-bef-h4:before {
     width: 827px;
     top: 41px;
     left: -9px;
 }
-#content .cat-bef-h4 a:hover {
-    color: #9b9b9b;
-}
 
-#content .cat-bef-h4 p {
-    width: 96px;
-}
-
-.catalog .picture-characteristic div:before {
-    position: relative;
-    width: 0;
-    height: 1px;
+.catalog .picture-characteristic {
+    width: 100%;
+    position: static;
+    display: flex;
     background: #000000;
     top: 3px;
-    display: block;
-    left: 7px;
+    /* display: block; */
+    height: 60px;
+    margin-top: 18px;
+    /* left: 7px; */
+    background: url(../image/category_delivery.png) 45px 0 no-repeat,
+    url(../image/category_compilation.png) 244px 0 no-repeat,
+    url(../image/category_quality.png) 439px 0 no-repeat,
+    url(../image/category_installments.png) 630px 0 no-repeat;
+    url(../image/category_installments.png) 630px 0 no-repeat;
+}
+.catalog .picture-characteristic div {
+    padding: 0;
 }
 
 
 
 #category .catalog .picture-characteristic #fast-delivery:before {
     content: url('../image/category_delivery.png');
+    left: 45px;
 }
 #category .catalog .picture-characteristic #compilation:before {
     content: url('../image/category_compilation.png');
+    left: 244px;
 }
 #category .catalog .picture-characteristic #quality:before {
     content: url('../image/category_quality.png');
+    left: 439px;
 }
 #category .catalog .picture-characteristic #installments:before {
     content: url('../image/category_installments.png');
+    left: 630px;
 }
 #category .picture-characteristic p {
     width: 106px;
@@ -1683,12 +1735,15 @@ footer .payment-methods{
     height: 40px;
 }
 #category .row.picture-characteristic.line-dark-before:before {
-    top: 74px;
-    left: -3px;
-    width: 827px;
+    top: 92px;
+    left: 0px;
+    width: 846px;
+    position: absolute;
 }
 #category .catalog #description-p p {
-    padding: 0 23px;
+    padding: 0 0px;
+    font-size: 14px;
+    margin: 0;
 }
 
 
@@ -2330,6 +2385,7 @@ footer .payment-methods{
    margin-top: 30px;
     position: relative;
 }
+
 #home .service_input {
     margin-left: 20px;
     position: absolute;
@@ -2341,6 +2397,7 @@ footer .payment-methods{
     top: 55px;
 }
 
+
 #home .service_input input{
     border-radius: 9px;
     border: 1px solid #303030;
@@ -2350,11 +2407,6 @@ footer .payment-methods{
 
 }
 
-#home .service_box {
-    width: 390px;
-    position: absolute;
-    right: 0;
-}
 #home .service_box button {
     width: 115px;
     height: 30px;
@@ -2363,6 +2415,13 @@ footer .payment-methods{
     right: 89px;
     top: 113px;
 }
+
+#home .service_box {
+    width: 390px;
+    position: absolute;
+    right: 0;
+}
+
 #home .service_box>p {
     margin-top: 5px;
     padding-right: 16%;
@@ -2371,7 +2430,7 @@ footer .payment-methods{
 }
 #home .service_box .button {
     position: relative;
-    right: 68px;
+    right: 0px;
     top: 11px;
 }
 #home .link-review a {

@@ -51,11 +51,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="row font-size-18"><?php echo $description; ?></div>
+		<div class="row font-size-18 description"><?php echo $description; ?></div>
 	</div>
 
 	<!-- FOR MOBILE -->
-	<div class="row hidden-lg generalcatalog_image_box mobile-box">
+	<div class="row hidden-lg generalcatalog generalcatalog_image_box mobile-box">
 
 		<div class="col-xs-12 text-left back">
 			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>

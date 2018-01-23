@@ -6,8 +6,10 @@ class ControllerExtensionModuleSlideshow extends Controller {
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 
-		$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
-		$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');   
+		//$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		//$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
         $this->document->addScript('catalog/view/javascript/slideshow.js');
 
 		$data['banners'] = array();
