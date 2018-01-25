@@ -34,6 +34,7 @@ class ControllerProductProduct extends Controller {
             'href' => $this->url->link('generalcatalog/generalcatalog')
         );
 
+        $data['special_link'] = $this->url->link('special/special');
 		$this->load->model('catalog/category');
 
 		if (isset($this->request->get['path'])) {
@@ -759,7 +760,7 @@ class ControllerProductProduct extends Controller {
         $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
 
         $symbol_right =  " &#8381;";
-        $string .= $symbol_right;
+        //$string .= $symbol_right;
 
         return $string;
     }

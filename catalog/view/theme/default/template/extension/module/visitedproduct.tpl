@@ -1,9 +1,12 @@
 <?php if(isset($products)) { ?>
 <div class="row">
-	<h2 class="line-red font-size-30 font-type-georgia" id="visitproduct-maiker"><?php echo $heading_title; ?></h2>
-	<div id="carousel" class="owl-carousel owl-theme" name="visitedproduct">
+	<div class="col-lg-12">
+		<h2 class="line-red font-size-30 font-type-georgia" id="visitproduct-maiker"><?php echo $heading_title; ?></h2>
+	</div>
+	<div class="col-lg-12">
+		<div id="carousel" class="owl-carousel owl-theme" name="visitedproduct">
 
-		<?php foreach ($products as $product) { ?>
+			<?php foreach ($products as $product) { ?>
 
 			<div class="product-thumb item">
 				<div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
@@ -21,22 +24,11 @@
 
 			</div>
 
-		<?php } ?>
+			<?php } ?>
 
 
+		</div>
 	</div>
+
 </div>
 <?php } ?>
-<script>
-//	$(document).ready(function () {
-//		if($("#carousel").length> 0) {
-//			$("#carousel").owlCarousel({
-//				interval: 500,
-//				navigation: true,
-//				items: 4,
-//				pagination:  false,
-//				navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>']
-//			});
-//		}
-//	});
-</script>

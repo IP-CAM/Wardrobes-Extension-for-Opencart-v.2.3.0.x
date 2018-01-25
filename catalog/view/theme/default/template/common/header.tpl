@@ -63,7 +63,8 @@
 <main id="panel">
 	<header>
 		<div class="container visible-lg">
-			<div class="row">
+
+			<div class="row row-top">
 				<div class="col-lg-3 text-left" id="header-left">
 					<h4>Доставка и установка:</h4>
 					<h3>г. Санкт-Петербург и Лениградская область</h3>
@@ -87,8 +88,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container visible-lg" style="padding-top: 8px;">
+
 			<div class="row border-top-dark border-bottom-dark font-type-georgia" id="navigation_bar">
 				<div class="col-sm-2 coool text-center">
 					<a href="<?php echo $aboutcompany; ?>"><h3>О компании</h3></a>
@@ -109,7 +109,9 @@
 					<a href="<?php echo $contacts; ?>"><h3>Контакты</h3></a>
 				</div>
 			</div>
+
 		</div>
+
 		<div class="container hidden-lg border-bottom-dark">
 			<div id="menu-mini" class="hidden-lg">
 				<div id="menu_animation_box">

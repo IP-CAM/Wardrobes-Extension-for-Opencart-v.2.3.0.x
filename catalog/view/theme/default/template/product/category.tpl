@@ -121,7 +121,7 @@
 	</div>
 	  <?php echo $content_bottom; ?>
 		  <?php if ($description_down) { ?>
-		  <div class="col-sm-12 description-down"><?php echo $description_down; ?></div>
+		  <div class="col-sm-12 description-down "><?php echo $description_down; ?></div>
 		  <?php } ?>
 
 

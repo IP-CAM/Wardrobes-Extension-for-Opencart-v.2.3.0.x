@@ -8,6 +8,12 @@ body {
     width: 100%;
 }
 
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -140,9 +146,6 @@ label {
     white-space: nowrap;
     color: #ef3636!important;
 }
-.breadcrumb > li.breadcrumb_last{
-    padding-left: 5px;
-}
 
 .breadcrumb > li + li:before {
     content: '';
@@ -159,7 +162,7 @@ label {
     position: absolute;
     content: url(../image/arrow.png);
     top: 1px;
-    right: -3px;
+    right: -6px;
 }
 .breadcrumb > .breadcrumb_last:after {
     display: none;
@@ -196,6 +199,9 @@ label {
 
 
 /*carusel */
+.owl-carousel {
+    margin: 0;
+}
 .owl-arrow {
     background-image: url("../image/calculator-carousel-arrow.png");
     background-size: cover;
@@ -275,6 +281,17 @@ label {
 .product-grid .product-thumb .image {
     float: none;
 }
+.button-product-for-style-4 {
+    height: 30px;
+    line-height: 26px;
+    font-size: 14px;
+}
+.button-product-for-style-1 {
+    height: 30px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
 
 @media (min-width: 767px) {
     .product-list .product-thumb .image {
@@ -445,8 +462,8 @@ h2.price {
     width: 100%;
 }
 
-.one-image {
-    left: 85px;
+.images-item.one-image {
+    left: 95px;
 }
 
 .image-additional a {
@@ -571,6 +588,9 @@ header #header-left h3 {
 header #right-bottom-header {
     margin-top: 20px;
 }
+header .row-top{
+    margin-bottom: 8px;
+}
 
 
 
@@ -579,7 +599,7 @@ header #right-bottom-header {
 
 /* footer */
 footer {
-    margin-top: 30px;
+
     padding-top: 30px;
     /*background-color: #303030;*/
     color: black;
@@ -1476,7 +1496,6 @@ footer .payment-methods{
     padding-right: 9px;
 }
 #category .description-down {
-    font-family: 'Verdana', sans-serif;
     font-size: 17px;
 }
 #category .description-down h1 {
@@ -1485,6 +1504,9 @@ footer .payment-methods{
 
 
 
+#product {
+    margin-bottom: 68px;
+}
 
 #product  .product-thumb {
     margin: 0;
@@ -1557,12 +1579,13 @@ footer .payment-methods{
 #product .nav-tabs {
     margin-bottom: 8px;
     margin-top: 375px;
-    width: 735px;
+    display: flex;
 }
 #product .nav.nav-tabs .button {
     text-align: center;
     height: 44px;
    /* border: 1px solid #d9d9d9;*/
+    flex: 1;
     float: left;
     cursor: pointer;
 }
@@ -1592,7 +1615,6 @@ footer .payment-methods{
     margin: 3px!important;
 }
 #product .check-info {
-    width: 734px;
     height: 270px;
 }
 #product .check-info #color-tab {
@@ -1648,8 +1670,7 @@ footer .payment-methods{
 }
 
 #product .characteristic-tab span, .description-tab span {
-    font-size: 16px!important;
-    font-family: 'Verdana'!important;
+    font-size: 16px;
 }
 
 #product #message-characteristic {
@@ -1729,25 +1750,65 @@ footer .payment-methods{
     margin-left: 11px;
     margin-top: -3px;
     height: 65px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #product .phone-box {
-    height: 134px;
-    padding: 6px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    height: 255px;
+}
+#product .phone-box .phone-child-1{
+    font-size: 17px;
+    margin: 7px 10px 20px;
+}
+#product .phone-box .phone-child-2{
+    margin: 0 3px 15px;
+}
+#product .phone-box .phone-child-3{
+    margin: 0 3px 10px;
+}
+#product .phone-box .phone-child-4{
+    height: 46px;
+}
+#product .phone-box .phone-child-5{
+    font-size: 12px;
+    margin: 4px 4px 4px 4px;
+    line-height: 1;
 }
 
-#product .phone-box input[type="text"]{
-    width: 170px;
+#product .left-column .name-price {
+    margin-top: 15px;
+    margin-bottom: 12px;
 }
-#product .phone-box input{
-    margin-top: 22px;
+#product .left-column .price {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 36px;
+}
+#product .price span {
+    font-style: normal;
+}
+
+#product .line-product {
+    position: absolute;
+    top: 161px;
+    width: 338px;
+    margin: 0;
+    left: 11px;
 }
 #product .advantages {
-    width: 362px;
     height: 323px;
     margin-top: 26px;
-    padding-left: 17px;
+    position: relative;
+}
+#product .advantages-top  {
+    margin-top: 12px;
+    margin-left: 17px;
+    padding-bottom: 12px;
+    position: relative;
 }
 #product .advantages-top .item {
     margin-top: 19px;
@@ -1761,41 +1822,39 @@ footer .payment-methods{
 
 
 #product .advantages-down {
-    margin-top: 34px;
+    position: relative;
+    padding-top: 16px;
+    margin-left: 17px;
+}
+#product .advantages-down:before {
 }
 #product .advantages-down .item {
-    margin-top: 21px;
+    margin-top: 17px;
     margin-left: 50px;
 }
 #product .advantages-down .item p {
     padding-bottom: 3px;
 }
-#product .advantages-top .image, .advantages-down .image {
+#product .advantages-top .image {
     width: 28px;
     height: 90px;
-    top: 482px;;
-    left: 38px;
+    top: 36px;
+    left: 10px;
     position: absolute;
-    background: url('../image/product-advantages_1.png') no-repeat;
+    background: url(../image/product-advantages_1.png) no-repeat;
 }
 #product .advantages-down .image {
     width: 28px;
     height: 90px;
-    top: 644px;
-    left: 38px;
+    top: 52px;
+    left: 10px;
     position: absolute;
-    background: url('../image/product-advantages_2.png') no-repeat;
-}
-#product .due {
-    width: 100%;
-    height: 45px;
-    line-height: 45px;
-    font-size: 19px;
+    background: url(../image/product-advantages_2.png) no-repeat;
 }
 
 #product #size-box {
     margin-top: 20px;
-    margin-left: 4px;
+    margin-left: 12px;
     width: 723px;
     height: 44px;
     background-color: #f4f4f4;
@@ -1823,6 +1882,7 @@ footer .payment-methods{
 #product #visitproduct-maiker {
     margin-bottom: 28px;
     margin-top: 40px;
+    margin-left: 17px;
 }
 #product #visitproduct-maiker:after {
     width: 412px;
@@ -2225,7 +2285,12 @@ footer .payment-methods{
 
 @font-face {
     font-family: Verdana; /* Гарнитура шрифта */
-    src: url(../stylesheet/font/verdana.ttf); /* Путь к файлу со шрифтом */
+    src: url(../stylesheet/font/verdana-regular.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: Verdana; /* Гарнитура шрифта */
+    src: url(../stylesheet/font/verdana-bold.ttf); /* Путь к файлу со шрифтом */
+    font-weight: bold;
 }
 @font-face {
     font-family: Georgia; /* Гарнитура шрифта */
@@ -2277,7 +2342,6 @@ footer .payment-methods{
 
 
 .text {
-    font-family: 'Verdana', sans-serif;
     font-size: 14px;
 }
 
@@ -2364,7 +2428,7 @@ footer .payment-methods{
 .block-line {
     display: inline-block;
 }
-.input-fild-telephone {
+.input-field {
     border-radius: 9px;
     border: 1px solid #303030;
     padding: 4px;
@@ -2387,13 +2451,9 @@ footer .payment-methods{
     color: #ffffff;
     text-decoration: none;
 }
-.button-product-for-style-1 {
-    height: 30px;
-    line-height: 26px;
-    font-size: 14px;
-}
 
-.button-style-2 {
+
+/*.button-style-2 {
     background-color: #ffffff;
     border: 1px solid #f2213e;
     border-radius: 6px;
@@ -2401,10 +2461,10 @@ footer .payment-methods{
     height: 32px;
     width: 154px;
     cursor: pointer;
-}
+}*/
 
 
-.button-style-3 {
+/*.button-style-3 {
     background-color: #f4ec3a;
     border-radius: 6px;
     color: #312f0c;
@@ -2420,7 +2480,7 @@ footer .payment-methods{
 .button-style-3:hover, .button-style-3:focus {
     color: #312f0c;
     text-decoration: none;
-}
+}*/
 
 
 
@@ -2441,11 +2501,10 @@ footer .payment-methods{
     color: #ffffff;
     text-decoration: none;
 }
-.button-product-for-style-4 {
-    height: 30px;
-    line-height: 26px;
-    font-size: 14px;
-}
+
+
+
+
 
 .message-pupop {
     width: 290px;

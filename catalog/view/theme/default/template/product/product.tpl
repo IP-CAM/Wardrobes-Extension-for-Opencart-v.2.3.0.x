@@ -33,18 +33,18 @@
 	</ul>
 	<div class="row"><?php echo $column_left; ?>
 	<?php if ($column_left && $column_right) { ?>
-	<?php $class = 'col-sm-6'; ?>
+	<?php $class = 'col-lg-6'; ?>
 	<?php } elseif ($column_left || $column_right) { ?>
-	<?php $class = 'col-sm-9'; ?>
+	<?php $class = 'col-lg-9'; ?>
 	<?php } else { ?>
-	<?php $class = 'col-sm-12'; ?>
+	<?php $class = 'col-lg-12'; ?>
 	<?php } ?>
-	<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+	<div id="content"><?php echo $content_top; ?>
 	<div class="row">
 	<?php if ($column_left || $column_right) { ?>
-	<?php $class = 'col-sm-6'; ?>
+	<?php $class = 'col-lg-6'; ?>
 	<?php } else { ?>
-	<?php $class = 'col-sm-8'; ?>
+	<?php $class = 'col-lg-8'; ?>
 	<?php } ?>
 	<div class="<?php echo $class; ?>">
 		<?php if ($thumb || $images) { ?>
@@ -77,11 +77,11 @@
 
 		<?php } ?>
 		<div class="nav nav-tabs border-gray font-type-georgia">
-			<div class="button" data-tab="characteristic-tab" style="width: 146px;" ><p class="active-button">Характеристика</p></div>
-			<div class="button" data-tab="description-tab" style="width: 146px;"><p  class="active-div">Описание</p></div>
-			<div class="button" data-tab="color-tab" style="width: 146px;"><p class="active-div">Цвет</p></div>
-			<div class="button" data-tab="reviews-tab" style="width: 146px;"><p  class="active-div">Отзывы</p></div>
-			<div class="button" data-tab="delivery-tab" style="width: 146px;"><p  class="active-div">Доставка</p></div>
+			<div class="button" data-tab="characteristic-tab"><p class="active-button">Характеристика</p></div>
+			<div class="button" data-tab="description-tab"><p  class="active-div">Описание</p></div>
+			<div class="button" data-tab="color-tab"><p class="active-div">Цвет</p></div>
+			<div class="button" data-tab="reviews-tab"><p  class="active-div">Отзывы</p></div>
+			<div class="button" data-tab="delivery-tab"><p  class="active-div">Доставка</p></div>
 		</div>
 		<div class="check-info border-gray">
 			<div id="characteristic-tab" style="">
@@ -187,48 +187,37 @@
 		</div>
 	</div>
 	<?php if ($column_left || $column_right) { ?>
-	<?php $class = 'col-sm-6'; ?>
+	<?php $class = 'col-lg-6'; ?>
 	<?php } else { ?>
-	<?php $class = 'col-sm-4'; ?>
+	<?php $class = 'col-lg-4'; ?>
 	<?php } ?>
-	<div class="<?php echo $class; ?>">
+	<div class="<?php echo $class; ?> left-column">
 		<h1 id="text-name"><?php echo $heading_title; ?></h1>
+
 		<div class="phone-box border-gray" style="">
-			<div class="text text-right">Если возникли вопросы, вы можете обратиться в нашу справочную службу, мы Вам перезвоним через 20 секунд.</div>
-			<div>
-				<input type="text" name="telephone" data-modal="1" value="" placeholder="+7 (984) 174 75 12" class="input-fild-telephone">
-				<input type="button" name="active-phone" data-modal="1" value="Отправить" class="button-style-2" style="margin-left: 6px;"  />
-			</div>
+			<p class="phone-child-1 text-left">Дизайн-проект по продукции, выезд дизайнера и замерщика <a href="<?php echo $special_link; ?>" class="red">в подарок.</a></p>
+			<input type="text" name="name" data-modal="1" value="" placeholder="Введите ваше имя" class="phone-child-2 input-field">
+			<input type="text" name="telephone" data-modal="1" value="" placeholder="Введите ваш телефон" class="phone-child-3 input-field">
+			<input type="button" name="active-phone" data-modal="1" value="Запросить звонок" class="phone-child-4 button-style-1"  />
 			<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
+			<span class="phone-child-5 text-mini ">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
 		</div>
+
+		<p class="name-price">Цена:</p>
 		<?php if ($price) { ?>
-		<?php if (!$special) { ?>
-		<h2 class="font-italic font-bold font-size-30 font-type-verdana " style="margin-top: 39px;"><?php echo $price; ?></h2>
-		<?php } else { ?>
-		<span style="text-decoration: line-through;"><?php echo $price; ?></span>
-
-		<h2><?php echo $special; ?></h2>
-
+		<p class="price"><?php echo $price; ?><span> ₽</span></p>
+		<?php } ?>
+		<?php if ($special) { ?>
+			<h2><?php echo $special; ?></h2>
 		<?php } ?>
 		<?php if ($discounts) { ?>
-		<?php foreach ($discounts as $discount) { ?>
-		<?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?>
-		<?php } ?>
-		<?php } ?>
+			<?php foreach ($discounts as $discount) { ?>
+				<?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?>
+			<?php } ?>
 		<?php } ?>
 
-		<button
-		   title="Заказать"
-		   data-modal="2"
-		   name="to_order"
-		   class="due button-style-1 font-type-verdana font-size-18"
-		   style="margin-bottom: 15px; line-height: 39px;">Заказать
-		</button>
-		<a href="<?php echo $calculator ?>"
-		   title="Рассчитать"
-		   class="due button-style-3 font-type-verdana font-size-16">Рассчитать</a>
 		<div class="advantages border-gray">
-			<div class="advantages-top" style="margin-top: 12px;">
+			<div class="advantages-top">
 				<p class="ont-type-georgia font-size-18">Способы оплаты</p>
 				<div class="item">
 					<p class="font-type-verdana font-size-14">Наличный расчет</p>
@@ -237,6 +226,7 @@
 				</div>
 				<div class="image"></div>
 			</div>
+			<hr class="line-product gray">
 			<div class="advantages-down">
 				<p class="ont-type-georgia font-size-18">Наши преимущества</p>
 				<div class="item">

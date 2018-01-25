@@ -104,11 +104,11 @@
 					гардеробных, встроенных и других шкафов. </p>
 				<div class="service_box_box">
 					<div class="service_input one">
-						<input type="text" data-modal="1" name="name" value="" placeholder="ФИО">
+						<input type="text" data-modal="1" name="name" value="" placeholder="ФИО" class="input-field">
 						<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
 					</div>
 					<div class="service_input two">
-						<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон">
+						<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон" class="input-field">
 						<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 					</div>
 					<div class="pull-right button">
@@ -197,11 +197,11 @@
 							гардеробных, встроенных и других шкафов. </p>
 						<div class="bottom-box">
 							<div class="service_input one">
-								<input type="text" data-modal="2" name="name" value="" placeholder="ФИО" class="text-center">
+								<input type="text" data-modal="2" name="name" value="" placeholder="ФИО" class="text-center input-field">
 								<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите имя</span>
 							</div>
 							<div class="service_input two">
-								<input type="text" data-modal="2" name="telephone" value="" placeholder="Введите свой телефон" class="text-center">
+								<input type="text" data-modal="2" name="telephone" value="" placeholder="Введите свой телефон" class="text-center input-field">
 								<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</span>
 							</div>
 							<button title="Заказать"

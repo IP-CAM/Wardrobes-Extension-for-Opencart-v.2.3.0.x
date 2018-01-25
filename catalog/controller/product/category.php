@@ -224,6 +224,9 @@ class ControllerProductCategory extends Controller {
 				}
 
                 $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
+
+
+
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -470,31 +473,6 @@ class ControllerProductCategory extends Controller {
 
 
 	}
-    private function formatMany($number, $currency)
-    {
-        $value = '';
-        $format = true;
-        $decimal_place = $this->currencies[$currency]['decimal_place'];
 
-        if (!$value) {
-            $value = $this->currencies[$currency]['value'];
-        }
-
-        $amount = $value ? (float)$number * $value : (float)$number;
-
-        $amount = round($amount, (int)$decimal_place);
-
-        if (!$format) {
-            return $amount;
-        }
-
-        $string = '';
-        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
-
-        $symbol_right =  " &#8381;";
-        $string .= $symbol_right;
-
-        return $string;
-    }
 }
 
