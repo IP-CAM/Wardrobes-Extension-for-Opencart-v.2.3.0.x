@@ -16,7 +16,7 @@ class ModelContactsContacts extends Model {
             meta_title = '" . $this->db->escape($data['meta_title']) . "',
             meta_description = '" . $this->db->escape($data['meta_description']) . "',
             meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "',
-            description = '" . $this->db->escape($data['description']) . "',
+            description = '" . 'текст редактируется напрямую в шаблоне' . "',
             status = '" . (int)$data['status'] . "' WHERE contacts_id = '" . (int)$contacts_id . "'";
         $this->db->query($sql);
 

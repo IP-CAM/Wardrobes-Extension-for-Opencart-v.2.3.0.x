@@ -11,10 +11,7 @@ class ControllerProductProduct extends Controller {
         }
         else $this->session->data['products_id'][] = $this->request->get['product_id'];
 
-        $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
-        $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
-        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
-        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.js');
+
 		$this->load->language('product/product');
 
         //for mobile version
@@ -247,9 +244,11 @@ class ControllerProductProduct extends Controller {
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
             $this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
             $this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
-			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
-			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
-			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+
+            $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
+            $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
+            $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+            $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.js');
 
 			$data['heading_title'] = $product_info['name'];
 

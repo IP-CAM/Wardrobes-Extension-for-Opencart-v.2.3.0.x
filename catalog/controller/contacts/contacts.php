@@ -4,6 +4,9 @@ class ControllerContactsContacts extends Controller {
 
 		$this->load->model('contacts/contacts');
         $this->load->model('catalog/category');
+
+        $this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
         $this->document->addScript('catalog/view/javascript/contacts.js');
         
         $contacts_info = $this->model_contacts_contacts->getContacts(0);
@@ -36,7 +39,7 @@ class ControllerContactsContacts extends Controller {
 
 
 
-        $data['description'] = html_entity_decode($contacts_info['description'], ENT_QUOTES, 'UTF-8');
+        //$data['description'] = html_entity_decode($contacts_info['description'], ENT_QUOTES, 'UTF-8');
 
         if ($this->request->server['HTTPS']) {
             $server = $this->config->get('config_ssl');

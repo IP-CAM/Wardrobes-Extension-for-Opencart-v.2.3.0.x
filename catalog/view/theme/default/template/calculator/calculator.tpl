@@ -35,14 +35,15 @@
 		<?php } ?>
 		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
 
-
 			<!-- CONTENT BEGIN -->
 			<div class="row">
 				<div class="col-sm-12">
-					<?php echo $description; ?>
+					<h1 class="text-center">Шкафы-купе по индивидуальному проекту</h1>
+					<p>Для расчёта примерной цены будущего изделия воспользуйтесь нашим онлайн-калькулятором цены, следуя инструкциям ниже.</p>
 				</div>
 			</div>
 			<!-- CONTENT END -->
+
 			<!-- TYPE OF FURNITURE BEGIN -->
 			<h2 class="text-center">Выберите тип мебели</h2>
 
@@ -161,6 +162,13 @@
 				</div>
 			</div>
 			<!-- BANNER END -->
+			<!-- CONTENT BEGIN -->
+			<div class="row">
+				<div class="col-sm-12">
+					<?php echo $description; ?>
+				</div>
+			</div>
+			<!-- CONTENT END -->
 			<!-- CONTENT END -->
 			<?php echo $column_right; ?></div>
 	</div>

@@ -162,7 +162,18 @@
 
 
 
-
+#contacts .top-text p:last-child {
+    float: none;
+}
+#contacts .social-text-box {
+    margin-top: 10px;
+}
+#contacts .description-box img.metro-img {
+    display: none;
+}
+#contacts .metro-path-1, #contacts .metro-path-2 {
+    margin: 0;
+}
 #aboutcompany .aboutcompany.text_box, #contacts .contacts.text_box {
     margin-top: 100px;
 }

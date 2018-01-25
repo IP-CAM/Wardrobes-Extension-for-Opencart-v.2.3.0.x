@@ -45,8 +45,7 @@
 					<div class="tab-content">
 						<!-- TITLE BEGIN -->
 						<div class="form-group required">
-							<label class="col-sm-2 control-label"
-								   for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_title; ?></label>
+							<label class="col-sm-2 control-label"><?php echo $entry_title; ?></label>
 							<div class="col-sm-10">
 								<input type="text"
 									   name="title"
@@ -59,8 +58,7 @@
 						<!-- TITLE END -->
 						<!-- META TITLE BEGIN -->
 						<div class="form-group required">
-							<label class="col-sm-2 control-label"
-								   for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
+							<label class="col-sm-2 control-label"><?php echo $entry_meta_title; ?></label>
 							<div class="col-sm-10">
 								<input type="text"
 									   name="meta_title"
@@ -73,8 +71,7 @@
 						<!-- META TITLE END -->
 						<!-- META DESCRIPTION BEGIN -->
 						<div class="form-group">
-							<label class="col-sm-2 control-label"
-								   for="input-meta-description<?php echo $language['language_id']; ?>"><?php echo $entry_meta_description; ?></label>
+							<label class="col-sm-2 control-label"><?php echo $entry_meta_description; ?></label>
 
 							<div class="col-sm-10">
 								<textarea
@@ -87,7 +84,7 @@
 						<!-- META DESCRIPTION END -->
 						<!-- META KEYWORD BEGIN -->
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="input-meta-keyword<?php echo $language['language_id']; ?>"><?php echo $entry_meta_keyword; ?></label>
+							<label class="col-sm-2 control-label"><?php echo $entry_meta_keyword; ?></label>
 
 							<div class="col-sm-10">
 								<textarea
@@ -100,7 +97,7 @@
 						<!-- META KEYWORD END -->
 						<!-- SEO URL (KEYWORD) BEGIN -->
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="input-keyword">
+							<label class="col-sm-2 control-label">
 								<span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span>
 							</label>
 
@@ -116,7 +113,7 @@
 						<!-- SEO URL (KEYWORD) END -->
 						<!-- DESCRIPTION BEGIN -->
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="input-description"><?php echo $entry_description; ?></label>
+							<label class="col-sm-2 control-label"><?php echo $entry_description; ?></label>
 							<div class="col-sm-10">
 
 									<textarea name="description"
@@ -130,8 +127,7 @@
 						<!-- DESCRIPTION BEGIN -->
 						<!-- STATUS BEGIN -->
 						<div class="form-group">
-							<label class="col-sm-2 control-label"
-								   for="input-status"><?php echo $entry_status; ?></label>
+							<label class="col-sm-2 control-label"><?php echo $entry_status; ?></label>
 
 							<div class="col-sm-10">
 								<select name="status" id="input-status" class="form-control">
