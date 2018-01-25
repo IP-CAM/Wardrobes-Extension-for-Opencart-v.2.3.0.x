@@ -65,9 +65,11 @@
 		<div class="container visible-lg">
 
 			<div class="row row-top">
-				<div class="col-lg-3 text-left" id="header-left">
-					<h4>Доставка и установка:</h4>
-					<h3>г. Санкт-Петербург и Лениградская область</h3>
+				<div class="col-lg-3 text-left">
+					<div class="header-left">
+						<h4>Доставка и установка:</h4>
+						<h3>г. Санкт-Петербург и Лениградская область</h3>
+					</div>
 				</div>
 				<div class="col-lg-6">
 					<div id="logo" class="text-center">
@@ -79,33 +81,34 @@
 						<?php } ?>
 					</div>
 				</div>
-
 				<div class="col-lg-3 text-right">
-					<h4>График работы: 09:00 до 17:30</h4>
-					<div id="right-bottom-header">
-						<h3>+7 (812) 965 30 61</h3>
-						<h3>Уманский переулок, 71</h3>
+					<div class="header-right">
+						<h4>График работы: 09:00 до 17:30</h4>
+						<div id="right-bottom-header">
+							<h3>+7 (812) 965 30 61</h3>
+							<h3>Уманский переулок, 71</h3>
+						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="row border-top-dark border-bottom-dark font-type-georgia" id="navigation_bar">
-				<div class="col-sm-2 coool text-center">
+				<div class="col-lg-2 coool text-center">
 					<a href="<?php echo $aboutcompany; ?>"><h3>О компании</h3></a>
 				</div>
-				<div class="col-sm-2 coool text-center">
+				<div class="col-lg-2 coool text-center">
 					<a href="<?php echo $calculator; ?>"><h3>Расчет стоимости</h3></a>
 				</div>
-				<div class="col-sm-2 coool text-center">
+				<div class="col-lg-2 coool text-center">
 					<a href="<?php echo $generalcatalog; ?>"><h3>Каталог</h3></a>
 				</div>
-				<div class="col-sm-2 coool text-center">
+				<div class="col-lg-2 coool text-center">
 					<a href="<?php echo $special; ?>"><h3>Акции</h3></a>
 				</div>
-				<!--<div class="col-sm-2 text-center">
+				<!--<div class="col-lg-2 text-center">
 					<a href="<?php echo $review; ?>"><h3>Отзывы</h3></a>
 				</div>-->
-				<div class="col-sm-2 coool text-center">
+				<div class="col-lg-2 coool text-center">
 					<a href="<?php echo $contacts; ?>"><h3>Контакты</h3></a>
 				</div>
 			</div>
