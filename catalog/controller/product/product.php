@@ -247,8 +247,7 @@ class ControllerProductProduct extends Controller {
 
             $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
             $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
-            $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
-            $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.js');
+
 
 			$data['heading_title'] = $product_info['name'];
 

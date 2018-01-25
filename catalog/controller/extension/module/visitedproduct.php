@@ -6,6 +6,10 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
         $data['button_more_info_cart'] = $this->language->get('button_more_info_cart');
 
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
+        $this->document->addScript('catalog/view/javascript/visitedproduct.js');
+
 		if (isset($this->request->get['path'])) {
 			$parts = explode('_', (string)$this->request->get['path']);
 		} else {

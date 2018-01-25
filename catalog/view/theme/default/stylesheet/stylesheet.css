@@ -185,6 +185,51 @@ label {
     font-family: FontAwesome;
 }
 
+
+
+
+
+
+
+
+
+
+
+/*carusel */
+.owl-arrow {
+    background-image: url("../image/calculator-carousel-arrow.png");
+    background-size: cover;
+    width: 26px;
+    height: 45px;
+    position: absolute;
+    cursor: pointer;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.owl-carousel .transformation{
+    transform: rotate(180deg);
+}
+
+.owl-prev{
+    left: -10px;
+
+}
+.owl-next{
+    right: -10px;
+}
+.owl-carousel .owl-prev-active{
+    left: -15px;
+}
+.owl-carousel .owl-next-active{
+    right: -15px;
+}
+
+
+
+
 /* product list */
 .product-thumb {
     border: 1px solid #d9d9d9;
@@ -1441,11 +1486,35 @@ footer .payment-methods{
 
 
 
-
-#product .owl-carousel .owl-wrapper-outer {
-    width: 1115px;
+#product  .product-thumb {
+    margin: 0;
+    width: 263px;
+    position: relative;
+    display: inline-block;
+    float: left;
 }
-
+.product-thumb .image {
+    margin: 5px;
+}
+.product-thumb .name {
+    position: absolute;
+    top: 280px;
+    margin: 0;
+}
+.product-thumb .price {
+    position: absolute;
+    margin: 0;
+    bottom: 53px;
+}
+.product-thumb .price, .product-thumb .name {
+    left: 17px;
+    width: 225px;
+}
+.product-thumb button {
+    left: 7px;
+    bottom: 11px;
+    width: 245px;
+}
 
 
 
@@ -1928,57 +1997,7 @@ footer .payment-methods{
     margin-bottom: 10px;
 }
 
-#home .owl-arrow {
-    background-image: url("../image/calculator-carousel-arrow.png");
-    background-size: cover;
-    width: 26px;
-    height: 47px;
-    position: absolute;
-    top: 128px;
-    cursor: pointer;
-    transition-property: left, right;
-    transition-duration: 0.3s;
-}
-#home .transformation{
-    transform: rotate(180deg);
-}
 
-/*carusel */
-#home .owl-prev{
-    left: -10px;
-
-}
-#home .owl-next{
-    right: -10px;
-}
-
-#home .owl-carousel .owl-prev-active{
-    left: -15px;
-}
-#home .owl-carousel .owl-next-active{
-    right: -15px;
-}
-
-
-#home .owl-dots {
-    margin: 0 auto; /*for centering the dots*/
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 24px;
-}
-#home .owl-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 100%;
-    background: rgba(155, 149, 149, 0.6);
-    margin-right: 5px;
-    display: inline-block;  /*for making them horizontal, if you want vertical then you can use- display: block*/
-}
-#home .owl-dot.active {
-    background: #000000;
-}
-/*carusel */
 
 #home .row-norm {
     margin-right: -20px;
