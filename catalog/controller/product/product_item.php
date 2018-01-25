@@ -1,9 +1,9 @@
 <?php
-class ControllerProductItem extends Controller {
+class ControllerProductProductItem extends Controller {
 
 
-    public function htmlProductItem($values)
-    {
+    public function index($values) {
+
         $data = array();
         $this->validates('product_reference', $data, $values);
         $this->validates('image', $data, $values);
@@ -50,9 +50,6 @@ class ControllerProductItem extends Controller {
 
         $string = '';
         $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
-
-        $symbol_right =  " &#8381;";
-        $string .= $symbol_right;
 
         return $string;
     }

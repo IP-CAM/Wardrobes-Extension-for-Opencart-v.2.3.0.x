@@ -223,11 +223,28 @@ class ControllerProductCategory extends Controller {
 					$rating = false;
 				}
 
-                $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
+                //$price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
 
+
+                /* $file = DIR_APPLICATION . 'controller/product/product_item.php';
+                *if (is_file($file)) {
+                     include_once($file);
+                 } else {
+                     throw new \Exception('Error: Could not load helper !');
+                 }
+                 $product_item = new ControllerProductItem();*/
+                $data_pr = array(
+                    'image'       => $image,
+                    'name'        => $result['name'],
+                    'price'       => $price,
+                    'special'     => $special,
+                    'button_text'     => 'Подробнее',
+                    'product_reference'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+                );
 
 
 				$data['products'][] = array(
+                    'html_product' => $this->load->controller('product/product_item', $data_pr),
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
@@ -239,6 +256,7 @@ class ControllerProductCategory extends Controller {
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
 				);
+
 			}
 
             $products_json_id = array();
