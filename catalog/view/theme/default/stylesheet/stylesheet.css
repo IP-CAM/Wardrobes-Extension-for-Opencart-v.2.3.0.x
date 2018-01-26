@@ -133,10 +133,9 @@ label {
 
 /* breadcrumb */
 .breadcrumb {
-    margin-left: -12px;
     padding: 0;
-    margin-top: 12px;
-    margin-bottom: 13px;
+    margin-top: 14px;
+    margin-bottom: 0;
 }
 
 .breadcrumb > li {
@@ -271,6 +270,13 @@ label {
     position: absolute;
     margin: 0;
     bottom: 53px;
+    color: #000000;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+.product-thumb .price span {
+    font-style: normal;
 }
 .product-thumb .price, .product-thumb .name {
     left: 17px;
@@ -283,8 +289,9 @@ label {
     width: 245px;
 }
 
-
-
+.ui-slider span{
+    border-radius: 2px;
+}
 
 
 
@@ -460,14 +467,8 @@ h2.price {
         width: 100%;
     }
 }
-.product-box {
-    margin-right: -9px!important;
-    margin-left: -9px!important;
-}
-.product-layout {
-    padding-right: 9px;
-    padding-left: 9px;
-}
+
+
 
 
 /* fixed product layouts used in left and right columns */
@@ -1257,147 +1258,12 @@ footer .payment-methods{
 }
 /* catalog product */
 
-/* list group */
-.list-group a {
-    color: #151414;
-}
-
-.list-group li {
-    color: #e31616;
-    padding-bottom: 12px;
-
-
-}
-
-.list-group ul {
-    padding: 0;
-    margin-left: 20px;
-    list-style-type: square;
-    margin-bottom: 4px;
-}
-
-.list-group .text {
-    position: relative;
-    padding-bottom: 10px;
-
-}
-.list-group .header, .list-group .body {
-    left: 22px;
-    position: relative;
-    top: 11px;
-}
-.list-group h4 {
-    margin-left: 22px;
-    padding-top: 16px;
-    font-size: 17px;
-}
-
-#column-left #input-slider input{
-    display: inline-block;
-    width: 66px;
-    height: 35px;
-    font-size: 14px;
-    border-radius: 4px;
-    padding: 4px;
-    outline: none;
-    border: 1px solid #d9d9d9;
-    position: relative;
-}
-#column-left #input-slider {
-    height: 40px;
-    margin-top: 21px;
-}
-#column-left #slider-category {
-    margin-top: 12px;
-    margin-left: 16px;
-    width: 230px;
-}
 
 
 
-#category .name-category {
-    margin: 0;
-}
 
-#category .select-product-box {
-    margin-top: 30px;
-}
-#category .input-select {
-    display: table;
-}
-#category .input-select label {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 14px;
-}
-#category .input-select #input-sort {
-    width: 223px;
-    height: 33px;
-}
-#category .input-select #input-limit {
-    width: 66px;
-    height: 33px;
-}
 
-#category .row-normalize {
 
-}
-#category  {
-
-}
-#category  {
-
-}
-#category  {
-
-}
-#category .select-product-box select {
-    border-radius: 5px;
-    padding: 5px;
-    line-height: 1;
-    -webkit-appearance: none;
-    width: 168px;
-    border: 1px solid #d9d9d9;
-    outline: none;
-}
-#category #check-left, .check-right {
-    width: 16px;
-    top: 12px;
-    -moz-background-size: 100%;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    position: absolute;
-    height: 9px;
-    overflow: hidden;
-    background: url(../image/button_V_check.png) no-repeat;
-    background-size: cover;
-}
-#category #check-left {
-    right: 77px;
-}
-#category .check-right {
-    right: 26px;
-}
-
-#category #best-maiker {
-    top: -37px;
-    left: 22px;
-    position: relative;
-    width: 233px;
-    height: 2px;
-    margin-top: 67px;
-}
-
-#category .carousel-product {
-    padding-right: 9px;
-}
-#category .description-down {
-    font-size: 17px;
-}
-#category .description-down h1 {
-    margin-bottom: 15px;
-}
 
 
 
@@ -2250,16 +2116,7 @@ footer .payment-methods{
     border-top: 1px solid #000000;
 }
 
-.line-dark-before:before {
-    position: relative;
-    width: 233px;
-    height: 1px;
-    background: #000000;
-    top: 55px;
-    left: 14px;
-    content: ' ';
-    display: block;
-}
+
 
 .line-dark-after:after {
     position: relative;

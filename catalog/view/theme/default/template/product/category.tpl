@@ -11,16 +11,16 @@
 		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 		<?php } ?>
 	</ul>
-  <div class="row row-normalize">
+  <div class="row row-base-category">
 
   	<?php echo $column_left; ?>
 
-    <div id="content" class="col-lg-9 catalog"><?php echo $content_top; ?>
+    <div id="content" class="col-lg-9 column-body"><?php echo $content_top; ?>
       <h1 class="name-category"><?php echo $heading_title; ?></h1>
       <?php if ($products) { ?>
 		<div class="row select-product-box">
 			<div class="col-lg-6">
-				<div class="input-select">
+				<div class="input-select input-select-1">
 					<label for="input-sort"><?php echo $text_sort; ?> </label>
 					<select id="input-sort" class="" onchange="location = this.value;">
 						<?php foreach ($sorts as $sortsar) { ?>
@@ -33,11 +33,9 @@
 						<?php } ?>
 					</select>
 				</div>
-				<div id="check-left">
-				</div>
 			</div>
 			<div class="col-lg-6">
-				<div class="input-select pull-right">
+				<div class="input-select pull-right input-select-2">
 					<label for="input-limit"><?php echo $text_limit; ?> </label>
 					<select id="input-limit" class="" onchange="location = this.value;">
 						<?php foreach ($limits as $limits) { ?>
@@ -50,17 +48,17 @@
 						<?php } ?>
 					</select>
 				</div>
-				<div class="check-right"></div>
         	</div>
       </div>
-      <div class="row product-box" style="padding-top: 27px;">
-        <?php foreach ($products as $product) { ?>
-		  <?php echo $product['html_product']; ?>
-        <?php } ?>
+      <div class="row">
+		  <div class="col-lg-12 product-box">
+			  <?php foreach ($products as $product) { ?>
+			 	 <?php echo $product; ?>
+			  <?php } ?>
+		  </div>
       </div>
       <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
       </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>

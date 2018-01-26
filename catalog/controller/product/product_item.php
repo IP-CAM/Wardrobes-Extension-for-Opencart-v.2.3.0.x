@@ -5,29 +5,37 @@ class ControllerProductProductItem extends Controller {
     public function index($values) {
 
         $data = array();
-        $this->validates('product_reference', $data, $values);
-        $this->validates('image', $data, $values);
-        $this->validates('name', $data, $values);
-        $this->validates('special', $data, $values);
-        $this->validates('button_text', $data, $values);
 
-        if(isset($values['price'])) {
-            $data['price'] = 'от ' . $this->formatMany($values['price'], $this->session->data['currency']);
+        if ($values['image']) {
+            $image = $this->model_tool_image->resize($values['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
+        } else {
+            $image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
+        }
+
+        if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+            $price = 'от ' . $this->formatMany($values['price'], $this->session->data['currency']);
+        } else {
+            $price = false;
+        }
+
+        if ((float)$values['special']) {
+            $special = $this->formatMany($values['special'], $this->session->data['currency']);
+        } else {
+            $special = false;
+        }
+
+        $data['image'] = $image;
+        $data['name'] = $values['name'];
+        $data['price'] = $price;
+        $data['special'] = $special;
+        $data['product_reference'] = $this->url->link('product/product', 'path=' . '&product_id=' . $values['product_id']);
+        if(isset($values['button_text'])) {
+            $data['button_text'] = $values['button_text'];
+        } else {
+            $data['button_text'] = "";
         }
 
         return $this->load->view('product/product_item', $data);
-    }
-
-    private function validates($name, &$data, $values)
-    {
-        $data[$name] = $this->validate($values[$name]);
-    }
-    private function validate($value) {
-        if(isset($value)) {
-            return $value;
-        } else {
-            return "";
-        }
     }
 
     private function formatMany($number, $currency)

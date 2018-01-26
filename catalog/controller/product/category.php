@@ -108,6 +108,13 @@ class ControllerProductCategory extends Controller {
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 
+            $this->document->addStyle('catalog/view/javascript/category/category.css');
+            $this->document->addScript('catalog/view/javascript/category/category.js');
+
+            $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
+            $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
+
+
 			$data['heading_title'] = $category_info['name'];
 
 			$data['text_refine'] = $this->language->get('text_refine');
@@ -193,70 +200,15 @@ class ControllerProductCategory extends Controller {
 			$results = $this->model_catalog_product->getProducts($filter_data);
 
 			foreach ($results as $result) {
-				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
-				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
-				}
-
-				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$price = $this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax'));
-				} else {
-					$price = false;
-				}
-
-				if ((float)$result['special']) {
-					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-				} else {
-					$special = false;
-				}
-
-				if ($this->config->get('config_tax')) {
-					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
-				} else {
-					$tax = false;
-				}
-
-				if ($this->config->get('config_review_status')) {
-					$rating = (int)$result['rating'];
-				} else {
-					$rating = false;
-				}
-
-                //$price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
-
-
-                /* $file = DIR_APPLICATION . 'controller/product/product_item.php';
-                *if (is_file($file)) {
-                     include_once($file);
-                 } else {
-                     throw new \Exception('Error: Could not load helper !');
-                 }
-                 $product_item = new ControllerProductItem();*/
                 $data_pr = array(
-                    'image'       => $image,
+                    'product_id'       => $result['product_id'],
+                    'image'       => $result['image'],
                     'name'        => $result['name'],
-                    'price'       => $price,
-                    'special'     => $special,
-                    'button_text'     => 'Подробнее',
-                    'product_reference'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+                    'price'       => $result['price'],
+                    'special'     => $result['special'],
+                    'button_text'     => 'Подробнее'
                 );
-
-
-				$data['products'][] = array(
-                    'html_product' => $this->load->controller('product/product_item', $data_pr),
-					'product_id'  => $result['product_id'],
-					'thumb'       => $image,
-					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
-					'price'       => $price,
-					'special'     => $special,
-					'tax'         => $tax,
-					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
-				);
-
+				$data['products'][] = $this->load->controller('product/product_item', $data_pr);
 			}
 
             $products_json_id = array();
@@ -389,8 +341,6 @@ class ControllerProductCategory extends Controller {
 
 			$data['pagination'] = $pagination->render();
 
-			$data['results'] = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
-
 			// http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
 			if ($page == 1) {
 			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'], true), 'canonical');
@@ -488,9 +438,84 @@ class ControllerProductCategory extends Controller {
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
-
-
 	}
+
+
+
+    public function productFilterPrice()
+    {
+        $this->load->model('catalog/product');
+        $this->load->model('catalog/category');
+        $this->load->model('tool/image');
+
+        $min = $this->request->post['min'];
+        $max = $this->request->post['max'];
+        $this->load->model('catalog/product');
+
+
+
+
+
+
+        $category_id = $this->request->post['category_id'];
+
+        $results = $this->model_catalog_category->getCategories($category_id);
+
+        foreach ($results as $result) {
+            $filter_data = array(
+                'filter_category_id'  => $result['category_id'],
+                'filter_sub_category' => true
+            );
+
+            $data['categories'][] = array(
+                'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+                'href' => $this->url->link('product/category', 'path=' . $result['category_id'] . '_' . $result['category_id'])
+            );
+        }
+
+        $data['products'] = array();
+
+        $filter = '';
+        $sort = 'p.sort_order';
+        $order = 'ASC';
+        $page = 1;
+        $limit = (int)100;
+
+        $filter_data = array(
+            'filter_category_id' => $category_id,
+            'filter_filter'      => $filter,
+            'sort'               => $sort,
+            'order'              => $order,
+            'start'              => ($page - 1) * $limit,
+            'limit'              => $limit
+        );
+
+
+        $results = $this->model_catalog_product->getProducts($filter_data);
+
+        foreach ($results as $result) {
+            if($result['price'] < $min || $result['price'] >$max)
+            {
+                continue;
+            }
+            $data_pr = array(
+                'product_id'       => $result['product_id'],
+                'image'       => $result['image'],
+                'name'        => $result['name'],
+                'price'       => $result['price'],
+                'special'     => $result['special'],
+                'button_text'     => 'Подробнее'
+            );
+            $data['products'][] = $this->load->controller('product/product_item', $data_pr);
+        }
+
+        $product_html = "";
+        foreach($data['products'] as $product) {
+            $product_html .= $product;
+        }
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput($product_html);
+    }
 
 }
 

@@ -32,24 +32,7 @@ function getURLVar(key) {
 	}
 } 
 
-function productFilterPrice() {
-    $.ajax({
-        url: 'index.php?route=extension/module/category/productFilterPrice',
-        dataType: 'html',
-        data: 'products_json_id=' + $('[name="products_json_id"]').val() + '&min=' + $('[name="category-input-min"]').val() + '&max=' + $('[name="category-input-max"]').val() + '&category_id=' + $('[name="category_id"]').val(),
-        type: 'post',
-        beforeSend: function () {
-        },
-        success: function (html) {
-            //alert($.isArray(json));
-            $('.product-box').empty();
-            $('.product-box').append(html)
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-    });
-}
+
 
 $(document).ready(function() {
 	// Highlight any found errors
@@ -163,40 +146,8 @@ $(document).ready(function() {
 
 
 
-    //For category
-    if($('#category').length > 0) {
-          $("#slider-category").slider({
-        range: true,
-        min: 0,
-        max: 200000,
-        values: [0, 200000],
-        slide: function (event, ui) {
-            $('[name="category-input-min"]').val(ui.values[0]);
-            $('[name="category-input-max"]').val(ui.values[1]);
-            productFilterPrice();
-        },
-        change: function() {
-            productFilterPrice();
-        }
-    });
-    $('[name="category-input-min"], [name="category-input-max"]').on('input',function () {
-        updateSlider();
-    });
-    function updateSlider() {
-        var price_min  = $('[name="category-input-min"]').val();
-        var price_max = $('[name="category-input-max"]').val();
-        //alert(price_max);
-        $("#slider-category").slider('values', 0, price_min);
-        $("#slider-category").slider('values', 1, price_max);
-        //alert($('[name="products_json_id"]').val());
-        $('.pagination').hide();
-    }
-    $('[name="category-input-min"], [name="category-input-max"]').keypress(function(e) {
-        if (e.keyCode < 48 || e.keyCode > 57) {
-            return false;
-        }
-    });
-    }
+
+
 
 
 
@@ -280,127 +231,8 @@ $(document).ready(function() {
 
 //FOR HOME END
 
-//FOR PRODUCT BEGIN
-
-$(document).ready(function() {
-    if($('#product').length > 0) {
-        sizeCharacteristic();
-        sizeName();
-
-        $('.nav-tabs .button').on('click', function () {
-            $('.nav-tabs .button p').removeClass('active-button');
-            $(this).find('p').addClass('active-button');
-
-            var id = $(this).data('tab');
-            $('.check-info>div').hide();
-            $('.check-info').find('#' + id).show();
-        });
-
-        $('#characteristic .any').mouseenter(function () {
-            $('#message-characteristic').show();
-            $(this).before($('#message-characteristic'));
-        });
-        $('#characteristic .any').mouseleave(function () {
-            $('#message-characteristic').hide();
-        });
-
-        //Форма для ввода телефона
-        $("[name='active-phone']").click(function (event) {
-            var root = $(this).parent();
-            var text = root.find("[name='telephone']").val();
-            if (text == '') {
-                $('.error').show();
-                return false;
-            } else {
-                $('.phone-box .error').hide();
-                $('.error').hide();
-                $("[name='product_id']").data('modal', $(this).data('modal'));
-
-                ajaxClientCall($(this).data('modal'), 3, 0);
-            }
-        });
-
-        //Модальное окно с вводом телефона
-        $("[name='to_order']").click(function (event) {
-                $("[name='product_id']").data('modal', $(this).data('modal'));
-                ajaxClientCall($(this).data('modal'), 3, 1);
-        });
 
 
-        $('.thumbnails').magnificPopup({
-            type: 'image',
-            delegate: 'a',
-            gallery: {
-                enabled: true
-            }
-        });
-
-        $(window).resize(function () {
-            sizeCharacteristic();
-            sizeName()
-        });
-
-
-        function sizeName() {
-            var root_object = $('.back');
-            var text_object = root_object.find('p');
-
-            var width = root_object.width();
-
-            var back_button = root_object.find('a');
-            //alert('width + ' + width + 'p_left' + p_left + 'p_right' +p_right + 'text_object.width() ' + text_object.width());
-            for (var i = 0; i < 25; i++) {
-                if (width - back_button.width() - 5 < text_object.width()) {
-                    var size_old = text_object.css('font-size');
-                    text_object.css('font-size', (parseInt(size_old) - 1) + 'px');
-                } else {
-                    break;
-                }
-            }
-        }
-
-        function sizeCharacteristic() {
-
-            if ($(window).width() > 480) { //Если размер совсем маленький, делаем все в столбик
-                var root = $('#size-box-mobile');
-                var width_mobile = root.find('#width-mobile');
-                var height_mobile = root.find('#height-mobile');
-                var depth_mobile = root.find('#depth-mobile');
-                for (var i = 0; i < 25; i++) {
-                    var width_div_size = width_mobile.width();
-                    var height_div_size = height_mobile.width();
-                    var depth_div_size = depth_mobile.width();
-                    //padding
-                    var width_p = parseInt(width_mobile.css('padding-left'));
-                    var height_p = parseInt(height_mobile.css('padding-left'));
-                    var depth_p = parseInt(depth_mobile.css('padding-left'));
-
-                    if (width_div_size + height_div_size + depth_div_size + width_p + height_p + depth_p + 5 > root.width()) {
-                        updateSize(width_mobile);
-                        updateSize(height_mobile);
-                        updateSize(depth_mobile);
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-
-        function updateSize(width_mobile) {
-            updateSizeItem(width_mobile, 'p.name');
-            updateSizeItem(width_mobile, 'a');
-            updateSizeItem(width_mobile, 'p.size');
-        }
-
-        function updateSizeItem(width_mobile, value) {
-            var text = '.' + width_mobile.attr('class') + ' ' + value;
-            if ($(text).length > 0) {
-                var size_old = width_mobile.find(value).css('font-size');
-                width_mobile.find(value).css('font-size', (parseInt(size_old) - 1) + 'px');
-            }
-        }
-    }
-});
 
 //Моя фуекция
 function mobileDetect() {
