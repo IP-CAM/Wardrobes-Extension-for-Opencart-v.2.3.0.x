@@ -622,6 +622,67 @@ h2 {
 #calculator .box_root_item p {
     left: 13px;
 }
+
+
+
+
+
+
+#calculator .product-root-box {
+    padding-bottom: 20px;
+}
+#calculator #calculator-box>#cal-calculation-box, #calculator-box>#cal-dispatch-box {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    margin-bottom: -6px;
+    height: auto;
+
+}
+#calculator .text-calculator-size {
+    margin-top: 25px;
+
+}
+#calculator #calculator-box>#cal-calculation-box {
+    display: flex;
+    flex-direction: column;
+}
+#calculator .width-mobile-box, #calculator .depth-mobile-box {
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+#calculator #cal-calculation-box .slider-1 p,
+#calculator #cal-calculation-box .slider-2 p {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+
+
+#calculator #cal-calculation-box .slider-1,
+#calculator #cal-calculation-box .slider-2,
+#calculator #cal-calculation-box .slider-1 p,
+#calculator #cal-calculation-box .slider-2 p,
+#calculator #cal-calculation-box .price,
+#cal-calculation-box #height,
+#cal-calculation-box #depth{
+    position: static!important;
+}
+
+#calculator .block {
+    position: relative;
+    text-align: center;
+}
+
+#cal-calculation-box>* {
+    margin: 0 auto;
+}
+#cal-calculation-box .block:nth-child(2) {
+    margin-bottom: 20px;
+}
+
 #calculator .box-root-sub {
     display: flex;
     flex-wrap: wrap;
@@ -631,157 +692,26 @@ h2 {
     justify-content: space-around;
     text-align: left;
 }
-#calculator .sub_box_item.box  {
-    width: 150px;
-    height: 190px;
-    position: relative;
-    text-align: center;
-}
-#calculator .sub_box_item.box img {
-    margin: 0;
-    width: 90%;
-    display: inline-block;
+
+#calculator .mobile-box-size {
     margin-top: 20px;
 }
-#calculator .sub_box_item.box input {
-    right: 6px;
-    width: 20px;
-    height: 20px;
-    margin: 0;
-    top: 2px;
-}
-#calculator .sub_box_item.box p {
-    position: static;
-    width: 100%;
-    font-size: 14px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
 
-#calculator .product_item.sub_box_item.box {
-    height: 210px;
-    margin-bottom: 4px;
-}
-#calculator .product_item.sub_box_item.box img {
-    margin-top: 25px;
-}
-#calculator .product_item.sub_box_item.box p {
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-top: 7px;
-    position: absolute;
-    left: 0;
-    top: 171px;
-}
-#calculator .owl-item {
-    width: auto;
-    border: 1px solid #d9d9d9;
-    border-radius: 0;
-    height: auto;
-    margin: 0;
-}
-
-#calculator .product-root-box {
-    padding-bottom: 20px;
-}
-#calculator #calculator-box>#cal-calculation-box, #calculator-box>#cal-dispatch-box {
-    width: 100%;
-    position: relative;
-    height: auto;
-    margin-bottom: -6px;
-}
-
-#calculator #calculator-box>#cal-calculation-box #standard {
-    position: relative;
-}
-#calculator #calculator-box>#cal-calculation-box #standard:after {
-    position: absolute;
-    width: 1px;
-    height: 26px;
-    background: #d9d9d9;
-    top: 2px;
-    right: -1px;
-    content: ' ';
-    display: block;
-}
-
-#calculator #cal-calculation-box .button-box {
-    display: flex;
-    justify-content: center;
-}
-#calculator #cal-calculation-box #button-check {
-    position: static;
-    margin-top: 15px;
-}
-#calculator .calculation-standard-or-exclusive {
-    position: relative;
-    top: 0;
-    text-align: center;
-
-}
-#calculator .standard-box, #exclusive-box {
-    position: relative;
-}
-#calculator .block {
-    position: relative;
-    text-align: center;
-}
-#cal-calculation-box .standard-box .block:nth-child(1) {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-#cal-calculation-box>div {
-    height: 100%;
-}
-#cal-calculation-box .block:nth-child(2) {
-    margin-bottom: 20px;
-}
-#cal-calculation-box .standard-box .block p {
-    padding: 0;
-    margin: 0;
-}
-
-#calculator .standard-box #slider {
-    position: static;
-    margin: 0 auto;
-}
-
-#calculator .standard-box #width, #calculator .standard-box #height {
-    position: static;
-}
-
-
-#calculator .exclusive-box .size {
-    margin-top: 16px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-#calculator .exclusive-box .size input{
-    margin-top: 10px;
-}
-
-#calculator .calculation-standard-or-exclusive .price {
-    position: static;
-    width: 100%;
-    bottom: 0;
-    display: block;
-}
-#calculator #cal-calculation-box .cal_sub_price {
-    position: static;
-    margin-top: 10px;
-    display: block;
-}
-#calculator #cal-calculation-box .cal_top_price {
+#calculator #cal-calculation-box .price {
     position: static;
     font-size: 24px;
-    margin: 0;
+    margin: 0 auto;
     margin-bottom: 14px;
+    margin-top: 20px;
 }
 #calculator #cal-calculation-box .calculation-button {
     position: static;
     width: 225px;
     height: 35px;
-    margin-bottom: 14px;
+    margin-bottom: 25px;
+}
+#calculator #cal-dispatch-box {
+    background: url(../image/calculator_get_phone_mobile.png);
 }
 #calculator #cal-dispatch-box .calculator_dispatch {
     position: relative;
@@ -806,7 +736,7 @@ h2 {
 
 /* slider */
 #calculator .ui-slider-horizontal .ui-slider-handle {
-    top: -9px;
+    top: 0px;
 }
 #calculator .ui-slider .ui-slider-handle {
     width: 22px;

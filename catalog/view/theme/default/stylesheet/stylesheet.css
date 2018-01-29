@@ -1,4 +1,10 @@
 body {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum';
+    -moz-font-feature-settings: 'lnum=1';
+    -ms-font-feature-settings: 'lnum';
+    -webkit-font-feature-settings: 'lnum';
+    -o-font-feature-settings: 'lnum';
     font-family: 'Verdana',sans-serif;
     font-weight: 400;
     color: #666;
@@ -63,6 +69,7 @@ a:hover, a:focus {
 }
 
 p {
+
     font-size: 16px;
 }
 
@@ -1000,7 +1007,6 @@ footer .down-text{
 
 
 
-
 @font-face {
     font-family: Verdana; /* Гарнитура шрифта */
     src: url(../stylesheet/font/verdana-regular.ttf); /* Путь к файлу со шрифтом */
@@ -1011,6 +1017,8 @@ footer .down-text{
     font-weight: bold;
 }
 @font-face {
+
+
     font-family: Georgia; /* Гарнитура шрифта */
     src: url(../stylesheet/font/georgia.ttf); /* Путь к файлу со шрифтом */
 }
@@ -1270,4 +1278,7 @@ body {
 .coool {
     width: 20.666667%!important;
 }
+
+
+
 
