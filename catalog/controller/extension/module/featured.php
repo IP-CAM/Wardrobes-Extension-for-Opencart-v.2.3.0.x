@@ -41,7 +41,8 @@ class ControllerExtensionModuleFeatured extends Controller {
 
 					if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
                         $price = $this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax'));
-                        $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
+                        $format_many = new Formatmany();
+                        $price = 'от ' . $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
                     } else {
 						$price = false;
 					}
@@ -81,33 +82,9 @@ class ControllerExtensionModuleFeatured extends Controller {
 
 		if ($data['products']) {
 			return $this->load->view('extension/module/featured', $data);
-		}
+		} else {
+            return false;
+        }
 	}
 
-    private function formatMany($number, $currency)
-    {
-        $value = '';
-        $format = true;
-        $decimal_place = $this->currencies[$currency]['decimal_place'];
-
-        if (!$value) {
-            $value = $this->currencies[$currency]['value'];
-        }
-
-        $amount = $value ? (float)$number * $value : (float)$number;
-
-        $amount = round($amount, (int)$decimal_place);
-
-        if (!$format) {
-            return $amount;
-        }
-
-        $string = '';
-        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
-
-        $symbol_right =  " &#8381;";
-        $string .= $symbol_right;
-
-        return $string;
-    }
 }

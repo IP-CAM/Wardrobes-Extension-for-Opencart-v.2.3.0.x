@@ -32,9 +32,25 @@ function getURLVar(key) {
 	}
 } 
 
-
+function addArrow() { //Для всех каруселей
+    $('.owl-carousel ').append('<div class="transformation owl-arrow owl-next"></div>');
+    $('.owl-carousel ').append('<div class=" owl-arrow owl-prev"></div>');
+    $(".owl-next").on('click', function(){
+        $('.owl-carousel').trigger('next.owl.carousel');
+    });
+    $(".owl-prev").on('click', function(){
+        $('.owl-carousel').trigger('prev.owl.carousel');
+    });
+}
 
 $(document).ready(function() {
+    //Для всех каруселей
+    addArrow();
+
+
+
+
+
 	// Highlight any found errors
 	$('.text-danger').each(function() {
 		var element = $(this).parent().parent();
@@ -242,6 +258,8 @@ function mobileDetect() {
     }
     return mobile_detect;
 }
+
+
 
 
 /* Agree to Terms */

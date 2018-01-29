@@ -29,6 +29,8 @@ h2 {
 
 #menu_mini_box li{
     list-style-type:none;
+    margin-bottom: 18px;
+
 }
 #menu_mini_box li a{
     color: #000000;
@@ -79,6 +81,42 @@ h2 {
 .slideout-open body,
 .slideout-open .slideout-panel {
     overflow-x: hidden;
+}
+
+
+
+
+
+.product-thumb {
+    width: 100%;
+    height: 145px;
+    display: flex;
+    align-items: center;
+}
+
+.product-thumb {
+    margin-bottom: 10px;
+}
+.product-thumb:last-child {
+    margin-bottom: 0;
+}
+.product-thumb .image {
+    margin: 4px;
+}
+.product-thumb img{
+    height: 134px;
+    margin-left: 5px;
+}
+.product-thumb .button {
+    width: 245px;
+}
+
+
+.product-thumb .name {
+    top: 5px;
+}
+.product-thumb .price, .product-thumb .name, .product-thumb .button {
+    left: 155px;
 }
 
 
@@ -330,6 +368,9 @@ h2 {
 
 
 /*caTEGORY */
+#category.row-base-mobile {
+    margin-bottom: 20px;
+}
 #category #logo-category {
     width: 30px;
     height: 30px;
@@ -375,43 +416,22 @@ h2 {
 #category .margin-bottom-mobile {
     margin-bottom: 20px;
 }
-#category .product-grid {
-    margin-bottom: 10px;
-}
-#category .product-grid:last-child {
-    margin-bottom: 20px;
-}
 
-#category .product-grid .name p  {
-    margin-top: 10px;
-}
-
-#category .product-grid>.col-xs-12 {
-    display: flex;
-    align-items: center;
-    height: 140px;
-}
-#category .product-grid>.col-xs-12>.col-xs-8 {
-    padding-right: 0;
-    height: 100%;
-}
-#category .product-grid>.col-xs-12>.col-xs-8>p {
-    text-align: left;
-    position: absolute;
-}
-#category .product-grid>.col-xs-12>.col-xs-8>p.name-product {
-    top: 5px;
-}
-#category .product-grid>.col-xs-12>.col-xs-8>p.price {
-    bottom: 50px;
-}
-#category .product-grid>.col-xs-12>.col-xs-8>button.button-style-1 {
-    position: absolute;
-    bottom: 7px;
-}
 /*product*/
 
 
+#product {
+
+}
+#product {
+
+}
+#product {
+
+}
+#product {
+
+}
 #product #name-box {
     display: inline-block;
     white-space: nowrap;
@@ -467,6 +487,7 @@ h2 {
 
 #product .button-tabs-mobile{
     margin-bottom: 7px;
+    margin-top: 20px;
 }
 #product .check-info {
     width: auto;
@@ -566,6 +587,10 @@ h2 {
     margin-bottom: 30px;
 }
 
+
+#product .phone-box {
+    height: auto;
+}
 
 #calculator .box_root_item.box input:checked::after,
 #calculator .sub_box_item.box input:checked::after{
@@ -841,8 +866,8 @@ h2 {
     width: 100%;
     left: 0;
     margin-bottom: 30px;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 #aboutcompany .aboutcompany.text_box {
     padding-bottom: 20px;
@@ -869,6 +894,18 @@ h2 {
 
 
 /*footer*/
+footer.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+footer .f-up {
+    padding-bottom: 10px;
+
+}
+footer .f-up h3{
+    margin-top: 18px;
+}
 footer #line {
   margin: 0;
   margin-top: 10px;
@@ -889,6 +926,12 @@ footer .col-hh-4 {
 
 footer .icon{
     float: left;
+    margin-left: 10px;
+}
+footer .info{
+    float: right;
+    width: 50%;
+    padding-right: 25px;
 }
 footer .icon .vk-icon {
     padding-left: 7px;

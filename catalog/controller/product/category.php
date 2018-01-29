@@ -108,11 +108,16 @@ class ControllerProductCategory extends Controller {
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 
+            $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
+            $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
+
             $this->document->addStyle('catalog/view/javascript/category/category.css');
             $this->document->addScript('catalog/view/javascript/category/category.js');
 
             $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
             $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
+
+
 
 
 			$data['heading_title'] = $category_info['name'];
@@ -198,18 +203,10 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
+            $data['products'] = $this->getProducts($results);
 
-			foreach ($results as $result) {
-                $data_pr = array(
-                    'product_id'       => $result['product_id'],
-                    'image'       => $result['image'],
-                    'name'        => $result['name'],
-                    'price'       => $result['price'],
-                    'special'     => $result['special'],
-                    'button_text'     => 'Подробнее'
-                );
-				$data['products'][] = $this->load->controller('product/product_item', $data_pr);
-			}
+            $best_results = $this->model_catalog_product->getProducts($filter_data);
+            $data['best_products'] = $this->getProducts($best_results);
 
             $products_json_id = array();
             foreach($results as $result) {
@@ -441,6 +438,23 @@ class ControllerProductCategory extends Controller {
 	}
 
 
+    private function getProducts($results)
+    {
+        $data = array();
+        foreach ($results as $result) {
+            $data_pr = array(
+                'product_id'       => $result['product_id'],
+                'image'       => $result['image'],
+                'name'        => $result['name'],
+                'price'       => $result['price'],
+                'special'     => $result['special'],
+                'button_text'     => 'Подробнее'
+            );
+            $data[] = $this->load->controller('product/product_item', $data_pr);
+        }
+        return $data;
+    }
+
 
     public function productFilterPrice()
     {
@@ -451,11 +465,6 @@ class ControllerProductCategory extends Controller {
         $min = $this->request->post['min'];
         $max = $this->request->post['max'];
         $this->load->model('catalog/product');
-
-
-
-
-
 
         $category_id = $this->request->post['category_id'];
 

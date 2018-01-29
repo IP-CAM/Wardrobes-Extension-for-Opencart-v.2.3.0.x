@@ -1,7 +1,6 @@
 <?php
 class ControllerProductProductItem extends Controller {
 
-
     public function index($values) {
 
         $data = array();
@@ -13,13 +12,15 @@ class ControllerProductProductItem extends Controller {
         }
 
         if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-            $price = 'от ' . $this->formatMany($values['price'], $this->session->data['currency']);
+            $format_many = new Formatmany();
+            $price = 'от ' . $format_many->format($values['price'], $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
         } else {
             $price = false;
         }
 
         if ((float)$values['special']) {
-            $special = $this->formatMany($values['special'], $this->session->data['currency']);
+            $format_many = new Formatmany();
+            $special = $format_many->format($values['special'], $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
         } else {
             $special = false;
         }
@@ -36,29 +37,5 @@ class ControllerProductProductItem extends Controller {
         }
 
         return $this->load->view('product/product_item', $data);
-    }
-
-    private function formatMany($number, $currency)
-    {
-        $value = '';
-        $format = true;
-        $decimal_place = $this->currencies[$currency]['decimal_place'];
-
-        if (!$value) {
-            $value = $this->currencies[$currency]['value'];
-        }
-
-        $amount = $value ? (float)$number * $value : (float)$number;
-
-        $amount = round($amount, (int)$decimal_place);
-
-        if (!$format) {
-            return $amount;
-        }
-
-        $string = '';
-        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
-
-        return $string;
     }
 }

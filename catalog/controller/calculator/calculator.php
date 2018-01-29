@@ -15,14 +15,15 @@ class ControllerCalculatorCalculator extends Controller {
 
         //of table Calculator_description
         $calculator_info = $this->model_calculator_calculator->getCalculator(0);
-        $this->document->addScript('catalog/view/javascript/calculator_open_product.js');
-        $this->document->addScript('catalog/view/javascript/calculator.js');
+        $this->document->addScript('catalog/view/javascript/calculator/calculator_open_product.js');
+        $this->document->addScript('catalog/view/javascript/calculator/calculator.js');
+        $this->document->addStyle('catalog/view/javascript/calculator/calculator.css');
 
         $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
         $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
 
-        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
-        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
 
 
          $this->document->addStyle('catalog/view/javascript/jquery/slider-ui/jquery-ui.min.css');

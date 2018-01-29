@@ -25,21 +25,14 @@
 		<?php } ?>
 	</ul>
 
-	<div class="row"><?php echo $column_left; ?>
-		<?php if ($column_left && $column_right) { ?>
-		<?php $class = 'col-sm-6'; ?>
-		<?php } elseif ($column_left || $column_right) { ?>
-		<?php $class = 'col-sm-9'; ?>
-		<?php } else { ?>
-		<?php $class = 'col-sm-12'; ?>
-		<?php } ?>
-		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+	<div class="row row-base">
+		<div class="col-lg-12">
 
 			<!-- CONTENT BEGIN -->
-			<div class="row">
-				<div class="col-sm-12">
-					<h1 class="text-center">Шкафы-купе по индивидуальному проекту</h1>
-					<p>Для расчёта примерной цены будущего изделия воспользуйтесь нашим онлайн-калькулятором цены, следуя инструкциям ниже.</p>
+			<div class="row block-padding-min">
+				<div class="col-lg-12">
+						<h1 class="text-center">Шкафы-купе по индивидуальному проекту</h1>
+						<p>Для расчёта примерной цены будущего изделия воспользуйтесь нашим онлайн-калькулятором цены, следуя инструкциям ниже.</p>
 				</div>
 			</div>
 			<!-- CONTENT END -->
@@ -88,15 +81,15 @@
 			<!-- PRODUCTS BEGIN -->
 			<input type="hidden" name="product_id" data-modal="1" value="" />
 			<h2 class="text-center" name="type-products" hidden="hidden">Выбирете модель</h2>
-			<div class="row" name="product_box">
+			<div class="row block-padding-min" name="product_box">
 			</div>
 			<!-- PRODUCTS END -->
 			<!-- CALCULATOR BEGIN -->
-			<h2 class="text-center">Подберите размеры для изделия</h2>
+			<h2 class="text-center text-calculator-size">Подберите размеры для изделия</h2>
 
-				<input type="hidden" name="type" data-modal="1" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
-				<input type="hidden" name="two_modal" data-modal="1" value="0" />
-				<div class="row" id="calculator-box">
+			<input type="hidden" name="type" data-modal="1" value="0" /> <!-- 0 - standard, 1 - exclusive, 2 - telephone -->
+			<input type="hidden" name="two_modal" data-modal="1" value="0" />
+			<div class="row" id="calculator-box">
 
 					<div id="cal-calculation-box" class="col-lg-6 no-padding margin-left">
 						<div id="button-check">
@@ -155,17 +148,15 @@
 
 			<!-- CALCULATOR END -->
 			<!-- BANNER BEGIN -->
-			<div class="row">
+			<div class="row block-padding-min">
 				<div class="col-lg-12 text-center" name="banner" id="banner">
-					<div >
-					</div>
 				</div>
 			</div>
 			<!-- BANNER END -->
 			<!-- CONTENT BEGIN -->
-			<div class="row">
+			<div class="row block-padding-min text-description">
 				<div class="col-sm-12">
-					<?php echo $description; ?>
+						<?php echo $description; ?>
 				</div>
 			</div>
 			<!-- CONTENT END -->
@@ -306,7 +297,7 @@
 
 
 			</div>
-			<div id="cal-dispatch-box" class="col-xs-12">
+			<div id="cal-dispatch-box" class="col-lg-12">
 				<div class="calculator_dispatch">
 					<input type="text" name="telephone" data-modal="2" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
 					<input type="button"

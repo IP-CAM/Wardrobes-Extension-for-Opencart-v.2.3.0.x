@@ -11,15 +11,8 @@
 			<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 			<?php } ?>
 		</ul>
-		<div class="row"><?php echo $column_left; ?>
-			<?php if ($column_left && $column_right) { ?>
-			<?php $class = 'col-sm-6'; ?>
-			<?php } elseif ($column_left || $column_right) { ?>
-			<?php $class = 'col-sm-9'; ?>
-			<?php } else { ?>
-			<?php $class = 'col-sm-12'; ?>
-			<?php } ?>
-			<div id="content" class="<?php echo $class; ?> generalcatalog_image_box"><?php echo $content_top; ?>
+		<div class="row row-base">
+			<div class="col-lg-12 generalcatalog_image_box">
 				<div class="row row-big">
 					<div class="col-lg-4">
 						<?php echo $box_images_html['radius']; ?>
@@ -50,8 +43,11 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-lg-12 font-size-18 description">
+					<?php echo $description; ?>
+			</div>
 		</div>
-		<div class="row font-size-18 description"><?php echo $description; ?></div>
+
 	</div>
 
 	<!-- FOR MOBILE -->
@@ -98,8 +94,5 @@
 			</div>
 		</div>
 	</div>
-
-	<div><?php echo $content_bottom; ?></div>
-	<div><?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>

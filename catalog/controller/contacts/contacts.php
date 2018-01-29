@@ -8,6 +8,9 @@ class ControllerContactsContacts extends Controller {
         $this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
         $this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
         $this->document->addScript('catalog/view/javascript/contacts.js');
+
+        $this->document->addScript('catalog/view/javascript/contacts/contacts.js');
+        $this->document->addStyle('catalog/view/javascript/contacts/contacts.css');
         
         $contacts_info = $this->model_contacts_contacts->getContacts(0);
         $this->load->language('common/header');

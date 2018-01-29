@@ -28,6 +28,20 @@
     margin-right: -9px;
 }
 
+
+
+.product-thumb img {
+    height: 117px;
+}
+.product-thumb .price, .product-thumb .name, .product-thumb .button {
+    left: 130px;
+}
+.product-thumb .price, .product-thumb .name {
+    width: 57%;
+}
+.product-thumb .button {
+    width: 55%;
+}
 /*home */
 
 #home .tile_banner p {

@@ -28,18 +28,21 @@
 	 <script  src="catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
 	 
 	<script  src="catalog/view/javascript/bootstrap/js/bootstrap.min.js"></script>
+
+
 	
 	<?php foreach ($styles as $style) { ?>
 	<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
 		  media="<?php echo $style['media']; ?>"/>
 	<?php } ?>
-	<script   src="catalog/view/javascript/common.js"></script>
+
 	<?php foreach ($links as $link) { ?>
 	<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
 	<?php } ?>
 	<?php foreach ($scripts as $script) { ?>
 	<script src="<?php echo $script; ?>"></script>
 	<?php } ?>
+	<script   src="catalog/view/javascript/common.js"></script>
 	<?php foreach ($analytics as $analytic) { ?>
 	<?php echo $analytic; ?>
 	<?php } ?>

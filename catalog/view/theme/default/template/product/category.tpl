@@ -11,11 +11,11 @@
 		<li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
 		<?php } ?>
 	</ul>
-  <div class="row row-base-category">
+  <div class="row row-base">
 
   	<?php echo $column_left; ?>
 
-    <div id="content" class="col-lg-9 column-body"><?php echo $content_top; ?>
+    <div id="content" class="col-lg-9 column-body">
       <h1 class="name-category"><?php echo $heading_title; ?></h1>
       <?php if ($products) { ?>
 		<div class="row select-product-box">
@@ -50,36 +50,44 @@
 				</div>
         	</div>
       </div>
-      <div class="row">
+        <div class="row">
 		  <div class="col-lg-12 product-box">
 			  <?php foreach ($products as $product) { ?>
 			 	 <?php echo $product; ?>
 			  <?php } ?>
 		  </div>
-      </div>
-      <div class="row">
+        </div>
+        <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-      </div>
+        </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
-      <p><?php echo $text_empty; ?></p>
-      <div class="buttons">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-      </div>
+		  <p><?php echo $text_empty; ?></p>
+		  <div class="buttons">
+			<div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+		  </div>
       <?php } ?>
-
-
 	</div>
-	  <?php echo $content_bottom; ?>
-		  <?php if ($description_down) { ?>
-		  <div class="col-sm-12 description-down "><?php echo $description_down; ?></div>
-		  <?php } ?>
+
+	  <?php if(isset($best_products)) { ?>
+		  <div class="col-lg-12 best-product">
+			  <h2 class="line-red font-size-30 font-type-georgia">Хиты продаж</h2>
+			  <div id="carousel" class="owl-carousel owl-theme" name="best_product">
+				  <?php foreach ($best_products as $best_product) { ?>
+						<?php echo $best_product; ?>
+				  <?php } ?>
+			  </div>
+		  </div>
+	  <?php } ?>
+	  <?php if ($description_down) { ?>
+	  <div class="col-lg-12 description-down "><?php echo $description_down; ?></div>
+	  <?php } ?>
   </div>
 </div>
 
 
 <!-- FOR MOBILE -->
-<div class="container hidden-lg" id="category">
+<div class="row-base-mobile container hidden-lg" id="category">
 	<div class="row">
 		<div class="col-xs-12 text-left back">
 			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
@@ -92,8 +100,7 @@
 
 		<div class="col-xs-12 margin-bottom-mobile">
 			<div class="select-product-box input-select-mobile">
-				<label class=""
-					   for="input-sort-mobile"><?php echo $text_sort; ?></label>
+				<label for="input-sort-mobile"><?php echo $text_sort; ?></label>
 				<div style="position: relative;flex:1">
 					<select  class="input-sort-mobile" onchange="location = this.value;">
 						<?php foreach ($sorts as $sorts) { ?>
@@ -109,40 +116,13 @@
 				</div>
 			</div>
 		</div>
-
-
-		<?php foreach ($products as $product) { ?>
-		<div class="product-grid col-xs-12 " data-product_id=<?php echo $product['product_id']; ?> >
-				<div class="col-xs-12 border-gray">
-					<div class="col-xs-4" style="padding: 0">
-						<div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>"
-																						  alt="<?php echo $product['name']; ?>"
-																						  title="<?php echo $product['name']; ?>"
-																						  class="img-responsive"/></a>
-						</div>
-					</div>
-					<div class="col-xs-8">
-						<p class="name-product font-size-16 font-type-verdana dark name"><?php echo $product['name']; ?></p>
-						<?php if ($product['price']) { ?>
-						<?php if (!$product['special']) { ?>
-						<p class="price dark font-size-18 font-type-verdana font-bold font-italic"
-						   style="text-align: left;"><?php echo trim($product['price']); ?></p>
-						<?php } else { ?>
-						<p class="price dark font-size-18 font-type-verdana font-bold font-italic" style="text-align: left;"><span
-									class="price-new"><?php echo $product['special']; ?></span> <span
-									class="price-old"><?php echo $product['price']; ?></span></p>
-						<?php } ?>
-						<?php } ?>
-
-						<button type="button" class="btn pull-left button-style-1" onClick='location.href="<?php echo $product['href']; ?>"'>Заказать этот товар</button>
-					</div>
-
-				</div>
+		<div class="col-xs-12">
+			<?php foreach ($products as $product) { ?>
+			<?php echo $product; ?>
+			<?php } ?>
 		</div>
-	<?php } ?>
 
 		<?php } ?>
-
 
 
 	</div>

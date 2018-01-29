@@ -1,40 +1,37 @@
-<footer class="container border-top-dark">
+<footer class="container">
 
 	<div class="row visible-lg">
-		<div class="col-lg-3">
+		<div class="col-lg-12 footer-top">
 
-		</div>
+
 		<!--noindex-->
-		<div class="col-lg-2">
-			<a href="<?php echo $instagram_link['href']; ?>">
-				<img src="<?php echo $instagram_link['path_image']; ?>"
-					 title="<?php echo $instagram_link['title']; ?>"
-					 alt="<?php echo $instagram_link['alt']; ?>"
-					 class="img-responsive center-block"/></a>
-		</div>
-		<div class="col-lg-2">
-			<a href="<?php echo $vk_link['href']; ?>"  rel="nofollow">
-				<img src="<?php echo $vk_link['path_image']; ?>"
-					 title="<?php echo $vk_link['title']; ?>"
-					 alt="<?php echo $vk_link['alt']; ?>"
-					 class="img-responsive center-block"/></a>
-		</div>
-		<div class="col-lg-2">
-			<a href="<?php echo $twitter_link['href']; ?>">
-				<img src="<?php echo $twitter_link['path_image']; ?>"
-					 title="<?php echo $twitter_link['title']; ?>"
-					 alt="<?php echo $twitter_link['alt']; ?>"
-					 class="img-responsive center-block"/></a>
-		</div>
+			<div class="box-image border-top-dark">
+				<a href="<?php echo $instagram_link['href']; ?>">
+					<img src="<?php echo $instagram_link['path_image']; ?>"
+						 title="<?php echo $instagram_link['title']; ?>"
+						 alt="<?php echo $instagram_link['alt']; ?>"
+						 class="img-responsive center-block"/></a>
+
+
+				<a href="<?php echo $vk_link['href']; ?>"  rel="nofollow">
+					<img src="<?php echo $vk_link['path_image']; ?>"
+						 title="<?php echo $vk_link['title']; ?>"
+						 alt="<?php echo $vk_link['alt']; ?>"
+						 class="img-responsive center-block"/></a>
+
+				<a href="<?php echo $twitter_link['href']; ?>">
+					<img src="<?php echo $twitter_link['path_image']; ?>"
+						 title="<?php echo $twitter_link['title']; ?>"
+						 alt="<?php echo $twitter_link['alt']; ?>"
+						 class="img-responsive center-block"/></a>
+			</div>
 		<!--/noindex-->
-
-		<div class="col-lg-3">
-
 		</div>
 	</div>
+
 	<div class="row footer-body  visible-lg">
 
-		<div class="col-sm-4 list-box-footer">
+		<div class="col-lg-4 list-box-footer">
 			<h3 class="text-center">Информация</h3>
 			<div class="col-lg-6">
 				<ul class="list-footer one">
@@ -65,16 +62,19 @@
 				<li><i class="footer-icon-right-3"></i><p>9653061@gmail.com</p></li>
 			</ul>
 		</div>
+
 	</div>
 
 
 
 	<div class="row f-up hidden-lg">
 
-		<div class="col-xs-12 text-center body-footer">
-			<h3 class=" text-center">Связаться с нами</h3>
-			<div class="connect_with_us center-block img-responsive"></div>
-			<span>Россия, Санкт-Петербург, Уманский переулок, 71</span>
+		<div class="col-xs-12 text-center">
+			<div class="body-footer  border-top-dark">
+				<h3 class=" text-center">Связаться с нами</h3>
+				<div class="connect_with_us center-block img-responsive"></div>
+				<span>Россия, Санкт-Петербург, Уманский переулок, 71</span>
+			</div>
 		</div>
 
 	</div>
@@ -104,16 +104,18 @@
 		</div>
 <!--/noindex-->		
 
-		<div class="col-xs-6 text-right">
+		<div class="col-xs-6 text-right info">
 			<span>+7 (812) 965 3061</span>
 			<span>9653061@gmail.com</span>
 		</div>
 	</div>
 
 	<!-- <hr id="line"> -->
-	<div class="row down border-top-dark ">
-		<div class="col-xs-12">
-			<p class="text-center font-size-12 font-type-georgia">© Центр мебели. Все права защищены 2018 г.</p>
+	<div class="row down  ">
+		<div class="col-xs-12 col-lg-12">
+			<div class="down-text border-top-dark">
+				<p class="text-center font-size-12 font-type-georgia">© Центр мебели. Все права защищены 2018 г.</p>
+			</div>
 		</div>
 	</div>  
   

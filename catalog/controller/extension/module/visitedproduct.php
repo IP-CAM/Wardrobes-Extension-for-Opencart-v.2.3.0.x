@@ -40,53 +40,15 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 			foreach ($this->session->data['products_id'] as $result_id) {
 				$result = $this->model_catalog_product->getProduct($result_id);
 
-				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
-				} 
-				
-				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
-                    $price = $this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax'));
-                    $price = 'от ' . $this->formatMany($price, $this->session->data['currency']);
-				} else {
-					$price = false;
-				}
-				
-
-				if ((float)$result['special']) {
-					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')));
-				} else {
-					$special = false;
-				}
-
-				if ($this->config->get('config_tax')) {
-					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
-				} else {
-					$tax = false;
-				}
-
-				if ($this->config->get('config_review_status')) {
-					$rating = $result['rating'];
-				} else {
-					$rating = false;
-				}
-				if(utf8_strlen($result['name']) < 80){
-					$sub_name = $result['name'];
-				}else{
-					$sub_name = utf8_substr($result['name'], 0, 80) . '..';
-				}
-
-
-				$data['products'][] = array(
-					'product_id'  => $result['product_id'],
-					'thumb'       => $image,
-					'name'        => $sub_name ,
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
-					'price'       => $price,
-					'special'     => $special,
-					'tax'         => $tax,
-					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
-				);
+                $data_pr = array(
+                    'product_id'       => $result['product_id'],
+                    'image'       => $result['image'],
+                    'name'        => $result['name'],
+                    'price'       => $result['price'],
+                    'special'     => $result['special'],
+                    'button_text'     => 'Подробнее'
+                );
+                $data['visitedproducts'][] = $this->load->controller('product/product_item', $data_pr);
 			}
 		}
 		if (file_exists($this->config->get('config_template') . 'extension/module/visitedproduct')) {
@@ -96,31 +58,20 @@ class ControllerExtensionModuleVisitedproduct extends Controller {
 		}
 	}
 
-
-    private function formatMany($number, $currency)
+    private function getProducts($results)
     {
-        $value = '';
-        $format = true;
-        $decimal_place = $this->currencies[$currency]['decimal_place'];
-
-        if (!$value) {
-            $value = $this->currencies[$currency]['value'];
+        $data = array();
+        foreach ($results as $result) {
+            $data_pr = array(
+                'product_id'       => $result['product_id'],
+                'image'       => $result['image'],
+                'name'        => $result['name'],
+                'price'       => $result['price'],
+                'special'     => $result['special'],
+                'button_text'     => 'Подробнее'
+            );
+            $data[] = $this->load->controller('product/product_item', $data_pr);
         }
-
-        $amount = $value ? (float)$number * $value : (float)$number;
-
-        $amount = round($amount, (int)$decimal_place);
-
-        if (!$format) {
-            return $amount;
-        }
-
-        $string = '';
-        $string .= number_format($amount, null, $this->language->get('decimal_point'), ' ');
-
-        $symbol_right =  " &#8381;";
-        $string .= $symbol_right;
-
-        return $string;
+        return $data;
     }
 }

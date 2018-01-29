@@ -9,6 +9,6 @@
 		<span class="price-new"><?php echo $special; ?></span>
 	<?php } ?>
 
-	<button type="button" class="button-style-1 button-product-for-style-1" onClick='location.href="<?php echo $product_reference; ?>"'><?php echo $button_text; ?></button>
+	<a class="button-style-1 button" href="<?php echo $product_reference; ?>"><?php echo $button_text; ?></a>
 
 </div>

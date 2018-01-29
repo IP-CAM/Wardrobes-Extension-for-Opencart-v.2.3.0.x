@@ -19,6 +19,8 @@ class ControllerAboutcompanyAboutcompany extends Controller {
             'href' => $this->url->link('aboutcompany/aboutcompany')
         );
 
+        $this->document->addStyle('catalog/view/javascript/aboutcompany/aboutcompany.css');
+
         //for mobile version
         if (isset($this->request->server['HTTP_REFERER'])) {
             $referer_mobile = $this->request->server['HTTP_REFERER'];
@@ -28,6 +30,7 @@ class ControllerAboutcompanyAboutcompany extends Controller {
         $data['referer_mobile'] = $referer_mobile;
 
         //of table Calculator_description
+
 
 
         $this->document->setTitle($aboutcompany_info['meta_title']);

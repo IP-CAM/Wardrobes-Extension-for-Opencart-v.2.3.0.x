@@ -5,6 +5,8 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
 		$this->load->model('generalcatalog/generalcatalog');
         $this->load->model('catalog/category');
 
+        $this->document->addStyle('catalog/view/javascript/generalcatalog/generalcatalog.css');
+
         $contacts_info = $this->model_generalcatalog_generalcatalog->getGeneralcatalog(0);
         $this->load->language('common/header');
 		$data['breadcrumbs'] = array();
