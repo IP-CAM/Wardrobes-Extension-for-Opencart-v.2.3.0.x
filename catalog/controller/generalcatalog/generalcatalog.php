@@ -42,6 +42,8 @@ class ControllerGeneralcatalogGeneralcatalog extends Controller {
             ['name_img'=>'our_work','name'=>'Наши работы' , 'id' =>'70'],
             ['name_img'=>'radius','name'=>'Радиусные' , 'id' =>'64'],
             ['name_img'=>'hallway','name'=>'Прихожие' , 'id' =>'69'],
+            ['name_img'=>'cabinet_cabinets','name'=>'Корпусные' , 'id' =>'72'],
+            ['name_img'=>'door_coupe','name'=>'Двери-купе' , 'id' =>'73'],
             ['name_img'=>'dressing_room', 'name'=>'Гардеробные' , 'id' =>'68']
         );
         $box_images = array();

@@ -15,21 +15,26 @@
 			<div class="col-lg-12 generalcatalog_image_box">
 				<div class="row row-big">
 					<div class="col-lg-4">
-						<?php echo $box_images_html['radius']; ?>
-					</div>
-					<div class="col-lg-4">
-						<?php echo $box_images_html['standard']; ?>
+						<?php echo $box_images_html['our_work']; ?>
 					</div>
 					<div class="col-lg-4">
 						<?php echo $box_images_html['built_in']; ?>
+
+					</div>
+					<div class="col-lg-4">
+						<?php echo $box_images_html['corner']; ?>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-4">
-						<?php echo $box_images_html['corner']; ?>
-					</div>
-					<div class="col-lg-4">
-						<?php echo $box_images_html['our_work']; ?>
+						<div class="row">
+							<div class="col-lg-12 col-min">
+								<?php echo $box_images_html['cabinet_cabinets']; ?>
+							</div>
+							<div class="col-lg-12">
+								<?php echo $box_images_html['standard']; ?>
+							</div>
+						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="row">
@@ -38,6 +43,16 @@
 							</div>
 							<div class="col-lg-12">
 								<?php echo $box_images_html['dressing_room']; ?>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="row">
+							<div class="col-lg-12 col-min">
+								<?php echo $box_images_html['radius']; ?>
+							</div>
+							<div class="col-lg-12">
+								<?php echo $box_images_html['door_coupe']; ?>
 							</div>
 						</div>
 					</div>

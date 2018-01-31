@@ -111,6 +111,7 @@ class ControllerCalculatorCalculator extends Controller {
                        $category_root['category_id'] == 70 ||
                        $category_root['category_id'] == 64 ||
                        $category_root['category_id'] == 72 ||
+                       $category_root['category_id'] == 73 ||
                        $category_root['category_id'] == 66) { //Kostil
                         continue;
                     }
