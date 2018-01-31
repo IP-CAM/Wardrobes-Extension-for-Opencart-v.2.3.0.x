@@ -13,6 +13,9 @@ class ControllerCommonHome extends Controller {
         $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
         $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
 
+        $this->document->addStyle('catalog/view/javascript/home/home.css');
+        $this->document->addScript('catalog/view/javascript/home/home.js');
+
         if (isset($this->request->get['route'])) {
             $this->document->addLink($this->config->get('config_url'), 'canonical');
         }

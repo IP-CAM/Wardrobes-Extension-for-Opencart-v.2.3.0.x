@@ -48,7 +48,7 @@
 						<?php foreach($categories_root as $category_root) { ?>
 						<div class="col-lg-3">
 							<div class="box_root_item box border-gray" data-category_id_root="<?php echo $category_root['category_id'] ?>">
-								<input type="checkbox" name="category_root" value="<?php echo $category_root['category_id'] ?>" data-cal_root="1" >
+								<div class="category_check"></div>
 								<img src="<?php echo $category_root['image']; ?>"
 									 title="<?php echo $category_root['name']; ?>"
 									 alt="<?php echo $category_root['name']; ?>"
@@ -156,7 +156,7 @@
 				<?php foreach($categories_root as $category_root) { ?>
 				<div class="box_root box_root-mobile">
 					<div class="box_root_item box  border-gray" data-category_id_root="<?php echo $category_root['category_id'] ?>">
-						<input type="checkbox" name="category_root" value="<?php echo $category_root['category_id'] ?>" data-cal_root="1">
+						<div class="category_check"></div>
 						<img src="<?php echo $category_root['image']; ?>"
 							 title="<?php echo $category_root['name']; ?>"
 							 alt="<?php echo $category_root['name']; ?>"
@@ -191,15 +191,11 @@
 				<div class="slider-1">
 					<div class="width-mobile-box"><p>Ширина (см)  </p> <span name="width_mobile"></span></div>
 					<div name="slider-range-1">
-						<div class="custom-handle custom-handle-1 ui-slider-handle"><span class="value-output"></span>
-						</div>
 					</div>
 				</div>
 				<div class="slider-2" hidden="hidden">
 					<div class="depth-mobile-box"><p>Глубина (см)  </p> <span name="depth_mobile"></span></div>
 					<div name="slider-range-2">
-						<div class="custom-handle custom-handle-2 ui-slider-handle"><span class="value-output"></span>
-						</div>
 					</div>
 				</div>
 				<div class="mobile-box-size">
@@ -218,12 +214,14 @@
 
 			<div id="cal-dispatch-box" class="col-lg-12">
 				<div class="calculator_dispatch">
-					<input type="text" name="telephone" data-modal="2" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
-					<input type="button"
-						   name="dispatch-button"
-						   data-modal="2"
-						   value="Отправить"
-						   class="button-style-1" />
+					<div>
+						<input type="text" name="telephone" data-modal="2" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
+						<input type="button"
+							   name="dispatch-button"
+							   data-modal="2"
+							   value="Отправить"
+							   class="button-style-1" />
+					</div>
 					<div class="error-box">
 						<p class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</p>
 					</div>

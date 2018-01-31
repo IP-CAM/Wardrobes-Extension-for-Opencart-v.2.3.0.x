@@ -148,26 +148,43 @@
 }
 #calculator #calculator-box>#cal-dispatch-box {
     height: 49vw;
+    background-size: cover;
 }
 #calculator #cal-dispatch-box .calculator_dispatch {
     position: absolute;
-    top: 75%;
-    left: 0;
-    width: 100%;
+    top: 99px;
+    left: '';
     text-align: center;
+    right: 0;
+}
+#calculator #cal-dispatch-box input[type="text"] {
+   width: 100%;
+}
+#calculator #cal-dispatch-box div {
+    top: 0;
+    left: 0;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 #cal-dispatch-box input[type="text"] {
     width: 96%;
 }
-#cal-dispatch-box input[type="button"] {
+#calculator #cal-dispatch-box input[type="button"] {
     right: 5%;
     left: initial;
 }
 #calculator-box .error-box {
     padding-left: 9px;
 }
+#calculator #cal-calculation-box .slider-1,
+#calculator #cal-calculation-box .slider-2 {
+    width: 250px;
+}
 
-
+#calculator #cal-dispatch-box {
+    background: url(../image/calculator_get_phone_mobile_360.png);
+}
 #calculator #banner-mobile {
     content: url('../image/calculator_banner_mini.jpg');
     height: 49vw;
