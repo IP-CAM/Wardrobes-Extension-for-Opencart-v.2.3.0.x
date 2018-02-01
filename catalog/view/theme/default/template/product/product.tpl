@@ -186,20 +186,22 @@
 				<span class="error" name="phone" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
 				<span class="phone-child-5 text-mini ">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
 			</div>
-
-			<p class="name-price">Цена:</p>
-			<?php if ($price) { ?>
-			<p class="price"><?php echo $price; ?><span> ₽</span></p>
+			<?php if($price_view) { ?>
+				<p class="name-price">Цена:</p>
+				<?php if ($price) { ?>
+				<p class="price"><?php echo $price; ?><span> ₽</span></p>
+				<?php } ?>
+				<?php if ($special) { ?>
+				<h2><?php echo $special; ?></h2>
+				<?php } ?>
+				<?php if ($discounts) { ?>
+				<?php foreach ($discounts as $discount) { ?>
+				<?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?>
+				<?php } ?>
+				<?php } ?>
+			<?php } else { ?>
+				<div class="stub"></div>
 			<?php } ?>
-			<?php if ($special) { ?>
-			<h2><?php echo $special; ?></h2>
-			<?php } ?>
-			<?php if ($discounts) { ?>
-			<?php foreach ($discounts as $discount) { ?>
-			<?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?>
-			<?php } ?>
-			<?php } ?>
-
 			<div class="advantages border-gray">
 				<div class="advantages-top">
 					<p class="ont-type-georgia font-size-18">Способы оплаты</p>
@@ -255,9 +257,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12">
-			<div class="price"><h2 class="font-italic font-bold font-size-30 font-type-verdana"><?php echo $price; ?><span> ₽</span></h2></div>
-		</div>
+		<?php if($price_view) { ?>
+			<div class="col-xs-12">
+				<div class="price"><h2 class="font-italic font-bold font-size-30 font-type-verdana"><?php echo $price; ?><span> ₽</span></h2></div>
+			</div>
+		<?php } ?>
 		<div class="col-xs-12">
 			<div class="phone-box border-gray">
 				<p class="phone-child-1 text-left">Дизайн-проект по продукции, выезд дизайнера и замерщика <a href="<?php echo $special_link; ?>" class="red">в подарок.</a></p>

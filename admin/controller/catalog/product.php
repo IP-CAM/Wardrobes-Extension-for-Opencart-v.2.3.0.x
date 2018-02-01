@@ -368,6 +368,34 @@ class ControllerCatalogProduct extends Controller {
                 }
             }
 
+            //settings
+            $product_settings = $this->model_catalog_product->getProductSettings($result['product_id']);
+
+
+            if(!isset($product_settings['sale'])) {
+                $product_settings['sale'] = 0;
+            }
+            if(!isset($product_settings['new'])) {
+                $product_settings['new'] = 0;
+            }
+            if(!isset($product_settings['discount'])) {
+                $product_settings['discount'] = 0;
+            }
+            if(!isset($product_settings['bestseller'])) {
+                $product_settings['bestseller'] = 0;
+            }
+            foreach($product_settings as $key => $product_setting) {
+                if($product_setting == null || $product_setting == '') {
+                    $product_settings[$key] = '0';
+                }
+            }
+            foreach($product_settings as $key => $product_setting) {
+                if($key == 'discount') {
+                    $product_settings[$key] = $product_setting ? $product_setting : $this->language->get('text_no');
+                    continue;
+                }
+                $product_settings[$key] = $product_setting ? $this->language->get('text_yes') : $this->language->get('text_no');
+            }
             $data['products'][] = array(
                 'product_id' => $result['product_id'],
                 'image'      => $image,
@@ -376,6 +404,7 @@ class ControllerCatalogProduct extends Controller {
                 'price'      => $result['price'],
                 'special'    => $special,
                 'quantity'   => $result['quantity'],
+                'settings'   => $product_settings,
                 'status'     => $result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
                 'edit'       => $this->url->link('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $result['product_id'] . $url, true)
             );
@@ -396,6 +425,12 @@ class ControllerCatalogProduct extends Controller {
         $data['column_quantity'] = $this->language->get('column_quantity');
         $data['column_status'] = $this->language->get('column_status');
         $data['column_action'] = $this->language->get('column_action');
+
+        $data['column_sale'] = $this->language->get('column_sale');
+        $data['column_new'] = $this->language->get('column_new');
+        $data['column_discount'] = $this->language->get('column_discount');
+        $data['column_bestseller'] = $this->language->get('column_bestseller');
+
 
         $data['entry_name'] = $this->language->get('entry_name');
         $data['entry_model'] = $this->language->get('entry_model');
@@ -601,6 +636,12 @@ class ControllerCatalogProduct extends Controller {
         $data['entry_layout'] = $this->language->get('entry_layout');
         $data['entry_recurring'] = $this->language->get('entry_recurring');
 
+        $data['entry_sale'] = $this->language->get('entry_sale');
+        $data['entry_new'] = $this->language->get('entry_new');
+        $data['entry_discount'] = $this->language->get('entry_discount');
+        $data['entry_bestseller'] = $this->language->get('entry_bestseller');
+
+        $data['help_discount'] = $this->language->get('help_discount');
         $data['help_keyword'] = $this->language->get('help_keyword');
         $data['help_sku'] = $this->language->get('help_sku');
         $data['help_upc'] = $this->language->get('help_upc');
@@ -729,6 +770,21 @@ class ControllerCatalogProduct extends Controller {
         if (isset($this->request->get['product_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
             $product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
         }
+
+        if (isset($this->request->post['product_settings'])) {
+            $data['product_settings'] = $this->request->post['product_settings'];
+        } elseif (isset($this->request->get['product_id'])) {
+            $data['product_settings'] = $this->model_catalog_product->getProductSettings($this->request->get['product_id']);
+        } else {
+            $data['product_settings'] = array();
+        }
+        if(empty($data['product_settings'])) {
+            $data['product_settings']['sale'] = 0;
+            $data['product_settings']['new'] = 0;
+            $data['product_settings']['discount'] = 0;
+            $data['product_settings']['bestseller'] = 0;
+        }
+
 
         $data['token'] = $this->session->data['token'];
 
@@ -1468,15 +1524,8 @@ class ControllerCatalogProduct extends Controller {
                 $value .= ' см';
             }
         }
-
-        /*
-         * if($value != '') {
-            if(strpos($value, 'см') === false && is_numeric($value) &&
-               strpos($value, 'x') === false && strpos($value, 'х') === false) {
-                $value .= ' см';
-            }
-        }
-         */
         return $value;
     }
+
+
 }

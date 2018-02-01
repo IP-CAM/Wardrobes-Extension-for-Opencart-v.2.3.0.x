@@ -66,10 +66,10 @@
 	</div>
 
 
-
+<!-- MOBILE VERSION -->
 	<div class="row f-up hidden-lg">
 
-		<div class="col-xs-12 text-center">
+		<div class="col-xs-12 text-center sir-box">
 			<div class="body-footer  border-top-dark">
 				<h3 class=" text-center">Связаться с нами</h3>
 				<div class="connect_with_us center-block img-responsive"></div>
@@ -112,7 +112,7 @@
 
 	<!-- <hr id="line"> -->
 	<div class="row down  ">
-		<div class="col-xs-12 col-lg-12">
+		<div class="col-xs-12 col-lg-12 sir-box">
 			<div class="down-text border-top-dark">
 				<p class="text-center font-size-12 font-type-georgia">© Центр мебели. Все права защищены 2018 г.</p>
 			</div>

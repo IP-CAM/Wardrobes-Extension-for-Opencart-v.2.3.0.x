@@ -111,13 +111,13 @@ class ControllerProductCategory extends Controller {
             $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
             $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
 
-            $this->document->addStyle('catalog/view/javascript/category/category.css');
-            $this->document->addScript('catalog/view/javascript/category/category.js');
+
 
             $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
             $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
 
-
+            $this->document->addStyle('catalog/view/javascript/category/category.css');
+            $this->document->addScript('catalog/view/javascript/category/category.js');
 
 
 			$data['heading_title'] = $category_info['name'];
@@ -205,8 +205,7 @@ class ControllerProductCategory extends Controller {
 			$results = $this->model_catalog_product->getProducts($filter_data);
             $data['products'] = $this->getProducts($results);
 
-            $best_results = $this->model_catalog_product->getProducts($filter_data);
-            $data['best_products'] = $this->getProducts($best_results);
+
 
             $products_json_id = array();
             foreach($results as $result) {

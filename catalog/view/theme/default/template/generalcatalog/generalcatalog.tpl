@@ -13,47 +13,40 @@
 		</ul>
 		<div class="row row-base">
 			<div class="col-lg-12 generalcatalog_image_box">
-				<div class="row row-big">
-					<div class="col-lg-4">
+				<div class="row-big">
+					<div>
 						<?php echo $box_images_html['our_work']; ?>
 					</div>
-					<div class="col-lg-4">
+					<div>
 						<?php echo $box_images_html['built_in']; ?>
-
 					</div>
-					<div class="col-lg-4">
+					<div>
 						<?php echo $box_images_html['corner']; ?>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-4">
-						<div class="row">
-							<div class="col-lg-12 col-min">
-								<?php echo $box_images_html['cabinet_cabinets']; ?>
-							</div>
-							<div class="col-lg-12">
-								<?php echo $box_images_html['standard']; ?>
-							</div>
+				<div class="row-big">
+					<div class="">
+						<div class="col-min">
+							<?php echo $box_images_html['cabinet_cabinets']; ?>
+						</div>
+						<div class="">
+							<?php echo $box_images_html['standard']; ?>
 						</div>
 					</div>
-					<div class="col-lg-4">
-						<div class="row">
-							<div class="col-lg-12 col-min">
-								<?php echo $box_images_html['hallway']; ?>
-							</div>
-							<div class="col-lg-12">
-								<?php echo $box_images_html['dressing_room']; ?>
-							</div>
+					<div class="">
+						<div class="col-min">
+							<?php echo $box_images_html['hallway']; ?>
+						</div>
+						<div class="">
+							<?php echo $box_images_html['dressing_room']; ?>
 						</div>
 					</div>
-					<div class="col-lg-4">
-						<div class="row">
-							<div class="col-lg-12 col-min">
-								<?php echo $box_images_html['radius']; ?>
-							</div>
-							<div class="col-lg-12">
-								<?php echo $box_images_html['door_coupe']; ?>
-							</div>
+					<div class="">
+						<div class="col-min">
+							<?php echo $box_images_html['radius']; ?>
+						</div>
+						<div class="">
+							<?php echo $box_images_html['door_coupe']; ?>
 						</div>
 					</div>
 				</div>

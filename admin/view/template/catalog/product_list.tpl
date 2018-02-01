@@ -107,6 +107,11 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_price; ?>"><?php echo $column_price; ?></a>
                     <?php } ?></td>
+
+				  <td class="text-right"><?php echo $column_sale; ?></td>
+				  <td class="text-right"><?php echo $column_new; ?></td>
+				  <td class="text-right"><?php echo $column_discount; ?></td>
+				  <td class="text-right"><?php echo $column_bestseller; ?></td>
                   <td class="text-left"><?php if ($sort == 'p.status') { ?>
                     <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
                     <?php } else { ?>
@@ -137,6 +142,12 @@
                     <?php } else { ?>
                     <?php echo $product['price']; ?>
                     <?php } ?></td>
+
+
+					<td class="text-left"><?php echo $product['settings']['sale']; ?></td>
+					<td class="text-left"><?php echo $product['settings']['new']; ?></td>
+					<td class="text-left"><?php echo $product['settings']['discount']; ?></td>
+					<td class="text-left"><?php echo $product['settings']['bestseller']; ?></td>
                   <td class="text-left"><?php echo $product['status']; ?></td>
                   <td class="text-right"><a href="<?php echo $product['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>

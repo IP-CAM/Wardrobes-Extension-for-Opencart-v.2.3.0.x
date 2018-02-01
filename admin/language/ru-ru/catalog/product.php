@@ -23,6 +23,10 @@ $_['column_price']           = 'Цена на сайте';
 $_['column_quantity']        = 'Количество';
 $_['column_status']          = 'Статус';
 $_['column_action']          = 'Действие';
+$_['column_discount']        = 'Скидка';
+$_['column_sale']            = 'Распродажа';
+$_['column_new']             = 'Новинка';
+$_['column_bestseller']      = 'Хит продаж';
 
 // Entry
 $_['entry_name']             = 'Название товара';
@@ -60,6 +64,11 @@ $_['entry_length']           = 'Глубины';
 $_['entry_width']            = 'Ширина';
 $_['entry_height']           = 'Высота';
 $_['entry_depth']            = 'Глубина';
+$_['entry_sale']             = 'Распродажа';
+$_['entry_bestseller']       = 'Хит продаж';
+$_['entry_new']              = 'Новинка';
+$_['entry_discount']         = 'Скидка';
+
 $_['entry_image']            = 'Изображение товара';
 $_['entry_additional_image'] = 'Дополнительные изображения';
 $_['entry_customer_group']   = 'Группа клиентов';
@@ -84,6 +93,7 @@ $_['entry_layout']           = 'Макет';
 $_['entry_recurring']        = 'Профиль периодичности';
 
 // Help
+$_['help_discount']           = 'При нуле скидка не отображается';
 $_['help_keyword']           = 'Должно быть уникальным на всю систему и без пробелов.';
 $_['help_sku']               = 'SKU или код производителя';
 $_['help_upc']               = 'Универсальный код товара';

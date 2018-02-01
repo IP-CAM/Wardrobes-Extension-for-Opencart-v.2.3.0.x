@@ -416,6 +416,9 @@ h2 {
 #category .margin-bottom-mobile {
     margin-bottom: 20px;
 }
+#category .owl-carousel {
+    width: auto;
+}
 
 /*product*/
 
@@ -426,9 +429,7 @@ h2 {
 #product {
 
 }
-#product {
 
-}
 #product {
 
 }
@@ -833,10 +834,12 @@ h2 {
 
 
 /*footer*/
-footer.container {
-    padding-left: 0;
+
+footer .sir-box {
     padding-right: 0;
+    padding-left: 0;
 }
+
 
 footer .f-up {
     padding-bottom: 10px;

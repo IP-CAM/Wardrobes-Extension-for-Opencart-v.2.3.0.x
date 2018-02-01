@@ -250,6 +250,9 @@ class ControllerProductProduct extends Controller {
             $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');
             $this->document->addStyle('catalog/view/javascript/jquery/modal-window/modal-window.css');
 
+            $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
+            $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
+
             $this->document->addStyle('catalog/view/javascript/product/product.css');
             $this->document->addScript('catalog/view/javascript/product/product.js');
 
@@ -344,6 +347,7 @@ class ControllerProductProduct extends Controller {
 				$data['price'] = false;
 			}
 
+            $data['price_view'] = $this->viewPrice($product_info['product_id'], 67);
 
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -642,6 +646,28 @@ class ControllerProductProduct extends Controller {
 		$this->response->setOutput($this->load->view('product/review', $data));
 	}
 
+
+    /**
+     * Убираем цены, во всех шкафах, кроме стандартных
+     * @param $id_product
+     * @param $id_view_category
+     *
+     * @return bool
+     */
+    private function viewPrice($id_product, $id_view_category)
+    {
+        $this->load->model('catalog/product');
+        $categories = $this->model_catalog_product->getCategories($id_product);
+
+        $view = false;
+        foreach($categories as $category) {
+            if((int)$category['category_id'] == $id_view_category) {
+                $view  =true;
+                break;
+            }
+        }
+        return $view;
+    }
 
 
 }
