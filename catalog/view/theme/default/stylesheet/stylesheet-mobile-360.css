@@ -1,6 +1,8 @@
 /*root */
 .container {
     width: auto;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 .font-size-16 {
     font-size: 15px!important;
@@ -27,58 +29,82 @@
    /* text-align: right;*/
     margin-right: -9px;
 }
+#menu-mini h3 {
+    display: none;
+}
 
 
 
-.product-thumb img {
+.product-thumb.item.universal img {
     height: 117px;
 }
-.product-thumb .price, .product-thumb .name, .product-thumb .button {
+.product-thumb.item.universal .price, .product-thumb.item.universal .name, .product-thumb.item.universal .button {
     left: 130px;
 }
-.product-thumb .price, .product-thumb .name {
+.product-thumb.item.universal .price, .product-thumb.item.universal .name {
     width: 57%;
 }
-.product-thumb .button {
+.product-thumb.item.universal.icon .name {
+    padding-right: 33px;
+}
+.product-thumb.item.universal .button {
     width: 55%;
 }
-/*home */
 
-#home .tile_banner p {
-    font-size: 17px;
+
+
+/*home */
+#home .top-banner {
+    background-image: url(../image/home-top-banner-mobile.jpg);
+    height: 235px;
+    /* background-size: cover; */
+    /* background-size: 100%; */
+    /* border-radius: 13px 37px 25px 9px; */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-position-x: -20px;
 }
+#home .top-banner>h1 {
+    margin-top: 52px;
+    height: 60px;
+    line-height: 1.2;
+    font-size: 21px;
+    width: 305px;
+    /* vertical-align: middle; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+#home .top-banner>p {
+    font-size: 18px;
+}
+
+
 #home .tile_banner .name-box {
-    width: 140px;
-    height: 35px;
+    width: 130px;
+    height: 30px;
     line-height: 35px;
 }
 #home .tile_banner .root-sub-box-flex:first-child {
     margin-right: 7px;
 }
 
-#home #background-service {
-    height: 57vw;
+#home .tile_banner p {
+    font-size: 18px;
+    line-height: 1.6;
 }
-#home .service {
-    margin-bottom: 20px;
+
+#home .owl-carousel .review-box p {
+    text-align: center;
 }
-#home .service p {
-    font-size: 16px;
+#home .owl-carousel .review-box {
+    height: 346px;
 }
-#home .service_input {
-    margin: 7px;
+#home .partner .partner-box-image img {
+    width: 50%;
+    height: 25vw;
 }
-#menu-mini h3 {
-    display: none;
-}
-#home .service p {
-    padding-left: 0%;
-    padding-right: 0%;
-    line-height: 1.25;
-}
-#home .service_button {
-    margin-bottom: 4.7vw;
-}
+
 
 /*category */
 

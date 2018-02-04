@@ -143,7 +143,7 @@
 						<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">Оставить отзыв</p>
 						<textarea name="review" rows="4" placeholder="Написать комментарий..." class="form-control" id="textarea-review"></textarea>
 						<div class="mes">
-							<p style="position: relative">Вход с помощью</p><a href="/" id="sosseti"></a>
+							<p style="position: relative">Войти с помощью:</p><a href="/" id="sosseti"></a>
 						</div>
 					</div>
 					<?php } ?>

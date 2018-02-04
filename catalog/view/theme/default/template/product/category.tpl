@@ -71,7 +71,7 @@
 
 	  <?php echo $content_bottom; ?>
 	  <?php if ($description_down) { ?>
-	  <div class="col-lg-12 description-down "><?php echo $description_down; ?></div>
+	  <div class="col-lg-12 description-down  text-description"><?php echo $description_down; ?></div>
 	  <?php } ?>
   </div>
 </div>
@@ -117,8 +117,11 @@
 
 
 	</div>
+	<div class="row">
+		<?php echo $content_bottom; ?>
+	</div>
 
-	<?php echo $content_bottom; ?>
+
 </div>
 
 

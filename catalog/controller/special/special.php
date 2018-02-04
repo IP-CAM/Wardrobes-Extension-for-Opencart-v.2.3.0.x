@@ -41,8 +41,19 @@ class ControllerSpecialSpecial extends Controller {
 
         $data['description'] = html_entity_decode($special_info['description'], ENT_QUOTES, 'UTF-8');
 
-        $this->addProductDiscountOrBestsellers($special_info, $data, 'discounts');
-        $this->addProductDiscountOrBestsellers($special_info, $data, 'bestsellers');
+       // $this->addProductDiscountOrBestsellers($special_info, $data, 'discounts');
+       // $this->addProductDiscountOrBestsellers($special_info, $data, 'bestsellers');
+
+
+        $products_id = $this->model_catalog_product->getProductsIdSale(); //Продукты для распродажи
+        foreach($products_id as $product_id) {
+            $data['sale_products'][] = $this->load->controller('product/product_item', $product_id);
+        }
+        $products_id = $this->model_catalog_product->getProductsIdBestseller(); //Продукты - хиты продаж
+        foreach($products_id as $product_id) {
+            $data['best_products'][] = $this->load->controller('product/product_item', $product_id);
+        }
+
 
         if ($this->request->server['HTTPS']) {
             $server = $this->config->get('config_ssl');
@@ -66,7 +77,7 @@ class ControllerSpecialSpecial extends Controller {
 	}
 
 
-    private function addProductDiscountOrBestsellers($special_info, &$data, $type = 'discounts')
+   /* private function addProductDiscountOrBestsellers($special_info, &$data, $type = 'discounts')
     {
         if (!empty($special_info['limit_' . $type])) {
             $products_array_id = json_decode($special_info['product_' . $type], true);
@@ -87,7 +98,7 @@ class ControllerSpecialSpecial extends Controller {
                 $data['product_' . $type][] = $this->load->controller('product/product_item', $data_pr);
             }
         }
-    }
+    }*/
 
 
 

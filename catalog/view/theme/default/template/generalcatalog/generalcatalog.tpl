@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-12 font-size-18 description">
+			<div class="col-lg-12 font-size-18 description  text-description">
 					<?php echo $description; ?>
 			</div>
 		</div>

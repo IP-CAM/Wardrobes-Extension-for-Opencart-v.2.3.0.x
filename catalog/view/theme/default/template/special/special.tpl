@@ -11,7 +11,7 @@
 	</ul>
 	<div class="row row-base">
 
-			<div class="text_box special description-up"><?php echo $description; ?></div>
+			<div class="text_box special text-description"><?php echo $description; ?></div>
 			<h2 class="line-red font-size-30 font-type-georgia grand-text" id="special-text">Акции</h2>
 			<div id="image-box">
 				<div class="row-image">
@@ -27,14 +27,14 @@
 
 			<h2 class="line-red font-size-30 font-type-georgia grand-text">Распродажа %</h2>
 			<div class="product-box">
-				<?php foreach ($product_discounts as $product) { ?>
+				<?php foreach ($sale_products as $product) { ?>
 					<?php echo $product; ?>
 				<?php } ?>
 			</div>
 
 			<h2 class="line-red font-size-30 font-type-georgia grand-text">Хиты продаж</h2>
 			<div class="product-box">
-				<?php foreach ($product_bestsellers as $product) { ?>
+				<?php foreach ($best_products as $product) { ?>
 					<?php echo $product; ?>
 				<?php } ?>
 			</div>

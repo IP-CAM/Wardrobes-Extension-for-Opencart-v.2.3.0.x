@@ -1,25 +1,16 @@
 <?php echo $header; ?>
-<div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
-    <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <p><?php echo $text_error; ?></p>
-      <div class="buttons clearfix">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-      </div>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+<div class="container " id="error">
+	<div class="block">
+		<img src="../catalog/view/theme/default/image/not_found-404.png">
+		<!--noindex-->
+		<p class="author">illustration by <a  rel="nofollow" href="">Rocky Roark </a></p>
+		<!--/noindex-->
+		<span class="error-name">ERROR 404</span>
+		<div class="text-box">
+			<p class="font-type-georgia">Ой, что-то пошло не так...</p>
+			<span>Страница не найдена. Но не переживайте, вскоре мы решим эту проблему, а пока можете вернуться на главную страницу и продолжать искать нужный шкаф.</span>
+			<a class="button-style-4" href="<?php echo $base; ?>">Вернуться на главную</a>
+		</div>
+	</div>
 </div>
 <?php echo $footer; ?>

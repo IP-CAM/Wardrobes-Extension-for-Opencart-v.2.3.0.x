@@ -13,7 +13,7 @@
 			<?php echo $content_top; ?>
 			<div class="picture-back aboutcompany">
 			</div>
-			<div class="text_box aboutcompany"><?php echo $description; ?></div>
+			<div class="text_box aboutcompany text-description"><?php echo $description; ?></div>
 			<?php echo $content_bottom; ?></div>
 		<?php echo $column_right; ?></div>
 	</div>
@@ -27,7 +27,7 @@
 		</div>
 		<div class="col-xs-12 text-left">
 			<div class="picture-back aboutcompany"></div>
-			<div class="text_box aboutcompany"><?php echo $description; ?></div>
+			<div class="text_box aboutcompany text-description"><?php echo $description; ?></div>
 		</div>
 	</div>
 </div>

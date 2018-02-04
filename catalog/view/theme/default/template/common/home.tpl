@@ -9,21 +9,20 @@
 <?php echo $header; ?>
 <div class="container visible-lg" id="home">
 	<div class="row">
-		<div class="home-text-1 col-lg-12 text-center">
-			<h1>Изготавливаем шкафы-купе на заказ</h1>
+		<div class="col-lg-12">
+			<div class="top-banner">
+				<h1 class="font-type-georgia">Изготавливаем шкафы-купе на заказ</h1>
+				<p class="font-type-georgia">по индивидуальным размерам</p>
+				<a class="button-style-1 button" href="<?php echo $generalcatalog; ?>">Перейти к каталогу</a>
+			</div>
 		</div>
-		<div class="col-lg-12 text-center">
-			<?php echo $content_top; ?>  <!-- carousel -->
-		</div>
-		<div class="home-text-2 col-lg-12 text-center">
-			<h2>Популярные <a class="link-generalcatalog" href="<?php echo $generalcatalog; ?>">категории товаров</a></h2>
-		</div>
+
 	</div>
 	<!-- TILE BANNER BEGIN -->
-	<div class="row tile_banner row-norm">
+	<div class="row tile_banner">
 		<div class="col-lg-12">
 			<div class="root-box-flex">
-				<div class="root-sub-box-flex">
+				<div class="root-sub-box-flex left-tile">
 					<div class="root-sub-sub-box-flex">
 						<?php echo $box_images_html['standard']; ?>
 					</div>
@@ -31,10 +30,10 @@
 						<?php echo $box_images_html['radius']; ?>
 					</div>
 				</div>
-				<div class="root-sub-box-flex">
+				<div class="root-sub-box-flex center-tile">
 					<?php echo $box_images_html['calculator']; ?>
 				</div>
-				<div class="root-sub-box-flex">
+				<div class="root-sub-box-flex right-tile">
 					<div class="root-sub-sub-box-flex">
 						<?php echo $box_images_html['built_in']; ?>
 					</div>
@@ -47,176 +46,201 @@
 	</div>
 	<!-- TILE BANNER END -->
 
-	<!-- COMMENTS BEGIN -->
-	<div class="row row-norm" id="home-review">
-		<div class="home-text-3 col-lg-12 text-center">
-			<h2>Отзывы наших клиентов</h2>
+	<!-- BESTSELLLER -->
+	<div class="row bestseller">
+		<?php echo $content_top; ?>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12 text-right">
+			<a class="link-generalcatalog font-type-georgia" href="<?php echo $generalcatalog; ?>">Весь каталог<span></span></a>
 		</div>
-		<div class="text-left col-lg-12 review">
-			<?php foreach($comments as $comment) { ?>
-			<div class="review-box border-gray">
-				<div class="review-top">
-					<div class="review-image">
-						<img src="<?php echo $comment['path_image']; ?>"
-							 title="<?php echo $comment['title']; ?>"
-							 alt="<?php echo $comment['alt']; ?>"
-							 class="comments_image img-responsive"/>
-					</div>
-					<div class="review-top-right">
-						<div class="review-name">
+	</div>
+
+	<!-- COMMENTS BEGIN -->
+	<div class="row review">
+		<div class="col-lg-12">
+			<h2>Отзывы клиентов</h2>
+		</div>
+		<div class="col-lg-12 ">
+			<div>
+				<div id="carousel" class="owl-carousel owl-theme review-box" name="review">
+					<?php foreach($comments as $comment) { ?>
+					<div class="review-box border-gray">
+						<div class="review-left">
+
+							<img src="<?php echo $comment['path_image']; ?>"
+								 title="<?php echo $comment['title']; ?>"
+								 alt="<?php echo $comment['alt']; ?>"
+								 class="comments_image"/>
 							<h3 class="font-type-georgia"><?php echo $comment['name']; ?></h3>
-						</div>
-						<?php if(isset($comment['reference'])) { ?>
-						<!--noindex-->
-						<div class="review-link">
+							<?php if(isset($comment['reference'])) { ?>
+							<!--noindex-->
+
 							<a href="<?php echo $comment['reference']['link']; ?>">
 								<img src="<?php echo $comment['reference']['image_path']; ?>"
 									 title="<?php echo $comment['reference']['name']; ?>"
 									 alt="<?php echo $comment['reference']['name']; ?>"
-									 class="img-responsive"/>
+									 class=""/>
 							</a>
-						</div>
-						<!--/noindex-->
-						<?php } ?>
-					</div>
 
+							<!--/noindex-->
+							<?php } ?>
+						</div>
+						<p class="review-right text-left"><?php echo $comment['text']; ?></p>
+						<!--<a class="link-review pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $link_review; ?>">Читать далее</a> -->
+					</div>
+					<?php } ?>
 				</div>
-				<p class="text-left"><?php echo $comment['text']; ?></p>
-				<!--<a class="link-review pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $link_review; ?>">Читать далее</a> -->
+
 			</div>
-			<?php } ?>
 		</div>
 	</div>
 	<!-- COMMENTS END -->
-	<!-- SERVICE BEGIN -->
-
+	<!-- DOWN BANNERS -->
 	<div class="row">
-		<div class="home-text-4 col-lg-12 text-center">
-			<h2>Получите в подарок выезд <br/>
-				дизайнера и технолога на дом</h2>
+		<div class="col-lg-12">
+				<span class="down-banner" name="home_button" data-modal="1"></span>
 		</div>
-		<div class="col-lg-12 service">
-		<div class="border-gray" id="background-service">
-			<div class="service_box">
-				<p>Выезд специалиста на замер,<br>
-					составление эскиза на месте <a class="red font-underline" href="<?php echo $special; ?>">в подарок</a>.<br>
-					Услуга предоставляется для прихожих,<br>
-					гардеробных, встроенных и других шкафов. </p>
-				<div class="service_box_box">
-					<div class="service_input one">
-						<input type="text" data-modal="1" name="name" value="" placeholder="ФИО" class="input-field">
-						<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
-					</div>
-					<div class="service_input two">
-						<input type="text" data-modal="1" name="telephone" value="" placeholder="Введите свой телефон" class="input-field">
-						<span class="error" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
-					</div>
-					<div class="pull-right button">
-						<button title="Заказать"
-								name="service_button"
-								style="width: 115px;"
-								class="button-style-1">
-							Заказать
-						</button>
-					</div>
-				</div>
+
+	</div>
+	<!-- DOWN BANNERS END -->
+
+
+	<!-- OUR PARTNERS  BEGIN-->
+	<div class="row partner">
+		<div class="col-lg-12">
+			<h2>Наши партнёры</h2>
+		</div>
+		<div class="col-lg-12">
+			<div class="partner-box-image">
+				<img src="../catalog/view/theme/default/image/home-partner-1.png">
+				<img src="../catalog/view/theme/default/image/home-partner-2.png">
+				<img src="../catalog/view/theme/default/image/home-partner-3.png">
+				<img src="../catalog/view/theme/default/image/home-partner-4.png">
 			</div>
 		</div>
 
-	</div>
-	<!-- SERVICE END -->
 
-<!-- OUR PARTNERS  BEGIN-->
-<div class="row home-partners visible-lg" style="margin-top: 4px;">
-	<div class="home-text-5 col-lg-12 text-center">
-		<h2>Наши партнеры</h2>
 	</div>
-	<div class="col-lg-6">
-		<div id="partners-gprom"></div>
-	</div>
-	<div class="col-lg-6">
-		<div id="partners-sberb"></div>
-	</div>
+	<!-- OUR PARTNERS  END-->
+
 </div>
-<!-- OUR PARTNERS  END-->
 
-<?php echo $content_bottom; ?>
-
-<?php echo $column_right; ?></div>
-</div>
 
 
 <!-- FOR MOBILE -->
 <div class="container  hidden-lg mobile-box" id="home">
 	<div class="row">
-		<div class="home-text-1 col-xs-12 text-center">
-			<h1>Изготавливаем шкафы-купе на заказ</h1>
+		<div class="col-xs-12">
+			<div class="top-banner">
+				<h1 class="font-type-georgia">Изготавливаем шкафы-купе на заказ</h1>
+				<p class="font-type-georgia">по индивидуальным размерам</p>
+				<a class="button-style-1 button" href="<?php echo $generalcatalog; ?>">Перейти к каталогу</a>
+			</div>
 		</div>
-		<div class="col-xs-12 carousel-box-mobile">
-			<?php echo $content_top; ?>  <!-- carousel -->
-		</div>
-		<div class="home-text-2 col-xs-12 text-center">
-			<h2>Популярные категории товаров</h2>
-		</div>
-		<div class="col-xs-12  tile_banner container-norm">
+
+	</div>
+	<!-- TILE BANNER BEGIN -->
+	<div class="row tile_banner">
+		<div class="col-xs-12">
 			<div class="root-box-flex">
-				<div class="root-sub-box-flex">
-					<div class="root-sub-sub-box-flex">
-						<?php echo $box_images_html_mobile['calculator']; ?>
-					</div>
-					<div class="root-sub-sub-box-flex">
-						<?php echo $box_images_html_mobile['built_in']; ?>
-					</div>
+				<div class="root-sub-box-flex left-tile">
+					<?php echo $box_images_html_mobile['calculator']; ?>
 				</div>
-				<div class="root-sub-box-flex">
+				<div class="root-sub-box-flex right-tile">
 					<div class="root-sub-sub-box-flex">
 						<?php echo $box_images_html_mobile['standard']; ?>
 					</div>
 					<div class="root-sub-sub-box-flex">
 						<?php echo $box_images_html_mobile['radius']; ?>
 					</div>
-					<div class="root-sub-sub-box-flex">
-						<?php echo $box_images_html_mobile['dressing_room']; ?>
-					</div>
 				</div>
 			</div>
-		</div>
-		<div class="home-text-3 col-xs-12 text-center description-up">
-			<h2>Получите в подарок выезд <br/>
-				дизайнера и технолога на дом</h2>
-		</div>
-
-
-		<div class="col-xs-12 text-center service container-norm" >
-			<div class="row">
-				<div class="col-xs-12" >
-					<div id="background-service">
-						<p name="text_free">Выезд специалиста на замер,<br>
-							составление эскиза на месте в подарок.
-							Услуга предоставляется для прихожих,
-							гардеробных, встроенных и других шкафов. </p>
-						<div class="bottom-box">
-							<div class="service_input one">
-								<input type="text" data-modal="2" name="name" value="" placeholder="ФИО" class="text-center input-field">
-								<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите имя</span>
-							</div>
-							<div class="service_input two">
-								<input type="text" data-modal="2" name="telephone" value="" placeholder="Введите свой телефон" class="text-center input-field">
-								<span class="error" data-modal="2" hidden="hidden">Пожалуйста, введите телефон</span>
-							</div>
-							<button title="Заказать"
-									name="service_button"
-									class="service_button button-style-1"
-									data-modal="2">
-								Заказать
-							</button>
-						</div>
-					</div>
-
+			<div class="root-box-flex down-root-box-flex">
+				<div class="root-sub-box-flex left-tile">
+					<?php echo $box_images_html_mobile['built_in']; ?>
+				</div>
+				<div class="root-sub-box-flex right-tile">
+					<?php echo $box_images_html_mobile['dressing_room']; ?>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- TILE BANNER END -->
+
+	<!-- BESTSELLLER -->
+	<div class="row bestseller">
+		<?php echo $content_top; ?>
+	</div>
+	<!-- BESTSELLLER END-->
+	<!-- COMMENTS BEGIN -->
+	<div class="row review">
+		<div class="col-xs-12">
+			<h2 class="line-red font-type-georgia">Отзывы наших клиентов</h2>
+		</div>
+		<div class="col-xs-12 ">
+			<div>
+				<div id="carousel" class="owl-carousel owl-theme review-box" name="review">
+					<?php foreach($comments as $comment) { ?>
+					<div class="review-box border-gray">
+
+
+							<img src="<?php echo $comment['path_image']; ?>"
+								 title="<?php echo $comment['title']; ?>"
+								 alt="<?php echo $comment['alt']; ?>"
+								 class="comments_image"/>
+							<h3 class="font-type-georgia"><?php echo $comment['name']; ?></h3>
+							<?php if(isset($comment['reference'])) { ?>
+							<!--noindex-->
+
+							<a href="<?php echo $comment['reference']['link']; ?>">
+								<img src="<?php echo $comment['reference']['image_path']; ?>"
+									 title="<?php echo $comment['reference']['name']; ?>"
+									 alt="<?php echo $comment['reference']['name']; ?>"
+									 class=""/>
+							</a>
+
+							<!--/noindex-->
+							<?php } ?>
+
+							<p class="review-right text-left"><?php echo $comment['text']; ?></p>
+						<!--<a class="link-review pull-right font-size-18 font-underline font-type-georgia" style="padding-top: 15px;margin-right: 12px;" href="<?php echo $link_review; ?>">Читать далее</a> -->
+					</div>
+					<?php } ?>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- COMMENTS END -->
+	<!-- DOWN BANNERS -->
+	<div class="row">
+		<div class="col-xs-12">
+			<span class="down-banner" name="home_button" data-modal="1"></span>
+		</div>
+
+	</div>
+	<!-- DOWN BANNERS END -->
+	<!-- OUR PARTNERS  BEGIN-->
+	<div class="row partner">
+		<div class="col-xs-12">
+			<h2 class="line-red font-type-georgia">Наши партнёры</h2>
+		</div>
+		<div class="col-xs-12">
+			<div class="partner-box-image">
+				<img src="../catalog/view/theme/default/image/home-partner-1.png">
+				<img src="../catalog/view/theme/default/image/home-partner-2.png">
+				<img src="../catalog/view/theme/default/image/home-partner-3.png">
+				<img src="../catalog/view/theme/default/image/home-partner-4.png">
+			</div>
+		</div>
+
+
+	</div>
+	<!-- OUR PARTNERS  END-->
+
+
 </div>
 
 

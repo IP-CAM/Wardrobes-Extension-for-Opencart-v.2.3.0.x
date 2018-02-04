@@ -400,8 +400,26 @@ class ModelCatalogProduct extends Model {
 
     public function getProductSettings($product_id) {
         $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_settings WHERE product_id = " . (int)$product_id);
-
         return $query->row;
+    }
+
+    public function getProductsIdSale()
+    {
+        $query = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "product_settings WHERE sale = 1");
+        $products_id = array();
+        foreach($query->rows as $row) {
+            $products_id[] = $row['product_id'];
+        }
+        return $products_id;
+    }
+
+    public function getProductsIdBestseller(){
+        $query = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "product_settings WHERE bestseller = 1");
+        $products_id = array();
+        foreach($query->rows as $row) {
+            $products_id[] = $row['product_id'];
+        }
+        return $products_id;
     }
 
 	public function getProductLayoutId($product_id) {

@@ -36,10 +36,14 @@ function addArrow() { //Для всех каруселей
     $('.owl-carousel ').append('<div class="transformation owl-arrow owl-next"></div>');
     $('.owl-carousel ').append('<div class=" owl-arrow owl-prev"></div>');
     $(".owl-next").on('click', function(){
-        $('.owl-carousel').trigger('next.owl.carousel');
+        var parent = $(this).parent();
+        parent = parent.parent();
+        parent.find('.owl-carousel').trigger('next.owl.carousel');
     });
     $(".owl-prev").on('click', function(){
-        $('.owl-carousel').trigger('prev.owl.carousel');
+        var parent = $(this).parent();
+        parent = parent.parent();
+        parent.find('.owl-carousel').trigger('prev.owl.carousel');
     });
 }
 
@@ -176,24 +180,16 @@ $(document).ready(function() {
 
 
 
-//FOR HOME BEGIN
-// For Home
-function textHomeClip() {
-    if ($(window).width() < 480) {
-        $("[name='text_free']").text('Выезд специалиста на замер, составление эскиза на месте в подарок.');
-    } else {
-        $("[name='text_free']").text('Выезд специалиста на замер, составление эскиза на месте в подарок. Услуга предоставляется для прихожих, гардеробных, встроенных и других шкафов.');
-    }
-}
-$(window).resize(function () {
-    textHomeClip();
-});
 
-// (Page Validation telephone)
+
+
+
 $(document).ready(function() {
     $('body').on('mouseenter', '.owl-prev , .owl-next', function(){
-            $('.owl-prev').addClass('owl-prev-active');
-            $('.owl-next').addClass('owl-next-active');
+            var parent = $(this).parent();
+
+            parent.find('.owl-prev').addClass('owl-prev-active');
+            parent.find('.owl-next').addClass('owl-next-active');
         }
     );
     $('body').on('mouseleave', '.owl-prev, .owl-next', function(){
@@ -202,50 +198,21 @@ $(document).ready(function() {
         }
     );
 
-    textHomeClip();
-    if ($('#home').length > 0) {
-        $("[name='service_button']").click(function (event) {
-            var error = 0;
-            if ($("[name='name']:visible").val() == '') {
-                $("[name='name']").parent().find('.error').show();
-                error += 1;
-            } else {
-                $("[name='name']").parent().find('.error').hide();
-            }
-            if ($("[name='telephone']:visible").val() == '') {
-                $("[name='telephone']").parent().find('.error').show();
-                error += 2;
-            } else {
-                $("[name='telephone']").parent().find('.error').hide();
-            }
-            if (!error) {
-                if (mobileDetect()) {
-                    $('.service_input').css('margin', '3vw');
-                    ajaxClientCall(2, 4, 0);
-                } else {
-                    ajaxClientCall(1, 4, 0);
-                }
-            } else {
-                if (mobileDetect()) {
-                    $('.service_input').css('margin', '3vw');
-                    if(error == 1) {
-                        $('.service_input.one').css('margin', 0);
-                    }
-                    if(error == 2) {
-                        $('.service_input.two').css('margin', 0);
-                    }
-                    if(error == 3) {
-                        $('.service_input.one').css('margin', 0);
-                        $('.service_input.two').css('margin', 0);
-                    }
-
-                }
-            }
+    if(mobileDetect()) { //Обрезаем иконки на продуктах
+        $(".product-icon.discount").each(function(index, element){
+            var text_icon = $(element).text();
+            text_icon = text_icon.substring(7);
+            $(element).text(text_icon); // Скидка 15%
         });
+
+
+
+       $(".product-icon.new").text('нов.'); //Новинка
     }
+
 });
 
-//FOR HOME END
+
 
 
 

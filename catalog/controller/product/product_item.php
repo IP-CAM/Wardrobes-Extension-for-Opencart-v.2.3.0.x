@@ -2,8 +2,23 @@
 class ControllerProductProductItem extends Controller {
 
     public function index($values) {
+        if(is_array($values)) {
+            return $this->renderDependent($values);
+        } else {
+            return $this->renderIndependent($values);
+        }
+    }
 
 
+    private function getIcon($id_product)
+    {
+
+    }
+
+
+
+    private function renderDependent($values)
+    {
         $data = array();
 
         if ($values['image']) {
@@ -13,17 +28,9 @@ class ControllerProductProductItem extends Controller {
         }
 
         if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-            $format_many = new Formatmany();
-            $price = 'от ' . $format_many->format($values['price'], $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
+            $price = $this->formatMany($values['price']);
         } else {
             $price = false;
-        }
-
-        if ((float)$values['special']) {
-            $format_many = new Formatmany();
-            $special = $format_many->format($values['special'], $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
-        } else {
-            $special = false;
         }
 
         $data['image'] = $image;
@@ -36,9 +43,13 @@ class ControllerProductProductItem extends Controller {
         $settings = $this->model_catalog_product->getProductSettings($product_id);
 
 
-
+        $data['price'] = $price;
         if(isset($settings['discount']) && $price_view) {
             $data['discount'] = round($settings['discount']);
+            if($data['discount'] != 0) {
+                $data['price_old'] = $price;
+                $data['price'] = $this->formatMany(($values['price']*(100 - $settings['discount']))/100); //делаем цену дешевле на скидку
+            }
         } else {
             $data['discount'] = 0;
         }
@@ -49,8 +60,6 @@ class ControllerProductProductItem extends Controller {
             $data['new'] = 0;
         }
 
-        $data['price'] = $price;
-        $data['special'] = $special;
         $data['product_reference'] = $this->url->link('product/product', 'path=' . '&product_id=' . $product_id);
         if(isset($values['button_text'])) {
             $data['button_text'] = $values['button_text'];
@@ -59,12 +68,6 @@ class ControllerProductProductItem extends Controller {
         }
 
         return $this->load->view('product/product_item', $data);
-    }
-
-
-    private function getIcon($id_product)
-    {
-
     }
     /**
      * Убираем цены, во всех шкафах, кроме стандартных
@@ -87,4 +90,25 @@ class ControllerProductProductItem extends Controller {
         }
         return $view;
     }
+
+    private function renderIndependent($product_id)
+    {
+        $this->load->model('catalog/product');
+        $result = $this->model_catalog_product->getProduct($product_id);
+        $data_pr = array(
+            'product_id'       => $result['product_id'],
+            'image'       => $result['image'],
+            'name'        => $result['name'],
+            'price'       => $result['price'],
+            'button_text'     => 'Подробнее'
+        );
+        return $this->renderDependent($data_pr);
+    }
+
+    private function formatMany($price)
+    {
+        $format_many = new Formatmany();
+        return 'от ' . $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
+    }
+
 }

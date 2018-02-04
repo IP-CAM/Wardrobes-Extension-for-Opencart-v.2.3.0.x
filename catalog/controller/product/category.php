@@ -257,7 +257,7 @@ class ControllerProductCategory extends Controller {
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			);
 
-			if ($this->config->get('config_review_status')) {
+			/*if ($this->config->get('config_review_status')) {
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
@@ -269,7 +269,7 @@ class ControllerProductCategory extends Controller {
 					'value' => 'rating-ASC',
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
 				);
-			}
+			}*/
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),

@@ -50,10 +50,12 @@ class ControllerCommonHome extends Controller {
             $box_image['name_img'] = $box_image_ar['name_img'];
             if($box_image_ar['id'] != -1) {
                 $box_image['href'] = $this->url->link('product/category', 'path=' . $box_image_ar['id'] . '_' . $box_image_ar['id']);
-                $box_image['path_image_mobile'] = $this->model_tool_image->resize('catalog/home/banners/desktop/' . $box_image_ar['name_img']. '.jpg', 218, 108);
+                //$box_image['path_image_mobile'] = $this->model_tool_image->resize('catalog/home/banners/desktop/' . $box_image_ar['name_img']. '.jpg', 220, 106);
+                $box_image['path_image_mobile'] = $server . 'image/catalog/home/banners/mobile/' . $box_image_ar['name_img']. '.jpg';
                 $box_image['text_check'] = true;
             } else {
-                $box_image['path_image_mobile'] = $this->model_tool_image->resize('catalog/home/banners/desktop/' . $box_image_ar['name_img']. '.jpg', 218, 220);
+               // $box_image['path_image_mobile'] = $this->model_tool_image->resize('catalog/home/banners/desktop/' . $box_image_ar['name_img']. '.jpg', 220, 222);
+                $box_image['path_image_mobile'] = $server . 'image/catalog/home/banners/mobile/' . $box_image_ar['name_img']. '.jpg';
                 $box_image['href'] = $this->url->link('calculator/calculator');
                 $box_image['text_check'] = false;
             }
@@ -148,7 +150,7 @@ class ControllerCommonHome extends Controller {
             $html_block .= '<img src="' . $path_image . '"';
             $html_block .= 'title="' . $box_image['name'] . ' "';
             $html_block .= 'alt="' . $box_image['name'] . '"';
-            $html_block .= 'class="img-responsive center-block"/>';
+            $html_block .= 'class="img-responsive"/>';
             $html_block .= '</div>';
             if($box_image['text_check']) {
                 $html_block .= '<div class="name-box name-box text-center">';

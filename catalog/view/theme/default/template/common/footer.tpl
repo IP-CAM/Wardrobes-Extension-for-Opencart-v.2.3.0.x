@@ -6,24 +6,24 @@
 
 		<!--noindex-->
 			<div class="box-image border-top-dark">
-				<a href="<?php echo $instagram_link['href']; ?>">
+				<a href="<?php echo $instagram_link['href']; ?>"  rel="nofollow"target="_blank">
 					<img src="<?php echo $instagram_link['path_image']; ?>"
 						 title="<?php echo $instagram_link['title']; ?>"
 						 alt="<?php echo $instagram_link['alt']; ?>"
-						 class="img-responsive center-block"/></a>
+						 class="img-responsive"/></a>
 
 
 				<a href="<?php echo $vk_link['href']; ?>"  rel="nofollow">
 					<img src="<?php echo $vk_link['path_image']; ?>"
 						 title="<?php echo $vk_link['title']; ?>"
 						 alt="<?php echo $vk_link['alt']; ?>"
-						 class="img-responsive center-block"/></a>
+						 class="img-responsive"/></a>
 
-				<a href="<?php echo $twitter_link['href']; ?>">
+				<a href="<?php echo $twitter_link['href']; ?>"  rel="nofollow" target="_blank">
 					<img src="<?php echo $twitter_link['path_image']; ?>"
 						 title="<?php echo $twitter_link['title']; ?>"
 						 alt="<?php echo $twitter_link['alt']; ?>"
-						 class="img-responsive center-block"/></a>
+						 class="img-responsive"/></a>
 			</div>
 		<!--/noindex-->
 		</div>
@@ -83,17 +83,17 @@
 <!--noindex-->
 			<div class="row">
 				<div class="col-xs-12 icon">
-					<a href="<?php echo $instagram_link['href']; ?>">
+					<a href="<?php echo $instagram_link['href']; ?>" rel="nofollow" target="_blank">
 						<img src="<?php echo $instagram_link['path_image']; ?>"
 							 title="<?php echo $instagram_link['title']; ?>"
 							 alt="<?php echo $instagram_link['alt']; ?>"
 							 class="img-responsive center-block"/></a>
-					<a  class="vk-icon" href="<?php echo $vk_link['href']; ?>">
+					<a  class="vk-icon" href="<?php echo $vk_link['href']; ?>" rel="nofollow" target="_blank">
 						<img src="<?php echo $vk_link['path_image']; ?>"
 							 title="<?php echo $vk_link['title']; ?>"
 							 alt="<?php echo $vk_link['alt']; ?>"
 							 class="img-responsive center-block"/></a>
-					<a href="<?php echo $twitter_link['href']; ?>">
+					<a href="<?php echo $twitter_link['href']; ?>"  rel="nofollow" target="_blank">
 						<img src="<?php echo $twitter_link['path_image']; ?>"
 							 title="<?php echo $twitter_link['title']; ?>"
 							 alt="<?php echo $twitter_link['alt']; ?>"
@@ -114,7 +114,8 @@
 	<div class="row down  ">
 		<div class="col-xs-12 col-lg-12 sir-box">
 			<div class="down-text border-top-dark">
-				<p class="text-center font-size-12 font-type-georgia">© Центр мебели. Все права защищены 2018 г.</p>
+				<p class="text-center">© Центр мебели. Все права защищены 2018 г.</p>
+				<p class="text-center">Политика конфиденциальности</p>
 			</div>
 		</div>
 	</div>  
