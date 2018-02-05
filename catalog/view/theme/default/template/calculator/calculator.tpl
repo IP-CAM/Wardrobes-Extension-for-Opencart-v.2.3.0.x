@@ -204,7 +204,7 @@
 				</div>
 
 
-				<h2 class="price " name="price">При включенном JS тут отображается цена</h2>
+				<h2 class="price font-type-verdana" name="price">При включенном JS тут отображается цена</h2>
 				<input type="button"
 					   name="calculation_button"
 					   data-modal="1"
@@ -215,7 +215,7 @@
 			<div id="cal-dispatch-box" class="col-lg-12">
 				<div class="calculator_dispatch">
 					<div>
-						<input type="text" name="telephone" data-modal="2" value="" placeholder="+7 (984) 174 75 12" class="input-medium bfh-phone font-size-12">
+						<input type="text" name="telephone" data-modal="2" value="" placeholder="Введите свой номер" class="input-medium bfh-phone font-size-12">
 						<input type="button"
 							   name="dispatch-button"
 							   data-modal="2"

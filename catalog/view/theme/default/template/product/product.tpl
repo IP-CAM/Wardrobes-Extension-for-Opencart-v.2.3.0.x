@@ -52,12 +52,27 @@
 				</div>
 
 				<div class=" images-item <?php if (!$images) { ?> one-image <?php } ?>">
+
+
+
 					<?php if ($thumb) { ?>
-					<a class="thumbnail" style="width: 631px; height: 400px;" href="<?php echo $popup; ?>"
-					   title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>"
-																  title="<?php echo $heading_title; ?>"
-																  style="max-width: 100%; max-height: 100%;"
-																  alt="<?php echo $heading_title; ?>"/></a>
+						<div class="box-icon <?php if($discount || $new) { echo 'icon'; }?>" style="width: 631px; height: 400px;">
+							<a class="thumbnail " style="" href="<?php echo $popup; ?>"
+							   title="<?php echo $heading_title; ?>">
+								<img src="<?php echo $thumb; ?>"
+								 title="<?php echo $heading_title; ?>"
+								 style="max-width: 100%; max-height: 100%;"
+								 alt="<?php echo $heading_title; ?>"/>
+							</a>
+
+							<?php if($discount) { ?>
+							<div class="product-icon discount">Скидка <?php echo $discount; ?>%</div>
+							<?php } ?>
+							<?php if($new && !$discount) { ?>
+							<div class="product-icon new">Новинка</div>
+							<?php } ?>
+						</div>
+
 
 					<?php } ?>
 				</div>

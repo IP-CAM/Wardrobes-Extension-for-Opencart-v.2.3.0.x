@@ -47,6 +47,9 @@
 		<div class="col-xs-12 text-left back">
 			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
 		</div>
+		<div class="col-xs-12">
+			<p class="name-top-text font-type-georgia text-center">Акции и скидки на мебель компании “Центр-Мебели”</p>
+		</div>
 
 		<div class="special-plit">
 			<div class="col-xs-12">
@@ -56,13 +59,23 @@
 				<div class="image" id="two"></div>
 			</div>
 			<div class="col-xs-12">
-				<div class="image" id="three"></div>
-			</div>
-			<div class="col-xs-12">
 				<div class="image" id="four"></div>
 			</div>
-		</div>
+			<div class="col-xs-12">
+				<div class="image" id="three"></div>
+			</div>
 
+		</div>
+		<div class="col-xs-12" id="sale">
+			<div>
+				<h2 class="line-red font-size-18 font-type-georgia grand-text">Распродажа %</h2>
+				<div id="carousel" class="product-box owl-carousel owl-theme" name="sale_product">
+					<?php foreach ($sale_products as $product) { ?>
+					<?php echo $product; ?>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 

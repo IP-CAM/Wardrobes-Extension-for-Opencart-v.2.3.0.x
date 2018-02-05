@@ -20,9 +20,11 @@ class ControllerSpecialSpecial extends Controller {
             'text' => $special_info['title'],
             'href' => $this->url->link('special/special')
         );
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel-2/owl.carousel.min.js');
 
         $this->document->addStyle('catalog/view/javascript/special/special.css');
-
+        $this->document->addScript('catalog/view/javascript/special/special.js');
         //for mobile version
         if (isset($this->request->server['HTTP_REFERER'])) {
             $referer_mobile = $this->request->server['HTTP_REFERER'];
@@ -46,10 +48,12 @@ class ControllerSpecialSpecial extends Controller {
 
 
         $products_id = $this->model_catalog_product->getProductsIdSale(); //Продукты для распродажи
+        $data['sale_products'] = array();
         foreach($products_id as $product_id) {
             $data['sale_products'][] = $this->load->controller('product/product_item', $product_id);
         }
         $products_id = $this->model_catalog_product->getProductsIdBestseller(); //Продукты - хиты продаж
+        $data['best_products'] = array();
         foreach($products_id as $product_id) {
             $data['best_products'][] = $this->load->controller('product/product_item', $product_id);
         }

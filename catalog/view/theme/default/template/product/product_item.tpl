@@ -1,4 +1,4 @@
-<div class="product-thumb item universal <?php if($discount || $new) { echo 'icon'; }?>">
+<div class="product-thumb item universal box-icon <?php if($discount || $new) { echo 'icon'; }?>">
 	<?php if($discount) { ?>
 		<div class="product-icon discount">Скидка <?php echo $discount; ?>%</div>
 	<?php } ?>

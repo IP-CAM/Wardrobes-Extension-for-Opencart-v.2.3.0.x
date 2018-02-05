@@ -3,7 +3,7 @@
 	<div class="block">
 		<img src="../catalog/view/theme/default/image/not_found-404.png">
 		<!--noindex-->
-		<p class="author">illustration by <a  rel="nofollow" href="">Rocky Roark </a></p>
+		<p class="author">illustration by <a  rel="nofollow" href="https://dribbble.com/shots/3910136-Slaptastick-Will-Sticker" target="_blank">Rocky Roark </a></p>
 		<!--/noindex-->
 		<span class="error-name">ERROR 404</span>
 		<div class="text-box">

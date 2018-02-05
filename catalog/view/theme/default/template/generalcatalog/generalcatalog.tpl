@@ -64,43 +64,35 @@
 		<div class="col-xs-12 text-left back">
 			<a href="<?php echo $referer_mobile; ?>" class="border-gray">Назад</a>
 		</div>
-		<div class="col-xs-12">
-			<div class="row">
-				<div class="col-xs-6 col-hh-6">
-					<?php echo $box_images_mobile_html['standard']; ?>
+		<div class="col-xs-12 row-gencat">
+
+				<?php echo $box_images_mobile_html['standard']; ?>
+
+				<div class="row-gencat-sub">
+
+					<?php echo $box_images_mobile_html['built_in']; ?>
+					<?php echo $box_images_mobile_html['corner']; ?>
+
 				</div>
-				<div class="col-xs-6 col-hh-5">
-					<div class="row">
-						<div class="col-xs-12">
-							<?php echo $box_images_mobile_html['built_in']; ?>
-						</div>
-						<div class="col-xs-12">
-							<?php echo $box_images_mobile_html['corner']; ?>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
-		<div class="col-xs-12">
+		<div class="col-xs-12 row-gencat-one">
 			<?php echo $box_images_mobile_html['our_work']; ?>
 		</div>
-		<div class="col-xs-12">
-			<div class="row">
-				<div class="col-xs-6 col-hh-6">
-					<?php echo $box_images_mobile_html['radius']; ?>
-				</div>
-				<div class="col-xs-6 col-hh-5">
-					<div class="row">
-						<div class="col-xs-12">
-							<?php echo $box_images_mobile_html['hallway']; ?>
-						</div>
-						<div class="col-xs-12">
-							<?php echo $box_images_mobile_html['dressing_room']; ?>
-						</div>
-					</div>
-				</div>
+		<div class="col-xs-12 row-gencat">
+
+			<?php echo $box_images_mobile_html['radius']; ?>
+
+			<div class="row-gencat-sub">
+				<?php echo $box_images_mobile_html['hallway']; ?>
+				<?php echo $box_images_mobile_html['dressing_room']; ?>
 			</div>
 		</div>
+		<div class="col-xs-12 row-gencat down">
+
+			<?php echo $box_images_mobile_html['cabinet_cabinets']; ?>
+			<?php echo $box_images_mobile_html['door_coupe']; ?>
+		</div>
+
 	</div>
 </div>
 <?php echo $footer; ?>

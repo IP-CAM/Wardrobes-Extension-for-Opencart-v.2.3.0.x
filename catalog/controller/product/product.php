@@ -347,7 +347,29 @@ class ControllerProductProduct extends Controller {
 				$data['price'] = false;
 			}
 
-            $data['price_view'] = $this->viewPrice($product_info['product_id'], 67);
+            $price_view = $this->viewPrice($product_info['product_id'], 67);
+            $data['price_view'] = $price_view;
+
+
+            /* icon */
+            $this->load->model('catalog/product');
+            $settings = $this->model_catalog_product->getProductSettings($product_id);
+            if(isset($settings['discount']) && $price_view) {
+                $data['discount'] = round($settings['discount']);
+                if($data['discount'] != 0) {
+                    $data['price_old'] = $data['price'];
+                    $format_many = new Formatmany();
+                    $data['price'] = 'от ' . $format_many->format(($product_info['price']*(100 - $settings['discount']))/100, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point')); //делаем цену дешевле на скидку
+                }
+            } else {
+                $data['discount'] = 0;
+            }
+
+            if(isset($settings['new'])) {
+                $data['new'] = $settings['new'];
+            } else {
+                $data['new'] = 0;
+            }
 
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
