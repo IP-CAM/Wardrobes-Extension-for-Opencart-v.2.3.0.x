@@ -37,7 +37,8 @@ class ControllerProductProductItem extends Controller {
         $data['name'] = $values['name'];
         $product_id = $values['product_id'];
         $price_view = $this->viewPrice($product_id, 67);
-        $data['price_view'] = $price_view;
+
+        $data['price_view'] = true;
 
         $this->load->model('catalog/product');
         $settings = $this->model_catalog_product->getProductSettings($product_id);

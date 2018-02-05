@@ -36,8 +36,8 @@
 	<div class="row row-base">
 		<div class="col-lg-8">
 			<?php if ($thumb || $images) { ?>
-			<div class="thumbnails" style="height: 54px;">
-				<div class=" thumbnail-left" style="width: 80px; height: 400px;">
+			<div class="thumbnails">
+				<div class=" thumbnail-left <?php if (!$images) { ?> one-image <?php } ?>">
 					<?php if ($images) { ?>
 					<?php foreach ($images as $image) { ?>
 					<div class="image-additional">
@@ -51,19 +51,18 @@
 					<?php } ?>
 				</div>
 
-				<div class=" images-item <?php if (!$images) { ?> one-image <?php } ?>">
-
-
+				<div class="images-item <?php if (!$images) { ?> one-image <?php } ?>">
 
 					<?php if ($thumb) { ?>
-						<div class="box-icon <?php if($discount || $new) { echo 'icon'; }?>" style="width: 631px; height: 400px;">
-							<a class="thumbnail " style="" href="<?php echo $popup; ?>"
-							   title="<?php echo $heading_title; ?>">
+					<a class="thumbnail " style="" href="<?php echo $popup; ?>"
+					   title="<?php echo $heading_title; ?>">
+						<div class="box-icon <?php if($discount || $new) { echo 'icon'; }?>" style="height: 400px;">
+
 								<img src="<?php echo $thumb; ?>"
 								 title="<?php echo $heading_title; ?>"
 								 style="max-width: 100%; max-height: 100%;"
 								 alt="<?php echo $heading_title; ?>"/>
-							</a>
+
 
 							<?php if($discount) { ?>
 							<div class="product-icon discount">Скидка <?php echo $discount; ?>%</div>
@@ -72,7 +71,7 @@
 							<div class="product-icon new">Новинка</div>
 							<?php } ?>
 						</div>
-
+					</a>
 
 					<?php } ?>
 				</div>
@@ -203,17 +202,16 @@
 			</div>
 			<?php if($price_view) { ?>
 				<p class="name-price">Цена:</p>
-				<?php if ($price) { ?>
-				<p class="price"><?php echo $price; ?><span> ₽</span></p>
+
+				<?php if (!$discount) { ?>
+
+					<p class="price"><?php echo trim($price); ?><span> ₽</span></p>
+				<?php } else { ?>
+					<p class="price green"><?php echo trim($price); ?><span> ₽</span></p>
+					<p class="price-old"><?php echo trim($price_old); ?><span> ₽</span></p>
+
 				<?php } ?>
-				<?php if ($special) { ?>
-				<h2><?php echo $special; ?></h2>
-				<?php } ?>
-				<?php if ($discounts) { ?>
-				<?php foreach ($discounts as $discount) { ?>
-				<?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?>
-				<?php } ?>
-				<?php } ?>
+
 			<?php } else { ?>
 				<div class="stub"></div>
 			<?php } ?>
@@ -259,7 +257,23 @@
 			</div>
 		</div>
 		<div class="col-xs-12">
+
 			<div class="thumbnails">
+
+
+
+				<div class=" thumbnail-left <?php if (!$images) { ?> one-image <?php } ?>">
+					<?php if ($images) { ?>
+						<?php foreach ($images as $image) { ?>
+							<div class="image-additional">
+								<a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>">
+									<img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>"
+										 alt="<?php echo $heading_title; ?>"/>
+								</a>
+							</div>
+							<?php } ?>
+					<?php } ?>
+				</div>
 				<div class=" images-item <?php if (!$images) { ?> one-image <?php } ?>">
 					<?php if ($thumb) { ?>
 					<a class="thumbnail" href="<?php echo $popup; ?>"
@@ -273,8 +287,16 @@
 			</div>
 		</div>
 		<?php if($price_view) { ?>
-			<div class="col-xs-12">
-				<div class="price"><h2 class="font-italic font-bold font-size-30 font-type-verdana"><?php echo $price; ?><span> ₽</span></h2></div>
+			<div class="col-xs-12 price-box">
+
+				<?php if (!$discount) { ?>
+
+				<p class="price"><?php echo trim($price); ?><span> ₽</span></p>
+				<?php } else { ?>
+				<p class="price green"><?php echo trim($price); ?><span> ₽</span></p>
+				<p class="price-old"><?php echo trim($price_old); ?><span> ₽</span></p>
+
+				<?php } ?>
 			</div>
 		<?php } ?>
 		<div class="col-xs-12">

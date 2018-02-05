@@ -349,6 +349,7 @@ class ControllerProductProduct extends Controller {
 
             $price_view = $this->viewPrice($product_info['product_id'], 67);
             $data['price_view'] = $price_view;
+            $data['price_view'] = true;
 
 
             /* icon */

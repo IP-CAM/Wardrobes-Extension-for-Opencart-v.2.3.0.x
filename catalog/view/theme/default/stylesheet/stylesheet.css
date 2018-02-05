@@ -258,11 +258,12 @@ label {
 }
 .product-thumb .image a {
     display: block;
+    transition-property: all;
+    transition-duration: 0.3s;
 }
 .product-thumb .image a:hover {
     opacity: 0.8;
-    transition-property: all;
-    transition-duration: 0.3s;
+
 }
 .product-thumb .image {
     margin: 5px;
@@ -278,9 +279,15 @@ label {
     top: 266px;
     margin: 0;
 }
+.product-thumb .price-old {
+    position: absolute;
+    left: 21px;
+    bottom: 69px;
+    font-size: 14px;
+}
 
 .price-old {
-    position: absolute;
+    position: static;
     left: 21px;
     bottom: 69px;
     font-size: 14px;

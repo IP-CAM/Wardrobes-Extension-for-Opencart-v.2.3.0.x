@@ -39,7 +39,12 @@
 					</div>
 					<!--noindex-->
 					<p class="social-link-box">
-						<span class="font-bold">Мы в социальных сетях:</span><a href="https://vk.com/centr_mebeli" target="_blank" rel="nofollow"><img src="../image/catalog/contacts/description/link/vk.png"></a><a href="https://www.instagram.com/centr_mebeli_spb" target="_blank" rel="nofollow"><img src="../image/catalog/contacts/description/link/instagram.png"></a><a href="https://ok.ru/group/53741503316175" target="_blank" rel="nofollow"><img src="../image/catalog/contacts/description/link/ok.png"></a><a href="https://www.facebook.com/centr.mebeli.spb/" target="_blank" rel="nofollow"><img src="../image/catalog/contacts/description/link/facebook.png"></a><a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../image/catalog/contacts/description/link/youtube.png"></a>
+						<span class="font-bold">Мы в социальных сетях:</span>
+						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-vk.svg"></a>
+						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-instagram.svg"></a>
+						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-ok.svg"></a>
+						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-facebook.svg"></a>
+						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-youtube.svg"></a>
 					</p>
 					<!--/noindex-->
 					<p class="font-bold text-bottom">В нашем магазине вы можете посмотреть образцы готовых изделий, всех используемых материалов, составить дизайн проект и оформить заказ.</p>
@@ -94,11 +99,11 @@
 
 					<p class="social-text-box font-bold">Мы в социальных сетях:</p>
 					<div class="social-link-box">
-						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../image/catalog/contacts/description/link/vk.png"></a>
-						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../image/catalog/contacts/description/link/instagram.png"></a>
-						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../image/catalog/contacts/description/link/ok.png"></a>
-						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../image/catalog/contacts/description/link/facebook.png"></a>
-						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../image/catalog/contacts/description/link/youtube.png"></a>
+						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-vk.svg"></a>
+						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-instagram.svg"></a>
+						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-ok.svg"></a>
+						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-facebook.svg"></a>
+						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-youtube.svg"></a>
 					</div>
 
 
