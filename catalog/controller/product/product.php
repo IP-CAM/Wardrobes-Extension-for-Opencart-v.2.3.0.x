@@ -430,6 +430,28 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 
+            //colors tab
+            $colors = array();
+            $name_colors = array(
+                'венге' ,
+                'дуб паллада' ,
+                'дуб сонома' ,
+                'индийский эбони' ,
+                'клен мэдисон' ,
+                'ольха светлая' ,
+                'орех светлый' ,
+                'берёза песочная'
+                 );
+            for($i = 0; $i < 8; $i++) {
+                $color = "<div class='color-item'>";
+                $color .= "<img src='../image/catalog/product_page_images/colors/" . ($i+1) . ".jpg'\>";
+                $color .= "<p class='color-name'>" . $name_colors[$i] . "</p>";
+                $color .= "</div>";
+                $colors[] = $color;
+            }
+            $data['colors'] = $colors;
+
+
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
 			} else {

@@ -181,6 +181,26 @@
         line-height: 1.5;
         font-size: 12px;
     }
+    .box-icon .product-icon {
+        top: 6px;
+        width: 46px;
+        height: 11px;
+        line-height: 0.90;
+        font-size: 11px;
+        transform: rotate(45deg);
+        right: -12px;
+    }
+    .owl-item, .product-thumb.item {
+        overflow: hidden;
+    }
+    .box-icon .product-icon.new:after, .box-icon .product-icon.discount:after {
+        display: none;
+    }
+
+
+
+
+
 
     .modal {
         display: none;
@@ -664,7 +684,7 @@
     #product #characteristic-tab .characteristic-top-text-mobile {
         text-align: center;
         margin-top: 20px;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     #product #characteristic-tab #size-box-mobile {

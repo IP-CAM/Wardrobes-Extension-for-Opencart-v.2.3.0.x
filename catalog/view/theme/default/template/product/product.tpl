@@ -122,7 +122,13 @@
 					<?php echo $description; ?>
 				</div>
 				<div id="color-tab" style="padding: 12px; display: none">
-					<p style="    position: absolute; left: 43px;" >Доступные цвета</p>
+					<p>Доступные цвета</p>
+					<div>
+						<?php foreach($colors as $color) { ?>
+						<?php echo $color; ?>
+						<?php } ?>
+					</div>
+
 				</div>
 				<div id="reviews-tab" style="display: none">
 					<?php if(!empty($reviews)) { ?>

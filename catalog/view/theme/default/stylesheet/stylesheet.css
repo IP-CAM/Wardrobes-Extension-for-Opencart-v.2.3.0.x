@@ -86,6 +86,12 @@ label {
 
 
 
+
+
+
+
+
+
 #menu-mini {
     position: absolute;
 }
@@ -285,7 +291,9 @@ label {
     bottom: 69px;
     font-size: 14px;
 }
-
+.product-thumb a:focus {
+    outline: none;
+}
 .price-old {
     position: static;
     left: 21px;
@@ -397,7 +405,8 @@ label {
 
 
 .ui-slider .ui-slider-handle{
-    border-radius: 2px;
+    border-radius: 2px!important;
+    outline: none!important;
 }
 
 
@@ -512,7 +521,9 @@ header #navigation_bar {
     align-items: center;
     margin: 0;
 }
-
+header a:focus{
+    outline:none;
+}
 
 
 /*FOOTER */
@@ -738,12 +749,10 @@ footer .down-text p{
 
 
 
-*:not(footer) ul>li {
+.text-description ul>li {
 
     list-style-type: none;
 }
-
-
 .text-description ul>li:before {
     position: relative;
     width: 10px;
@@ -993,37 +1002,6 @@ footer .down-text p{
 
 
 
-.message-pupop {
-    width: 290px;
-    height: 65px;
-    padding: 6px;
-    line-height: 18px;
-    position: absolute;
-    bottom: 259px;
-    z-index: 100;
-    background-color: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 6px;
-    text-align: justify;
-}
-.message-pupop .arrow {
-    left: 115px;
-    top: 43px;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-bottom: 1px solid #d9d9d9;
-    display: block;
-    transform: rotate(45deg);
-    border-right: 1px solid #d9d9d9;
-    background-color: #FFFFFF;
-
-    z-index: 3;
-}
-.message-pupop #text {
-    z-index: 101;
-    position: absolute;
-}
 
 
 

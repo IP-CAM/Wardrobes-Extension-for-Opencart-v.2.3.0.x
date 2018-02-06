@@ -60,7 +60,7 @@
 	<!-- COMMENTS BEGIN -->
 	<div class="row review">
 		<div class="col-lg-12">
-			<h2>Отзывы клиентов</h2>
+			<h2 class="line-red">Отзывы клиентов</h2>
 		</div>
 		<div class="col-lg-12 ">
 			<div>
@@ -110,7 +110,7 @@
 	<!-- OUR PARTNERS  BEGIN-->
 	<div class="row partner">
 		<div class="col-lg-12">
-			<h2>Наши партнёры</h2>
+			<h2 class="line-red">Наши партнёры</h2>
 		</div>
 		<div class="col-lg-12">
 			<div class="partner-box-image">
