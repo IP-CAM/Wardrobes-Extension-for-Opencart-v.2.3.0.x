@@ -1,7 +1,7 @@
 <?php if(isset($visitedproducts)) { ?>
 
 	<div class="col-lg-12">
-		<h2 class="line-red font-size-30 font-type-georgia" id="visitproduct-maiker"><?php echo $heading_title; ?></h2>
+		<h2 class="line-red font-type-georgia" id="visitproduct-maiker"><?php echo $heading_title; ?></h2>
 	</div>
 	<div class="col-lg-12">
 		<?php if(count($visitedproducts) > 4) { ?>

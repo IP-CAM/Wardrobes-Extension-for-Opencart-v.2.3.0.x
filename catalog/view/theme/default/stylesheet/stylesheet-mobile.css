@@ -304,7 +304,7 @@
         position: relative;
     }
 
-    #home .bestseller h2, #home .review h2, #home .partner h2 {
+    #home .bestseller h2, #home .review h2, #home .partner h2, #product h2.line-red  {
         text-align: center;
         font-size: 18px;
         margin-left: 0;
@@ -312,6 +312,7 @@
     }
 
     #home .bestseller h2:after,
+    #product h2.line-red:after,
     #home .review h2:after,
     #home .partner h2:after {
         display: block;
@@ -792,6 +793,9 @@
     #product .phone-box {
         height: auto;
     }
+    #product .visit-product {
+        margin-bottom: 20px;
+    }
 
     #calculator .box_root_item.box input:checked::after,
     #calculator .sub_box_item.box input:checked::after {
@@ -1083,6 +1087,14 @@
     #special .special-plit > div:last-child {
         margin-bottom: 0;
     }
+
+    #special .product-box .product-thumb {
+        margin-bottom: 0!important;
+    }
+
+
+
+
 
     /*footer*/
     footer .sir-box {

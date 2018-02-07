@@ -429,6 +429,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="visit-product">
+			<?php echo $content_bottom; ?>
+		</div>
 
 	</div>
 </div>

@@ -41,7 +41,8 @@
     }
 
     .product-thumb.item.universal.icon .name {
-        padding-right: 33px;
+        padding-right: 13px;
+        padding-top: 5px;
     }
 
     .product-thumb.item.universal .button {

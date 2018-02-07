@@ -7,11 +7,13 @@
 			<li><a data-id_category="67" href="<?php echo $categories[67]['href'] ?>">Стандартные шкафы-купе</a></li>
       		<li><a data-id_category="60" href="<?php echo $categories[60]['href'] ?>">Встроенные шкафы-купе</a></li>
 			<li><a data-id_category="66" href="<?php echo $categories[66]['href'] ?>">Угловые шкафы-купе</a></li>
+			<li><a data-id_category="72" href="<?php echo $categories[72]['href'] ?>">Корпусные шкафы-купе</a></li>
 			<!-- <li><a href="<?php echo $categories[59]['href'] ?>">Шкафы-Купе</a></li> -->
 			<li ><a data-id_category="64" href="<?php echo $categories[64]['href'] ?>">Радиусные шкафы-купе</a></li>
 		</ul>
 		<div class="text"><a data-id_category="69" href="<?php echo $categories[69]['href'] ?>">Прихожие</a></div>
 		<div class="text"><a data-id_category="68" href="<?php echo $categories[68]['href'] ?>">Гардеробные</a></div>
+		<div class="text"><a data-id_category="73" href="<?php echo $categories[73]['href'] ?>">Двери-купе</a></div>
 		<div class="text"><a data-id_category="70" href="<?php echo $categories[70]['href'] ?>">Наши работы</a></div>
 	</div>
 </div>

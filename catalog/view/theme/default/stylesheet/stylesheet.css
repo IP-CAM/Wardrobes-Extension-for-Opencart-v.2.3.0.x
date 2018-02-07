@@ -108,22 +108,53 @@ label {
     background-color: #f2213e;
     position: absolute;
     cursor: inherit;
+    /*transition-property: all;*/
+    /*transition-duration: 1.3s;*/
+    transition: all 0.3s, opacity 0.0s;
+    right: 0;
 }
+
+
 #menu_animation_box #d1 {
     top: 0px;
 }
 #menu_animation_box #d2 {
     top: 6px;
+
 }
 #menu_animation_box #d3 {
     top: 12px;
 }
+#menu_animation_box .top-animate {
+    width: 16px!important;
+    transform: rotate(-50deg)!important;
+    transform-origin: right!important;
+    top: -5px!important;
+}
+#menu_animation_box .middle-animate {
+    width: 0;
+
+}
+#menu_animation_box .down-animate {
+    width: 16px!important;
+    transform: rotate(50deg)!important;
+    transform-origin: right!important;
+    top: 19px!important;
+}
+
+
+
+
+
+
 #menu-mini h3 {
     position: absolute;
     margin: 0;
     left: 30px;
     top: 25px;
 }
+
+
 
 
 /* logo */
