@@ -159,7 +159,7 @@ label {
 
 /* logo */
 #logo {
-    margin: 0 0 10px 0;
+    margin: 9px 0 0px 0;
 }
 #logo-mini {
     margin-top: 14px;
@@ -313,9 +313,31 @@ label {
 }
 .product-thumb .name {
     position: absolute;
-    top: 266px;
+    top: 258px;
     margin: 0;
 }
+.price-rubil-black, .price-rubil-green, .price-rubil-gray {
+    width: 11px;
+    height: 12px;
+    position: absolute;
+    top: 4px;
+    margin-left: 5px;
+    background-repeat: no-repeat!important;
+}
+.price-rubil-black {
+    background: url(../image/price-rubil-black.svg);
+}
+.price-rubil-green {
+    background: url(../image/price-rubil-green.svg);
+}
+.price-rubil-gray {
+    background: url(../image/price-rubil-gray.svg);
+    width: 10px;
+    height: 11px;
+    top: 4px;
+    margin-left: 5px;
+}
+
 .product-thumb .price-old {
     position: absolute;
     left: 21px;
@@ -349,6 +371,7 @@ label {
     transform: skewY(-11deg);
     background-color: #a3a3a3;
 }
+
 .product-thumb .price {
     position: absolute;
     margin: 0;
@@ -358,6 +381,15 @@ label {
     font-style: italic;
     font-weight: bold;
 }
+.product-thumb .name-price {
+    display: block;
+    font-size: 12px;
+    left: 16px;
+    position: absolute;
+    /* top: 50px; */
+    bottom: 66px;
+}
+
 .product-thumb .price span {
     font-style: normal;
 }
@@ -543,7 +575,8 @@ header #right-bottom-header {
     margin-top: 20px;
 }
 header .row-top{
-    margin-bottom: 8px;
+    margin-bottom: 15px;
+    margin-top: 5px;
 }
 
 header #navigation_bar {
@@ -755,7 +788,7 @@ footer .down-text p{
 
 
 
-.aboutcompany.text_box, .contacts.text_box {
+.aboutcompany.text_box, .contacts.text_box, .information.text_box {
     position: relative;
     background: white;
     border: 1px solid #d9d9d9;
@@ -767,6 +800,12 @@ footer .down-text p{
     margin: 0 auto;
     margin-bottom: 312px;
 }
+#information .information.text_box {
+    position: static;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
 
 .picture-back {
     position: absolute;

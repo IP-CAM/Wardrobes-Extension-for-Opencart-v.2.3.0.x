@@ -1,4 +1,5 @@
 <?php echo $header; ?><?php echo $column_left; ?>
+<?php $type = ($type) ? $type : 'module'; ?>
 <div id="content">
   <div class="page-header">
     <div class="container-fluid">

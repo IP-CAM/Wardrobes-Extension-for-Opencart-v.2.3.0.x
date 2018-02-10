@@ -5,6 +5,11 @@ class ControllerCommonHome extends Controller {
         $this->load->model('tool/image');
         $this->document->setTitle($this->config->get('config_meta_title'));
         $this->document->setDescription($this->config->get('config_meta_description'));
+
+        $can_url=$this->url->link('common/home');
+        $can_url=str_replace('index.php?route=common/home', '', $can_url);
+        $this->document->addLink($can_url,'canonical');
+
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
 
         $this->document->addScript('catalog/view/javascript/jquery/modal-window/modal-window.js');

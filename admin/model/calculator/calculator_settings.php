@@ -11,23 +11,26 @@ class ModelCalculatorCalculatorSettings extends Model {
     }
 
     public function editCalculator($calculator_id, $data) {
-        $sql = "UPDATE " . DB_PREFIX . "calculator_settings SET
+        if($data['keyword'] != '') { //При не заполненом поле, не сохраняем значения, костыль
+            $sql = "UPDATE " . DB_PREFIX . "calculator_settings SET
             title = '" . $this->db->escape($data['title']) . "',
             meta_title = '" . $this->db->escape($data['meta_title']) . "',
             meta_description = '" . $this->db->escape($data['meta_description']) . "',
             meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "',
             description = '" . $this->db->escape($data['description']) . "',
             status = '" . (int)$data['status'] . "' WHERE calculator_id = '" . (int)$calculator_id . "'";
-        $this->db->query($sql);
+            $this->db->query($sql);
 
 
-        $this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'calculator/calculator'");
+            $this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'calculator/calculator'");
 
-        if ($data['keyword']) {
-            $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'calculator/calculator', keyword = '" . $this->db->escape($data['keyword']) . "'");
+            if ($data['keyword']) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'calculator/calculator', keyword = '" . $this->db->escape($data['keyword']) . "'");
+            }
+
+            $this->cache->delete('calculator');
         }
 
-        $this->cache->delete('calculator');
     }
 
 

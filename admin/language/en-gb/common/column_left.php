@@ -1,4 +1,8 @@
 <?php
+
+// Uninstaller
+$_['heading_title_uninstaller'] = 'Extension Uninstaller';
+
 // Text
 $_['text_affiliate']                 = 'Affiliates';
 $_['text_api']                       = 'API';

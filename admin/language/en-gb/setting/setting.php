@@ -34,6 +34,15 @@ $_['text_upload']                  = 'Uploads';
 $_['text_error']                   = 'Error Handling';
 
 // Entry
+
+$_['text_seo_url']					   = 'Default';
+$_['text_seo_pro']					   = 'SeoPro';
+$_['entry_seo_url_type']			   = 'SEO type:';
+$_['entry_seo_url_include_path']	   = 'SEO with categories:';
+$_['entry_seo_url_include_path_help']  = '/category/subcategory/product (only with SeoPro)';
+$_['entry_seo_url_postfix']			   = 'SEO postfix';
+$_['entry_seo_url_postfix_help']	   = 'Example as .html (only with SeoPro)';
+
 $_['entry_meta_title']             = 'Meta Title';
 $_['entry_meta_description']       = 'Meta Tag Description';
 $_['entry_meta_keyword']           = 'Meta Tag Keywords';

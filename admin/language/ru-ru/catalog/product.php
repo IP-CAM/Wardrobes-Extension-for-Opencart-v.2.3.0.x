@@ -29,6 +29,7 @@ $_['column_new']             = 'Новинка';
 $_['column_bestseller']      = 'Хит продаж';
 
 // Entry
+$_['entry_main_category']    = 'Главная категория:';
 $_['entry_name']             = 'Название товара';
 $_['entry_description']      = 'Описание';
 $_['entry_characteristic']      = 'Характеристика';

@@ -10,11 +10,14 @@
 
 	<?php if($price_view && $price) { ?>
 		<p class="font-type-verdana dark name"><?php echo $name; ?></p>
+		<?php if($price_view_meter) { ?>
+			<p class="name-price">Цена за погонный метр:</p>
+		<?php } ?>
 		<?php if ($discount) { ?>
-			<p class="price-old"><?php echo trim($price_old); ?><span> ₽</span></p>
-			<p class="price green"><?php echo trim($price); ?><span> ₽</span></p>
+			<p class="price-old"><?php echo trim($price_old); ?><span class="price-rubil-gray"> </span></p>
+			<p class="price green"><?php echo trim($price); ?><span class="price-rubil-green"> </span></p>
 		<?php } else { ?>
-			<p class="price"><?php echo trim($price); ?><span> ₽</span></p>
+			<p class="price"><?php echo trim($price); ?><span class="price-rubil-black"> </span></p>
 		<?php } ?>
 
 	<?php } else { ?>

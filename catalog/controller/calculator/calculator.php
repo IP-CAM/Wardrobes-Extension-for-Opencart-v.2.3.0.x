@@ -111,7 +111,6 @@ class ControllerCalculatorCalculator extends Controller {
                        $category_root['category_id'] == 70 ||
                        $category_root['category_id'] == 64 ||
                        $category_root['category_id'] == 72 ||
-                       $category_root['category_id'] == 73 ||
                        $category_root['category_id'] == 66) { //Kostil
                         continue;
                     }
@@ -126,6 +125,7 @@ class ControllerCalculatorCalculator extends Controller {
 
 
         $this->normalizationImageLink($categories_root, $server);
+        $this->getPriceCategory($categories_root, $data);
         $data['description'] = html_entity_decode($calculator_info['description'], ENT_QUOTES, 'UTF-8');
         $data['categories_root'] = $categories_root;
         $data['link_calculator'] = $this->url->link('calculator/calculator');
@@ -201,5 +201,61 @@ class ControllerCalculatorCalculator extends Controller {
             }
             $categories[$key]['name'] = $name;
         }
+    }
+
+
+    private function getPriceCategory($categories_root, &$data) {
+
+        $this->load->model('catalog/category');
+
+        foreach($categories_root as $category_root) {
+
+            $category_settings = $this->model_catalog_category->getTypePrice($category_root['category_id']);
+            if(!empty($category_settings)) {
+                if($category_settings['price'] != 0) {
+                    if($category_settings['category_id'] == 59) {
+                        $data['price_for_1m_na_zakaz'] = $category_settings['price'];
+                    }
+                    if($category_settings['category_id'] == 67) {
+                        $data['price_for_1m_standard'] = $category_settings['price'];
+                    }
+                    if($category_settings['category_id'] == 68) {
+                        $data['price_for_1m_garderob'] = $category_settings['price'];
+                    }
+                    if($category_settings['category_id'] == 69) {
+                        $data['price_for_1m_prihogie'] = $category_settings['price'];
+                    }
+                    if($category_settings['category_id'] == 73) {
+                        $data['price_for_1m_doors'] = $category_settings['price'];
+                    }
+                } else {
+                    if($category_settings['category_id'] == 59) {
+                        $data['price_for_1m_na_zakaz'] = -1;
+                    }
+                    if($category_settings['category_id'] == 67) {
+                        $data['price_for_1m_standard'] = -1;
+                    }
+                    if($category_settings['category_id'] == 68) {
+                        $data['price_for_1m_garderob'] = -1;
+                    }
+                    if($category_settings['category_id'] == 69) {
+                        $data['price_for_1m_prihogie'] = -1;
+                    }
+                    if($category_settings['category_id'] == 73) {
+                        $data['price_for_1m_doors'] = -1;
+                    }
+                }
+
+            }
+
+        }
+
+
+        /*
+         * var price_for_1m_na_zakaz = <?php echo $price_for_1m_na_zakaz; ?>
+	alert(price_for_1m_na_zakaz);
+	var price_for_1m_garderob = <?php echo $price_for_1m_garderob; ?>
+	var price_for_1m_prihogie = <?php echo $price_for_1m_prihogie; ?>
+         */
     }
 }

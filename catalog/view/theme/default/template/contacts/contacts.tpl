@@ -17,7 +17,7 @@
 				<div class="col-12-lg description-box">
 					<h1 class="text-center">Контакты</h1>
 					<div class="top-text">
-						<p><span class="font-bold">Дни работы:</span> понедельник-воскресенье</p>
+						<p><span class="font-bold">Дни работы:</span> понедельник-пятница, суббота и воскресенье - по договоренности</p>
 						<p class="pull-right"><img src="../image/catalog/contacts/description/icon_time.png"> 9:00 — 17:30</p>
 					</div>
 					<p><span class="font-bold">Телефон:</span> +7 (812) 965 30 61</p>
@@ -40,11 +40,11 @@
 					<!--noindex-->
 					<p class="social-link-box">
 						<span class="font-bold">Мы в социальных сетях:</span>
-						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-vk.svg"></a>
-						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-instagram.svg"></a>
-						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-ok.svg"></a>
-						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-facebook.svg"></a>
-						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-youtube.svg"></a>
+						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../catalog/view/theme/default/image/icon-vk.svg"></a>
+						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../catalog/view/theme/default/image/icon-instagram.svg"></a>
+						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../catalog/view/theme/default/image/icon-ok.svg"></a>
+						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../catalog/view/theme/default/image/icon-facebook.svg"></a>
+						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../catalog/view/theme/default/image/icon-youtube.svg"></a>
 					</p>
 					<!--/noindex-->
 					<p class="font-bold text-bottom">В нашем магазине вы можете посмотреть образцы готовых изделий, всех используемых материалов, составить дизайн проект и оформить заказ.</p>
@@ -76,7 +76,7 @@
 				<div class="col-12-sx description-box">
 					<h1 class="text-center">Контакты</h1>
 					<div class="top-text">
-						<p><span class="font-bold">Дни работы:</span> понедельник-воскресенье</p>
+						<p><span class="font-bold">Дни работы:</span> понедельник-пятница, суббота и воскресенье - по договоренности</p>
 						<p><img src="../image/catalog/contacts/description/icon_time.png"> 9:00 — 17:30</p>
 					</div>
 					<p><span class="font-bold">Телефон:</span> +7 (812) 965 30 61</p>
@@ -99,11 +99,11 @@
 
 					<p class="social-text-box font-bold">Мы в социальных сетях:</p>
 					<div class="social-link-box">
-						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-vk.svg"></a>
-						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-instagram.svg"></a>
-						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-ok.svg"></a>
-						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-facebook.svg"></a>
-						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../catalog/view/theme/default/image/footer-icon-youtube.svg"></a>
+						<a href="https://vk.com/centr_mebeli" target="_blank"><img src="../catalog/view/theme/default/image/icon-vk.svg"></a>
+						<a href="https://www.instagram.com/centr_mebeli_spb" target="_blank"><img src="../catalog/view/theme/default/image/icon-instagram.svg"></a>
+						<a href="https://ok.ru/group/53741503316175" target="_blank"><img src="../catalog/view/theme/default/image/icon-ok.svg"></a>
+						<a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%9C%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8-1939941169366106/" target="_blank"><img src="../catalog/view/theme/default/image/icon-facebook.svg"></a>
+						<a href="https://www.youtube.com/channel/UCsOy63yxh-ldVqyCEJTZt0g" target="_blank"><img src="../catalog/view/theme/default/image/icon-youtube.svg"></a>
 					</div>
 
 

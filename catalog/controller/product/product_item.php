@@ -27,25 +27,53 @@ class ControllerProductProductItem extends Controller {
             $image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
         }
 
-        if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-            $price = $this->formatMany($values['price']);
+        /*if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+
         } else {
             $price = false;
-        }
+        }*/
 
         $data['image'] = $image;
         $data['name'] = $values['name'];
         $product_id = $values['product_id'];
-        $price_view = $this->viewPrice($product_id, 67);
 
-        $data['price_view'] = true;
 
+        //$format_many = new Formatmany();
+       // $format_many = $this->formatmany->getPrice($price, $product_id, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
+       // $ar_setting_price = $format_many->getPrice($price, $product_id, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
+
+        $price_view = true;
+        $price_view_meter = true;
+        $price = $this->formatMany($values['price']);
+        $data['price'] = $price;
+        $category_price = $this->categoryPrice($product_id);
+        if(!empty($category_price)) {
+            if($category_price['status'] == 0 || !isset($category_price['status'])) { //Цена та же что и в товаре
+
+                $data['price'] = $price;
+                $price_view = true;
+                $price_view_meter = false;
+            }
+            if($category_price['status'] == 1) { //Цена как в категории для всех товаров
+                $data['price'] = $this->formatMany($category_price['price']);
+                $price_view = true;
+                $price_view_meter = true;
+            }
+            if($category_price['status'] == 2) { //Цены вообще не должно быть
+                $price_view = false;
+            }
+        }
+
+        $data['price_view'] = $price_view;
+        $data['price_view_meter'] = $price_view_meter;
+       // $data['price'] = $ar_setting_price['price'];
+      //  $data['price_view']  = $ar_setting_price['price_view'];
         $this->load->model('catalog/product');
         $settings = $this->model_catalog_product->getProductSettings($product_id);
 
 
-        $data['price'] = $price;
-        if(isset($settings['discount']) && $price_view) {
+
+        if(isset($settings['discount']) && $price_view && (!isset($category_price['status']) || $category_price['status'] == 0)) {
             $data['discount'] = round($settings['discount']);
             if($data['discount'] != 0) {
                 $data['price_old'] = $price;
@@ -70,27 +98,20 @@ class ControllerProductProductItem extends Controller {
 
         return $this->load->view('product/product_item', $data);
     }
-    /**
-     * Убираем цены, во всех шкафах, кроме стандартных
-     * @param $id_product
-     * @param $id_view_category
-     *
-     * @return bool
-     */
-    private function viewPrice($id_product, $id_view_category)
-    {
-        $this->load->model('catalog/product');
-        $categories = $this->model_catalog_product->getCategories($id_product);
 
-        $view = false;
-        foreach($categories as $category) {
-            if((int)$category['category_id'] == $id_view_category) {
-                $view  =true;
-                break;
-            }
-        }
-        return $view;
+    /*
+     * Модифицируем цену в зависемости от настроек в категории
+     */
+    private function categoryPrice($id_product)
+    {
+        $categories = $this->model_catalog_product->getCategories($id_product);
+        $this->load->model('catalog/category');
+
+        $category_price = $this->model_catalog_category->getTypePrice($categories[0]['category_id']);
+        return $category_price;
     }
+
+
 
     private function renderIndependent($product_id)
     {
@@ -109,7 +130,7 @@ class ControllerProductProductItem extends Controller {
     private function formatMany($price)
     {
         $format_many = new Formatmany();
-        return 'от ' . $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
+        return $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
     }
 
 }

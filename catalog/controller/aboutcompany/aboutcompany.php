@@ -37,9 +37,11 @@ class ControllerAboutcompanyAboutcompany extends Controller {
         $this->document->setDescription($aboutcompany_info['meta_description']);
         $this->document->setKeywords($aboutcompany_info['meta_keyword']);
 
+        $data['heading_title'] = $aboutcompany_info['title'];
 
 
         $data['description'] = html_entity_decode($aboutcompany_info['description'], ENT_QUOTES, 'UTF-8');
+
 
         if ($this->request->server['HTTPS']) {
             $server = $this->config->get('config_ssl');

@@ -303,7 +303,15 @@ class ControllerCatalogCategory extends Controller {
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
+
+        $data['text_price_category_off'] = $this->language->get('text_price_category_off');
+        $data['text_price_category_on'] = $this->language->get('text_price_category_on');
+        $data['text_price_category_empty'] = $this->language->get('text_price_category_empty');
+
 		$data['entry_name'] = $this->language->get('entry_name');
+
+		$data['entry_status_price'] = $this->language->get('entry_status_price');
+		$data['entry_price'] = $this->language->get('entry_price');
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_description_down'] = $this->language->get('entry_description_down');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
@@ -413,6 +421,16 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$data['category_description'] = array();
 		}
+
+
+        if (isset($this->request->post['category_price'])) {
+            $data['category_price'] = $this->request->post['category_price'];
+        } elseif (isset($this->request->get['category_id'])) {
+            $data['category_price'] = $this->model_catalog_category->getCategoryPrice($this->request->get['category_id']);
+        } else {
+            $data['category_price'] = array();
+        }
+
 
 		if (isset($this->request->post['path'])) {
 			$data['path'] = $this->request->post['path'];

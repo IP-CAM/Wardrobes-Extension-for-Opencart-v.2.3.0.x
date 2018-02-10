@@ -1,4 +1,12 @@
 <?php
+
+// Uninstaller
+$_['error_unlink_file'] = 'Failed to delete file %s';
+$_['error_uninstaller_refresh'] = 'Could not refresh the modifications!';
+$_['entry_unlink'] = 'Files that will be deleted';
+$_['heading_title_uninstaller'] = 'Extension Uninstaller';
+$_['text_success_uninstall'] = 'Success: You have uninstalled your extension!';
+
 // Heading
 $_['heading_title']        = 'Extension Installer';
 

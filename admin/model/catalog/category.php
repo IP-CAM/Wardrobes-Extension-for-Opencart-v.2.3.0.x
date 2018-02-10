@@ -49,6 +49,8 @@ class ModelCatalogCategory extends Model {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
+        $this->setCategoryPrice($category_id, $data);
+
 		$this->cache->delete('category');
 
 		return $category_id;
@@ -148,6 +150,8 @@ class ModelCatalogCategory extends Model {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
+        $this->setCategoryPrice($category_id, $data);
+
 		$this->cache->delete('category');
 	}
 
@@ -168,6 +172,7 @@ class ModelCatalogCategory extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_category WHERE category_id = '" . (int)$category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'category_id=" . (int)$category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "coupon_category WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_price WHERE category_id = '" . (int)$category_id . "'");
 
 		$this->cache->delete('category');
 	}
@@ -293,6 +298,34 @@ class ModelCatalogCategory extends Model {
 
 		return $category_store_data;
 	}
+
+    public function getCategoryPrice($category_id)
+    {
+        $category_price = array();
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_price WHERE category_id = '" . (int)$category_id . "'");
+
+        $category_price = $query->row;
+
+        if(!$query->rows) {
+            $query = $this->db->query("SHOW FIELDS FROM " . DB_PREFIX . "category_price");
+            foreach($query->rows as $column) {
+                $category_price[$column['Field']] = '';
+            }
+        }
+
+        return $category_price;
+    }
+
+    private function setCategoryPrice($category_id, $data)
+    {
+
+        $this->db->query("DELETE FROM " . DB_PREFIX . "category_price WHERE category_id=" . (int)$category_id);
+
+        $result = $data['category_price'];
+        $sql = "INSERT INTO " . DB_PREFIX . "category_price SET category_id = " . (int)$category_id . ", price = " . (float)($result['price']) . ", status = " . (int)($result['status']);
+        $this->db->query($sql);
+
+    }
 
 	public function getCategoryLayouts($category_id) {
 		$category_layout_data = array();

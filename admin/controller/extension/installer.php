@@ -32,6 +32,14 @@ class ControllerExtensionInstaller extends Controller {
 		$data['button_clear'] = $this->language->get('button_clear');
 		$data['button_continue'] = $this->language->get('button_continue');
 
+
+		if ($this->request->get['route'] == 'extension/installer/do_uninstall') {
+        	array_pop($data['breadcrumbs']);
+			$data['breadcrumbs'][] = array(
+                'text' => $this->language->get('heading_title_uninstaller'),
+                'href' => $this->url->link('extension/installer/do_uninstall', 'token=' . $this->session->data['token'], 'SSL')
+            );
+		}
 		$data['token'] = $this->session->data['token'];
 
 		$directories = glob(DIR_UPLOAD . 'temp-*', GLOB_ONLYDIR);
@@ -42,6 +50,12 @@ class ControllerExtensionInstaller extends Controller {
 			$data['error_warning'] = '';
 		}
 		
+
+		if ($this->request->get['route'] == 'extension/installer/do_uninstall') {
+          $this->document->setTitle($this->language->get('heading_title_uninstaller'));
+          $data['heading_title'] = $this->language->get('heading_title_uninstaller');
+          $data['entry_overwrite'] = $this->language->get('entry_unlink');
+		}
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
@@ -90,6 +104,20 @@ class ControllerExtensionInstaller extends Controller {
 
 				// If xml file copy it to the temporary directory
 				move_uploaded_file($this->request->files['file']['tmp_name'], $file);
+				if (basename($file) == 'install.xml' && !empty($this->request->server['HTTP_REFERER']) && strpos($this->request->server['HTTP_REFERER'], 'do_uninstall') !== false) {
+          $dom = new DOMDocument('1.0', 'UTF-8');
+          $dom->loadXml(file_get_contents($file));
+
+          $code = $dom->getElementsByTagName('code')->item(0);
+          if ($code) {
+            $code = $code->nodeValue;
+            $this->load->model('extension/modification');
+            $modification_info = $this->model_extension_modification->getModificationByCode($code);
+            if ($modification_info) {
+	            array_unshift($json['overwrite'], 'Modification: ' . $modification_info['name']);
+            }
+          }
+        }
 
 				if (file_exists($file)) {
 					$json['step'][] = array(
@@ -114,6 +142,20 @@ class ControllerExtensionInstaller extends Controller {
 				$file = DIR_UPLOAD . $path . '/upload.zip';
 
 				move_uploaded_file($this->request->files['file']['tmp_name'], $file);
+				if (basename($file) == 'install.xml' && !empty($this->request->server['HTTP_REFERER']) && strpos($this->request->server['HTTP_REFERER'], 'do_uninstall') !== false) {
+          $dom = new DOMDocument('1.0', 'UTF-8');
+          $dom->loadXml(file_get_contents($file));
+
+          $code = $dom->getElementsByTagName('code')->item(0);
+          if ($code) {
+            $code = $code->nodeValue;
+            $this->load->model('extension/modification');
+            $modification_info = $this->model_extension_modification->getModificationByCode($code);
+            if ($modification_info) {
+	            array_unshift($json['overwrite'], 'Modification: ' . $modification_info['name']);
+            }
+          }
+        }
 
 				if (file_exists($file)) {
 					$zip = zip_open($file);
@@ -129,13 +171,56 @@ class ControllerExtensionInstaller extends Controller {
 						// FTP
 						$json['step'][] = array(
 							'text' => $this->language->get('text_ftp'),
-							'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/ftp', 'token=' . $this->session->data['token'], true)),
+							'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/'. $this->rewrite_step('localcopy', 'localremove'), 'token=' . $this->session->data['token'], true)),
 							'path' => $path
 						);
 
 						// Send make and array of actions to carry out
 						while ($entry = zip_read($zip)) {
 							$zip_name = zip_entry_name($entry);
+							if ($this->is_uninstall_request()) {
+							if (!isset($this->session->data['ext_uninstaller']['modification_files'])) $this->session->data['ext_uninstaller']['modification_files'] = array();
+							if (!isset($this->session->data['ext_uninstaller']['modification_ids'])) $this->session->data['ext_uninstaller']['modification_ids'] = array();
+
+							$is_modification_file = false;
+								if (strrchr($zip_name, '.') == '.xml') {
+                                  $this->load->model('extension/modification');
+                                  $xml = zip_entry_read($entry, zip_entry_filesize($entry));
+
+                                  if ($xml) {
+                                      try {
+                                        $dom = new DOMDocument('1.0', 'UTF-8');
+                                        $dom->loadXml($xml);
+
+                                        $modification_tag = $dom->getElementsByTagName('modification')->item(0);
+                                        if ($modification_tag) {
+                                            $is_modification_file = true;
+                                        }
+
+                                        $code = $dom->getElementsByTagName('code')->item(0);
+                                        if ($code) {
+                                            $code = $code->nodeValue;
+											$modification_info = $this->model_extension_modification->getModificationByCode($code);
+											if ($modification_info) {
+												$this->session->data['ext_uninstaller']['modification_ids'][] = $modification_info['modification_id'];
+												array_unshift($json['overwrite'], 'Modification: ' . $modification_info['name']);
+											}
+                                        }
+                                    } catch (Exception $e) {
+                                    }
+                                  }
+								}
+                          	$file = dirname(DIR_APPLICATION) . DIRECTORY_SEPARATOR . substr($zip_name, 7);
+                          	if (is_file($file)) {
+								if ($is_modification_file) {
+									array_unshift($json['overwrite'], 'Modification file: ' . substr($zip_name, 7));
+									$this->session->data['ext_uninstaller']['modification_files'][] = $file;
+								} else {
+									$json['overwrite'][] = substr($zip_name, 7);
+								}
+							}
+                          	continue;
+							}
 
 							// SQL
 							if (substr($zip_name, 0, 11) == 'install.sql') {
@@ -214,6 +299,212 @@ class ControllerExtensionInstaller extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
  
+			
+	public function localcopy() {
+		$this->load->language('extension/installer');
+
+		$json = array();
+
+		if (!$this->user->hasPermission('modify', 'extension/installer')) {
+			$json['error'] = $this->language->get('error_permission');
+		}
+
+		if (VERSION == '2.0.0.0') {
+		    $directory = DIR_DOWNLOAD  . str_replace(array('../', '..\\', '..'), '', $this->request->post['path']) . '/upload/';
+		} else {
+		    $directory = DIR_UPLOAD  . str_replace(array('../', '..\\', '..'), '', $this->request->post['path']) . '/upload/';
+		}
+
+		if (!is_dir($directory)) {
+			$json['error'] = $this->language->get('error_directory');
+		}
+
+		if (!$json) {
+			// Get a list of files ready to upload
+			$files = array();
+
+			$path = array($directory . '*');
+
+			while (count($path) != 0) {
+				$next = array_shift($path);
+
+				foreach (glob($next) as $file) {
+					if (is_dir($file)) {
+						$path[] = $file . '/*';
+					}
+
+					$files[] = $file;
+				}
+			}
+
+			$root = dirname(DIR_APPLICATION).'/';
+
+			foreach ($files as $file) {
+				// Upload everything in the upload directory
+				$destination = substr($file, strlen($directory));
+
+				// Update from newer OpenCart versions:
+				if (substr($destination, 0, 5) == 'admin') {
+					$destination = DIR_APPLICATION . substr($destination, 5);
+				} else if (substr($destination, 0, 7) == 'catalog') {
+					$destination = DIR_CATALOG . substr($destination, 7);
+				} else if (substr($destination, 0, 5) == 'image') {
+					$destination = DIR_IMAGE . substr($destination, 5);
+				} else if (substr($destination, 0, 6) == 'system') {
+					$destination = DIR_SYSTEM . substr($destination, 6);
+				} else {
+					$destination = $root.$destination;
+				}
+
+				if (is_dir($file)) {
+					if (!file_exists($destination)) {
+						if (!mkdir($destination)) {
+							$json['error'] = sprintf($this->language->get('error_ftp_directory'), $destination);
+						}
+					}
+				}
+
+				if (is_file($file)) {
+					if (!copy($file, $destination)) {
+						$json['error'] = sprintf($this->language->get('error_ftp_file'), $file);
+					}
+				}
+			}
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+	
+	public function do_uninstall() {
+        $this->index();
+    }
+
+	private function is_uninstall_request() {
+        return (!empty($this->request->server['HTTP_REFERER']) && strpos($this->request->server['HTTP_REFERER'], 'do_uninstall') !== false);
+    }
+
+	private function rewrite_step($from, $to) {
+        return $this->is_uninstall_request() ? $to : $from;
+    }
+
+	private function remove_modifications() {
+		if(!empty($this->session->data['ext_uninstaller']['modification_ids'])) {
+			$this->load->model('extension/modification');
+			foreach($this->session->data['ext_uninstaller']['modification_ids'] as $modification_id) {
+				$this->model_extension_modification->deleteModification($modification_id);
+			}
+		}
+
+		if(!empty($this->session->data['ext_uninstaller']['modification_files'])) {
+			foreach($this->session->data['ext_uninstaller']['modification_files'] as $file) {
+				unlink($file);
+			}
+		}
+	}
+
+	public function localremove() {
+		$this->load->language('extension/installer');
+	
+		$this->remove_modifications();
+
+		$json = array();
+
+		if (!$this->user->hasPermission('modify', 'extension/installer')) {
+			$json['error'] = $this->language->get('error_permission');
+		}
+
+		if (VERSION == '2.0.0.0') {
+		    $directory = DIR_DOWNLOAD  . str_replace(array('../', '..\\', '..'), '', $this->request->post['path']) . '/upload/';
+		} else {
+		    $directory = DIR_UPLOAD  . str_replace(array('../', '..\\', '..'), '', $this->request->post['path']) . '/upload/';
+		}
+
+		if (!is_dir($directory)) {
+			$json['error'] = $this->language->get('error_directory');
+		}
+
+		if (!$json) {
+			// Get a list of files ready to upload
+			$files = array();
+
+			$path = array($directory . '*');
+
+			while (count($path) != 0) {
+				$next = array_shift($path);
+
+				foreach (glob($next) as $file) {
+					if (is_dir($file)) {
+						$path[] = $file . '/*';
+					}
+
+					$files[] = $file;
+				}
+			}
+
+			$root = dirname(DIR_APPLICATION).'/';
+
+			$dirs = array();
+
+			$GLOBALS['localremove.success'] = false;
+			$this->load->controller('extension/modification/refresh');
+			if (!$GLOBALS['localremove.success']) {
+				$json['error'] = $this->language->get('error_uninstaller_refresh');
+			}
+
+			if (empty($json['error'])) {
+              foreach ($files as $file) {
+                  // Upload everything in the upload directory
+                  $destination = substr($file, strlen($directory));
+
+                  // Update from newer OpenCart versions:
+                  if (substr($destination, 0, 5) == 'admin') {
+                      $destination = DIR_APPLICATION . substr($destination, 5);
+                  } else if (substr($destination, 0, 7) == 'catalog') {
+                      $destination = DIR_CATALOG . substr($destination, 7);
+                  } else if (substr($destination, 0, 5) == 'image') {
+                      $destination = DIR_IMAGE . substr($destination, 5);
+                  } else if (substr($destination, 0, 6) == 'system') {
+                      $destination = DIR_SYSTEM . substr($destination, 6);
+                  } else {
+                      $destination = $root.$destination;
+                  }
+
+                  if (is_dir($file)) {
+                      if (file_exists($destination)) {
+                          $dirs[] = $destination;
+                      }
+                  }
+
+                  if (is_file($file) && file_exists($destination)) {
+                      if (!unlink($destination)) {
+                          $json['error'] = sprintf($this->language->get('error_unlink_file'), $file);
+                      }
+                  }
+              }
+
+              foreach ($dirs as $dir) {
+                  $dh = opendir($dir);
+                  $is_dir_empty = true;
+                  while(false !== ($entry = readdir($dh))) {
+                      if ($entry != '.' && $entry != '..') {
+                          $is_dir_empty = false;
+                          break;
+                      }
+                  }
+                  closedir($dh);
+
+                  if ($is_dir_empty) {
+                      rmdir($dir);
+                  }
+              }
+			}
+		}
+
+		header('Content-Type: application/json');
+		echo json_encode($json);
+		exit;
+	}
 	public function unzip() {
 		$this->load->language('extension/installer');
 
@@ -451,6 +742,15 @@ class ControllerExtensionInstaller extends Controller {
 						$modification_info = $this->model_extension_modification->getModificationByCode($code);
 
 						if ($modification_info) {
+
+                          if (!empty($this->request->server['HTTP_REFERER']) && strpos($this->request->server['HTTP_REFERER'], 'do_uninstall') !== false) {
+                              $this->model_extension_modification->deleteModification($modification_info['modification_id']);
+                              $this->load->controller('extension/modification/refresh');
+                              $this->response->addHeader('Content-Type: application/json');
+                              $this->response->setOutput(json_encode($json));
+                              return;
+                          }
+			
 							$json['error'] = sprintf($this->language->get('error_exists'), $modification_info['name']);
 						}
 					} else {
@@ -583,6 +883,7 @@ class ControllerExtensionInstaller extends Controller {
 			}
 
 			$json['success'] = $this->language->get('text_success');
+			$json['success'] = (!empty($this->request->server["HTTP_REFERER"]) && strpos($this->request->server["HTTP_REFERER"], "do_uninstall")) ? $this->language->get('text_success_uninstall') : $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

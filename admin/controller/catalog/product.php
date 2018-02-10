@@ -635,6 +635,7 @@ class ControllerCatalogProduct extends Controller {
         $data['entry_reward'] = $this->language->get('entry_reward');
         $data['entry_layout'] = $this->language->get('entry_layout');
         $data['entry_recurring'] = $this->language->get('entry_recurring');
+		$data['entry_main_category'] = $this->language->get('entry_main_category');
 
         $data['entry_sale'] = $this->language->get('entry_sale');
         $data['entry_new'] = $this->language->get('entry_new');
@@ -1089,6 +1090,13 @@ class ControllerCatalogProduct extends Controller {
             }
         }
 
+		if (isset($this->request->post['main_category_id'])) {
+			$data['main_category_id'] = $this->request->post['main_category_id'];
+		} elseif (isset($product_info)) {
+			$data['main_category_id'] = $this->model_catalog_product->getProductMainCategoryId($this->request->get['product_id']);
+		} else {
+			$data['main_category_id'] = 0;
+		}
         // Filters
         $this->load->model('catalog/filter');
 

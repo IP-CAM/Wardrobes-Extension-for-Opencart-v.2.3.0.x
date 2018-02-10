@@ -26,11 +26,25 @@
 	<link href="catalog/view/theme/default/stylesheet/stylesheet-mobile.css" rel="stylesheet" type="text/css" media="screen and (max-width:1200px)"  />
 	<link href="catalog/view/theme/default/stylesheet/stylesheet-mobile-360.css" rel="stylesheet" type="text/css" media="screen and (max-width:480px)"  />
 	 <script  src="catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
-	 
+
+	<!-- <script  src="catalog/view/javascript/jquery/jquery-migrate-3.0.0.min.js"></script>
+	<script  src="catalog/view/javascript/jquery/jquery-3.3.1.min.js"></script> -->
 	<script  src="catalog/view/javascript/bootstrap/js/bootstrap.min.js"></script>
 
+	<!-- text animate -->
+	<!--	<link href="catalog/view/javascript/jquery/textillate/animate.min.css" rel="stylesheet">
+		<script src="catalog/view/javascript/jquery/textillate/jquery.lettering.js"></script>
+		<script src="catalog/view/javascript/jquery/textillate/jquery.textillate.js"></script> -->
+		<!-- text animate end -->
 
-	
+	<!--<script src="//vk.com/js/api/openapi.js?152"></script>
+	<script type="text/javascript">
+		VK.init({apiId: 6364435});
+	</script> -->
+
+
+
+
 	<?php foreach ($styles as $style) { ?>
 	<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
 		  media="<?php echo $style['media']; ?>"/>

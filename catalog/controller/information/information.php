@@ -5,12 +5,7 @@ class ControllerInformationInformation extends Controller {
 
 		$this->load->model('catalog/information');
 
-		$data['breadcrumbs'] = array();
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
-		);
 
 		if (isset($this->request->get['information_id'])) {
 			$information_id = (int)$this->request->get['information_id'];
@@ -24,15 +19,20 @@ class ControllerInformationInformation extends Controller {
 			$this->document->setTitle($information_info['meta_title']);
 			$this->document->setDescription($information_info['meta_description']);
 			$this->document->setKeywords($information_info['meta_keyword']);
+            $this->load->language('common/header');
+            $data['breadcrumbs'] = array();
 
-			$data['breadcrumbs'][] = array(
-				'text' => $information_info['title'],
-				'href' => $this->url->link('information/information', 'information_id=' .  $information_id)
-			);
+            $data['breadcrumbs'][] = array(
+                'text' => $this->language->get('text_home'),
+                'href' => $this->url->link('common/home')
+            );
+
+            $data['breadcrumbs'][] = array(
+                'text' => $information_info['title'],
+                'href' => $this->url->link('information/information')
+            );
 
 			$data['heading_title'] = $information_info['title'];
-
-			$data['button_continue'] = $this->language->get('button_continue');
 
 			$data['description'] = html_entity_decode($information_info['description'], ENT_QUOTES, 'UTF-8');
 

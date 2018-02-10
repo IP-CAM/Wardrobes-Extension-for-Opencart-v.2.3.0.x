@@ -4,6 +4,14 @@ class ControllerProductProduct extends Controller {
 
 	public function index() {
 
+			if(isset($this->session->data['products_id']))
+			{
+				if(!in_array($this->request->get['product_id'], $this->session->data['products_id']))
+					$this->session->data['products_id'][] = $this->request->get['product_id'];
+			}
+			else $this->session->data['products_id'][] = $this->request->get['product_id'];
+            
+
         if(isset($this->session->data['products_id']))
         {
             if(!in_array($this->request->get['product_id'], $this->session->data['products_id']))
@@ -244,6 +252,10 @@ class ControllerProductProduct extends Controller {
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
 
+           // $this->document->addScript('//vk.com/js/api/openapi.js?152'); //vk load
+
+
+
             $this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
             $this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
 
@@ -255,6 +267,9 @@ class ControllerProductProduct extends Controller {
 
             $this->document->addStyle('catalog/view/javascript/product/product.css');
             $this->document->addScript('catalog/view/javascript/product/product.js');
+
+            //$this->document->addStyle('catalog/view/javascript/qtip/jquery.qtip.min.css');
+           // $this->document->addScript('catalog/view/javascript/qtip/jquery.qtip.min.js');
 
 
 			$data['heading_title'] = $product_info['name'];
@@ -339,28 +354,60 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 
+
+
+
+
+
+
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$price = $this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax'));
                 $format_many = new Formatmany();
-                $data['price'] = 'от ' . $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
+                $data['price'] = $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
 			} else {
 				$data['price'] = false;
 			}
 
-            $price_view = $this->viewPrice($product_info['product_id'], 67);
+
+
+
+
+            $price_view = true;
+            $price_view_meter = true;
+            $category_price = $this->categoryPrice($product_id);
+            if(!empty($category_price)) {
+                if($category_price['status'] == 0 || !isset($category_price['status'])) { //Цена та же что и в товаре
+                    $price_view = true;
+                    $price_view_meter = false;
+                }
+                if($category_price['status'] == 1) { //Цена как в категории для всех товаров
+                    $data['price'] = $this->formatMany($category_price['price']);
+                    $price_view = true;
+                    $price_view_meter = true;
+                }
+                if($category_price['status'] == 2) { //Цены вообще не должно быть
+                    $price_view = false;
+                    $price_view = false;
+                }
+            }
             $data['price_view'] = $price_view;
-            $data['price_view'] = true;
+            $data['price_view_meter'] = $price_view_meter;
+
+
+
+
+
 
 
             /* icon */
             $this->load->model('catalog/product');
             $settings = $this->model_catalog_product->getProductSettings($product_id);
-            if(isset($settings['discount']) && $price_view) {
+            if(isset($settings['discount']) && $price_view && ($category_price['status'] == 0 || !isset($category_price['status']))) {
                 $data['discount'] = round($settings['discount']);
                 if($data['discount'] != 0) {
                     $data['price_old'] = $data['price'];
                     $format_many = new Formatmany();
-                    $data['price'] = 'от ' . $format_many->format(($product_info['price']*(100 - $settings['discount']))/100, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point')); //делаем цену дешевле на скидку
+                    $data['price'] = $format_many->format(($product_info['price']*(100 - $settings['discount']))/100, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point')); //делаем цену дешевле на скидку
                 }
             } else {
                 $data['discount'] = 0;
@@ -712,6 +759,25 @@ class ControllerProductProduct extends Controller {
             }
         }
         return $view;
+    }
+
+
+
+    /*
+     * Модифицируем цену в зависемости от настроек в категории
+     */
+    private function categoryPrice($id_product)
+    {
+        $categories = $this->model_catalog_product->getCategories($id_product);
+        $this->load->model('catalog/category');
+
+        $category_price = $this->model_catalog_category->getTypePrice($categories[0]['category_id']);
+        return $category_price;
+    }
+    private function formatMany($price)
+    {
+        $format_many = new Formatmany();
+        return $format_many->format($price, $this->session->data['currency'],  $this->currencies, $this->language->get('decimal_point'));
     }
 
 

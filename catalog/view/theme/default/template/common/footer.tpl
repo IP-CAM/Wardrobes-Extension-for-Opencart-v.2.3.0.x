@@ -6,7 +6,7 @@
 
 		<!--noindex-->
 			<div class="box-image border-top-dark">
-				<a href="<?php echo $instagram_link['href']; ?>"  rel="nofollow"target="_blank">
+				<a href="<?php echo $instagram_link['href']; ?>"  rel="nofollow" target="_blank">
 					<img src="<?php echo $instagram_link['path_image']; ?>"
 						 title="<?php echo $instagram_link['title']; ?>"
 						 alt="<?php echo $instagram_link['alt']; ?>"
@@ -57,7 +57,7 @@
 		<div class="col-lg-4">
 			<h3 class="text-center">Связаться с нами</h3>
 			<ul class="list-unstyled">
-				<li><i class="footer-icon-right-1"></i><p>Россия, Санкт-Петербург, Уманский переулок, 71</p></li>
+				<li><i class="footer-icon-right-1"></i><p>Санкт-Петербург, Уманский переулок, 71</p></li>
 				<li><i class="footer-icon-right-2"></i><p>+7 (812) 965 3061</p></li>
 				<li><i class="footer-icon-right-3"></i><p>9653061@gmail.com</p></li>
 			</ul>
@@ -73,7 +73,7 @@
 			<div class="body-footer  border-top-dark">
 				<h3 class=" text-center">Связаться с нами</h3>
 				<div class="connect_with_us center-block img-responsive"></div>
-				<span>Россия, Санкт-Петербург, Уманский переулок, 71</span>
+				<span>Санкт-Петербург, Уманский переулок, 71</span>
 			</div>
 		</div>
 
@@ -105,7 +105,7 @@
 <!--/noindex-->		
 
 		<div class="col-xs-6 text-right info">
-			<span>+7 (812) 965 3061</span>
+			<span><a href="tel:+78129653061;">+7 (812) 965 3061</a></span>
 			<span>9653061@gmail.com</span>
 		</div>
 	</div>
@@ -115,7 +115,7 @@
 		<div class="col-xs-12 col-lg-12 sir-box">
 			<div class="down-text border-top-dark">
 				<p class="text-center">© Центр мебели. Все права защищены 2018 г.</p>
-				<p class="text-center">Политика конфиденциальности</p>
+				<!--noindex--><p class="text-center"><a rel="nofollow" href="https://c-mb.ru/politika-konfidencialnosti/">Политика конфиденциальности</a></p><!--/noindex-->
 			</div>
 		</div>
 	</div>  

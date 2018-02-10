@@ -8,6 +8,9 @@ $_['text_list']              = 'Категории';
 $_['text_add']               = 'Добавить';
 $_['text_edit']              = 'Редактирование';
 $_['text_default']           = 'Основной магазин';
+$_['text_price_category_on']           = 'Использовать цену категории для всех товаров';
+$_['text_price_category_off']           = 'Использовать цену товаров для товаров';
+$_['text_price_category_empty']           = 'Не показывать цену у всех товаров в категории';
 
 // Column
 $_['column_name']            = 'Категории';
@@ -16,6 +19,10 @@ $_['column_action']          = 'Действие';
 
 // Entry
 $_['entry_name']             = 'Категория';
+
+$_['entry_status_price']             = 'Как использовать цену';
+$_['entry_price']             = 'Цена для всех товаров в категории';
+
 $_['entry_description']      = 'Описание вверху';
 $_['entry_description_down']      = 'Описание внизу';
 $_['entry_meta_title'] 	     = 'Мета-тег Title';

@@ -55,7 +55,7 @@ class Pagination {
 					$output .= '<p class="active">' . $i . '</p>';
 				} else {
 					if ($i === 1) {
-					$output .= '<a href="' . str_replace(array('&amp;page={page}', '&page={page}'), '', $this->url) . '">' . $i . '</a>';
+					$output .= '<a href="' . str_replace(array('&amp;page={page}', '?page={page}'), '', $this->url) . '">' . $i . '</a>';
 					} else {
 						$output .= '<a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a>';
 					}

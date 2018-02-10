@@ -79,21 +79,21 @@ class ControllerCommonFooter extends Controller {
         }
 
         $instagram_link = array();
-        $instagram_link['path_image'] = $server . 'catalog/view/theme/default/image/footer-icon-instagram.svg';
+        $instagram_link['path_image'] = $server . 'catalog/view/theme/default/image/icon-instagram.svg';
         $instagram_link['href'] = 'https://www.instagram.com/centr_mebeli_spb';
         $instagram_link['title'] = 'Мы в Инстаграм';
         $instagram_link['alt'] = 'Мы в Инстаграм';
         $data['instagram_link'] = $instagram_link;
 
         $vk_link = array();
-        $vk_link['path_image'] = $server . 'catalog/view/theme/default/image/footer-icon-vk.svg';
+        $vk_link['path_image'] = $server . 'catalog/view/theme/default/image/icon-vk.svg';
         $vk_link['href'] = 'https://vk.com/centr_mebeli';
         $vk_link['title'] = 'Мы в ВК';
         $vk_link['alt'] = 'Мы в ВК';
         $data['vk_link'] = $vk_link;
 
         $twitter_link = array();
-        $twitter_link['path_image'] = $server . 'catalog/view/theme/default/image/footer-icon-facebook.svg';
+        $twitter_link['path_image'] = $server . 'catalog/view/theme/default/image/icon-facebook.svg';
         $twitter_link['href'] = 'https://www.facebook.com/centr.mebeli.spb/';
         $twitter_link['title'] = 'Мы в Фейсбук';
         $twitter_link['alt'] = 'Мы в Фейсбук';

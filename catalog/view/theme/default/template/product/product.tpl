@@ -163,7 +163,8 @@
 						<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">Оставить отзыв</p>
 						<textarea name="review" rows="4" placeholder="Написать комментарий..." class="form-control" id="textarea-review"></textarea>
 						<div class="mes">
-							<p style="position: relative">Войти с помощью:</p><a href="/" id="sosseti"></a>
+							<p style="position: relative">Войти с помощью:</p>
+							<img id="vk_auth" class="icon" src="../catalog/view/theme/default/image/icon-vk.svg">
 						</div>
 					</div>
 					<?php } ?>
@@ -177,7 +178,11 @@
 						<p style="position: relative; color: #3e70c5; font-size: 18px; top: -6px; left: 24px; cursor: pointer;">Оставить отзыв</p>
 						<textarea name="review" rows="4" placeholder="Написать комментарий..." class="form-control" id="textarea-review"></textarea>
 						<div class="mes">
-							<p style="position: relative">Вход с помощью</p><a href="/" id="sosseti"></a>
+							<p style="position: relative">Вход с помощью</p>
+							<img id="vk_auth" class="icon" src="../catalog/view/theme/default/image/icon-vk.svg">
+							<img id="vk_auth" class="icon" src="../catalog/view/theme/default/image/icon-instagram.svg">
+							<img id="vk_auth" class="icon" src="../catalog/view/theme/default/image/icon-facebook.svg">
+							<img id="vk_auth" class="icon" src="../catalog/view/theme/default/image/icon-ok.svg">
 						</div>
 					</div>
 					<?php } ?>
@@ -198,26 +203,30 @@
 			<h1 id="text-name"><?php echo $heading_title; ?></h1>
 
 			<div class="phone-box border-gray">
-				<p class="phone-child-1 text-left">Дизайн-проект по продукции, выезд дизайнера и замерщика <a href="<?php echo $special_link; ?>" class="red">в подарок.</a></p>
+				<!--noindex-->
+				<p class="phone-child-1 text-left">Дизайн-проект по продукции, выезд дизайнера и замерщика <a href="<?php echo $special_link; ?>" rel="nofollow" class="red">в подарок.</a></p>
+				<!--/noindex-->
 				<input type="text" name="name" data-modal="1" value="" placeholder="Введите ваше имя" class="phone-child-2 input-field">
 				<input type="text" name="telephone" data-modal="1" value="" placeholder="Введите ваш телефон" class="phone-child-3 input-field">
 				<input type="button" name="active-phone" data-modal="1" value="Запросить звонок" class="phone-child-4 button-style-1"  />
 				<span class="error" name="name" data-modal="1" hidden="hidden">Пожалуйста, введите имя</span>
 				<span class="error" name="phone" data-modal="1" hidden="hidden">Пожалуйста, введите телефон</span>
-				<span class="phone-child-5 text-mini ">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
+				<!--noindex-->
+				<span class="phone-child-5 text-mini ">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности.</span>
+				<!--/noindex-->
 			</div>
 			<?php if($price_view) { ?>
-				<p class="name-price">Цена:</p>
-
-				<?php if (!$discount) { ?>
-
-					<p class="price"><?php echo trim($price); ?><span> ₽</span></p>
-				<?php } else { ?>
-					<p class="price green"><?php echo trim($price); ?><span> ₽</span></p>
-					<p class="price-old"><?php echo trim($price_old); ?><span> ₽</span></p>
-
-				<?php } ?>
-
+				<div class="price-box">
+					<?php if($price_view_meter) { ?>
+					<p class="name-price">Цена за погонный метр:</p>
+					<?php } ?>
+					<?php if ($discount) { ?>
+					<p class="price green"><?php echo trim($price); ?><span class="price-rubil-green"> </span></p>
+					<p class="price-old"><?php echo trim($price_old); ?><span class="price-rubil-gray"> </span></p>
+					<?php } else { ?>
+					<p class="price <?php if(!$price_view_meter) { ?> price-product <?php } ?>"><?php echo trim($price); ?><span class="price-rubil-black"> </span></p>
+					<?php } ?>
+				</div>
 			<?php } else { ?>
 				<div class="stub"></div>
 			<?php } ?>
@@ -292,28 +301,32 @@
 				</div>
 			</div>
 		</div>
-		<?php if($price_view) { ?>
-			<div class="col-xs-12 price-box">
-
-				<?php if (!$discount) { ?>
-
-				<p class="price"><?php echo trim($price); ?><span> ₽</span></p>
+		<div class="col-xs-12">
+			<?php if($price_view) { ?>
+			<div class="price-box price-one-product">
+				<?php if($price_view_meter) { ?>
+				<p class="name-price">Цена за погонный метр:</p>
+				<?php } ?>
+				<?php if ($discount) { ?>
+				<p class="price green"><?php echo trim($price); ?><span class="price-rubil-green"> </span></p>
+				<p class="price-old"><?php echo trim($price_old); ?><span class="price-rubil-gray"> </span></p>
 				<?php } else { ?>
-				<p class="price green"><?php echo trim($price); ?><span> ₽</span></p>
-				<p class="price-old"><?php echo trim($price_old); ?><span> ₽</span></p>
-
+				<p class="price"><?php echo trim($price); ?><span class="price-rubil-black"> </span></p>
 				<?php } ?>
 			</div>
-		<?php } ?>
+			<?php } ?>
+		</div>
 		<div class="col-xs-12">
 			<div class="phone-box border-gray">
-				<p class="phone-child-1 text-left">Дизайн-проект по продукции, выезд дизайнера и замерщика <a href="<?php echo $special_link; ?>" class="red">в подарок.</a></p>
+				<p class="phone-child-1 text-left">Дизайн-проект по продукции, выезд дизайнера и замерщика <a href="<?php echo $special_link; ?>" rel="nofollow" class="red">в подарок.</a></p>
 				<input type="text" name="name" data-modal="4" value="" placeholder="Введите ваше имя" class="phone-child-2 input-field">
 				<input type="text" name="telephone" data-modal="4" value="" placeholder="Введите ваш телефон" class="phone-child-3 input-field">
 				<input type="button" name="active-phone" data-modal="4" value="Запросить звонок" class="phone-child-4 button-style-1"  />
 				<span class="error" name="name" data-modal="4" hidden="hidden">Пожалуйста, введите имя</span>
 				<span class="error" name="phone" data-modal="4" hidden="hidden">Пожалуйста, введите телефон</span>
-				<span class="phone-child-5 text-mini ">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
+				<!--noindex-->
+				<span class="phone-child-5 text-mini">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности.</span>
+				<!--/noindex-->
 			</div>
 		</div>
 		<div class="col-xs-12 button-tabs-mobile">
@@ -429,8 +442,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="visit-product">
-			<?php echo $content_bottom; ?>
+		<div class="col-xs-12 visit-product">
+			<div class="row">
+				<?php echo $content_bottom; ?>
+			</div>
 		</div>
 
 	</div>
@@ -439,3 +454,18 @@
 
 
 <?php echo $footer; ?>
+<script>
+	$(document).ready(function() {
+	/*	$('.name-price span').qtip({
+			content: {
+				text: $(this).next('div') // Use the "div" element next to this for the content
+			}
+		});*/
+		/*$('.name-price span').mousemove(function () {
+
+		})
+		$('.selector').qtip({
+			content: 'My content'
+		});*/
+	});
+</script>

@@ -45,6 +45,11 @@ class ControllerExtensionModification extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
+				if (__FUNCTION__ == 'refresh' && in_array($this->request->get['route'], array("extension/installer/localremove", "extension/installer/xml"))) {
+                    $GLOBALS['localremove.success'] = true;
+					return;
+                }
 			$this->response->redirect($this->url->link('extension/modification', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
@@ -441,6 +446,11 @@ class ControllerExtensionModification extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
+				if (__FUNCTION__ == 'refresh' && in_array($this->request->get['route'], array("extension/installer/localremove", "extension/installer/xml"))) {
+                    $GLOBALS['localremove.success'] = true;
+					return;
+                }
 		//	$this->response->redirect($this->url->link(!empty($data['redirect']) ? $data['redirect'] : 'extension/modification', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
@@ -508,6 +518,11 @@ class ControllerExtensionModification extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
+				if (__FUNCTION__ == 'refresh' && in_array($this->request->get['route'], array("extension/installer/localremove", "extension/installer/xml"))) {
+                    $GLOBALS['localremove.success'] = true;
+					return;
+                }
 			$this->response->redirect($this->url->link('extension/modification', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
@@ -540,6 +555,11 @@ class ControllerExtensionModification extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
+				if (__FUNCTION__ == 'refresh' && in_array($this->request->get['route'], array("extension/installer/localremove", "extension/installer/xml"))) {
+                    $GLOBALS['localremove.success'] = true;
+					return;
+                }
 			$this->response->redirect($this->url->link('extension/modification', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
@@ -572,6 +592,11 @@ class ControllerExtensionModification extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
+				if (__FUNCTION__ == 'refresh' && in_array($this->request->get['route'], array("extension/installer/localremove", "extension/installer/xml"))) {
+                    $GLOBALS['localremove.success'] = true;
+					return;
+                }
 			$this->response->redirect($this->url->link('extension/modification', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
@@ -602,6 +627,11 @@ class ControllerExtensionModification extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
+				if (__FUNCTION__ == 'refresh' && in_array($this->request->get['route'], array("extension/installer/localremove", "extension/installer/xml"))) {
+                    $GLOBALS['localremove.success'] = true;
+					return;
+                }
 			$this->response->redirect($this->url->link('extension/modification', 'token=' . $this->session->data['token'] . $url, true));
 		}
 

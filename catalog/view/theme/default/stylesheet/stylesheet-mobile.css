@@ -140,14 +140,18 @@
         top: 5px;
     }
 
-    .product-thumb.item .price, .product-thumb.item .price-old, .product-thumb.item .name, .product-thumb.item .button {
+    .product-thumb.item .price, .product-thumb.item .price-old, .product-thumb.item .name, .product-thumb.item .button, .product-thumb .name-price {
         left: 155px;
     }
+
 
     .product-thumb.item .name {
         font-size: 14px;
     }
 
+    .product-thumb .name-price {
+        bottom: 71px;
+    }
     .product-thumb.item .price-old {
         font-size: 13px;
         font-weight: bold;
@@ -585,9 +589,11 @@
         margin-left: 0;
     }
 
-    #product {
 
-    }
+
+
+
+
 
     #product #name-box {
         display: inline-block;
@@ -619,25 +625,70 @@
         margin: 0;
     }
 
+
+
     #product .price-box {
         text-align: center;
         margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
 
     }
-    #product .price {
-
-        font-size: 30px;
+    #product .price-one-product  .price {
         font-style: italic;
         font-weight: bold;
-        display: inline-block;
-        text-align: center;
-        margin-bottom: 19px;
+        font-size: 30px;
+        margin-bottom: 36px;
+        display: inline;
+        position: relative;
     }
-    #product .price-old {
+    #product .price-one-product .price span{
+        width: 20px;
+        height: 22px;
+        position: absolute;
+        top: 7px;
+        margin-left: 9px;
+    }
+    #product .price-one-product .price-old {
         font-size: 24px;
+        /* position: static; */
+        display: inline;
+        position: relative;
+        left: 36px;
+        top: 0;
+        margin-right: 61px;
     }
-    #product .price-old, #product .price {
+    #product .price-one-product .price {
         margin-bottom: 19px;
+        margin-left: -18px;
+    }
+
+    #product .price-one-product  .price-old:after {
+        width: 108%;
+        height: 1px;
+        display: block;
+        position: absolute;
+        content: '';
+        left: -4px;
+        top: 14px;
+        background-color: #a3a3a3;
+        transform: skewY(-11deg);
+        background-color: #a3a3a3;
+    }
+    #product .price-one-product .price-rubil-gray {
+        background: url(../image/price-rubil-gray.svg);
+        width: 21px;
+        height: 18px;
+        top: 5px;
+        margin-left: 5px;
+    }
+
+    #product .price-one-product .price-old span {
+        display: inline;
+    }
+    #product .price-one-product .name-price {
+        margin-bottom: 20px;
+        font-size: 17px;
     }
 
 
@@ -797,6 +848,13 @@
         margin-bottom: 20px;
     }
 
+    #product #visitproduct-maiker {
+        margin-bottom: 18px;
+        margin-top: 0px;
+        margin-left: 17px;
+    }
+
+
     #calculator .box_root_item.box input:checked::after,
     #calculator .sub_box_item.box input:checked::after {
         content: "";
@@ -827,8 +885,11 @@
         position: relative;
         margin-bottom: 5px;
         flex: 1;
-        display: flex;
+        /*display: flex;*/
         justify-content: center;
+    }
+    #calculator .box_root_item {
+        margin-left: 2px;
     }
 
     #calculator .box_root_item p {
@@ -923,18 +984,30 @@
     }
 
     #calculator #cal-dispatch-box {
-        background: url(../image/calculator_get_phone_mobile.png);
+        background-position-x: -60px;
+    }
+    #calculator  .box_root {
+        margin-left: 0;
     }
 
-    #calculator #cal-dispatch-box .calculator_dispatch {
-        position: relative;
-        top: 130px;
-        left: 0;
+
+
+
+    #calculator #cal-dispatch-box .text-1 {
+        font-size: 36px;
+        top: 28px;
     }
+    #calculator #cal-dispatch-box .text-2 {
+        font-size: 14px;
+        top: 80px;
+    }
+    #calculator #cal-dispatch-box .calculator_dispatch {
+        position: static;
+    }
+
 
     #calculator #calculator-box > #cal-dispatch-box {
         width: 100%;
-        position: relative;
         height: 248px;
     }
 
@@ -962,12 +1035,12 @@
         top: -10px;
         border-radius: 3px;
         outline: none;
+        transition-property: all;
+        transition-duration: 0.09s;
     }
 
-    #calculator #cal-dispatch-box div {
-        top: 9px;
-        left: 15px;
-        position: relative;
+    #cal-dispatch-box div {
+        position: static;
     }
 
     #calculator #banner-mobile {
@@ -1028,7 +1101,7 @@
         left: 0;
     }
 
-    #aboutcompany .aboutcompany.text_box, .contacts.text_box {
+    #aboutcompany .aboutcompany.text_box, .contacts.text_box, .information.text_box {
         top: 0;
         margin: 0;
         margin-top: 127px;

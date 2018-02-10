@@ -13,6 +13,9 @@ class ControllerCommonColumnLeft extends Controller {
 			if ($user_info) {
 				$data['firstname'] = $user_info['firstname'];
 				$data['lastname'] = $user_info['lastname'];
+
+			$data['username']  = $user_info['username'];
+		
 	
 				$data['user_group'] = $user_info['user_group'];
 	
@@ -24,6 +27,9 @@ class ControllerCommonColumnLeft extends Controller {
 			} else {
 				$data['firstname'] = '';
 				$data['lastname'] = '';
+
+			$data['username'] = '';
+		
 				$data['user_group'] = '';
 				$data['image'] = '';
 			}			
@@ -173,6 +179,16 @@ class ControllerCommonColumnLeft extends Controller {
 				);					
 			}	
 			
+
+			if ($this->user->hasPermission('access', 'extension/installer')) {		
+				$extension[] = array(
+					'name'	   => $this->language->get('heading_title_uninstaller'),
+                    'href'     => $this->url->link('extension/installer/do_uninstall', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
+					
+            
 			if ($this->user->hasPermission('access', 'extension/extension')) {		
 				$extension[] = array(
 					'name'	   => $this->language->get('text_extension'),

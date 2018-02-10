@@ -22,6 +22,15 @@
 <?php foreach ($styles as $style) { ?>
 <link type="text/css" href="<?php echo $style['href']; ?>" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
+
+<script type="text/javascript" src="view/javascript/jquery/translit.js"></script>
+
+<style>
+#column-left.active {width: 260px !important;}
+#column-left.active + #content {margin-left: 270px !important;}
+#menu > li > ul {width: 235px;}
+</style>
+		
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
@@ -70,9 +79,15 @@
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-life-ring fa-lg"></i></a>
       <ul class="dropdown-menu dropdown-menu-right">
         <li class="dropdown-header"><?php echo $text_help; ?></li>
-        <li><a href="http://www.opencart.com" target="_blank"><?php echo $text_homepage; ?></a></li>
-        <li><a href="http://docs.opencart.com" target="_blank"><?php echo $text_documentation; ?></a></li>
-        <li><a href="http://forum.opencart.com" target="_blank"><?php echo $text_support; ?></a></li>
+        
+		<li><a href="http://opencart-russia.ru/" target="_blank"><?php echo $text_homepage; ?></a></li>
+		
+        
+		<li><a href="http://forum.opencart-russia.ru/threads/soderzhanie.5/" target="_blank"><?php echo $text_documentation; ?></a></li>
+		
+        
+		<li><a href="http://forum.opencart-russia.ru" target="_blank"><?php echo $text_support; ?></a></li>
+		
       </ul>
     </li>
     <li><a href="<?php echo $logout; ?>"><span class="hidden-xs hidden-sm hidden-md"><?php echo $text_logout; ?></span> <i class="fa fa-sign-out fa-lg"></i></a></li>

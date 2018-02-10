@@ -189,5 +189,11 @@ class ControllerStartupStartup extends Controller {
 		
 		// OpenBay Pro
 		$this->registry->set('openbay', new Openbay($this->registry));					
+
+			// fix minus number page
+			if (isset($this->request->get['page']) && (int)$this->request->get['page'] < 1) {
+				$this->request->get['page'] = NULL;
+			}
+		
 	}
 }

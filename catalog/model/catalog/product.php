@@ -307,6 +307,9 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
+
+
+
 	public function getProductAttributes($product_id) {
 		$product_attribute_group_data = array();
 

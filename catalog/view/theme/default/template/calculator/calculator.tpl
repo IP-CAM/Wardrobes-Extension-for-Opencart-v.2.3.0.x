@@ -41,21 +41,19 @@
 			<h2 class="text-center">Выберите тип мебели</h2>
 
 			<div class="row">
-				<div class="col-mg-0 col-lg-2">
-				</div>
-				<div class="col-mg-12 col-lg-8 box_root">
+				<div class="col-lg-9 box_root">
 					<div class="row">
 						<?php foreach($categories_root as $category_root) { ?>
-						<div class="col-lg-3">
-							<div class="box_root_item box border-gray" data-category_id_root="<?php echo $category_root['category_id'] ?>">
-								<div class="category_check"></div>
+						<div class="col-lg-3 col-lg-mod">
+							<div class="box_root_item box border-gray no-active" data-category_id_root="<?php echo $category_root['category_id'] ?>">
+								<div class="category_check"><div class="checkmark"></div></div>
 								<img src="<?php echo $category_root['image']; ?>"
 									 title="<?php echo $category_root['name']; ?>"
 									 alt="<?php echo $category_root['name']; ?>"
 									 class="img-responsive center-block"/>
 								<p class="no-active">
 									<?php if($category_root['category_id'] == 59) { ?>
-										Шкафы - Купе на заказ
+										Шкафы - Купе <br>на заказ
 									<?php } else { ?>
 										<?php echo $category_root['name']; ?>
 									<?php } ?>
@@ -64,8 +62,6 @@
 						</div>
 						<?php } ?>
 					</div>
-				</div>
-				<div class="col-mg-0 col-lg-2">
 				</div>
 			</div>
 
@@ -95,17 +91,19 @@
 							</div>
 							<p>Глубина (см)</p>
 						</div>
-						<span id="height" name="height">Высота: 240см</span>
+						<span id="height" name="height" class="textillate-demo">Высота: 240см</span>
 						<span id="depth" name="depth">Глубина: 60см </span>
 
-						<h2 class="price font-type-verdana" name="price">При включенном JS тут отображается цена</h2>
+						<div class="price"><h2 class="textillate-demo  font-type-verdana" name="price">При включенном JS тут отображается цена</h2><span> pублей</span></div>
 						<input type="button"
 							   name="calculation_button"
 							   data-modal="1"
 							   class="calculation-button button-style-1"
-							   value="Заказать"/>
+							   value="Заказать расчёт"/>
 					</div>
 					<div id="cal-dispatch-box" class="col-lg-6 no-padding">
+						<div class="text-1">Не знаете размеров?</div>
+						<div class="text-2">Отправьте нам свой номер телефона и мы поможем</div>
 						<div class="calculator_dispatch">
 							<input type="text" name="telephone" data-modal="1" value="" placeholder="Введите свой номер" class="input-medium bfh-phone font-size-12">
 							<input type="button"
@@ -155,15 +153,15 @@
 			<div class="box-root-sub">
 				<?php foreach($categories_root as $category_root) { ?>
 				<div class="box_root box_root-mobile">
-					<div class="box_root_item box  border-gray" data-category_id_root="<?php echo $category_root['category_id'] ?>">
-						<div class="category_check"></div>
+					<div class="box_root_item box  no-active border-gray" data-category_id_root="<?php echo $category_root['category_id'] ?>">
+						<div class="category_check"><div class="checkmark"></div></div>
 						<img src="<?php echo $category_root['image']; ?>"
 							 title="<?php echo $category_root['name']; ?>"
 							 alt="<?php echo $category_root['name']; ?>"
 							 class="img-responsive center-block"/>
 						<p class="no-active">
 							<?php if($category_root['category_id'] == 59) { ?>
-							Шкафы - Купе на заказ
+							Шкафы - Купе <br> на заказ
 							<?php } else { ?>
 							<?php echo $category_root['name']; ?>
 							<?php } ?>
@@ -203,16 +201,17 @@
 					<span id="depth" name="depth">Глубина: 60см </span>
 				</div>
 
-
-				<h2 class="price font-type-verdana" name="price">При включенном JS тут отображается цена</h2>
+				<div class="price"><h2 class="textillate-demo  font-type-verdana" name="price">При включенном JS тут отображается цена</h2><span> pублей</span></div>
 				<input type="button"
 					   name="calculation_button"
 					   data-modal="1"
 					   class="block calculation-button button-style-1"
-					   value="Заказать"/>
+					   value="Заказать расчёт"/>
 			</div>
 
 			<div id="cal-dispatch-box" class="col-lg-12">
+				<div class="text-1">Не знаете размеров?</div>
+				<div class="text-2">Отправьте нам свой номер телефона и мы поможем</div>
 				<div class="calculator_dispatch">
 					<div>
 						<input type="text" name="telephone" data-modal="2" value="" placeholder="Введите свой номер" class="input-medium bfh-phone font-size-12">
@@ -244,3 +243,10 @@
 	</div>
 </div>
 	<?php echo $footer; ?>
+<script>
+	var price_for_1m_na_zakaz = <?php echo $price_for_1m_na_zakaz; ?>;
+	var price_for_1m_standard = <?php echo $price_for_1m_standard; ?>;
+	var price_for_1m_garderob = <?php echo $price_for_1m_garderob; ?>;
+	var price_for_1m_prihogie = <?php echo $price_for_1m_prihogie; ?>;
+	var price_for_1m_doors = <?php echo $price_for_1m_doors; ?>;
+</script>

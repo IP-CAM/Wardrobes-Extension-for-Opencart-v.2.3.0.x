@@ -32,7 +32,7 @@
         height: 117px;
     }
 
-    .product-thumb.item.universal .price, .product-thumb.item.universal .name, .product-thumb.item.universal .button {
+    .product-thumb.item.universal .price, .product-thumb.item.universal .name, .product-thumb.item.universal .button, .product-thumb .name-price  {
         left: 130px;
     }
 
@@ -223,10 +223,14 @@
 
     #calculator #cal-dispatch-box .calculator_dispatch {
         position: absolute;
-        top: 99px;
+        top: 50px;
         left: '';
         text-align: center;
         right: 0;
+    }
+    .calculator_dispatch>div {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #calculator #cal-dispatch-box input[type="text"] {
@@ -260,8 +264,21 @@
     }
 
     #calculator #cal-dispatch-box {
-        background: url(../image/calculator_get_phone_mobile_360.png);
+        background: url(../image/calculator_get_phone_mobile_360.gif);
     }
+
+    #calculator #cal-dispatch-box .text-1 {
+        font-size: 6vw;
+        top: 25px;
+    }
+    #calculator #cal-dispatch-box .text-2 {
+        font-size: 2.8vw;
+        top: 35px;
+    }
+    #calculator #cal-dispatch-box .calculator_dispatch {
+        position: relative;
+    }
+
 
     #calculator #banner-mobile {
         content: url('../image/calculator_banner_mini.jpg');

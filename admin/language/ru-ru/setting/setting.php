@@ -34,6 +34,15 @@ $_['text_upload']                  = 'Загрузка';
 $_['text_error']                   = 'Ошибки';
 
 // Entry
+
+$_['text_seo_url']					   = 'Default';
+$_['text_seo_pro']					   = 'SeoPro';
+$_['entry_seo_url_type']			   = 'Тип ЧПУ:';
+$_['entry_seo_url_include_path']	   = 'ЧПУ товаров с категориями:';
+$_['entry_seo_url_include_path_help']  = '/category/subcategory/product (только для SeoPro)';
+$_['entry_seo_url_postfix']			   = 'Окончание ЧПУ';
+$_['entry_seo_url_postfix_help']	   = 'Например .html (только для SeoPro)';
+
 $_['entry_meta_title']             = 'Мета-тег Title';
 $_['entry_meta_description']       = 'Мета-тег \'Description\'';
 $_['entry_meta_keyword']           = 'Мета-тег \'Keywords\'';

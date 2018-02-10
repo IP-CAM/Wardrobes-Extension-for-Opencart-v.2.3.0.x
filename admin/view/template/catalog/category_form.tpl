@@ -32,58 +32,95 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
-              <ul class="nav nav-tabs" id="language">
-                <?php foreach ($languages as $language) { ?>
-                <li><a href="#language<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
-                <?php } ?>
-              </ul>
               <div class="tab-content">
-                <?php foreach ($languages as $language) { ?>
-                <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
+
+
                   <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_name; ?></label>
+                    <label class="col-sm-2 control-label" for="input-name1"><?php echo $entry_name; ?></label>
                     <div class="col-sm-10">
-                      <input type="text" name="category_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
-                      <?php if (isset($error_name[$language['language_id']])) { ?>
-                      <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                      <input type="text" name="category_description[1][name]" value="<?php echo isset($category_description[1]) ? $category_description[1]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name1" class="form-control" />
+                      <?php if (isset($error_name[1])) { ?>
+                      <div class="text-danger"><?php echo $error_name[1]; ?></div>
                       <?php } ?>
                     </div>
                   </div>
+
+
+
+				  <div class="form-group">
+					  <label class="col-sm-2 control-label"><?php echo $entry_status_price; ?></label>
+					  <div class="col-sm-10">
+						  <label class="radio-inline">
+							  <?php if ($category_price['status'] == 0) { ?>
+							  <input type="radio" name="category_price[status]" value="0" checked="checked" />
+							  <?php echo $text_price_category_off; ?>
+							  <?php } else { ?>
+							  <input type="radio" name="category_price[status]" value="0" />
+							  <?php echo $text_price_category_off; ?>
+							  <?php } ?>
+						  </label>
+						  <label class="radio-inline">
+							  <?php if ($category_price['status'] == 1) { ?>
+							  <input type="radio" name="category_price[status]" value="1" checked="checked" />
+							  <?php echo $text_price_category_on; ?>
+							  <?php } else { ?>
+							  <input type="radio" name="category_price[status]" value="1" />
+							  <?php echo $text_price_category_on; ?>
+							  <?php } ?>
+						  </label>
+						  <label class="radio-inline">
+							  <?php if ($category_price['status'] == 2) { ?>
+							  <input type="radio" name="category_price[status]" value="2" checked="checked" />
+							  <?php echo $text_price_category_empty; ?>
+							  <?php } else { ?>
+							  <input type="radio" name="category_price[status]" value="2" />
+							  <?php echo $text_price_category_empty; ?>
+							  <?php } ?>
+						  </label>
+					  </div>
+				  </div>
+				  <div class="form-group">
+					  <label class="col-sm-2 control-label" for="input-name1"><?php echo $entry_price; ?></label>
+					  <div class="col-sm-10">
+						  <input type="text" name="category_price[price]" value="<?php echo $category_price['price']; ?>" placeholder="<?php echo $entry_price; ?>" id="input-price" class="form-control" />
+					  </div>
+				  </div>
+
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
+                    <label class="col-sm-2 control-label" for="input-description1"><?php echo $entry_description; ?></label>
                     <div class="col-sm-10">
-                      <textarea name="category_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['description'] : ''; ?></textarea>
+                      <textarea name="category_description[1][description]" placeholder="<?php echo $entry_description; ?>" id="input-description1" class="form-control summernote"><?php echo isset($category_description[1]) ? $category_description[1]['description'] : ''; ?></textarea>
                     </div>
                   </div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="input-description_down<?php echo $language['language_id']; ?>"><?php echo $entry_description_down; ?></label>
+						<label class="col-sm-2 control-label" for="input-description_down1"><?php echo $entry_description_down; ?></label>
 						<div class="col-sm-10">
-							<textarea name="category_description[<?php echo $language['language_id']; ?>][description_down]" placeholder="<?php echo $entry_description_down; ?>" id="input-description_down<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['description_down'] : ''; ?></textarea>
+							<textarea name="category_description[1][description_down]" placeholder="<?php echo $entry_description_down; ?>" id="input-description_down1" class="form-control summernote"><?php echo isset($category_description[1]) ? $category_description[1]['description_down'] : ''; ?></textarea>
 						</div>
 					</div>
                   <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
+                    <label class="col-sm-2 control-label" for="input-meta-title1"><?php echo $entry_meta_title; ?></label>
                     <div class="col-sm-10">
-                      <input type="text" name="category_description[<?php echo $language['language_id']; ?>][meta_title]" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_title'] : ''; ?>" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title<?php echo $language['language_id']; ?>" class="form-control" />
-                      <?php if (isset($error_meta_title[$language['language_id']])) { ?>
-                      <div class="text-danger"><?php echo $error_meta_title[$language['language_id']]; ?></div>
+                      <input type="text" name="category_description[1][meta_title]" value="<?php echo isset($category_description[1]) ? $category_description[1]['meta_title'] : ''; ?>" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title1" class="form-control" />
+                      <?php if (isset($error_meta_title[1])) { ?>
+                      <div class="text-danger"><?php echo $error_meta_title[1]; ?></div>
                       <?php } ?>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-meta-description<?php echo $language['language_id']; ?>"><?php echo $entry_meta_description; ?></label>
+                    <label class="col-sm-2 control-label" for="input-meta-description1"><?php echo $entry_meta_description; ?></label>
                     <div class="col-sm-10">
-                      <textarea name="category_description[<?php echo $language['language_id']; ?>][meta_description]" rows="5" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta-description<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_description'] : ''; ?></textarea>
+                      <textarea name="category_description[1][meta_description]" rows="5" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta-description1" class="form-control"><?php echo isset($category_description[1]) ? $category_description[1]['meta_description'] : ''; ?></textarea>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-meta-keyword<?php echo $language['language_id']; ?>"><?php echo $entry_meta_keyword; ?></label>
+                    <label class="col-sm-2 control-label" for="input-meta-keyword1"><?php echo $entry_meta_keyword; ?></label>
                     <div class="col-sm-10">
-                      <textarea name="category_description[<?php echo $language['language_id']; ?>][meta_keyword]" rows="5" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta-keyword<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_keyword'] : ''; ?></textarea>
+                      <textarea name="category_description[1][meta_keyword]" rows="5" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta-keyword1" class="form-control"><?php echo isset($category_description[1]) ? $category_description[1]['meta_keyword'] : ''; ?></textarea>
                     </div>
                   </div>
-                </div>
-                <?php } ?>
+
+
               </div>
             </div>
             <div class="tab-pane" id="tab-data">
@@ -245,6 +282,7 @@
     </div>
   </div>
   <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+<script type="text/javascript" src="view/javascript/summernote/lang/summernote-ru-RU.js"></script>
   <link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
   <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
   <script type="text/javascript"><!--

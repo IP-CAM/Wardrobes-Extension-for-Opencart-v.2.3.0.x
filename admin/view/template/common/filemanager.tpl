@@ -20,6 +20,18 @@
         </div>
       </div>
       <hr />
+
+		<ol class="breadcrumb">
+			<li><i class="fa fa-home fa-lg"></i></li>	  
+			<?php if (isset($dirs)) { ?>
+			<?php foreach ($dirs as $dir) { ?>
+			<li><?php echo $dir; ?></li>
+			<?php } ?>
+			<?php } ?>
+			<li></li>
+		</ol>
+		<hr />
+		
       <?php foreach (array_chunk($images, 4) as $image) { ?>
       <div class="row">
         <?php foreach ($image as $image) { ?>
